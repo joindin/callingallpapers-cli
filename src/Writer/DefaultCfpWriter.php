@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2015-2015 Andreas Heigl<andreas@heigl.org>
+ * Copyright (c) 2015-2016 Andreas Heigl<andreas@heigl.org>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,13 +21,12 @@
  * THE SOFTWARE.
  *
  * @author    Andreas Heigl<andreas@heigl.org>
- * @copyright 2015-2015 Andreas Heigl/callingallpapers.com
+ * @copyright 2015-2016 Andreas Heigl/callingallpapers.com
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
  * @version   0.0
- * @since     06.03.2012
- * @link      http://github.com/joindin/callingallpapers
+ * @since     01.12.2015
+ * @link      http://github.com/heiglandreas/callingallpapers-cli
  */
-
 namespace Callingallpapers\Writer;
 
 use Callingallpapers\Entity\Cfp;
