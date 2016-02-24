@@ -57,6 +57,10 @@ class Cfp
 
     public $longitude = 0;
 
+    public $timezone = 'UTC';
+
+    public $iconUri = '';
+
     public function __construct()
     {
         $this->dateStart = new \DateTimeImmutable();

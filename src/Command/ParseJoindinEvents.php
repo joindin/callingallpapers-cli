@@ -30,7 +30,7 @@
 namespace Callingallpapers\Command;
 
 use Callingallpapers\Parser\JoindinCfpParser;
-use Callingallpapers\Writer\DefaultCfpWriter;
+use Callingallpapers\Writer\ApiCfpWriter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use Symfony\Component\Console\Input\InputInterface;
@@ -74,7 +74,9 @@ EOT
         $parser = new JoindinCfpParser();
         $result = $parser->parse();
 
-        $writer = new DefaultCfpWriter();
+        $config = parse_ini_file(__DIR__ . '/../../config/callingallpapers.ini');
+
+        $writer = new ApiCfpWriter($config['event_api_url'], $config['event_api_token']);
 
         $output->writeln($writer->write($result));
     }

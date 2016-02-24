@@ -48,13 +48,12 @@ class JoindinCfpParser implements ParserInterface
         $contents = new CfpList();
 
         foreach($content['events'] as $event) {
-            var_Dump($event);
             if (! $event['cfp_url']) {
                 continue;
             }
             $info = new Cfp();
             $info->conferenceName = $event['name'];
-            $info->conferenceUri = $event['humane_website_uri'];
+            $info->conferenceUri = $event['href'];
             $info->eventEndDate = new \DateTimeImmutable($event['end_date']);
             $info->eventStartDate = new \DateTimeImmutable($event['start_date']);
             $info->dateEnd = new \DateTimeImmutable($event['cfp_end_date']);
@@ -65,6 +64,7 @@ class JoindinCfpParser implements ParserInterface
             $info->longitude = $event['longitude'];
             $info->tags = $event['tags'];
             $info->uri = $event['cfp_url'];
+            $info->timezone = $event['tz_continent'] . '/' . $event['tz_place'];
 
             $contents->append($info);
         }
