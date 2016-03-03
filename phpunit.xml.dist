@@ -7,7 +7,7 @@
  -->
 
 <phpunit bootstrap="tests/bootstrap.php">
-    <testsuite name="callingallpapers Test-Suite">
+    <testsuite name="callingallpapers-CLI Test-Suite">
         <directory>tests</directory>
     </testsuite>
 
