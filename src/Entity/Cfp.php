@@ -40,10 +40,10 @@ class Cfp
     /** @var string  */
     public $uri = '';
 
-    /** @var \DateTimeImmutable */
+    /** @var \DateTimeInterface */
     public $dateEnd;
 
-    /** @var \DateTimeImmutable  */
+    /** @var \DateTimeInterface  */
     public $dateStart;
 
     /** @var string  */
@@ -58,10 +58,10 @@ class Cfp
     /** @var string */
     public $geolocation = '';
 
-    /** @var \DateTimeImmutable  */
+    /** @var \DateTimeInterface  */
     public $eventStartDate;
 
-    /** @var \DateTimeImmutable  */
+    /** @var \DateTimeInterface  */
     public $eventEndDate;
 
     /** @var float */
