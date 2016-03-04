@@ -61,7 +61,6 @@ EOT
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $header_style = new OutputFormatterStyle('white', 'green', array('bold'));
         $output->getFormatter()->setStyle('header', $header_style);
 

@@ -28,4 +28,5 @@
 namespace Callingallpapers\Entity;
 
 class CfpList extends \ArrayObject
-{}
+{
+}

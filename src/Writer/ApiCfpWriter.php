@@ -33,7 +33,6 @@ use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Entity\CfpList;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
-use GuzzleHttp\Exception\ClientException;
 
 class ApiCfpWriter
 {
@@ -85,12 +84,11 @@ class ApiCfpWriter
             'tags'           => $cfp->tags,
         ];
 
-        $exists = false;
         try {
-            $select = $client->request('GET', sprintf(
+            $client->request('GET', sprintf(
                 $this->baseUri . '/%1$s',
                 sha1($cfp->conferenceUri)
-            ),[]);
+            ), []);
             $exists = true;
         } catch (BadResponseException $e) {
             $exists = false;
@@ -119,11 +117,10 @@ class ApiCfpWriter
                     ],
                     'form_params' => $body
                 ]);
-
             }
-        } catch(BadResponseException $e) {
+        } catch (BadResponseException $e) {
             return $e->getMessage();
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return $e->getMessage();
         }
 
