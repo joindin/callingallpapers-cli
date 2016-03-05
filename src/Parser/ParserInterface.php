@@ -29,11 +29,12 @@
  */
 namespace Callingallpapers\Parser;
 
+use Callingallpapers\Entity\CfpList;
+
 interface ParserInterface
 {
     /**
      * @return CfpList
      */
     public function parse();
-
 }

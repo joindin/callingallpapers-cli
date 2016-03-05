@@ -47,7 +47,7 @@ class JoindinCfpParser implements ParserInterface
 
         $contents = new CfpList();
 
-        foreach($content['events'] as $event) {
+        foreach ($content['events'] as $event) {
             if (! $event['cfp_url']) {
                 continue;
             }
@@ -71,6 +71,4 @@ class JoindinCfpParser implements ParserInterface
 
         return $contents;
     }
-
-
 }

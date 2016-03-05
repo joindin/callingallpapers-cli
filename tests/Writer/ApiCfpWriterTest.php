@@ -37,6 +37,13 @@ class ApiCfpWriterTest extends \PHPUnit_Framework_TestCase
 
     public function testWritingToApi()
     {
+        $response = $this->getMockBuilder('\Psr\Http\Message\ResponseInterface')->getMock();
+        $response->method('getStatusCode')->willReturn(200);
+
+        $builder = $this->getMockBuilder('GuzzleHttp\Client');
+        $client = $builder->getMock();
+        $client->method('request')->willReturn($response);
+        
         $writer = new ApiCfpWriter('http://localhost:8000/v1/cfp', '49CF885D-E0D6-4E7A-9013-C9B431B6612C');
         $cfp = new Cfp();
         $cfp->description = 'description';
@@ -53,6 +60,6 @@ class ApiCfpWriterTest extends \PHPUnit_Framework_TestCase
         $cfp->longitude = 8.0;
         $cfp->tags = ['tag', 'a', 'b'];
 
-        $this->assertTrue($writer->store($cfp, new Client(['headers' => ['Accept' => 'application/json']])));
+        $this->assertTrue($writer->store($cfp, $client));
     }
 }

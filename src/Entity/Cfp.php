@@ -31,40 +31,55 @@ namespace Callingallpapers\Entity;
 
 class Cfp
 {
+    /** @var string  */
     public $conferenceName = '';
 
+    /** @var string  */
     public $conferenceUri = '';
 
+    /** @var string  */
     public $uri = '';
 
-    public $dateEnd = '';
+    /** @var \DateTimeInterface */
+    public $dateEnd;
 
-    public $dateStart = '';
+    /** @var \DateTimeInterface  */
+    public $dateStart;
 
+    /** @var string  */
     public $description = '';
 
+    /** @var array  */
     public $tags = array();
 
+    /** @var string  */
     public $location = '';
 
+    /** @var string */
     public $geolocation = '';
 
-    public $eventStartDate = '';
+    /** @var \DateTimeInterface  */
+    public $eventStartDate;
 
-    public $eventEndDate = '';
+    /** @var \DateTimeInterface  */
+    public $eventEndDate;
 
-    public $latitude = 0;
+    /** @var float */
+    public $latitude = 0.0;
 
-    public $longitude = 0;
+    /** @var float  */
+    public $longitude = 0.0;
 
+    /** @var string  */
     public $timezone = 'UTC';
 
+    /** @var string  */
     public $iconUri = '';
 
     public function __construct()
     {
-        $this->dateStart = new \DateTimeImmutable();
-        $this->dateEnd   = new \DateTimeImmutable();
+        $this->dateStart      = new \DateTimeImmutable();
+        $this->dateEnd        = new \DateTimeImmutable();
         $this->eventStartDate = new \DateTimeImmutable();
         $this->eventEndDate   = new \DateTimeImmutable();
     }
