@@ -1,3 +1,5 @@
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/joindin/callingallpapers-cli/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/joindin/callingallpapers-cli/?branch=master)
+[![Build Status](https://travis-ci.org/joindin/callingallpapers-cli.svg?branch=master)](https://travis-ci.org/joindin/callingallpapers-cli)
 # CLI to create Files for CallingAllPapers
 
 This CLI retrieves external resources and creates the files needed by callingallpapers.com
