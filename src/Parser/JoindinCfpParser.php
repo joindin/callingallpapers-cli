@@ -54,12 +54,15 @@ class JoindinCfpParser implements ParserInterface
             $info = new Cfp();
             $info->conferenceName = $event['name'];
             $info->conferenceUri = $event['href'];
+            if ($event['icon']) {
+                $info->iconUri = 'https://joind.in/inc/img/event_icons/' . $event['icon'];
+            }
             $info->eventEndDate = new \DateTimeImmutable($event['end_date']);
             $info->eventStartDate = new \DateTimeImmutable($event['start_date']);
             $info->dateEnd = new \DateTimeImmutable($event['cfp_end_date']);
             $info->dateStart = new \DateTimeImmutable($event['cfp_start_date']);
             $info->description = $event['description'];
-            $info->geolocation = $event['location'];
+            $info->location = $event['location'];
             $info->latitude = $event['latitude'];
             $info->longitude = $event['longitude'];
             $info->tags = $event['tags'];
