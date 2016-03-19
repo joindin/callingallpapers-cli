@@ -18,6 +18,7 @@
     "require-dev": {
         "fabpot/php-cs-fixer": "^1.11",
         "phpunit/dbunit": "^2.0",
-        "phpunit/phpunit": "^5.2"
+        "phpunit/phpunit": "^5.2",
+        "phing/phing": "^2.14"
     }
 }
