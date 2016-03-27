@@ -9,3 +9,4 @@ database/**
 public/**
 templates/**
 vendor/**
+bin/**
