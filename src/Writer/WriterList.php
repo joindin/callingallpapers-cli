@@ -29,6 +29,7 @@ namespace Callingallpapers\Writer;
 
 use Callingallpapers\Entity\Cfp;
 use Org_Heigl\IteratorTrait\IteratorTrait;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class WriterList implements WriterInterface, \Iterator
 {
@@ -38,6 +39,13 @@ class WriterList implements WriterInterface, \Iterator
      * @var WriterInterface[]
      */
     protected $writer = [];
+
+    protected $output;
+
+    public function __construct()
+    {
+        $this->output = new NullOutput();
+    }
 
     /**
      * Get the array the iterator shall iterate over.
@@ -57,6 +65,7 @@ class WriterList implements WriterInterface, \Iterator
     public function write(Cfp $cfp)
     {
         foreach ($this->writer as $writer) {
+            $writer->setOutput($this->output);
             $writer->write($cfp);
         }
     }
@@ -71,5 +80,10 @@ class WriterList implements WriterInterface, \Iterator
     public function addWriter(Writer $writer)
     {
         $this->writer[] = $writer;
+    }
+
+    public function setOutput(OutputInterface $output)
+    {
+        $this->output = $output;
     }
 }
