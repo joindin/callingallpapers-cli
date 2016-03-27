@@ -30,19 +30,26 @@
 namespace Callingallpapers\Writer;
 
 use Callingallpapers\Entity\Cfp;
-use Callingallpapers\Entity\CfpList;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class DefaultCfpWriter implements WriterInterface
 {
+    protected $output;
 
-    public function write(CfpList $cfpList)
+    public function __construct()
     {
-        $content = [];
-        /** @var Cfp $cfp */
-        foreach ($cfpList as $cfp) {
-            $content[] = $cfp->toArray();
-        }
+        $this->output = new NullOutput();
+    }
 
-        return json_encode($content);
+    public function write(Cfp $cfp)
+    {
+        $this->output->write(json_encode($cfp->toArray()));
+
+        return true;
+    }
+
+    public function setOutput(OutputInterface $output)
+    {
+        $this->output = $output;
     }
 }
