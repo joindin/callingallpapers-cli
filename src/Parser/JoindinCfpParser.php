@@ -31,12 +31,13 @@ namespace Callingallpapers\Parser;
 
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Entity\CfpList;
+use Callingallpapers\Writer\WriterInterface;
 use GuzzleHttp\Client;
 
 class JoindinCfpParser implements ParserInterface
 {
 
-    public function parse()
+    public function parse(WriterInterface $writer)
     {
         $uri = 'http://api.joind.in/v2.1/events?filter=cfp&verbose=yes';
 
@@ -44,8 +45,6 @@ class JoindinCfpParser implements ParserInterface
         $content = $client->get($uri)->getBody();
 
         $content = json_decode($content, true);
-
-        $contents = new CfpList();
 
         foreach ($content['events'] as $event) {
             if (! $event['cfp_url']) {
@@ -69,9 +68,7 @@ class JoindinCfpParser implements ParserInterface
             $info->uri = $event['cfp_url'];
             $info->timezone = $event['tz_continent'] . '/' . $event['tz_place'];
 
-            $contents->append($info);
+            $writer->write($info);
         }
-
-        return $contents;
     }
 }

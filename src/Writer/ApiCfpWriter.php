@@ -30,42 +30,36 @@
 namespace Callingallpapers\Writer;
 
 use Callingallpapers\Entity\Cfp;
-use Callingallpapers\Entity\CfpList;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
+use Symfony\Component\Console\Output\OutputInterface;
 
-class ApiCfpWriter
+class ApiCfpWriter implements WriterInterface
 {
     protected $baseUri;
 
     protected $bearerToken;
 
-    public function __construct($baseUri, $bearerToken)
+    protected $client;
+
+    protected $output;
+
+    public function __construct($baseUri, $bearerToken, $client = null)
     {
-        $this->baseUri = $baseUri;
+        $this->baseUri     = $baseUri;
         $this->bearerToken = $bearerToken;
-    }
-
-    public function write(CfpList $cfpList)
-    {
-        $client = new Client(['headers' => [
-            'Accept' => 'application/json',
-        ]]);
-        $successfulEvents = [];
-        /** @var Cfp $cfp */
-        foreach ($cfpList as $cfp) {
-            $result = $this->store($cfp, $client);
-            if ($result === true) {
-                $successfulEvents[] = $cfp->conferenceUri;
-            } else {
-                $successfulEvents[] = $result;
-            }
+        if (null === $client) {
+            $client = new Client([
+                'headers' => [
+                    'Accept' => 'application/json',
+                ]
+            ]);
         }
-
-        return print_R($successfulEvents, true);
+        $this->client = $client;
+        $this->output = new NullOutput();
     }
 
-    public function store(Cfp $cfp, Client $client)
+    public function write(Cfp $cfp)
     {
         $body = [
             'name'           => $cfp->conferenceName,
@@ -85,7 +79,7 @@ class ApiCfpWriter
         ];
 
         try {
-            $client->request('GET', sprintf(
+            $this->client->request('GET', sprintf(
                 $this->baseUri . '/%1$s',
                 sha1($cfp->conferenceUri)
             ), []);
@@ -98,7 +92,7 @@ class ApiCfpWriter
             if ($exists === false) {
                 // Doesn't exist, so create it
 
-                $response = $client->request('POST', sprintf(
+                $response = $this->client->request('POST', sprintf(
                     $this->baseUri
                 ), [
                     'headers' => [
@@ -108,7 +102,7 @@ class ApiCfpWriter
                 ]);
             } else {
                 // Exists, so update it
-                $response = $client->request('PUT', sprintf(
+                $response = $this->client->request('PUT', sprintf(
                     $this->baseUri . '/%1$s',
                     sha1($cfp->conferenceUri)
                 ), [
@@ -119,11 +113,24 @@ class ApiCfpWriter
                 ]);
             }
         } catch (BadResponseException $e) {
-            return $e->getMessage();
+            $this->output->writeln($e->getMessage());
+            return false;
         } catch (\Exception $e) {
-            return $e->getMessage();
+            $this->output->writeln($e->getMessage());
+            return false;
         }
 
+        $this->output->writeln(sprintf(
+            'Conference "%1$s" succcessfully %2$s.',
+            $cfp->conferenceName,
+            ($exists)?'updated':'created'
+        ));
+
         return isset($response) && ($response->getStatusCode() === 200 || $response->getStatusCode() === 201);
+    }
+
+    public function setOutput(OutputInterface $output)
+    {
+        $this->output = $output;
     }
 }

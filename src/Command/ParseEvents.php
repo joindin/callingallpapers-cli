@@ -37,24 +37,24 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ParseJoindinEvents extends Command
+class ParseEvents extends Command
 {
     protected function configure()
     {
-        $this->setName("cfp:joindin")
-             ->setDescription("Retrieve CfPs from joind.in")
+        $this->setName("parseCfPs")
+             ->setDescription("Retrieve CfPs and parse them")
              ->setDefinition(array(
                  new InputOption('start', 's', InputOption::VALUE_OPTIONAL, 'What should be the first date to be taken into account?', ''),
              ))
              ->setHelp(<<<EOT
-Get details about CfPs from joind.in
+Get details about CfPs from different sources
 
 Usage:
 
-<info>callingallpapers cfp:joindin 2015-02-23<env></info>
+<info>callingallpapers parseCfPs 2015-02-23<env></info>
 
 If you ommit the date the current date will be used instead
-<info>callingallpapers cfp:joindin<env></info>
+<info>callingallpapers parseCfPs<env></info>
 EOT
              );
     }
@@ -70,13 +70,11 @@ EOT
             throw new \InvalidArgumentException('The given date could not be parsed');
         }
 
-        $parser = new JoindinCfpParser();
-        $result = $parser->parse();
-
         $config = parse_ini_file(__DIR__ . '/../../config/callingallpapers.ini');
-
         $writer = new ApiCfpWriter($config['event_api_url'], $config['event_api_token']);
-
-        $output->writeln($writer->write($result));
+        $writer->setOutput($output);
+        
+        $parser = new JoindinCfpParser();
+        $parser->parse($writer);
     }
 }

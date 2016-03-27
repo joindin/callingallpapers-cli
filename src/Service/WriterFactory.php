@@ -1,17 +1,14 @@
 <?php
 /**
- * Copyright (c) 2015-2016 Andreas Heigl<andreas@heigl.org>
- *
+ * Copyright (c) 2016-2016} Andreas Heigl<andreas@heigl.org>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,35 +18,34 @@
  * THE SOFTWARE.
  *
  * @author    Andreas Heigl<andreas@heigl.org>
- * @copyright 2015-2016 Andreas Heigl/callingallpapers.com
+ * @copyright 2016-2016 Andreas Heigl
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
  * @version   0.0
- * @since     01.12.2015
- * @link      http://github.com/heiglandreas/callingallpapers-cli
+ * @since     24.03.2016
+ * @link      http://github.com/heiglandreas/callingallpapers
  */
+
 namespace Callingallpapers\Writer;
 
-use Callingallpapers\Entity\Cfp;
-use Symfony\Component\Console\Output\OutputInterface;
-
-class DefaultCfpWriter implements WriterInterface
+class WriterFactory
 {
-    protected $output;
+    public $configFile = __DIR__ . '/../../config/callingallpapers.ini';
 
-    public function __construct()
+    public function getWriter()
     {
-        $this->output = new NullOutput();
-    }
+        $config = parse_ini_file($this->configFile);
 
-    public function write(Cfp $cfp)
-    {
-        $this->output->write(json_encode($cfp->toArray()));
+        try {
+            $writer = new $config['writer']($config['event_api_url'],
+                $config['event_api_token']);
+        } catch (\Throwable $e) {
+            throw new UnknownWriterException('The requested writer could not be created');
+        }
+        
+        if (! $writer instanceof WriterInterface) {
+            throw new InvalidWriterException('The requested writer is not of the expected type');
+        }
 
-        return true;
-    }
-
-    public function setOutput(OutputInterface $output)
-    {
-        $this->output = $output;
+        return $writer;
     }
 }

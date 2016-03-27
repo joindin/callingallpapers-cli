@@ -30,11 +30,14 @@
 namespace Callingallpapers\Parser;
 
 use Callingallpapers\Entity\CfpList;
+use Callingallpapers\Writer\WriterInterface;
 
 interface ParserInterface
 {
     /**
+     * @param WriterInterface $output
+     *
      * @return CfpList
      */
-    public function parse();
+    public function parse(WriterInterface $output);
 }
