@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "30d998b004d92cd0005e20311956032e",
-    "content-hash": "0c194aaacf78ae533a33f317e22d88f9",
+    "hash": "14c1215c40d023c496ff9486cafb0e17",
+    "content-hash": "9f0251746a6a0439e89eb62ea292281c",
     "packages": [
         {
             "name": "egeloen/http-adapter",
@@ -129,6 +129,44 @@
                 "hash-map"
             ],
             "time": "2014-12-15 23:03:51"
+        },
+        {
+            "name": "org_heigl/trait-iterator",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/heiglandreas/IteratorTrait.git",
+                "reference": "78a72a53187459a3d6f0f2fa1c4d6f51ca84c971"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/heiglandreas/IteratorTrait/zipball/78a72a53187459a3d6f0f2fa1c4d6f51ca84c971",
+                "reference": "78a72a53187459a3d6f0f2fa1c4d6f51ca84c971",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Org_Heigl\\IteratorTrait\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Heigl",
+                    "email": "andreas@heigl.org"
+                }
+            ],
+            "description": "A Trait for the iterator-interface",
+            "keywords": [
+                "interface",
+                "iterator",
+                "trait"
+            ],
+            "time": "2016-03-27 19:16:07"
         },
         {
             "name": "psr/http-message",
