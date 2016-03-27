@@ -44,7 +44,8 @@ class ApiCfpWriterTest extends \PHPUnit_Framework_TestCase
         $client = $builder->getMock();
         $client->method('request')->willReturn($response);
         
-        $writer = new ApiCfpWriter('http://localhost:8000/v1/cfp', '49CF885D-E0D6-4E7A-9013-C9B431B6612C');
+        $writer = new ApiCfpWriter('http://localhost:8000/v1/cfp', '49CF885D-E0D6-4E7A-9013-C9B431B6612C', $client);
+
         $cfp = new Cfp();
         $cfp->description = 'description';
         $cfp->conferenceName = 'conferenceName';
@@ -61,6 +62,6 @@ class ApiCfpWriterTest extends \PHPUnit_Framework_TestCase
         $cfp->tags = ['tag', 'a', 'b'];
 
 
-        $this->assertTrue($writer->write($cfp, $client));
+        $this->assertTrue($writer->write($cfp));
     }
 }

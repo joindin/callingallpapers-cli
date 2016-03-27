@@ -44,13 +44,18 @@ class ApiCfpWriter implements WriterInterface
 
     protected $output;
 
-    public function __construct($baseUri, $bearerToken)
+    public function __construct($baseUri, $bearerToken, $client = null)
     {
-        $this->baseUri = $baseUri;
+        $this->baseUri     = $baseUri;
         $this->bearerToken = $bearerToken;
-        $this->client = new Client(['headers' => [
-            'Accept' => 'application/json',
-        ]]);
+        if (null === $client) {
+            $client = new Client([
+                'headers' => [
+                    'Accept' => 'application/json',
+                ]
+            ]);
+        }
+        $this->client = $client;
         $this->output = new NullOutput();
     }
 
