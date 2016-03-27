@@ -109,10 +109,10 @@ class ApiCfpWriter implements WriterInterface
             }
         } catch (BadResponseException $e) {
             $this->output->writeln($e->getMessage());
-            return;
+            return false;
         } catch (\Exception $e) {
             $this->output->writeln($e->getMessage());
-            return;
+            return false;
         }
 
         $this->output->writeln(sprintf(

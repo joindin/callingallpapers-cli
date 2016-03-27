@@ -60,6 +60,7 @@ class ApiCfpWriterTest extends \PHPUnit_Framework_TestCase
         $cfp->longitude = 8.0;
         $cfp->tags = ['tag', 'a', 'b'];
 
-        $this->assertTrue($writer->store($cfp, $client));
+
+        $this->assertTrue($writer->write($cfp, $client));
     }
 }
