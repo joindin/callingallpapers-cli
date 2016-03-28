@@ -136,9 +136,10 @@
         <delete dir="${deploy.local_folder}" includeemptydirs="true"/>
     </target>
 
-    <target name="deploy" depends="update, updateAssets">
+    <target name="deploy">
         <echo>Deploying application</echo>
         <phingcall inheritAll="true" target="createDeployFolder"/>
+        <phingcall inheritAll="true" target="updatePhp"/>
         <phingcall inheritAll="true" target="callPreDeployScriptOnServer"/>
         <phingcall inheritAll="true" target="deployFolderToServer"/>
         <phingcall inheritAll="true" target="callPostDeployScriptOnServer"/>
