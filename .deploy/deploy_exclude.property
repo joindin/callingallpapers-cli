@@ -3,4 +3,3 @@ doc
 build
 logs
 tests
-src/config/settings.php

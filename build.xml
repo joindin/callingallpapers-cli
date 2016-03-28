@@ -58,11 +58,14 @@
     </target>
 
     <target name="build">
-
+        <echo>Intentionally left blank!</echo>
     </target>
 
     <target name="updatePhp">
-        <composer command="install"/>
+        <exec dir="${deploy.local_folder}" executable="composer" logoutput="true">
+            <arg value="install"/>
+            <arg value="--no-dev"/>
+        </exec>
     </target>
 
     <target name="updateAssets">

@@ -1,12 +1,7 @@
 LICENSE
 README.md
 src/**
-config/dependencies.php
-config/middleware.php
-config/routes.php
-config/settings.php.ini
-database/**
-public/**
-templates/**
-vendor/**
 bin/**
+composer.json
+composer.lock
+config/*.dist
