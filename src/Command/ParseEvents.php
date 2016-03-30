@@ -32,6 +32,7 @@ namespace Callingallpapers\Command;
 use Callingallpapers\Parser\JoindinCfpParser;
 use Callingallpapers\Parser\Lanyrd\LanyrdCfpParser;
 use Callingallpapers\Service\TimezoneService;
+use Callingallpapers\Parser\PhpNetCfpParser;
 use Callingallpapers\Writer\ApiCfpWriter;
 use GuzzleHttp\Client;
 use Symfony\Component\Console\Command\Command;
@@ -79,6 +80,10 @@ EOT
 
         $parser = new LanyrdCfpParser(new TimezoneService(new Client(), $config['timezonedb_token']));
         $parser->parse($writer);
+
+        $parser = new PhpNetCfpParser();
+        $parser->parse($writer);
+
         $parser = new JoindinCfpParser();
         $parser->parse($writer);
     }
