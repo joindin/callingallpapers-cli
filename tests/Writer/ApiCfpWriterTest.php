@@ -62,6 +62,6 @@ class ApiCfpWriterTest extends \PHPUnit_Framework_TestCase
         $cfp->tags = ['tag', 'a', 'b'];
 
 
-        $this->assertTrue($writer->write($cfp));
+        $this->assertEquals('Success', $writer->write($cfp));
     }
 }

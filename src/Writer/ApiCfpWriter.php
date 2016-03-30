@@ -114,10 +114,10 @@ class ApiCfpWriter implements WriterInterface
             }
         } catch (BadResponseException $e) {
             $this->output->writeln($e->getMessage());
-            return false;
+            return $e->getMessage();
         } catch (\Exception $e) {
             $this->output->writeln($e->getMessage());
-            return false;
+            return $e->getMessage;
         }
 
         $this->output->writeln(sprintf(
@@ -126,7 +126,7 @@ class ApiCfpWriter implements WriterInterface
             ($exists)?'updated':'created'
         ));
 
-        return isset($response) && ($response->getStatusCode() === 200 || $response->getStatusCode() === 201);
+        return (isset($response) && ($response->getStatusCode() === 200 || $response->getStatusCode() === 201))?'Success':'Failure';
     }
 
     public function setOutput(OutputInterface $output)

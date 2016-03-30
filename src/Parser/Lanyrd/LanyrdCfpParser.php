@@ -33,6 +33,7 @@ use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\Lanyrd\LanyrdEntryParser;
 use Callingallpapers\Parser\ParserInterface;
 use Callingallpapers\Writer\WriterInterface;
+use GuzzleHttp\Client;
 
 class LanyrdCfpParser implements ParserInterface
 {
@@ -59,7 +60,12 @@ class LanyrdCfpParser implements ParserInterface
             $nodes = $xpath->query("//*[contains(@class, 'call-list-open')]");
 
             $cfp = new Cfp();
-            $lanyrdEntryParser = new Entry($cfp);
+            $client = new Client([
+                'headers'=> [
+                    'User-Agent' => 'callingallpapers.com - Location to lat/lon-translation - For infos write to andreas@heigl.org',
+                ],
+            ]);
+            $lanyrdEntryParser = new Entry($cfp, $client);
             foreach ($nodes as $node) {
                 try {
                     /** @var \DOMNode $node */

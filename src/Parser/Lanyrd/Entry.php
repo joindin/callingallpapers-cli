@@ -30,21 +30,20 @@
 namespace Callingallpapers\Parser\Lanyrd;
 
 use Callingallpapers\Entity\Cfp;
-use Geocoder\Exception\UnexpectedValue;
-use Geocoder\Provider\Nominatim;
 use GuzzleHttp\Client;
-use Ivory\HttpAdapter\Configuration;
-use Ivory\HttpAdapter\CurlHttpAdapter;
-use Ivory\HttpAdapter\Guzzle6HttpAdapter;
 
 class Entry
 {
     /** @var  Cfp */
     protected $cfp;
 
-    public function __construct(Cfp $cfp)
+    /** @var Client */
+    protected $client;
+
+    public function __construct(Cfp $cfp, Client $client)
     {
         $this->cfp = $cfp;
+        $this->client = $client;
     }
 
     public function parse($uri)
@@ -111,13 +110,7 @@ class Entry
 
     protected function getLatLonForLocation($location)
     {
-        $client = new Client([
-            'headers'=> [
-                'User-Agent' => 'callingallpapers.com - Location to lat/lon-translation - For infos write to andreas@heigl.org',
-            ],
-        ]);
-
-        $result = $client->get(sprintf(
+        $result = $this->client->get(sprintf(
             'https://nominatim.openstreetmap.org/search?q=%1$s&format=json',
             urlencode($location)
         ));
