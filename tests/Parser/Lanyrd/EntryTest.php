@@ -42,17 +42,17 @@ class EntryTest extends \PHPUnit_Framework_TestCase
         $lon = 0;
 
         $mock = new MockHandler([
-            new Response(200, ['X-Foo' => 'Bar'], json_encode([['lat'=>0,'lon'=>0]])),
+            new Response(200, [], json_encode([['lat' => 0, 'lon' => 0]])),
         ]);
 
         $handler = HandlerStack::create($mock);
-        $client = new Client(['handler' => $handler]);
+        $client  = new Client(['handler' => $handler]);
 
         $entry = new Entry(new Cfp(), $client);
 
-        $class = new \ReflectionClass($entry);
+        $class  = new \ReflectionClass($entry);
         $method = $class->getMethod('getLatLonForLocation');
         $method->setAccessible(true);
-        $this->assertEquals([0,0], $method->invokeArgs($entry, ['foo']));
+        $this->assertEquals([0, 0], $method->invokeArgs($entry, ['foo']));
     }
 }
