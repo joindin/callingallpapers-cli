@@ -36,6 +36,6 @@ after_script:
 - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && $EXECUTE_TEST_COVERALLS == 'true' ]] ; then
   openssl aes-256-cbc -K $encrypted_13cee3189705_key -iv $encrypted_13cee3189705_iv
     -in deploy-key.enc -out deploy-key -d && chmod 600 deploy-key; fi
-- if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then ./vendor/bin/coveralls ; fi
+- if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then ./vendor/bin/coveralls -v; fi
 - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && $EXECUTE_TEST_COVERALLS == 'true' ]] ; then
   ./vendor/bin/phing deploy; fi
