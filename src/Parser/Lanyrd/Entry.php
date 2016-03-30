@@ -32,8 +32,10 @@ namespace Callingallpapers\Parser\Lanyrd;
 use Callingallpapers\Entity\Cfp;
 use Geocoder\Exception\UnexpectedValue;
 use Geocoder\Provider\Nominatim;
+use GuzzleHttp\Client;
 use Ivory\HttpAdapter\Configuration;
 use Ivory\HttpAdapter\CurlHttpAdapter;
+use Ivory\HttpAdapter\Guzzle6HttpAdapter;
 
 class Entry
 {
@@ -109,21 +111,24 @@ class Entry
 
     protected function getLatLonForLocation($location)
     {
-        $curl = new CurlHttpAdapter((new Configuration())->setUserAgent(
-            'callingallpapers.com - Location to lat/lon-translation - For infos write to andreas@heigl.org'
-        ));
-        $geocoder = new Nominatim($curl, 'http://nominatim.openstreetmap.org');
+        $client = new Client([
+            'headers'=> [
+                'User-Agent' => 'callingallpapers.com - Location to lat/lon-translation - For infos write to andreas@heigl.org',
+            ],
+        ]);
 
-        $locations = $geocoder->geocode($location);
-        if ($locations->count() > 1) {
-            //    throw new \UnexpectedValueException('Too many items found');
-        }
-        if ($locations->count() < 1) {
+        $result = $client->get(sprintf(
+            'https://nominatim.openstreetmap.org/search?q=%1$s&format=json',
+            urlencode($location)
+        ));
+
+        $locations = json_decode($result->getBody()->getContents());
+
+        if (empty($locations)) {
             throw new \UnexpectedValueException('Not enough items found');
         }
+        $location = $locations[0];
 
-        $coordinates = $locations->first()->getCoordinates();
-
-        return [$coordinates->getLatitude(), $coordinates->getLongitude()];
+        return [$location->lat, $location->lon];
     }
 }

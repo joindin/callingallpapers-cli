@@ -40,6 +40,21 @@ class EventUri
             throw new \InvalidArgumentException('The CfP does not seem to have an EventUri');
         }
 
-        return $confPath->item(0)->attributes->getNamedItem('href')->textContent;
+        $dom = new \DOMDocument('1.0', 'UTF-8');
+
+        $content = file_Get_contents('https://lanyrd.com' . $confPath->item(0)->attributes->getNamedItem('href')->textContent);
+        $content = mb_convert_encoding($content, 'UTF-8');
+        $dom->loadHTML('<?xml version="1.0" charset="UTF-8" ?>' . $content);
+        $dom->preserveWhiteSpace = false;
+
+        $xpath = new \DOMXPath($dom);
+
+        $uriPath = $xpath->query("//a[contains(@title, 'visit their website')]");
+
+        if (! $uriPath || $uriPath->length == 0) {
+            throw new \InvalidArgumentException('The CfP does not seem to have an EventUri');
+        }
+
+        return $uriPath->item(0)->attributes->getNamedItem('href')->textContent;
     }
 }

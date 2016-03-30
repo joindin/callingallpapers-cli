@@ -30,6 +30,7 @@
 namespace Callingallpapers\Command;
 
 use Callingallpapers\Parser\JoindinCfpParser;
+use Callingallpapers\Parser\Lanyrd\LanyrdCfpParser;
 use Callingallpapers\Writer\ApiCfpWriter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
@@ -73,7 +74,9 @@ EOT
         $config = parse_ini_file(__DIR__ . '/../../config/callingallpapers.ini');
         $writer = new ApiCfpWriter($config['event_api_url'], $config['event_api_token']);
         $writer->setOutput($output);
-        
+
+        $parser = new LanyrdCfpParser();
+        $parser->parse($writer);
         $parser = new JoindinCfpParser();
         $parser->parse($writer);
     }

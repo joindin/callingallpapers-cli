@@ -32,22 +32,18 @@ namespace Callingallpapers\Parser\Lanyrd;
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\Lanyrd\LanyrdEntryParser;
 use Callingallpapers\Parser\ParserInterface;
+use Callingallpapers\Writer\WriterInterface;
 
 class LanyrdCfpParser implements ParserInterface
 {
-    protected $contents = [];
-
-    public function parse()
+    public function parse(WriterInterface $writer)
     {
         $uri = 'http://lanyrd.com/calls/';
         $i = 0;
 
         $pages = 0;
-       // $uri = 'http://development.local/lanyrd/index.html';
 
         do {
-            $contents = new \ArrayObject();
-
             $dom = new \DOMDocument('1.0', 'UTF-8');
             $dom->loadHTMLFile($uri . '?page=' . ($i+1));
             $dom->preserveWhiteSpace = false;
@@ -78,18 +74,13 @@ class LanyrdCfpParser implements ParserInterface
                     if (! $eventPageUrl) {
                         continue;
                     }
-                    $this->contents[] = $lanyrdEntryParser->parse($eventPageUrl);
+                    $writer->write($lanyrdEntryParser->parse($eventPageUrl));
                 } catch (\Exception $e) {
                     error_log($e->getMEssage());
                 }
             }
         } while (++$i < $pages);
 
-        return $this->contents;
-    }
-
-    public function getContent()
-    {
-        return $this->contents;
+        return true;
     }
 }
