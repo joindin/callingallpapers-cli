@@ -29,17 +29,18 @@
  */
 namespace Callingallpapers\Parser\Lanyrd;
 
-class EventUri
+class OpeningDate
 {
 
     public function parse($dom, $xpath)
     {
-        $uriPath = $xpath->query("//a[contains(@title, 'visit their website')]");
-
-        if (! $uriPath || $uriPath->length == 0) {
-            throw new \InvalidArgumentException('The CfP does not seem to have an EventUri');
+        $openingDate = $xpath->query("//span[text()='Openend on:']/following-sibling::strong");
+        if (! $openingDate || $openingDate->length == 0) {
+            return new \DateTime();
         }
 
-        return $uriPath->item(0)->attributes->getNamedItem('href')->textContent;
+        $openingDate = $openingDate->item(0)->textContent;
+
+        return new \DateTime($openingDate);
     }
 }

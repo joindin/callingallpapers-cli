@@ -59,11 +59,17 @@ class Entry
 
             $xpath = new \DOMXPath($dom);
 
+            $closingDateParser = new ClosingDate();
+            $cfp->dateEnd = $closingDateParser->parse($dom, $xpath);
+
+            $eventPageDom = $this->getEventPage($xpath);
+            $eventXpath = new \DOMXPath(($eventPageDom));
+
             $descriptionParser = new Description();
             $cfp->description = $descriptionParser->parse($dom, $xpath);
 
-            $closingDateParser = new ClosingDate();
-            $cfp->dateEnd = $closingDateParser->parse($dom, $xpath);
+            $openingDateParser = new OpeningDate();
+            $cfp->dateStart = $openingDateParser->parse($dom, $xpath);
 
             $cfpUriParser = new Uri();
             $cfp->uri = $cfpUriParser->parse($dom, $xpath);
@@ -72,7 +78,7 @@ class Entry
             $cfp->conferenceName = $confNameParser->parse($dom, $xpath);
 
             $confUriParser = new EventUri();
-            $cfp->conferenceUri  = 'http://lanyrd.com/' . $confUriParser->parse($dom, $xpath);
+            $cfp->conferenceUri  = $confUriParser->parse($eventPageDom, $eventXpath);
 
             $eventStartDate = new EventStartDate();
             $cfp->eventStartDate = $eventStartDate->parse($dom, $xpath);
@@ -97,7 +103,7 @@ class Entry
 
             try {
                 $tags = new Tags();
-                $cfp->tags = $tags->parse($dom, $xpath);
+                $cfp->tags = $tags->parse($eventPageDom, $eventXpath);
             } catch (\InvalidArgumentException $e) {
                 $cfp->tags = [];
             }
@@ -118,10 +124,28 @@ class Entry
         $locations = json_decode($result->getBody()->getContents());
 
         if (empty($locations)) {
-            throw new \UnexpectedValueException('Not enough items found');
+            return [0, 0];
         }
         $location = $locations[0];
 
         return [$location->lat, $location->lon];
+    }
+
+    public function getEventPage($xpath)
+    {
+        $confPath = $xpath->query("//h3/a[contains(@class, 'summary')]");
+
+        if (! $confPath || $confPath->length == 0) {
+            throw new \InvalidArgumentException('We can\'t find an EventPage');
+        }
+
+        $dom = new \DOMDocument('1.0', 'UTF-8');
+
+        $content = file_get_contents('https://lanyrd.com' . $confPath->item(0)->attributes->getNamedItem('href')->textContent);
+        $content = mb_convert_encoding($content, 'UTF-8');
+        $dom->loadHTML('<?xml version="1.0" charset="UTF-8" ?>' . $content);
+        $dom->preserveWhiteSpace = false;
+
+        return $dom;
     }
 }

@@ -35,7 +35,7 @@ class Uri
     public function parse($dom, $xpath)
     {
         $uri = $xpath->query(
-            "//div[contains(@class, \"description\")]/following-sibling::p/a"
+            "//strong[contains(@class, \"call-open\")]/following-sibling::a"
         );
         if (! $uri || $uri->length == 0) {
             throw new \InvalidArgumentException('The CfP does not seem to have a CfP-Uri');

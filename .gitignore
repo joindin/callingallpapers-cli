@@ -2,3 +2,4 @@ vendor
 config/*.ini
 deploy-key
 deploy
+build
