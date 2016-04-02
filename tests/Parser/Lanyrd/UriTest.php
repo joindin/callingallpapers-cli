@@ -36,6 +36,8 @@ class UriTest extends \PHPUnit_Framework_TestCase
             [__DIR__ . '/_assets/LanyrdCfp2.html', 'http://womenintechsummit.net/washington-speakers/'],
             [__DIR__ . '/_assets/LanyrdCfp3.html', 'http://www.meetup.com/Ecommerce-that-Works-Dublin/events/225344017/'],
             [__DIR__ . '/_assets/LanyrdCfp4.html', 'http://oreil.ly/1QZJfO4'],
+            [__DIR__ . '/_assets/qdytd.html', 'https://form.jotform.me/60495329342458'],
+            [__DIR__ . '/_assets/qdzmb.html', 'http://www.devopsdays.org/events/2016-oslo/propose/'],
         ];
     }
 }

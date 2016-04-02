@@ -32,6 +32,7 @@ class ClosingDateTest extends \PHPUnit_Framework_TestCase
     {
         return [
             // ['parsedFile', 'expectedEventUri'],
+            [__DIR__ . '/_assets/qdzmb.html', new \DateTime('2016-05-29T00:00:00+0000')],
             [__DIR__ . '/_assets/LanyrdCfp3.html', new \DateTime('2015-11-18T00:00:00+00:00')],
             [__DIR__ . '/_assets/LanyrdCfp4.html', new \DateTime('2015-11-24T00:00:00+00:00')],
             [__DIR__ . '/_assets/LanyrdCfp5.html', new \DateTime('2015-12-06T00:00:00+00:00')],

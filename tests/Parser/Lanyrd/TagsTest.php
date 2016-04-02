@@ -32,25 +32,11 @@ class TagsTest extends \PHPUnit_Framework_TestCase
     {
         return [
             // ['parsedFile', 'expectedEventUri'],
-            [__DIR__ . '/_assets/LanyrdCfp1.html', [
-                'Equality and Diversity',
-                'Health',
-                'Healthcare',
-                'justice',
-                'Long-Term Care',
-                'Prison',
-            ]],
-            [__DIR__ . '/_assets/LanyrdCfp5.html', [
-                'Big Data',
-                'Business Intelligence (BI)',
-                'DBA',
-                'Machine Learning',
-                'Parallel Data Warehouse',
-                'Power BI',
-                'query tuning',
-                'SQL Azure',
-                'SQL Server',
-                'T-SQL',
+            [__DIR__ . '/_assets/devopsdayoslo.html', [
+                'Agile',
+                'Continuous Delivery',
+                'DevOps',
+                'Lean IT',
             ]],
         ];
     }

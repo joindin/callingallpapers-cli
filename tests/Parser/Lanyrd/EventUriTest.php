@@ -33,10 +33,7 @@ class EventUriTest extends \PHPUnit_Framework_TestCase
     {
         return [
             // ['parsedFile', 'expectedEventUri'],
-            [__DIR__ . '/_assets/LanyrdCfp1.html', 'http://www.lincoln.ac.uk/home/campuslife/whatson/eventsconferences/health-in-justice-conference-2016.html'],
-            [__DIR__ . '/_assets/LanyrdCfp2.html', 'http://womenintechsummit.net/washington/'],
-            [__DIR__ . '/_assets/LanyrdCfp3.html', 'http://www.meetup.com/Ecommerce-that-Works-Dublin/events/225344017/'],
-            [__DIR__ . '/_assets/LanyrdCfp4.html', 'http://oreil.ly/1S54uk9'],
+            [__DIR__ . '/_assets/devopsdayoslo.html', 'http://www.devopsdays.org/events/2016-oslo/'],
         ];
     }
 }
