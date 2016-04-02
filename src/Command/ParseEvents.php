@@ -76,7 +76,7 @@ EOT
         $writer->setOutput($output);
 
         $parser = new LanyrdCfpParser();
-        $parser->parse($writer);
+//        $parser->parse($writer);
         $parser = new JoindinCfpParser();
         $parser->parse($writer);
     }
