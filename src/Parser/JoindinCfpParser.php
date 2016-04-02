@@ -68,7 +68,7 @@ class JoindinCfpParser implements ParserInterface
             $info->uri = $event['cfp_url'];
             $info->timezone = $event['tz_continent'] . '/' . $event['tz_place'];
 
-            $writer->write($info);
+            $writer->write($info, 'joind.in');
         }
     }
 }

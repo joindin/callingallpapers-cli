@@ -59,7 +59,7 @@ class ApiCfpWriter implements WriterInterface
         $this->output = new NullOutput();
     }
 
-    public function write(Cfp $cfp)
+    public function write(Cfp $cfp, $source)
     {
         $body = [
             'name'           => $cfp->conferenceName,
@@ -76,6 +76,7 @@ class ApiCfpWriter implements WriterInterface
             'latitude'       => $cfp->latitude,
             'longitude'      => $cfp->longitude,
             'tags'           => $cfp->tags,
+            'source'         => $source,
         ];
 
         try {
@@ -91,7 +92,6 @@ class ApiCfpWriter implements WriterInterface
         try {
             if ($exists === false) {
                 // Doesn't exist, so create it
-
                 $response = $this->client->request('POST', sprintf(
                     $this->baseUri
                 ), [
