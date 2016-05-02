@@ -41,7 +41,7 @@ class DefaultCfpWriter implements WriterInterface
         $this->output = new NullOutput();
     }
 
-    public function write(Cfp $cfp)
+    public function write(Cfp $cfp, $source)
     {
         $this->output->write(json_encode($cfp->toArray()));
 
