@@ -30,6 +30,7 @@
 namespace Callingallpapers\Parser\Lanyrd;
 
 use Callingallpapers\Entity\Cfp;
+use Callingallpapers\Service\TimezoneService;
 use GuzzleHttp\Client;
 
 class Entry
@@ -40,10 +41,11 @@ class Entry
     /** @var Client */
     protected $client;
 
-    public function __construct(Cfp $cfp, Client $client)
+    public function __construct(Cfp $cfp, Client $client, TimezoneService $timezoneService)
     {
         $this->cfp = $cfp;
         $this->client = $client;
+        $this->tzService = $timezoneService;
     }
 
     public function parse($uri)
@@ -57,9 +59,24 @@ class Entry
             $dom->loadHTML('<?xml version="1.0" charset="UTF-8" ?>' . $content);
             $dom->preserveWhiteSpace = false;
 
+            $timezone = 'UTC';
             $xpath = new \DOMXPath($dom);
 
-            $closingDateParser = new ClosingDate();
+            $eventLocation = new Location();
+            $cfp->location = $eventLocation->parse($dom, $xpath);
+
+            try {
+                $location = $this->getLatLonForLocation($cfp->location);
+                $cfp->latitude = $location[0];
+                $cfp->longitude = $location[1];
+                $timezone = $this->tzService->getTimezoneForLocation($location[0], $location[1]);
+            } catch (\UnexpectedValueException $e) {
+                error_log($e->getMessage());
+            }
+            $cfp->timezone = $timezone;
+
+
+            $closingDateParser = new ClosingDate($timezone);
             $cfp->dateEnd = $closingDateParser->parse($dom, $xpath);
 
             $eventPageDom = $this->getEventPage($xpath);
@@ -68,7 +85,7 @@ class Entry
             $descriptionParser = new Description();
             $cfp->description = $descriptionParser->parse($dom, $xpath);
 
-            $openingDateParser = new OpeningDate();
+            $openingDateParser = new OpeningDate($timezone);
             $cfp->dateStart = $openingDateParser->parse($dom, $xpath);
 
             $cfpUriParser = new Uri();
@@ -80,11 +97,11 @@ class Entry
             $confUriParser = new EventUri();
             $cfp->conferenceUri  = $confUriParser->parse($eventPageDom, $eventXpath);
 
-            $eventStartDate = new EventStartDate();
+            $eventStartDate = new EventStartDate($timezone);
             $cfp->eventStartDate = $eventStartDate->parse($dom, $xpath);
 
             try {
-                $eventEndDate      = new EventEndDate();
+                $eventEndDate      = new EventEndDate($timezone);
                 $cfp->eventEndDate = $eventEndDate->parse($dom, $xpath);
             } catch (\InvalidArgumentException $e) {
                 $cfp->eventEndDate = $cfp->eventStartDate;

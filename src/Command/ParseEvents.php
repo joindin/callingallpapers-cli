@@ -31,7 +31,9 @@ namespace Callingallpapers\Command;
 
 use Callingallpapers\Parser\JoindinCfpParser;
 use Callingallpapers\Parser\Lanyrd\LanyrdCfpParser;
+use Callingallpapers\Service\TimezoneService;
 use Callingallpapers\Writer\ApiCfpWriter;
+use GuzzleHttp\Client;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use Symfony\Component\Console\Input\InputInterface;
@@ -75,8 +77,8 @@ EOT
         $writer = new ApiCfpWriter($config['event_api_url'], $config['event_api_token']);
         $writer->setOutput($output);
 
-        $parser = new LanyrdCfpParser();
-//        $parser->parse($writer);
+        $parser = new LanyrdCfpParser(new TimezoneService(new Client(), $config['timezonedb_token']));
+        $parser->parse($writer);
         $parser = new JoindinCfpParser();
         $parser->parse($writer);
     }

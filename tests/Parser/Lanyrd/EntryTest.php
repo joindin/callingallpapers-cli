@@ -29,6 +29,7 @@ namespace CallingallpapersTest\Cli\Parser\Lanyrd;
 
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\Lanyrd\Entry;
+use Callingallpapers\Service\TimezoneService;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
@@ -48,7 +49,9 @@ class EntryTest extends \PHPUnit_Framework_TestCase
         $handler = HandlerStack::create($mock);
         $client  = new Client(['handler' => $handler]);
 
-        $entry = new Entry(new Cfp(), $client);
+        $tzService = $this->getMockWithoutInvokingTheOriginalConstructor(TimezoneService::class);
+
+        $entry = new Entry(new Cfp(), $client, $tzService);
 
         $class  = new \ReflectionClass($entry);
         $method = $class->getMethod('getLatLonForLocation');
