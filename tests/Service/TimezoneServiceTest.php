@@ -61,7 +61,7 @@ class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
 
         $tzs = new TimezoneService($client, '');
 
-        $this->assertEquals('UTC', $tzs->getTimezoneForLocation(50,8));
+        $this->assertEquals('UTC', $tzs->getTimezoneForLocation(50, 8));
     }
 
     public function fetchingTimezoneWithFailingHttpProvider()
@@ -87,7 +87,7 @@ class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
 
         $tzs = new TimezoneService($client, '');
 
-        $this->assertEquals('UTC', $tzs->getTimezoneForLocation(50,8));
+        $this->assertEquals('UTC', $tzs->getTimezoneForLocation(50, 8));
     }
 
     public function FetchingTimezoneWithValidHttpButFailingStatusProvider()
@@ -114,7 +114,7 @@ class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
 
         $tzs = new TimezoneService($client, '');
 
-        $this->assertEquals('Europe/Berlin', $tzs->getTimezoneForLocation(50,8));
+        $this->assertEquals('Europe/Berlin', $tzs->getTimezoneForLocation(50, 8));
 
         /** @var RequestInterface $request */
         $request = $container[0]['request'];
