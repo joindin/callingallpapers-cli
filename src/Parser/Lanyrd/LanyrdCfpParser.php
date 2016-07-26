@@ -32,11 +32,19 @@ namespace Callingallpapers\Parser\Lanyrd;
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\Lanyrd\LanyrdEntryParser;
 use Callingallpapers\Parser\ParserInterface;
+use Callingallpapers\Service\TimezoneService;
 use Callingallpapers\Writer\WriterInterface;
 use GuzzleHttp\Client;
 
 class LanyrdCfpParser implements ParserInterface
 {
+    protected $tzService;
+
+    public function __construct(TimezoneService $tzService)
+    {
+        $this->tzService = $tzService;
+    }
+
     public function parse(WriterInterface $writer)
     {
         $uri = 'http://lanyrd.com/calls/';
@@ -65,7 +73,9 @@ class LanyrdCfpParser implements ParserInterface
                     'User-Agent' => 'callingallpapers.com - Location to lat/lon-translation - For infos write to andreas@heigl.org',
                 ],
             ]);
-            $lanyrdEntryParser = new Entry($cfp, $client);
+
+            $lanyrdEntryParser = new Entry($cfp, $client, $this->tzService);
+
             foreach ($nodes as $node) {
                 try {
                     /** @var \DOMNode $node */

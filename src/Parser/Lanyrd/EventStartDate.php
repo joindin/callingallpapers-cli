@@ -31,6 +31,12 @@ namespace Callingallpapers\Parser\Lanyrd;
 
 class EventStartDate
 {
+    protected $timezone;
+
+    public function __construct($timezone = 'UTC')
+    {
+        $this->timezone = new \DateTimezone($timezone);
+    }
 
     public function parse($dom, $xpath)
     {
@@ -41,6 +47,6 @@ class EventStartDate
 
         $startDate = $startDate->item(0)->attributes->getNamedItem('title')->textContent;
 
-        return new \DateTime($startDate);
+        return new \DateTime($startDate, $this->timezone);
     }
 }

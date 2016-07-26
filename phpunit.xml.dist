@@ -39,4 +39,7 @@
     <!--log type="testdox-html" target="../report/testdox.html"/-->
     <!--log type="testdox-text" target="../report/testdox.txt"/-->
   </logging>
+    <php>
+        <env name="CALLINGALLPAPERS_TIMEZONE_API_KEY" value=""/>
+    </php>
 </phpunit>

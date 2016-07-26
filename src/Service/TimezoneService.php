@@ -1,17 +1,14 @@
 <?php
 /**
- * Copyright (c) 2015-2015 Andreas Heigl<andreas@heigl.org>
- *
+ * Copyright (c) Andreas Heigl<andreas@heigl.org>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,32 +18,55 @@
  * THE SOFTWARE.
  *
  * @author    Andreas Heigl<andreas@heigl.org>
- * @copyright 2015-2015 Andreas Heigl/callingallpapers.com
+ * @copyright Andreas Heigl
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
- * @version   0.0
- * @since     06.03.2012
- * @link      http://github.com/joindin/callingallpapers
+ * @since     25.07.2016
+ * @link      http://github.com/heiglandreas/callingallpapers
  */
-namespace Callingallpapers\Parser\Lanyrd;
 
-class ClosingDate
+namespace Callingallpapers\Service;
+
+use GuzzleHttp\ClientInterface;
+
+class TimezoneService
 {
-    protected $timezone;
+    public static $lastAccess;
 
-    public function __construct($timezone = 'UTC')
+    protected $uri = 'http://api.timezonedb.com/v2/get-time-zone?key=%1$s&format=json&by=position&lat=%2$s&lng=%3$s';
+
+    protected $key;
+
+    protected $client;
+
+    public function __construct(ClientInterface $client, $key)
     {
-        $this->timezone = new \DateTimezone($timezone);
+        $this->client = $client;
+        $this->key = $key;
     }
 
-    public function parse($dom, $xpath)
+    public function getTimezoneForLocation($lat, $lng)
     {
-        $closingDate = $xpath->query("//span[text()='Closes on:']/following-sibling::strong");
-        if (! $closingDate || $closingDate->length == 0) {
-            throw new \InvalidArgumentException('The CfP does not seem to have a closing date');
+        if (self::$lastAccess === time()) {
+            sleep(1);
+        }
+        self::$lastAccess = time();
+        try {
+            $result = $this->client->get(sprintf(
+                $this->uri,
+                $this->key,
+                $lat,
+                $lng
+            ));
+        } catch (\Exception $e) {
+            return 'UTC';
         }
 
-        $closingDate = $closingDate->item(0)->textContent;
+        $values = json_decode($result->getBody()->getContents(), true);
 
-        return new \DateTime($closingDate, $this->timezone);
+        if (! isset($values['status']) || $values['status'] !== 'OK') {
+            return 'UTC';
+        }
+
+        return $values['zoneName'];
     }
 }

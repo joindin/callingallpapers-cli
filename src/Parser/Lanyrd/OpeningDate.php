@@ -31,6 +31,12 @@ namespace Callingallpapers\Parser\Lanyrd;
 
 class OpeningDate
 {
+    protected $timezone;
+
+    public function __construct($timezone = 'UTC')
+    {
+        $this->timezone = new \DateTimezone($timezone);
+    }
 
     public function parse($dom, $xpath)
     {
@@ -41,6 +47,6 @@ class OpeningDate
 
         $openingDate = $openingDate->item(0)->textContent;
 
-        return new \DateTime($openingDate);
+        return new \DateTime($openingDate, $this->timezone);
     }
 }
