@@ -42,7 +42,7 @@ class OpeningDate
     {
         $openingDate = $xpath->query("//span[text()='Openend on:']/following-sibling::strong");
         if (! $openingDate || $openingDate->length == 0) {
-            return new \DateTime();
+            throw new \UnexpectedValueException('No CfP-Open Date found');
         }
 
         $openingDate = $openingDate->item(0)->textContent;

@@ -99,6 +99,7 @@ class Cfp
             'location'       => $this->location,
             'latitude'       => (float) $this->latitude,
             'longitude'      => (float) $this->longitude,
+            'timezone'       => $this->timezone,
         );
     }
 }

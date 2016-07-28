@@ -63,7 +63,6 @@ class ApiCfpWriter implements WriterInterface
     {
         $body = [
             'name'           => $cfp->conferenceName,
-            'dateCfpStart'   => $cfp->dateStart->format('c'),
             'dateCfpEnd'     => $cfp->dateEnd->format('c'),
             'dateEventStart' => $cfp->eventStartDate->format('c'),
             'dateEventEnd'   => $cfp->eventEndDate->format('c'),
@@ -77,6 +76,10 @@ class ApiCfpWriter implements WriterInterface
             'longitude'      => $cfp->longitude,
             'tags'           => $cfp->tags,
         ];
+
+        if ($cfp->dateStart instanceof \DateTimeInterface) {
+            $body['dateCfpStart'] = $cfp->dateStart->format('c');
+        }
 
         try {
             $this->client->request('GET', sprintf(
