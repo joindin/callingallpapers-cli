@@ -93,7 +93,7 @@ class Cfp
             'cfp_start_date' => $this->dateStart->format('c'),
             'cfp_end_date'   => $this->dateEnd->format('c'),
             'description'    => $this->description,
-            'tags'           => $this->tags,
+            'tags'           => array_unique($this->tags),
             'start_date'     => $this->eventStartDate->format('c'),
             'end_date'       => $this->eventEndDate->format('c'),
             'location'       => $this->location,
@@ -101,5 +101,12 @@ class Cfp
             'longitude'      => (float) $this->longitude,
             'timezone'       => $this->timezone,
         );
+    }
+
+    public function addTag($tag)
+    {
+        if (! in_array($tag, $this->tags)) {
+            $this->tags[] = $tag;
+        }
     }
 }
