@@ -1,17 +1,14 @@
 <?php
 /**
- * Copyright (c) 2015-2015 Andreas Heigl<andreas@heigl.org>
- *
+ * Copyright (c) Andreas Heigl<andreas@heigl.org>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,32 +18,44 @@
  * THE SOFTWARE.
  *
  * @author    Andreas Heigl<andreas@heigl.org>
- * @copyright 2015-2015 Andreas Heigl/callingallpapers.com
+ * @copyright Andreas Heigl
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
- * @version   0.0
- * @since     06.03.2012
- * @link      http://github.com/joindin/callingallpapers
+ * @since     22.09.2016
+ * @link      http://github.com/heiglandreas/callingallpapers
  */
-namespace Callingallpapers\Parser\Lanyrd;
 
-class OpeningDate
+namespace Callingallpapers\Notification;
+
+use Callingallpapers\Entity\CfpList;
+
+class NotificationList extends \ArrayObject
 {
-    protected $timezone;
-
-    public function __construct($timezone = 'UTC')
+    /**
+     * @param mixed $item
+     *
+     * @deprecated
+     * @throws \Exception
+     * @return void
+     */
+    public function append($item)
     {
-        $this->timezone = new \DateTimezone($timezone);
+        throw new \Exception(sprintf(
+            'Use %s::add() instead',
+            self::class
+        ));
     }
 
-    public function parse($dom, $xpath)
+    public function add(NotificationInterface $notification)
     {
-        $openingDate = $xpath->query("//span[text()='Openend on:']/following-sibling::strong");
-        if (! $openingDate || $openingDate->length == 0) {
-            throw new \UnexpectedValueException('No CfP-Open Date found');
+        parent::append($notification);
+    }
+
+    public function notify(CfpList $cfps)
+    {
+        foreach ($cfps as $cfp) {
+            foreach ($this as $notifier) {
+                $notifier->notify($cfp);
+            }
         }
-
-        $openingDate = $openingDate->item(0)->textContent;
-
-        return new \DateTime($openingDate, $this->timezone);
     }
 }

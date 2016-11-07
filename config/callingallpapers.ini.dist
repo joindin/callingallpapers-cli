@@ -20,8 +20,20 @@
 ;
 ; Configuration
 ;
+; What writer shall be used
+writer = "\Callingallpapers\Writer\ApiCfpWriter"
+;
 ; Where shall we write the events to?
 event_api_url = "http://api.callingallpapers.com/v1/cfp"
 ;
 ; What Private API-Token shall we use to write to the API?
 event_api_token = "";
+;
+; TimezoneDB-Access-informations: see https://timezonedb.com/register
+timezonedb_token = ""
+;
+; Twitter-Access Informations: see https://apps.twitter.com/app/new
+twitter.consumer_key =  ""
+twitter.consumer_secret = ""
+twitter.token = ""
+twitter.token_secret = ""

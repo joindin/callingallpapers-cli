@@ -86,7 +86,9 @@ class Entry
             $cfp->description = $descriptionParser->parse($dom, $xpath);
 
             $openingDateParser = new OpeningDate($timezone);
-            $cfp->dateStart = $openingDateParser->parse($dom, $xpath);
+            try {
+                $cfp->dateStart = $openingDateParser->parse($dom, $xpath);
+            } catch (\Exception $e){}
 
             $cfpUriParser = new Uri();
             $cfp->uri = $cfpUriParser->parse($dom, $xpath);
