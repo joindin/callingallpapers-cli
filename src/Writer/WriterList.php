@@ -62,11 +62,11 @@ class WriterList implements WriterInterface, \Iterator
      *
      * @return String
      */
-    public function write(Cfp $cfp)
+    public function write(Cfp $cfp, $source)
     {
         foreach ($this->writer as $writer) {
             $writer->setOutput($this->output);
-            $writer->write($cfp);
+            $writer->write($cfp, $source);
         }
     }
 

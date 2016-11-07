@@ -90,7 +90,7 @@ class LanyrdCfpParser implements ParserInterface
                     if (! $eventPageUrl) {
                         continue;
                     }
-                    $writer->write($lanyrdEntryParser->parse($eventPageUrl));
+                    $writer->write($lanyrdEntryParser->parse($eventPageUrl), 'lanyrd.com');
                 } catch (\Exception $e) {
                     error_log($e->getMEssage());
                 }

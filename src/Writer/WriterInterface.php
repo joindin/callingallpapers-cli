@@ -33,11 +33,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 interface WriterInterface
 {
     /**
-     * @param Cfp $cfp
+     * @param Cfp     $cfp
+     * @param  String $source Where does that CfP come from?
      *
      * @return String
      */
-    public function write(Cfp $cfp);
+    public function write(Cfp $cfp, $source);
 
     /**
      * Set output-writer
