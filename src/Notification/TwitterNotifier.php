@@ -62,7 +62,6 @@ class TwitterNotifier implements NotificationInterface
         } catch (\Exception $e) {
             //
         }
-
     }
 
     protected function shortenName($name)

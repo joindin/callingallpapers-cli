@@ -87,7 +87,6 @@ class ApiCfpReader
             ]);
 
             $items = \GuzzleHttp\json_decode($result->getBody()->getContents(), true);
-
         } catch (\Exception $e) {
             return $list;
         }
