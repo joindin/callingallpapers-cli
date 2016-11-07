@@ -112,14 +112,17 @@ class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
         $handler->push($history);
         $client = new Client(['handler' => $handler]);
 
-        $tzs = new TimezoneService($client, '');
+        $tzs = new TimezoneService($client, $_ENV['CALLINGALLPAPERS_TIMEZONE_API_KEY']);
 
         $this->assertEquals('Europe/Berlin', $tzs->getTimezoneForLocation(50, 8));
 
         /** @var RequestInterface $request */
         $request = $container[0]['request'];
         $this->assertEquals(
-            'http://api.timezonedb.com/v2/get-time-zone?key=&format=json&by=position&lat=50&lng=8',
+            sprintf(
+                'http://api.timezonedb.com/v2/get-time-zone?key=%1$s&format=json&by=position&lat=50&lng=8',
+                $_ENV['CALLINGALLPAPERS_TIMEZONE_API_KEY']
+            ),
             (string) $request->getUri()
         );
     }
