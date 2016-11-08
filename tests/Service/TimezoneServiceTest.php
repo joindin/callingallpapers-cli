@@ -112,7 +112,12 @@ class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
         $handler->push($history);
         $client = new Client(['handler' => $handler]);
 
-        $tzs = new TimezoneService($client, getenv('CALLINGALLPAPERS_TIMEZONE_API_KEY'));
+        $timezoneApiKey = getenv('CALLINGALLPAPERS_TIMEZONE_API_KEY');
+        if (! $timezoneApiKey) {
+            $this->markTestSkipped('Skipped due to missing API-Key');
+            return;
+        }
+        $tzs = new TimezoneService($client, $timezoneApiKey);
 
         $this->assertEquals('Europe/Berlin', $tzs->getTimezoneForLocation(50, 8));
 
