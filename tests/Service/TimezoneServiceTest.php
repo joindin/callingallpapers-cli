@@ -43,6 +43,10 @@ class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client();
         $key = getenv('CALLINGALLPAPERS_TIMEZONE_API_KEY');
+        if (! $key) {
+            $this->markTestSkipped('Skipped due to missing API-key');
+            return;
+        }
 
         $tzs = new TimezoneService($client, $key);
 
