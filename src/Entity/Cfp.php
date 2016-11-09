@@ -100,6 +100,7 @@ class Cfp
             'latitude'       => (float) $this->latitude,
             'longitude'      => (float) $this->longitude,
             'timezone'       => $this->timezone,
+            'image'          => $this->iconUri,
         );
     }
 
