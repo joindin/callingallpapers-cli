@@ -44,6 +44,9 @@ class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
         $client = new Client();
         $key = getenv('CALLINGALLPAPERS_TIMEZONE_API_KEY');
 
+        if (! $key) {
+            return $this->markTestSkipped('No TIMEZONE-API-Key available');
+        }
         $tzs = new TimezoneService($client, $key);
 
         $this->assertEquals('Europe/Berlin', $tzs->getTimezoneForLocation(50, 8));

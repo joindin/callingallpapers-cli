@@ -99,7 +99,7 @@ class ApiCfpWriter implements WriterInterface
                     $this->baseUri
                 ), [
                     'headers' => [
-                        'Authenticate' => 'Bearer ' . $this->bearerToken,
+                        'Authorization' => 'Bearer ' . $this->bearerToken,
                     ],
                     'form_params' => $body
                 ]);
@@ -110,7 +110,7 @@ class ApiCfpWriter implements WriterInterface
                     sha1($cfp->conferenceUri)
                 ), [
                     'headers' => [
-                        'Authenticate' => 'Bearer ' . $this->bearerToken,
+                        'Authorization' => 'Bearer ' . $this->bearerToken,
                     ],
                     'form_params' => $body
                 ]);
