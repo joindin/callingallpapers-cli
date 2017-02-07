@@ -161,7 +161,13 @@ class Entry
 
         $dom = new \DOMDocument('1.0', 'UTF-8');
 
-        $content = file_get_contents('https://lanyrd.com' . $confPath->item(0)->attributes->getNamedItem('href')->textContent);
+        $context = stream_context_create([
+            'ssl' => [
+                'verify_peer'   => false,
+                'verify_peer_name' => false,
+            ]
+        ]);
+        $content = file_get_contents('https://lanyrd.com' . $confPath->item(0)->attributes->getNamedItem('href')->textContent, false, $context);
         $content = mb_convert_encoding($content, 'UTF-8');
         $dom->loadHTML('<?xml version="1.0" charset="UTF-8" ?>' . $content);
         $dom->preserveWhiteSpace = false;
