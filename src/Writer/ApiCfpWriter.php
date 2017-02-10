@@ -32,6 +32,7 @@ namespace Callingallpapers\Writer;
 use Callingallpapers\Entity\Cfp;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\TransferStats;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ApiCfpWriter implements WriterInterface
@@ -61,6 +62,18 @@ class ApiCfpWriter implements WriterInterface
 
     public function write(Cfp $cfp, $source)
     {
+        try {
+            $uri = '';
+            $this->client->get($cfp->conferenceUri, [
+                'on_stats' => function (TransferStats $stats) use (&$uri) {
+                    $uri = $stats->getEffectiveUri();
+                }
+            ]);
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Event-URI could not be verified: ' . $e->getMessage());
+        }
+        $cfp->conferenceUri = $uri;
+
         $body = [
             'name'           => $cfp->conferenceName,
             'dateCfpEnd'     => $cfp->dateEnd->format('c'),
