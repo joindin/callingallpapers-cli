@@ -63,10 +63,10 @@ class ApiCfpWriter implements WriterInterface
     public function write(Cfp $cfp, $source)
     {
         try {
-            $uri = $cfp->conferenceUri;
+            $uri = '';
             $this->client->get($cfp->conferenceUri, [
                 'on_stats' => function (TransferStats $stats) use (&$uri) {
-                    $uri = $stats->getEffectiveUri();
+                    $uri = (string) $stats->getEffectiveUri();
                 }
             ]);
         } catch (\Exception $e) {
