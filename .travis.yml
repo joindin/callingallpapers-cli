@@ -26,8 +26,7 @@ script:
   --coverage-clover build/logs/clover.xml ; fi
 - if [[ $EXECUTE_TEST_COVERALLS != 'true' ]]; then ./vendor/bin/phpunit -c phpunit.travis.xml;
   fi
-- if [[ $EXECUTE_CS_CHECK == 'true' ]]; then ./vendor/bin/php-cs-fixer fix -v --diff
-  --dry-run ; fi
+- if [[ $EXECUTE_CS_CHECK == 'true' ]]; then ./vendor/bin/phpcs; fi
 after_script:
 - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && $EXECUTE_TEST_COVERALLS == 'true' ]] ; then
   openssl aes-256-cbc -K $encrypted_13cee3189705_key -iv $encrypted_13cee3189705_iv
