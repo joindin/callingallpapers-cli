@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d94569a10e0eb3ab726b580d22a17913",
+    "content-hash": "7da930b1c2143582f85c70054da3da32",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -117,7 +117,7 @@
                 "Guzzle",
                 "oauth"
             ],
-            "time": "2015-08-15 19:44:28"
+            "time": "2015-08-15T19:44:28+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -574,7 +574,7 @@
             ],
             "authors": [
                 {
-                    "name": "P??draic Brady",
+                    "name": "Pádraic Brady",
                     "email": "padraic.brady@gmail.com",
                     "homepage": "http://blog.astrumfutura.com"
                 },
