@@ -30,66 +30,62 @@
 
 namespace Callingallpapers\Parser;
 
-use Callingallpapers\Entity\CfpList;
-use Callingallpapers\Parser\PapercallIo\Entry;
+use Callingallpapers\Parser\PapercallIo\EventParser;
+use Callingallpapers\Service\TimezoneService;
 use Callingallpapers\Writer\WriterInterface;
+use DOMDocument;
+use DOMXPath;
 
 class PapercallIoParser implements ParserInterface
 {
 
     protected $tzService;
 
-    public function __construct(TimezoneService $tzService)
+    private $uri = 'https://papercall.io/cfps?page=%1$s';
+
+    private $parser;
+
+    public function __construct(TimezoneService $tzService, EventParser $parser)
     {
         $this->tzService = $tzService;
+        $this->parser = $parser;
+    }
+
+    public function setStartUrl(string $uri)
+    {
+        $this->uri = $uri;
     }
 
     public function parse(WriterInterface $writer)
     {
-        $uri = 'http://papercall.io/cfps';
         $i = 0;
 
-        $pages = 0;
+        $pages = null;
 
         do {
-            $dom = new \DOMDocument('1.0', 'UTF-8');
-            $dom->loadHTMLFile($uri . '?page=' . ($i+1));
+            $dom = new DOMDocument('1.0', 'UTF-8');
+            libxml_use_internal_errors(true);
+            $uri = sprintf($this->uri, $i+1);
+            var_dump($uri);
+            $dom->loadHTMLFile($uri);
+            libxml_use_internal_errors(false);
             $dom->preserveWhiteSpace = false;
+            $xpath = new DOMXPath($dom);
 
-            $xpath = new \DOMXPath($dom);
-            $nodes = $xpath->query("//div[@class='box__content']/ul[contains(@class, 'pagination')]/li/a");
+            if (null === $pages) {
+                $p = $xpath->query("//ul[contains(@class,'pagination')]/li");
+                $pages = $p->length - 2;
+            }
+
+            $nodes = $xpath->query("//div[contains(@class,'main')]/div[@class='container'][2]//div[@class='box']");
             if ($nodes->length < 1) {
                 continue;
             }
-            $pages = $nodes[($nodes->length - 2)]->textContent;
 
-            $xpath = new \DOMXPath($dom);
-            $nodes = $xpath->query("//div[@class='main']/div[@class='container']/div[@class='box']");
-
-            $cfp = new Cfp();
-            $client = new Client([
-                'headers'=> [
-                    'User-Agent' => 'callingallpapers.com - Location to lat/lon-translation - For infos write to andreas@heigl.org',
-                ],
-            ]);
-
-            $papercallIoEntryParser = new Entry($cfp, $client, $this->tzService);
-
+            /** @var DOMNode $node */
             foreach ($nodes as $node) {
                 try {
-                    /** @var \DOMNode $node */
-                    $links = $xpath->query('.//a[text()="Call for speakers"]',
-                        $node);
-                    if ($links->length < 1) {
-                        continue;
-                    }
-
-                    $eventPageUrl = $links->item(0)->attributes->getNamedItem('href')->textContent;
-                    error_log($eventPageUrl);
-                    if (! $eventPageUrl) {
-                        continue;
-                    }
-                    $writer->write($papercallIoEntryParser->parse($eventPageUrl), 'papercall.io');
+                    $writer->write($this->parser->parseEvent($node));
                 } catch (\Exception $e) {
                     error_log($e->getMEssage());
                 }

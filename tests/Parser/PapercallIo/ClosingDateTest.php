@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2015-2015 Andreas Heigl<andreas@heigl.org>
+ * Copyright (c) Andreas Heigl<andreas@heigl.org>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,44 +21,37 @@
  * THE SOFTWARE.
  *
  * @author    Andreas Heigl<andreas@heigl.org>
- * @copyright 2015-2015 Andreas Heigl/callingallpapers.com
+ * @copyright Andreas Heigl
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
- * @version   0.0
- * @since     06.03.2012
- * @link      http://github.com/joindin/callingallpapers
+ * @since     07.07.2017
+ * @link      http://github.com/heiglandreas/callingallpapers_cli
  */
-namespace Callingallpapers\Parser\PapercallIo;
+
+namespace CallingallpapersTest\Parser\PapercallIo;
 
 use Callingallpapers\Entity\Cfp;
-use Callingallpapers\Parser\EventDetailParserInterface;
-use DateTimeImmutable;
-use DOMDocument;
-use DOMNode;
-use DOMXPath;
-use InvalidArgumentException;
+use Callingallpapers\Parser\PapercallIo\ClosingDate;
 
-class ClosingDate implements EventDetailParserInterface
+class ClosingDateTest extends \PHPUnit_Framework_TestCase
 {
-    protected $timezone;
-
-    public function __construct($timezone = 'UTC')
+    public function testThatInitializationWorks()
     {
-        $this->timezone = new \DateTimezone($timezone);
+        $parser = new ClosingDate();
+        $this->assertAttributeEquals(new \DateTimeZone('UTC'), 'timezone', $parser);
     }
 
-    public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
+    public function testThatDateIsParsedCorrectlyFromNode()
     {
-        $xpath = new DOMXPath($node->ownerDocument);
-        $closingDate = $xpath->query("//time/@datetime");
-        if (! $closingDate || $closingDate->length == 0) {
-            throw new InvalidArgumentException('The CfP does not seem to have a closing date');
-        }
+        $parser = new ClosingDate();
 
-        $closingDate = $closingDate->item(0)->textContent;
+        $dom = new \DOMDocument();
+        $cfp = new Cfp();
 
-        $cfp->dateStart = new DateTimeImmutable($closingDate);
-        $cfp->dateStart = $cfp->dateStart->setTimezone($this->timezone);
+        $dom1 = new DOMDocum
 
-        return $cfp;
+        $newcfp = $parser->parse($dom, $node, $cfp);
+
+        $this->assertSame($newcfp, $cfp);
+        $this->assertEquals(new \DateTimeImmutable(''))
     }
 }

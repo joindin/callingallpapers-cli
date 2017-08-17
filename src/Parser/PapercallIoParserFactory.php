@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2015-2015 Andreas Heigl<andreas@heigl.org>
+ * Copyright (c) Andreas Heigl<andreas@heigl.org>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,44 +21,37 @@
  * THE SOFTWARE.
  *
  * @author    Andreas Heigl<andreas@heigl.org>
- * @copyright 2015-2015 Andreas Heigl/callingallpapers.com
+ * @copyright Andreas Heigl
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
- * @version   0.0
- * @since     06.03.2012
- * @link      http://github.com/joindin/callingallpapers
+ * @since     07.07.2017
+ * @link      http://github.com/heiglandreas/callingallpapers_cli
  */
-namespace Callingallpapers\Parser\PapercallIo;
 
-use Callingallpapers\Entity\Cfp;
-use Callingallpapers\Parser\EventDetailParserInterface;
-use DateTimeImmutable;
-use DOMDocument;
-use DOMNode;
-use DOMXPath;
-use InvalidArgumentException;
+namespace Callingallpapers\Parser;
 
-class ClosingDate implements EventDetailParserInterface
+use Callingallpapers\Parser\PapercallIo\ClosingDate;
+use Callingallpapers\Parser\PapercallIo\EventParser;
+use Callingallpapers\Service\TimezoneService;
+
+class PapercallIoParserFactory
 {
-    protected $timezone;
+    private $timezoneService;
 
-    public function __construct($timezone = 'UTC')
+    public function __construct(TimezoneService $tzservice)
     {
-        $this->timezone = new \DateTimezone($timezone);
+        $this->timezoneService = $tzservice;
     }
 
-    public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
+    public function __invoke()
     {
-        $xpath = new DOMXPath($node->ownerDocument);
-        $closingDate = $xpath->query("//time/@datetime");
-        if (! $closingDate || $closingDate->length == 0) {
-            throw new InvalidArgumentException('The CfP does not seem to have a closing date');
-        }
+        $detailsParserList = new EventDetailParserList();
 
-        $closingDate = $closingDate->item(0)->textContent;
+        $detailsParserList
+            ->addEventDetailParser(new ClosingDate())
+        ;
 
-        $cfp->dateStart = new DateTimeImmutable($closingDate);
-        $cfp->dateStart = $cfp->dateStart->setTimezone($this->timezone);
+        $eventParser = new EventParser($detailsParserList);
 
-        return $cfp;
+        return new PapercallIoParser($this->timezoneService, $eventParser);
     }
 }
