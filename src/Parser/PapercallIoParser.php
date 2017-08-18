@@ -38,6 +38,7 @@ use DOMXPath;
 
 class PapercallIoParser implements ParserInterface
 {
+    const SOURCE = 'papercallio';
 
     protected $tzService;
 
@@ -66,7 +67,6 @@ class PapercallIoParser implements ParserInterface
             $dom = new DOMDocument('1.0', 'UTF-8');
             libxml_use_internal_errors(true);
             $uri = sprintf($this->uri, $i+1);
-            var_dump($uri);
             $dom->loadHTMLFile($uri);
             libxml_use_internal_errors(false);
             $dom->preserveWhiteSpace = false;
@@ -85,7 +85,7 @@ class PapercallIoParser implements ParserInterface
             /** @var DOMNode $node */
             foreach ($nodes as $node) {
                 try {
-                    $writer->write($this->parser->parseEvent($node));
+                    $writer->write($this->parser->parseEvent($node), self::SOURCE);
                 } catch (\Exception $e) {
                     error_log($e->getMEssage());
                 }

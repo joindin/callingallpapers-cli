@@ -31,6 +31,8 @@ namespace CallingallpapersTest\Parser\PapercallIo;
 
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\PapercallIo\ClosingDate;
+use IvoPetkov\HTML5DOMDocument as DOMDocument;
+use DOMXPath;
 
 class ClosingDateTest extends \PHPUnit_Framework_TestCase
 {
@@ -44,14 +46,20 @@ class ClosingDateTest extends \PHPUnit_Framework_TestCase
     {
         $parser = new ClosingDate();
 
-        $dom = new \DOMDocument();
+        $dom = new DOMDocument();
         $cfp = new Cfp();
 
-        $dom1 = new DOMDocum
+        $dom->loadHTMLFile(__DIR__ . '/_assets/conf2.html', LIBXML_HTML_NODEFDTD & LIBXML_HTML_NOIMPLIED);
+
+        $dom1 = new DOMDocument();
+        $dom1->loadHTMLFile(__DIR__ . '/_assets/index.html', LIBXML_HTML_NODEFDTD & LIBXML_HTML_NOIMPLIED);
+        $xpath = new DOMXPath($dom1);
+        $nodes = $xpath->query("//div[contains(@class,'main')]/div[@class='container'][2]//div[@class='box']");
+        $node = $nodes[0];
 
         $newcfp = $parser->parse($dom, $node, $cfp);
 
         $this->assertSame($newcfp, $cfp);
-        $this->assertEquals(new \DateTimeImmutable(''))
+        $this->assertEquals(new \DateTimeImmutable('2017-01-31T20:00:00+0000'), $newcfp->dateEnd);
     }
 }

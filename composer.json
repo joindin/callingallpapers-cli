@@ -21,7 +21,8 @@
         "symfony/console": "^2.7",
         "org_heigl/trait-iterator": "^1.0",
         "guzzlehttp/guzzle": "^6.2",
-        "guzzlehttp/oauth-subscriber": "^0.3.0"
+        "guzzlehttp/oauth-subscriber": "^0.3.0",
+        "ivopetkov/html5-dom-document-php": "^0.5.5"
     },
     "autoload": {
         "psr-4": {

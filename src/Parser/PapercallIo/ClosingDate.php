@@ -49,15 +49,15 @@ class ClosingDate implements EventDetailParserInterface
     public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
     {
         $xpath = new DOMXPath($node->ownerDocument);
-        $closingDate = $xpath->query("//time/@datetime");
+        $closingDate = $xpath->query(".//time/@datetime", $node);
         if (! $closingDate || $closingDate->length == 0) {
             throw new InvalidArgumentException('The CfP does not seem to have a closing date');
         }
 
         $closingDate = $closingDate->item(0)->textContent;
 
-        $cfp->dateStart = new DateTimeImmutable($closingDate);
-        $cfp->dateStart = $cfp->dateStart->setTimezone($this->timezone);
+        $cfp->dateEnd = new DateTimeImmutable($closingDate);
+        $cfp->dateEnd = $cfp->dateEnd->setTimezone($this->timezone);
 
         return $cfp;
     }
