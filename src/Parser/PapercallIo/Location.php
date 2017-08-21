@@ -27,22 +27,28 @@
  * @since     06.03.2012
  * @link      http://github.com/joindin/callingallpapers
  */
-namespace Callingallpapers\Parser\Lanyrd;
+namespace Callingallpapers\Parser\PapercallIo;
 
-class Location
+use Callingallpapers\Entity\Cfp;
+use Callingallpapers\Parser\EventDetailParserInterface;
+use DOMDocument;
+use DOMNode;
+use DOMXPath;
+
+class Location implements EventDetailParserInterface
 {
 
-    public function parse($dom, $xpath)
+    public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
     {
-        $locations = $xpath->query("//div[contains(@class, 'vevent')]/p[contains(@class, 'location')]/a"); ///a/abbr[class='dtstart']
-        if (! $locations || $locations->length == 0) {
-            throw new \InvalidArgumentException('The Event does not seem to have an end date');
-        }
-        $location = [];
-        foreach ($locations as $item) {
-            $location[] = trim($item->textContent);
+        $xpath = new DOMXPath($dom);
+        $titlePath = $xpath->query("//h1[contains(@class, 'subheader__subtitle')]");
+
+        if (! $titlePath || $titlePath->length == 0) {
+            return $cfp;
         }
 
-        return implode(', ', array_unique($location));
+        $cfp->location = trim($titlePath->item(0)->textContent);
+
+        return $cfp;
     }
 }

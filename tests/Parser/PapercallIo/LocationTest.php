@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2015-2015 Andreas Heigl<andreas@heigl.org>
+ * Copyright (c) Andreas Heigl<andreas@heigl.org>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,34 +21,40 @@
  * THE SOFTWARE.
  *
  * @author    Andreas Heigl<andreas@heigl.org>
- * @copyright 2015-2015 Andreas Heigl/callingallpapers.com
+ * @copyright Andreas Heigl
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
- * @version   0.0
- * @since     06.03.2012
- * @link      http://github.com/joindin/callingallpapers
+ * @since     07.07.2017
+ * @link      http://github.com/heiglandreas/callingallpapers_cli
  */
-namespace Callingallpapers\Parser\PapercallIo;
+
+namespace CallingallpapersTest\Parser\PapercallIo;
 
 use Callingallpapers\Entity\Cfp;
-use Callingallpapers\Parser\EventDetailParserInterface;
-use DOMDocument;
-use DOMNode;
+use Callingallpapers\Parser\PapercallIo\Location;
+use Callingallpapers\Parser\PapercallIo\Uri;
+use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
 
-class EventUri implements EventDetailParserInterface
+class LocationTest extends \PHPUnit_Framework_TestCase
 {
-
-    public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
+    public function testThatNameIsParsedCorrectlyFromNode()
     {
-        $xpath = new DOMXPath($dom);
-        $uriPath = $xpath->query("//h1/following-sibling::a");
+        $parser = new Location();
 
-        if (! $uriPath || $uriPath->length == 0) {
-            throw new \InvalidArgumentException('The CfP does not seem to have an EventUri');
-        }
+        $dom = new DOMDocument();
+        $cfp = new Cfp();
 
-        $cfp->conferenceUri = trim($uriPath->item(0)->attributes->getNamedItem('href')->textContent);
+        $dom->loadHTMLFile(__DIR__ . '/_assets/conf2.html', LIBXML_HTML_NODEFDTD & LIBXML_HTML_NOIMPLIED);
 
-        return $cfp;
+        $dom1 = new DOMDocument();
+        $dom1->loadHTMLFile(__DIR__ . '/_assets/index.html', LIBXML_HTML_NODEFDTD & LIBXML_HTML_NOIMPLIED);
+        $xpath = new DOMXPath($dom1);
+        $nodes = $xpath->query("//div[contains(@class,'main')]/div[@class='container'][2]//div[@class='box']");
+        $node = $nodes[0];
+
+        $newcfp = $parser->parse($dom, $node, $cfp);
+
+        $this->assertSame($newcfp, $cfp);
+        $this->assertEquals('London, UK', $newcfp->location);
     }
 }

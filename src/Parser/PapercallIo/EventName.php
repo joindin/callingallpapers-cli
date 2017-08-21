@@ -27,19 +27,29 @@
  * @since     06.03.2012
  * @link      http://github.com/joindin/callingallpapers
  */
-namespace Callingallpapers\Parser\Lanyrd;
+namespace Callingallpapers\Parser\PapercallIo;
 
-class EventName
+use Callingallpapers\Api\PersistenceLayer\CfpPersistenceLayer;
+use Callingallpapers\Entity\Cfp;
+use Callingallpapers\Parser\EventDetailParserInterface;
+use DOMDocument;
+use DOMNode;
+use DOMXPath;
+
+class EventName implements EventDetailParserInterface
 {
 
-    public function parse($dom, $xpath)
+    public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
     {
-        $confPath = $xpath->query("//h3/a[contains(@class, 'summary')]");
+        $xpath = new DOMXPath($dom);
+        $titlePath = $xpath->query("//h1[contains(@class, 'subheader__title')]");
 
-        if (! $confPath || $confPath->length == 0) {
+        if (! $titlePath || $titlePath->length == 0) {
             throw new \InvalidArgumentException('The CfP does not seem to have an eventname');
         }
 
-        return trim($confPath->item(0)->textContent);
+        $cfp->conferenceName = trim($titlePath->item(0)->textContent);
+
+        return $cfp;
     }
 }

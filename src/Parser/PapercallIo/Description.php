@@ -27,14 +27,21 @@
  * @since     06.03.2012
  * @link      http://github.com/joindin/callingallpapers
  */
-namespace Callingallpapers\Parser\Lanyrd;
+namespace Callingallpapers\Parser\PapercallIo;
 
-class Description
+use Callingallpapers\Entity\Cfp;
+use Callingallpapers\Parser\EventDetailParserInterface;
+use DOMDocument;
+use DOMNode;
+use DOMXPath;
+
+class Description implements EventDetailParserInterface
 {
 
-    public function parse($dom, $xpath)
+    public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
     {
-        $result = $xpath->query('//div[contains(@class, "description")]');
+        $xpath = new DOMXPath($dom);
+        $result = $xpath->query('//time/../../..//div[contains(@class, "markdown")]');
         if ($result->length < 1) {
             return '';
         }
@@ -49,6 +56,9 @@ class Description
         foreach ($result as $node) {
             $text[] = $dom->saveXML($node);
         }
-        return trim(implode('', $text));
+
+        $cfp->description = trim(implode('', $text));
+
+        return $cfp;
     }
 }

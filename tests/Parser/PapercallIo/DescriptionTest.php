@@ -27,33 +27,40 @@
  * @link      http://github.com/heiglandreas/callingallpapers_cli
  */
 
-namespace Callingallpapers\Parser;
+namespace CallingallpapersTest\Parser\PapercallIo;
 
+use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\PapercallIo\ClosingDate;
 use Callingallpapers\Parser\PapercallIo\Description;
-use Callingallpapers\Parser\PapercallIo\EventParser;
-use Callingallpapers\Service\TimezoneService;
+use IvoPetkov\HTML5DOMDocument as DOMDocument;
+use DOMXPath;
 
-class PapercallIoParserFactory
+class DescriptionTest extends \PHPUnit_Framework_TestCase
 {
-    private $timezoneService;
-
-    public function __construct(TimezoneService $tzservice)
+    public function testThatCommentIsParsedCorrectlyFromNode()
     {
-        $this->timezoneService = $tzservice;
-    }
+        $parser = new Description();
 
-    public function __invoke()
-    {
-        $detailsParserList = new EventDetailParserList();
+        $dom = new DOMDocument();
+        $cfp = new Cfp();
 
-        $detailsParserList
-            ->addEventDetailParser(new ClosingDate())
-            ->addEventDetailParser(new Description())
-        ;
+        $dom->loadHTMLFile(__DIR__ . '/_assets/conf2.html', LIBXML_HTML_NODEFDTD & LIBXML_HTML_NOIMPLIED);
 
-        $eventParser = new EventParser($detailsParserList);
+        $dom1 = new DOMDocument();
+        $dom1->loadHTMLFile(__DIR__ . '/_assets/index.html', LIBXML_HTML_NODEFDTD & LIBXML_HTML_NOIMPLIED);
+        $xpath = new DOMXPath($dom1);
+        $nodes = $xpath->query("//div[contains(@class,'main')]/div[@class='container'][2]//div[@class='box']");
+        $node = $nodes[0];
 
-        return new PapercallIoParser($this->timezoneService, $eventParser);
+        $newcfp = $parser->parse($dom, $node, $cfp);
+
+        $this->assertSame($newcfp, $cfp);
+        $this->assertEquals('<p>Red Badger is launching a new conference focused on React in London for 2017 – we’re calling it React London 2017.</p>
+
+<p>Date: Tuesday 28th March 2017
+Format: Single track, full day.
+Venue: QEII Centre, Westminster, London</p>
+
+<p>The QEII conference centre is a world-class facility overlooking Parliament Square in London, with state of the art AV, surrounded by some of the world’s most recognisable attractions, including the Houses of Parliament and Big Ben, Westminster Abbey and Downing Street. Buckingham Palace is less than ten minutes walk away.</p>', $newcfp->description);
     }
 }

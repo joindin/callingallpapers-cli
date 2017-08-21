@@ -27,20 +27,28 @@
  * @since     06.03.2012
  * @link      http://github.com/joindin/callingallpapers
  */
-namespace Callingallpapers\Parser\Lanyrd;
+namespace Callingallpapers\Parser\PapercallIo;
 
-class Uri
+use Callingallpapers\Entity\Cfp;
+use Callingallpapers\Parser\EventDetailParserInterface;
+use DOMDocument;
+use DOMNode;
+use DOMXPath;
+
+class Uri implements EventDetailParserInterface
 {
 
-    public function parse($dom, $xpath)
+    public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
     {
-        $uri = $xpath->query(
-            "//strong[contains(@class, \"call-open\")]/following-sibling::a"
-        );
-        if (! $uri || $uri->length == 0) {
+        $xpath = new DOMXPath($dom);
+        $titlePath = $xpath->query("//a[starts-with(@href, '/cfps/')]");
+
+        if (! $titlePath || $titlePath->length == 0) {
             throw new \InvalidArgumentException('The CfP does not seem to have a CfP-Uri');
         }
 
-        return $uri->item(0)->attributes->getNamedItem('href')->textContent;
+        $cfp->uri = 'https://papercall.io' . trim($titlePath->item(0)->attributes->getNamedItem('href')->textContent);
+
+        return $cfp;
     }
 }

@@ -29,16 +29,24 @@
  */
 namespace Callingallpapers\Parser\Lanyrd;
 
-class EventEndDate
+use Callingallpapers\Entity\Cfp;
+use Callingallpapers\Parser\EventDetailParserInterface;
+use DateTimeImmutable;
+use DateTimeZone;
+use DOMDocument;
+use DOMNode;
+use DOMXPath;
+
+class EventEndDate implements EventDetailParserInterface
 {
     protected $timezone;
 
     public function __construct($timezone = 'UTC')
     {
-        $this->timezone = new \DateTimezone($timezone);
+        $this->timezone = new DateTimezone($timezone);
     }
 
-    public function parse($dom, $xpath)
+    public function parse(DOMDocument $dom, DOMNode $xpath, Cfp $cfp) : Cfp
     {
         $endDate = $xpath->query("//div[contains(@class, 'vevent')]/*/abbr[contains(@class, 'dtend')]"); ///a/abbr[class='dtstart']
         if (! $endDate || $endDate->length == 0) {
@@ -48,5 +56,20 @@ class EventEndDate
         $endDate = $endDate->item(0)->attributes->getNamedItem('title')->textContent;
 
         return new \DateTime($endDate, $this->timezone);
+
+        $xpath = new DOMXPath($dom);
+        $closingDate = $xpath->query(".//time/@datetime", $node);
+        if (! $closingDate || $closingDate->length == 0) {
+            throw new InvalidArgumentException('The CfP does not seem to have a closing date');
+        }
+
+        $closingDate = $closingDate->item(0)->textContent;
+
+        $cfp->dateEnd = new DateTimeImmutable($closingDate);
+        $cfp->dateEnd = $cfp->dateEnd->setTimezone($this->timezone);
+
+        return $cfp;
+
+
     }
 }

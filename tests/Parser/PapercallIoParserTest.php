@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2015-2015 Andreas Heigl<andreas@heigl.org>
+ * Copyright (c) Andreas Heigl<andreas@heigl.org>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,34 +21,36 @@
  * THE SOFTWARE.
  *
  * @author    Andreas Heigl<andreas@heigl.org>
- * @copyright 2015-2015 Andreas Heigl/callingallpapers.com
+ * @copyright Andreas Heigl
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
- * @version   0.0
- * @since     06.03.2012
- * @link      http://github.com/joindin/callingallpapers
+ * @since     05.07.2017
+ * @link      http://github.com/heiglandreas/callingallpapers_cli
  */
-namespace Callingallpapers\Parser\PapercallIo;
+
+namespace CallingallpapersTest\Cli\Parser;
 
 use Callingallpapers\Entity\Cfp;
-use Callingallpapers\Parser\EventDetailParserInterface;
-use DOMDocument;
-use DOMNode;
-use DOMXPath;
+use Callingallpapers\Parser\PapercallIo\EventParser;
+use Callingallpapers\Parser\PapercallIoParser;
+use Callingallpapers\Service\TimezoneService;
+use Callingallpapers\Writer\WriterInterface;
+use Mockery as M;
 
-class EventUri implements EventDetailParserInterface
+class PapercallIoParserTest extends \PHPUnit_Framework_TestCase
 {
-
-    public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
+    public function testThatParsingFirstPageWorks()
     {
-        $xpath = new DOMXPath($dom);
-        $uriPath = $xpath->query("//h1/following-sibling::a");
+        $tz = M::mock(TimezoneService::class);
 
-        if (! $uriPath || $uriPath->length == 0) {
-            throw new \InvalidArgumentException('The CfP does not seem to have an EventUri');
-        }
+        $eventParser = M::mock(EventParser::class);
+        $eventParser->shouldReceive('parseEvent')->times(100);
 
-        $cfp->conferenceUri = trim($uriPath->item(0)->attributes->getNamedItem('href')->textContent);
+        $writer = M::mock(WriterInterface::class);
+        $writer->shouldReceive('write')->times(100);
 
-        return $cfp;
+        $parser = new PapercallIoParser($tz, $eventParser);
+        $parser->setStartUrl( __DIR__ . '/PapercallIo/_assets/index2.html');
+
+        self::assertTrue($parser->parse($writer));
     }
 }

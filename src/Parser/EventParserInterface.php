@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2015-2015 Andreas Heigl<andreas@heigl.org>
+ * Copyright (c) Andreas Heigl<andreas@heigl.org>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,34 +21,18 @@
  * THE SOFTWARE.
  *
  * @author    Andreas Heigl<andreas@heigl.org>
- * @copyright 2015-2015 Andreas Heigl/callingallpapers.com
+ * @copyright Andreas Heigl
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
- * @version   0.0
- * @since     06.03.2012
- * @link      http://github.com/joindin/callingallpapers
+ * @since     05.07.2017
+ * @link      http://github.com/heiglandreas/callingallpapers_cli
  */
-namespace Callingallpapers\Parser\PapercallIo;
 
-use Callingallpapers\Entity\Cfp;
-use Callingallpapers\Parser\EventDetailParserInterface;
-use DOMDocument;
+namespace Callingallpapers\Parser;
+
 use DOMNode;
-use DOMXPath;
+use Callingallpapers\Entity\Cfp;
 
-class EventUri implements EventDetailParserInterface
+interface EventParserInterface
 {
-
-    public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
-    {
-        $xpath = new DOMXPath($dom);
-        $uriPath = $xpath->query("//h1/following-sibling::a");
-
-        if (! $uriPath || $uriPath->length == 0) {
-            throw new \InvalidArgumentException('The CfP does not seem to have an EventUri');
-        }
-
-        $cfp->conferenceUri = trim($uriPath->item(0)->attributes->getNamedItem('href')->textContent);
-
-        return $cfp;
-    }
+    public function parseEvent(DOMNode $node) : Cfp;
 }
