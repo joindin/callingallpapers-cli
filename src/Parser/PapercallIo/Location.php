@@ -47,7 +47,9 @@ class Location implements EventDetailParserInterface
             return $cfp;
         }
 
-        $cfp->location = trim($titlePath->item(0)->textContent);
+        $location = trim($titlePath->item(0)->textContent);
+        $location = explode(' - ', $location);
+        $cfp->location = $location[0];
 
         return $cfp;
     }

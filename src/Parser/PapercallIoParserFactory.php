@@ -31,7 +31,14 @@ namespace Callingallpapers\Parser;
 
 use Callingallpapers\Parser\PapercallIo\ClosingDate;
 use Callingallpapers\Parser\PapercallIo\Description;
+use Callingallpapers\Parser\PapercallIo\EventEndDate;
+use Callingallpapers\Parser\PapercallIo\EventName;
 use Callingallpapers\Parser\PapercallIo\EventParser;
+use Callingallpapers\Parser\PapercallIo\EventStartDate;
+use Callingallpapers\Parser\PapercallIo\EventUri;
+use Callingallpapers\Parser\PapercallIo\Location;
+use Callingallpapers\Parser\PapercallIo\Tags;
+use Callingallpapers\Parser\PapercallIo\Uri;
 use Callingallpapers\Service\TimezoneService;
 
 class PapercallIoParserFactory
@@ -48,8 +55,15 @@ class PapercallIoParserFactory
         $detailsParserList = new EventDetailParserList();
 
         $detailsParserList
+            ->addEventDetailParser(new Location())
             ->addEventDetailParser(new ClosingDate())
             ->addEventDetailParser(new Description())
+            ->addEventDetailParser(new EventName())
+            ->addEventDetailParser(new Tags())
+            ->addEventDetailParser(new EventStartDate())
+            ->addEventDetailParser(new EventEndDate())
+            ->addEventDetailParser(new Uri())
+            ->addEventDetailParser(new EventUri())
         ;
 
         $eventParser = new EventParser($detailsParserList);

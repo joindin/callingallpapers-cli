@@ -80,8 +80,8 @@ class Cfp
     {
         $this->dateStart      = new \DateTimeImmutable();
         $this->dateEnd        = new \DateTimeImmutable();
-        $this->eventStartDate = new \DateTimeImmutable();
-        $this->eventEndDate   = new \DateTimeImmutable();
+        $this->eventStartDate = new \DateTimeImmutable('@0');
+        $this->eventEndDate   = new \DateTimeImmutable('@0');
     }
 
     public function toArray()

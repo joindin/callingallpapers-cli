@@ -27,25 +27,36 @@
  * @since     06.03.2012
  * @link      http://github.com/joindin/callingallpapers
  */
-namespace Callingallpapers\Parser\Lanyrd;
+namespace Callingallpapers\Parser\PapercallIo;
 
-class Tags
+use Callingallpapers\Entity\Cfp;
+use Callingallpapers\Parser\EventDetailParserInterface;
+use DOMDocument;
+use DOMNode;
+use DOMXPath;
+
+class Tags implements EventDetailParserInterface
 {
 
-    public function parse($dom, $xpath)
+    public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
     {
-        $tags = $xpath->query(
-            "//ul[contains(@class, \"tags\")]/li/a"
-        );
-        if (! $tags || $tags->length == 0) {
+        $xpath = new DOMXPath($dom);
+
+        $tagsPath = $xpath->query("//h1/following-sibling::a/following-sibling::span");
+        if (! $tagsPath || $tagsPath->length == 0) {
             throw new \InvalidArgumentException('The CfP does not seem to have tags');
         }
 
+        $tags = explode(',', str_replace('Tags: ', '', $tagsPath->item(0)->textContent));
+
         $returntags = [];
+
         foreach ($tags as $tag) {
-            $returntags[] = trim($tag->textContent);
+            $returntags[] = trim($tag);
         }
 
-        return $returntags;
+        $cfp->tags = $returntags;
+
+        return $cfp;
     }
 }

@@ -27,26 +27,53 @@
  * @since     06.03.2012
  * @link      http://github.com/joindin/callingallpapers
  */
-namespace Callingallpapers\Parser\Lanyrd;
+namespace Callingallpapers\Parser\PapercallIo;
 
-class EventStartDate
+use Callingallpapers\Entity\Cfp;
+use Callingallpapers\Parser\EventDetailParserInterface;
+use DateTimeImmutable;
+use DateTimeZone;
+use DOMDocument;
+use DOMNode;
+use DOMXPath;
+
+class EventStartDate implements EventDetailParserInterface
 {
     protected $timezone;
 
     public function __construct($timezone = 'UTC')
     {
-        $this->timezone = new \DateTimezone($timezone);
+        $this->timezone = new DateTimezone($timezone);
     }
 
-    public function parse($dom, $xpath)
+    public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
     {
-        $startDate = $xpath->query("//div[contains(@class, 'vevent')]/*/abbr[contains(@class, 'dtstart')]"); ///a/abbr[class='dtstart']
-        if (! $startDate || $startDate->length == 0) {
-            throw new \InvalidArgumentException('The Event does not seem to have a start date');
+        $xpath = new DOMXPath($dom);
+        $titlePath = $xpath->query("//h1[contains(@class, 'subheader__subtitle')]");
+
+        if (! $titlePath || $titlePath->length == 0) {
+            return $cfp;
         }
 
-        $startDate = $startDate->item(0)->attributes->getNamedItem('title')->textContent;
+        $location = trim($titlePath->item(0)->textContent);
+        $location = explode(' - ', $location);
 
-        return new \DateTime($startDate, $this->timezone);
+        if (! isset($location[1])) {
+            return $cfp;
+        }
+
+        $dates = explode(',', $location[1]);
+        if (count($dates) % 2  !== 0) {
+            return $cfp;
+        }
+
+        if (count($dates) < 2) {
+            return $cfp;
+        }
+
+        $startDate = new DateTimeImmutable($dates[0] . ', ' . $dates[1] . ' 00:00:00', $this->timezone );
+        $cfp->eventStartDate = $startDate;
+
+        return $cfp;
     }
 }

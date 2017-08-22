@@ -27,7 +27,7 @@
  * @since     06.03.2012
  * @link      http://github.com/joindin/callingallpapers
  */
-namespace Callingallpapers\Parser\Lanyrd;
+namespace Callingallpapers\Parser\PapercallIo;
 
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\EventDetailParserInterface;
@@ -46,30 +46,37 @@ class EventEndDate implements EventDetailParserInterface
         $this->timezone = new DateTimezone($timezone);
     }
 
-    public function parse(DOMDocument $dom, DOMNode $xpath, Cfp $cfp) : Cfp
+    public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
     {
-        $endDate = $xpath->query("//div[contains(@class, 'vevent')]/*/abbr[contains(@class, 'dtend')]"); ///a/abbr[class='dtstart']
-        if (! $endDate || $endDate->length == 0) {
-            throw new \InvalidArgumentException('The Event does not seem to have an end date');
-        }
-
-        $endDate = $endDate->item(0)->attributes->getNamedItem('title')->textContent;
-
-        return new \DateTime($endDate, $this->timezone);
-
         $xpath = new DOMXPath($dom);
-        $closingDate = $xpath->query(".//time/@datetime", $node);
-        if (! $closingDate || $closingDate->length == 0) {
-            throw new InvalidArgumentException('The CfP does not seem to have a closing date');
+        $titlePath = $xpath->query("//h1[contains(@class, 'subheader__subtitle')]");
+
+        if (! $titlePath || $titlePath->length == 0) {
+            return $cfp;
         }
 
-        $closingDate = $closingDate->item(0)->textContent;
+        $locationTimeString = trim($titlePath->item(0)->textContent);
+        $locationTime = explode(' - ', $locationTimeString);
 
-        $cfp->dateEnd = new DateTimeImmutable($closingDate);
-        $cfp->dateEnd = $cfp->dateEnd->setTimezone($this->timezone);
+        if (! isset($locationTime[1])) {
+            return $cfp;
+        }
+
+        $dates = explode(',', $locationTime[1]);
+        if (count($dates) % 2  !== 0) {
+        var_Dump($dates);
+            return $cfp;
+        }
+
+        $datestring = $dates[0] . ', ' . $dates[1];
+
+        if (count($dates) >= 4) {
+            $datestring = $dates[2] . ', ' . $dates[3];
+        }
+
+        $endDate = new DateTimeImmutable($datestring . ' 00:00:00', $this->timezone );
+        $cfp->eventEndDate = $endDate;
 
         return $cfp;
-
-
     }
 }
