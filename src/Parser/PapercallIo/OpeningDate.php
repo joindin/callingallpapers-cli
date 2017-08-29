@@ -40,6 +40,11 @@ class OpeningDate
 
     public function parse($dom, $xpath)
     {
+        $timezone = $this->timezone;
+        if ($cfp->timezone) {
+            $timezone = $cfp->timezone;
+        }
+
         $openingDate = $xpath->query("//span[text()='Openend on:']/following-sibling::strong");
         if (! $openingDate || $openingDate->length == 0) {
             throw new \UnexpectedValueException('No CfP-Open Date found');
@@ -47,6 +52,6 @@ class OpeningDate
 
         $openingDate = $openingDate->item(0)->textContent;
 
-        return new \DateTime($openingDate, $this->timezone);
+        return new \DateTime($openingDate, $timezone);
     }
 }

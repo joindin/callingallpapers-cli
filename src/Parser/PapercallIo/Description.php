@@ -43,13 +43,13 @@ class Description implements EventDetailParserInterface
         $xpath = new DOMXPath($dom);
         $result = $xpath->query('//time/../../..//div[contains(@class, "markdown")]');
         if ($result->length < 1) {
-            return '';
+            return $cfp;
         }
 
         $result = $result->item(0)->childNodes;
 
         if ($result->length <= 0) {
-            return '';
+            return $cfp;
         }
 
         $text = [];

@@ -44,7 +44,7 @@ class Tags implements EventDetailParserInterface
 
         $tagsPath = $xpath->query("//h1/following-sibling::a/following-sibling::span");
         if (! $tagsPath || $tagsPath->length == 0) {
-            throw new \InvalidArgumentException('The CfP does not seem to have tags');
+            return $cfp;
         }
 
         $tags = explode(',', str_replace('Tags: ', '', $tagsPath->item(0)->textContent));

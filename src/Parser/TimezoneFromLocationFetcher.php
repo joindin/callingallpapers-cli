@@ -23,33 +23,43 @@
  * @author    Andreas Heigl<andreas@heigl.org>
  * @copyright Andreas Heigl
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
- * @since     05.07.2017
- * @link      http://github.com/heiglandreas/callingallpapers_cli
+ * @since     28.08.2017
+ * @link      http://github.com/heiglandreas/callingallpapers
  */
 
-namespace CallingallpapersTest\Cli\Parser;
+namespace Callingallpapers\Parser;
 
-use Callingallpapers\Parser\PapercallIo\EventParser;
-use Callingallpapers\Parser\PapercallIo\PapercallIoParser;
+use Callingallpapers\Entity\Cfp;
+use Callingallpapers\Service\GeolocationService as LocationService;
 use Callingallpapers\Service\TimezoneService;
-use Callingallpapers\Writer\WriterInterface;
-use Mockery as M;
+use DateTimeZone;
+use DOMDocument;
+use DOMNode;
 
-class PapercallIoParserTest extends \PHPUnit_Framework_TestCase
+class TimezoneFromLocationFetcher implements EventDetailParserInterface
 {
-    public function testThatParsingFirstPageWorks()
+    private $timezoneService;
+
+    private $locationService;
+
+    public function __construct(
+        TimezoneService $timezoneService,
+        LocationService $locationService
+    )
     {
-        $tz = M::mock(TimezoneService::class);
+        $this->timezoneService = $timezoneService;
+        $this->locationService = $locationService;
+    }
 
-        $eventParser = M::mock(EventParser::class);
-        $eventParser->shouldReceive('parseEvent')->times(100);
+    public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
+    {
+        $location = $this->locationService->getLocationForAddress($cfp->location);
+        $cfp->longitude = $location->getLongitude();
+        $cfp->latitude  = $location->getLatitude();
 
-        $writer = M::mock(WriterInterface::class);
-        $writer->shouldReceive('write')->times(100);
+        $timezone = $this->timezoneService->getTimezoneForLocation($cfp->latitude, $cfp->longitude);
+        $cfp->timezone = new DateTimeZone($timezone);
 
-        $parser = new PapercallIoParser($tz, $eventParser);
-        $parser->setStartUrl( __DIR__ . '/PapercallIo/_assets/index2.html');
-
-        self::assertTrue($parser->parse($writer));
+        return $cfp;
     }
 }

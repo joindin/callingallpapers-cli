@@ -29,27 +29,34 @@
 
 namespace CallingallpapersTest\Cli\Parser;
 
+use Callingallpapers\Entity\Geolocation;
 use Callingallpapers\Parser\PapercallIo\EventParser;
 use Callingallpapers\Parser\PapercallIo\PapercallIoParser;
+use Callingallpapers\Parser\PapercallIo\PapercallIoParserFactory;
+use Callingallpapers\Service\GeolocationService;
 use Callingallpapers\Service\TimezoneService;
+use Callingallpapers\Writer\TestCfpWriter;
 use Callingallpapers\Writer\WriterInterface;
 use Mockery as M;
+use Symfony\Component\Console\Output\BufferedOutput;
+use Symfony\Component\Console\Output\StreamOutput;
 
-class PapercallIoParserTest extends \PHPUnit_Framework_TestCase
+class PapercallIoParserIntegrationTest extends \PHPUnit_Framework_TestCase
 {
     public function testThatParsingFirstPageWorks()
     {
+        $loc = M::mock(GeolocationService::class);
+        $loc->shouldReceive('getLocationForAddress')->andReturn(new Geolocation(0, 0));
+
         $tz = M::mock(TimezoneService::class);
+        $tz->shouldReceive('getTimezoneForLocation')->andReturn('UTC');
 
-        $eventParser = M::mock(EventParser::class);
-        $eventParser->shouldReceive('parseEvent')->times(100);
+        $parser = (new PapercallIoParserFactory($tz, $loc))();
 
-        $writer = M::mock(WriterInterface::class);
-        $writer->shouldReceive('write')->times(100);
+        $writer = new TestCfpWriter();
+        $parser->parse($writer);
 
-        $parser = new PapercallIoParser($tz, $eventParser);
-        $parser->setStartUrl( __DIR__ . '/PapercallIo/_assets/index2.html');
-
-        self::assertTrue($parser->parse($writer));
+        $this->assertGreaterThan(0, $writer->count());
+        $this->assertTrue($writer->valid());
     }
 }

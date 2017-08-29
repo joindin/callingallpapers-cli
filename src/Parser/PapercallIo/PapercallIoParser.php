@@ -28,27 +28,23 @@
  * @link      http://github.com/heiglandreas/callingallpapers
  */
 
-namespace Callingallpapers\Parser;
+namespace Callingallpapers\Parser\PapercallIo;
 
-use Callingallpapers\Parser\PapercallIo\EventParser;
-use Callingallpapers\Service\TimezoneService;
+use Callingallpapers\Parser\ParserInterface;
 use Callingallpapers\Writer\WriterInterface;
-use DOMDocument;
+use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
 
 class PapercallIoParser implements ParserInterface
 {
     const SOURCE = 'papercallio';
 
-    protected $tzService;
-
     private $uri = 'https://papercall.io/cfps?page=%1$s';
 
     private $parser;
 
-    public function __construct(TimezoneService $tzService, EventParser $parser)
+    public function __construct(EventParser $parser)
     {
-        $this->tzService = $tzService;
         $this->parser = $parser;
     }
 
@@ -64,6 +60,7 @@ class PapercallIoParser implements ParserInterface
         $pages = null;
 
         do {
+
             $dom = new DOMDocument('1.0', 'UTF-8');
             libxml_use_internal_errors(true);
             $uri = sprintf($this->uri, $i+1);
@@ -77,7 +74,7 @@ class PapercallIoParser implements ParserInterface
                 $pages = $p->length - 2;
             }
 
-            $nodes = $xpath->query("//div[contains(@class,'main')]/div[@class='container'][2]//div[@class='box']");
+            $nodes = $xpath->query("//div[contains(@class,'main')]/div[@class='container'][last()]//div[@class='box']");
             if ($nodes->length < 1) {
                 continue;
             }
@@ -87,7 +84,7 @@ class PapercallIoParser implements ParserInterface
                 try {
                     $writer->write($this->parser->parseEvent($node), self::SOURCE);
                 } catch (\Exception $e) {
-                    error_log($e->getMEssage());
+                    // Do nothing
                 }
             }
         } while (++$i < $pages);

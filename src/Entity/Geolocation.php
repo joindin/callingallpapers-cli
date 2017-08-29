@@ -23,33 +23,36 @@
  * @author    Andreas Heigl<andreas@heigl.org>
  * @copyright Andreas Heigl
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
- * @since     05.07.2017
- * @link      http://github.com/heiglandreas/callingallpapers_cli
+ * @since     24.08.2017
+ * @link      http://github.com/heiglandreas/callingallpapers
  */
 
-namespace CallingallpapersTest\Cli\Parser;
+namespace Callingallpapers\Entity;
 
-use Callingallpapers\Parser\PapercallIo\EventParser;
-use Callingallpapers\Parser\PapercallIo\PapercallIoParser;
-use Callingallpapers\Service\TimezoneService;
-use Callingallpapers\Writer\WriterInterface;
-use Mockery as M;
-
-class PapercallIoParserTest extends \PHPUnit_Framework_TestCase
+class Geolocation
 {
-    public function testThatParsingFirstPageWorks()
+    private $latitude;
+
+    private $longitude;
+
+    public function __construct(float $latitude, float $longitude)
     {
-        $tz = M::mock(TimezoneService::class);
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
+    }
 
-        $eventParser = M::mock(EventParser::class);
-        $eventParser->shouldReceive('parseEvent')->times(100);
+    public function getLatitude() : float
+    {
+        return $this->latitude;
+    }
 
-        $writer = M::mock(WriterInterface::class);
-        $writer->shouldReceive('write')->times(100);
+    public function getLongitude() : float
+    {
+        return $this->longitude;
+    }
 
-        $parser = new PapercallIoParser($tz, $eventParser);
-        $parser->setStartUrl( __DIR__ . '/PapercallIo/_assets/index2.html');
-
-        self::assertTrue($parser->parse($writer));
+    public function __toString() : string
+    {
+        return $this->getLatitude() . ' ' . $this->getLongitude();
     }
 }

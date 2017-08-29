@@ -27,27 +27,30 @@
  * @link      http://github.com/heiglandreas/callingallpapers_cli
  */
 
-namespace Callingallpapers\Parser;
+namespace Callingallpapers\Parser\PapercallIo;
 
-use Callingallpapers\Parser\PapercallIo\ClosingDate;
-use Callingallpapers\Parser\PapercallIo\Description;
-use Callingallpapers\Parser\PapercallIo\EventEndDate;
-use Callingallpapers\Parser\PapercallIo\EventName;
-use Callingallpapers\Parser\PapercallIo\EventParser;
-use Callingallpapers\Parser\PapercallIo\EventStartDate;
-use Callingallpapers\Parser\PapercallIo\EventUri;
-use Callingallpapers\Parser\PapercallIo\Location;
-use Callingallpapers\Parser\PapercallIo\Tags;
-use Callingallpapers\Parser\PapercallIo\Uri;
+use Callingallpapers\Parser\EventDetailParserList;
+use Callingallpapers\Parser\TimezoneFromLocationFetcher;
+use Callingallpapers\Service\GeolocationService;
 use Callingallpapers\Service\TimezoneService;
 
 class PapercallIoParserFactory
 {
     private $timezoneService;
 
-    public function __construct(TimezoneService $tzservice)
+    private $geolocationService;
+
+    private $timezoneFromlocationFetcher;
+
+    public function __construct(TimezoneService $tzservice, GeolocationService $geolocationService)
     {
         $this->timezoneService = $tzservice;
+        $this->geolocationService = $geolocationService;
+
+        $this->timezoneFromlocationFetcher = new TimezoneFromLocationFetcher(
+            $this->timezoneService,
+            $this->geolocationService
+        );
     }
 
     public function __invoke()
@@ -56,6 +59,7 @@ class PapercallIoParserFactory
 
         $detailsParserList
             ->addEventDetailParser(new Location())
+            ->addEventDetailParser($this->timezoneFromlocationFetcher)
             ->addEventDetailParser(new ClosingDate())
             ->addEventDetailParser(new Description())
             ->addEventDetailParser(new EventName())
@@ -68,6 +72,6 @@ class PapercallIoParserFactory
 
         $eventParser = new EventParser($detailsParserList);
 
-        return new PapercallIoParser($this->timezoneService, $eventParser);
+        return new PapercallIoParser($eventParser);
     }
 }

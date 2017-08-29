@@ -1,17 +1,14 @@
 <?php
 /**
  * Copyright (c) Andreas Heigl<andreas@heigl.org>
- *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -23,33 +20,53 @@
  * @author    Andreas Heigl<andreas@heigl.org>
  * @copyright Andreas Heigl
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
- * @since     05.07.2017
- * @link      http://github.com/heiglandreas/callingallpapers_cli
+ * @since     25.07.2016
+ * @link      http://github.com/heiglandreas/callingallpapers
  */
 
-namespace CallingallpapersTest\Cli\Parser;
+namespace Callingallpapers\Service;
 
-use Callingallpapers\Parser\PapercallIo\EventParser;
-use Callingallpapers\Parser\PapercallIo\PapercallIoParser;
-use Callingallpapers\Service\TimezoneService;
-use Callingallpapers\Writer\WriterInterface;
-use Mockery as M;
+use Callingallpapers\Entity\Geolocation;
+use GuzzleHttp\ClientInterface;
 
-class PapercallIoParserTest extends \PHPUnit_Framework_TestCase
+class GeolocationService
 {
-    public function testThatParsingFirstPageWorks()
+    public static $lastAccess;
+
+    protected $uri = 'https://nominatim.openstreetmap.org/search/%1$s?format=json&addressdetails=1&limit=1';
+
+    protected $client;
+
+    public function __construct(ClientInterface $client)
     {
-        $tz = M::mock(TimezoneService::class);
+        $this->client = $client;
+    }
 
-        $eventParser = M::mock(EventParser::class);
-        $eventParser->shouldReceive('parseEvent')->times(100);
+    public function getLocationForAddress(string $address) : Geolocation
+    {
+        if (self::$lastAccess === time()) {
+            sleep(1);
+        }
+        self::$lastAccess = time();
+        try {
+            $result = $this->client->get(sprintf(
+                $this->uri,
+                $address
+            ));
+        } catch (\Exception $e) {
+            return new Geolocation(0, 0);
+        }
 
-        $writer = M::mock(WriterInterface::class);
-        $writer->shouldReceive('write')->times(100);
+        $values = json_decode($result->getBody()->getContents(), true);
 
-        $parser = new PapercallIoParser($tz, $eventParser);
-        $parser->setStartUrl( __DIR__ . '/PapercallIo/_assets/index2.html');
+        if (! isset($values[0])) {
+            return new Geolocation(0, 0);
+        }
 
-        self::assertTrue($parser->parse($writer));
+        if (! isset($values[0]['lat']) || ! isset($values[0]['lon'])) {
+            return new Geolocation(0, 0);
+        }
+
+        return new Geolocation($values[0]['lat'], $values[0]['lon']);
     }
 }

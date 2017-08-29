@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) Andreas Heigl<andreas@heigl.org>
+ * Copyright (c) 2015-2016 Andreas Heigl<andreas@heigl.org>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,35 +21,58 @@
  * THE SOFTWARE.
  *
  * @author    Andreas Heigl<andreas@heigl.org>
- * @copyright Andreas Heigl
+ * @copyright 2015-2016 Andreas Heigl/callingallpapers.com
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
- * @since     05.07.2017
- * @link      http://github.com/heiglandreas/callingallpapers_cli
+ * @version   0.0
+ * @since     01.12.2015
+ * @link      http://github.com/heiglandreas/callingallpapers-cli
  */
+namespace Callingallpapers\Writer;
 
-namespace CallingallpapersTest\Cli\Parser;
+use Callingallpapers\Entity\Cfp;
+use Symfony\Component\Console\Output\OutputInterface;
 
-use Callingallpapers\Parser\PapercallIo\EventParser;
-use Callingallpapers\Parser\PapercallIo\PapercallIoParser;
-use Callingallpapers\Service\TimezoneService;
-use Callingallpapers\Writer\WriterInterface;
-use Mockery as M;
-
-class PapercallIoParserTest extends \PHPUnit_Framework_TestCase
+class TestCfpWriter implements WriterInterface
 {
-    public function testThatParsingFirstPageWorks()
+    private $cfps;
+
+    public function __construct()
     {
-        $tz = M::mock(TimezoneService::class);
+        $this->cfps = [];
+    }
 
-        $eventParser = M::mock(EventParser::class);
-        $eventParser->shouldReceive('parseEvent')->times(100);
+    public function write(Cfp $cfp, $source)
+    {
+        $this->cfps[] = $cfp;
+    }
 
-        $writer = M::mock(WriterInterface::class);
-        $writer->shouldReceive('write')->times(100);
+    public function setOutput(OutputInterface $output)
+    {
+        // Do nothing
+    }
 
-        $parser = new PapercallIoParser($tz, $eventParser);
-        $parser->setStartUrl( __DIR__ . '/PapercallIo/_assets/index2.html');
+    public function count()
+    {
+        return count($this->cfps);
+    }
 
-        self::assertTrue($parser->parse($writer));
+    public function valid()
+    {
+        /** @var \Callingallpapers\Entity\Cfp $cfp */
+        foreach ($this->cfps as $cfp) {
+            if (! $cfp->uri) {
+                return false;
+            }
+
+            if (! $cfp->conferenceName) {
+                return false;
+            }
+
+            if (! $cfp->dateEnd) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

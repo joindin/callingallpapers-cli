@@ -31,13 +31,14 @@ namespace Callingallpapers\Parser\PapercallIo;
 
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\EventDetailParserInterface;
+use Callingallpapers\Service\GeolocationService;
+use Callingallpapers\Service\TimezoneService;
 use DOMDocument;
 use DOMNode;
 use DOMXPath;
 
 class Location implements EventDetailParserInterface
 {
-
     public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
     {
         $xpath = new DOMXPath($dom);

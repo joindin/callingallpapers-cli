@@ -27,29 +27,34 @@
  * @link      http://github.com/heiglandreas/callingallpapers_cli
  */
 
-namespace CallingallpapersTest\Cli\Parser;
+namespace Callingallpapers\Parser\PapercallIo;
 
-use Callingallpapers\Parser\PapercallIo\EventParser;
-use Callingallpapers\Parser\PapercallIo\PapercallIoParser;
-use Callingallpapers\Service\TimezoneService;
-use Callingallpapers\Writer\WriterInterface;
-use Mockery as M;
+use Callingallpapers\Parser\EventDetailParserInterface;
+use IvoPetkov\HTML5DOMDocument as DOMDocument;
+use DOMNode;
+use DOMXpath;
+use Callingallpapers\Entity\Cfp;
+use Callingallpapers\Parser\EventParserInterface;
 
-class PapercallIoParserTest extends \PHPUnit_Framework_TestCase
+class EventParser implements EventParserInterface
 {
-    public function testThatParsingFirstPageWorks()
+    private $eventParser;
+
+    public function __construct(EventDetailParserInterface $eventParser)
     {
-        $tz = M::mock(TimezoneService::class);
+        $this->eventParser = $eventParser;
+    }
 
-        $eventParser = M::mock(EventParser::class);
-        $eventParser->shouldReceive('parseEvent')->times(100);
+    public function parseEvent(DOMNode $eventNode) : Cfp
+    {
+        $xpath = new DOMXPath($eventNode->ownerDocument);
+        $anchor = $xpath->query('.//div[@class="pack__item"]/a', $eventNode);
+        /** @var \DOMNode $node */
+        $eventPageUrl = $anchor->item(0)->attributes->getNamedItem('href')->textContent;
 
-        $writer = M::mock(WriterInterface::class);
-        $writer->shouldReceive('write')->times(100);
+        $document = new DOMDocument('1.0', 'UTF-8');
+        $document->loadHTMLFile($eventPageUrl);
 
-        $parser = new PapercallIoParser($tz, $eventParser);
-        $parser->setStartUrl( __DIR__ . '/PapercallIo/_assets/index2.html');
-
-        self::assertTrue($parser->parse($writer));
+        return $this->eventParser->parse($document, $eventNode, new CfP());
     }
 }

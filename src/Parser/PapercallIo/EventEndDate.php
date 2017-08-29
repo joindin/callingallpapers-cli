@@ -48,6 +48,12 @@ class EventEndDate implements EventDetailParserInterface
 
     public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
     {
+        $timezone = $this->timezone;
+        if ($cfp->timezone) {
+            $timezone = $cfp->timezone;
+        }
+
+
         $xpath = new DOMXPath($dom);
         $titlePath = $xpath->query("//h1[contains(@class, 'subheader__subtitle')]");
 
@@ -64,7 +70,6 @@ class EventEndDate implements EventDetailParserInterface
 
         $dates = explode(',', $locationTime[1]);
         if (count($dates) % 2  !== 0) {
-        var_Dump($dates);
             return $cfp;
         }
 
@@ -74,7 +79,7 @@ class EventEndDate implements EventDetailParserInterface
             $datestring = $dates[2] . ', ' . $dates[3];
         }
 
-        $endDate = new DateTimeImmutable($datestring . ' 00:00:00', $this->timezone );
+        $endDate = new DateTimeImmutable($datestring . ' 00:00:00', $timezone );
         $cfp->eventEndDate = $endDate;
 
         return $cfp;

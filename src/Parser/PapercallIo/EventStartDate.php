@@ -48,6 +48,11 @@ class EventStartDate implements EventDetailParserInterface
 
     public function parse(DOMDocument $dom, DOMNode $node, Cfp $cfp) : Cfp
     {
+        $timezone = $this->timezone;
+        if ($cfp->timezone) {
+            $timezone = $cfp->timezone;
+        }
+
         $xpath = new DOMXPath($dom);
         $titlePath = $xpath->query("//h1[contains(@class, 'subheader__subtitle')]");
 
@@ -71,7 +76,7 @@ class EventStartDate implements EventDetailParserInterface
             return $cfp;
         }
 
-        $startDate = new DateTimeImmutable($dates[0] . ', ' . $dates[1] . ' 00:00:00', $this->timezone );
+        $startDate = new DateTimeImmutable($dates[0] . ', ' . $dates[1] . ' 00:00:00', $timezone );
         $cfp->eventStartDate = $startDate;
 
         return $cfp;
