@@ -31,8 +31,8 @@ namespace Callingallpapers\Command;
 
 use Callingallpapers\Parser\JoindinCfpParser;
 use Callingallpapers\Parser\Lanyrd\LanyrdCfpParser;
-use Callingallpapers\Parser\PapercallIoParser;
-use Callingallpapers\Parser\PapercallIoParserFactory;
+use Callingallpapers\Parser\PapercallIo\PapercallIoParserFactory;
+use Callingallpapers\Service\GeolocationService;
 use Callingallpapers\Service\TimezoneService;
 use Callingallpapers\Writer\ApiCfpWriter;
 use GuzzleHttp\Client;
@@ -80,12 +80,19 @@ EOT
         $writer->setOutput($output);
 
         $timezoneService = new TimezoneService(new Client(), $config['timezonedb_token']);
+
+        $geolocationService = new GeolocationService(new Client());
+
+        // Parse Lanyrd.com
         $parser = new LanyrdCfpParser($timezoneService);
-       // $parser->parse($writer);
+        $parser->parse($writer);
+
+        // Parse Papercall.io
+        $parser = (new PapercallIoParserFactory($timezoneService, $geolocationService))();
+        $parser->parse($writer);
+
+        // Parse joind.in
         $parser = new JoindinCfpParser();
-       // $parser->parse($writer);
-        $factory = new PapercallIoParserFactory($timezoneService);
-        $parser = $factory();
         $parser->parse($writer);
     }
 }
