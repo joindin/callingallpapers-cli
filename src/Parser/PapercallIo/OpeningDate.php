@@ -42,7 +42,7 @@ class OpeningDate
     {
         $timezone = $this->timezone;
         if ($cfp->timezone) {
-            $timezone = $cfp->timezone;
+            $timezone = new DateTimeZone($cfp->timezone);
         }
 
         $openingDate = $xpath->query("//span[text()='Openend on:']/following-sibling::strong");

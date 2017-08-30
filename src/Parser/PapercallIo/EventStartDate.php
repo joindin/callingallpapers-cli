@@ -50,7 +50,7 @@ class EventStartDate implements EventDetailParserInterface
     {
         $timezone = $this->timezone;
         if ($cfp->timezone) {
-            $timezone = $cfp->timezone;
+            $timezone = new DateTimeZone($cfp->timezone);
         }
 
         $xpath = new DOMXPath($dom);

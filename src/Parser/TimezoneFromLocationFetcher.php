@@ -58,7 +58,7 @@ class TimezoneFromLocationFetcher implements EventDetailParserInterface
         $cfp->latitude  = $location->getLatitude();
 
         $timezone = $this->timezoneService->getTimezoneForLocation($cfp->latitude, $cfp->longitude);
-        $cfp->timezone = new DateTimeZone($timezone);
+        $cfp->timezone = $timezone;
 
         return $cfp;
     }

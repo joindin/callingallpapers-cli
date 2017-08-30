@@ -50,7 +50,7 @@ class ClosingDate implements EventDetailParserInterface
     {
         $timezone = $this->timezone;
         if ($cfp->timezone) {
-            $timezone = $cfp->timezone;
+            $timezone = new \DateTimeZone($cfp->timezone);
         }
         $xpath = new DOMXPath($node->ownerDocument);
         $closingDate = $xpath->query(".//time/@datetime", $node);
