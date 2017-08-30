@@ -27,7 +27,7 @@
  * @since     06.03.2012
  * @link      http://github.com/joindin/callingallpapers
  */
-namespace Callingallpapers\Parser\Lanyrd;
+namespace Callingallpapers\Parser\PapercallIo;
 
 class OpeningDate
 {
