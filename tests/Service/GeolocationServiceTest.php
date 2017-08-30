@@ -26,34 +26,27 @@
 
 namespace CallingallpapersTest\Service;
 
-use Callingallpapers\Service\TimezoneService;
+use Callingallpapers\Service\GeolocationService;
+use Callingallpapers\Entity\Geolocation;
 use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
 
-class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
+class GeolocationServiceTest extends \PHPUnit_Framework_TestCase
 {
-    public function testRetrievalOfTimezoneWorks()
+    public function testRetrievalOfGeolocationWorks()
     {
         $client = new Client();
-        $key = getenv('CALLINGALLPAPERS_TIMEZONE_API_KEY');
 
-        if (! $key) {
-            return $this->markTestSkipped('No TIMEZONE-API-Key available');
-        }
-        $tzs = new TimezoneService($client, $key);
+        $tzs = new GeolocationService($client);
 
-        $this->assertEquals('Europe/Berlin', $tzs->getTimezoneForLocation(50, 8));
+        $this->assertEquals(new Geolocation(51.5073219, -0.1276474), $tzs->getLocationForAddress('London - UK'));
     }
 
-    /** @dataProvider fetchingTimezoneWithFailingHttpProvider */
-    public function testFetchingTimezoneWithFailingHttp($return)
+    /** @dataProvider fetchingLocationWithFailingHttpProvider */
+    public function testFetchingLocationWithFailingHttp($return)
     {
         $mock = new MockHandler([
             new Response($return, []),
@@ -62,12 +55,12 @@ class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
         $handler = HandlerStack::create($mock);
         $client = new Client(['handler' => $handler]);
 
-        $tzs = new TimezoneService($client, '');
+        $tzs = new GeolocationService($client);
 
-        $this->assertEquals('UTC', $tzs->getTimezoneForLocation(50, 8));
+        $this->assertEquals(new Geolocation(0, 0), $tzs->getLocationForAddress('London - UK'));
     }
 
-    public function fetchingTimezoneWithFailingHttpProvider()
+    public function fetchingLocationWithFailingHttpProvider()
     {
         return [
             '400' => [400],
@@ -78,8 +71,8 @@ class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
-    /** @dataProvider FetchingTimezoneWithValidHttpButFailingStatusProvider */
-    public function testFetchingTimezoneWithValidHttpButFailingStatus($body)
+    /** @dataProvider FetchingLocationWithValidHttpButFailingStatusProvider */
+    public function testFetchingLocationWithValidHttpButFailingStatus($body)
     {
         $mock = new MockHandler([
             new Response(200, [], json_encode($body)),
@@ -88,21 +81,21 @@ class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
         $handler = HandlerStack::create($mock);
         $client = new Client(['handler' => $handler]);
 
-        $tzs = new TimezoneService($client, '');
+        $tzs = new GeolocationService($client);
 
-        $this->assertEquals('UTC', $tzs->getTimezoneForLocation(50, 8));
+        $this->assertEquals(new Geolocation(0, 0), $tzs->getLocationForAddress('London - UK'));
     }
 
-    public function fetchingTimezoneWithValidHttpButFailingStatusProvider()
+    public function fetchingLocationWithValidHttpButFailingStatusProvider()
     {
         return [
-            'missing array key' => [['foo' => 'bar']],
-            'failure array key' => [['status' => 'bar']],
+            'missing content' => [[]],
+            'missing array key' => [['status' => 'bar']],
         ];
     }
 
-    /** @dataProvider FetchingTimezoneWithValidHttpProvider */
-    public function testFetchingTimezoneWithValidHttp($body)
+    /** @dataProvider FetchingLocationWithValidHttpProvider */
+    public function testFetchingLocationWithValidHttp($body)
     {
         $mock = new MockHandler([
             new Response(200, [], json_encode($body)),
@@ -115,25 +108,15 @@ class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
         $handler->push($history);
         $client = new Client(['handler' => $handler]);
 
-        $tzs = new TimezoneService($client, getenv('CALLINGALLPAPERS_TIMEZONE_API_KEY'));
+        $tzs = new GeolocationService($client);
 
-        $this->assertEquals('Europe/Berlin', $tzs->getTimezoneForLocation(50, 8));
-
-        /** @var RequestInterface $request */
-        $request = $container[0]['request'];
-        $this->assertEquals(
-            sprintf(
-                'http://api.timezonedb.com/v2/get-time-zone?key=%1$s&format=json&by=position&lat=50&lng=8',
-                getenv('CALLINGALLPAPERS_TIMEZONE_API_KEY')
-            ),
-            (string) $request->getUri()
-        );
+        $this->assertEquals(new Geolocation(20, 30), $tzs->getLocationForAddress('London - UK'));
     }
 
-    public function fetchingTimezoneWithValidHttpProvider()
+    public function fetchingLocationWithValidHttpProvider()
     {
         return [
-            'Body contains timezoneName' => [['status' => 'OK', 'zoneName' => 'Europe/Berlin']],
+            'Body contains timezoneName' => [[['lat' => '20', 'lon' => '30']]],
         ];
     }
 }

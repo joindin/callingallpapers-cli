@@ -20,67 +20,53 @@
  * @author    Andreas Heigl<andreas@heigl.org>
  * @copyright Andreas Heigl
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
- * @since     22.09.2016
+ * @since     25.07.2016
  * @link      http://github.com/heiglandreas/callingallpapers
  */
 
-namespace Callingallpapers\Notification;
+namespace Callingallpapers\Service;
 
-use Callingallpapers\Entity\Cfp;
-use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request;
+use Callingallpapers\Entity\Geolocation;
+use GuzzleHttp\ClientInterface;
 
-class TwitterNotifier implements NotificationInterface
+class GeolocationService
 {
+    public static $lastAccess;
+
+    protected $uri = 'https://nominatim.openstreetmap.org/search/%1$s?format=json&addressdetails=1&limit=1';
+
     protected $client;
 
-    public function __construct(Client $client)
+    public function __construct(ClientInterface $client)
     {
         $this->client = $client;
     }
 
-    public function notify(Cfp $cfp)
+    public function getLocationForAddress(string $address) : Geolocation
     {
-        $name = $this->shortenName($cfp->conferenceName);
-        $uri  = $this->shortenUri($cfp->uri);
-
-        $notificationString = sprintf(
-            '24 hours until the CfP for "%1$s" closes: %2$s',
-            $name,
-            $uri
-        );
-        $request = new Request(
-            'POST',
-            'statuses/update.json?' . $this->formUrlEncode([
-                'status'              => $notificationString,
-                'lat'                 => $cfp->latitude,
-                'long'                => $cfp->longitude,
-                'display_coordinates' => 'true',
-            ])
-        );
-
+        if (self::$lastAccess === time()) {
+            sleep(1);
+        }
+        self::$lastAccess = time();
         try {
-            $this->client->send($request);
+            $result = $this->client->get(sprintf(
+                $this->uri,
+                $address
+            ));
         } catch (\Exception $e) {
-            //
+            return new Geolocation(0, 0);
         }
-    }
 
-    protected function shortenName($name)
-    {
-        if (strlen($name) < 70) {
-            return $name;
+        $values = json_decode($result->getBody()->getContents(), true);
+
+        if (! isset($values[0])) {
+            return new Geolocation(0, 0);
         }
-        return substr($name, 0, 69) . '…';
-    }
 
-    protected function shortenUri($uri)
-    {
-        return $uri;
-    }
+        if (! isset($values[0]['lat']) || ! isset($values[0]['lon'])) {
+            return new Geolocation(0, 0);
+        }
 
-    protected function formUrlEncode(array $stuff)
-    {
-        return http_build_query($stuff);
+        return new Geolocation($values[0]['lat'], $values[0]['lon']);
     }
 }

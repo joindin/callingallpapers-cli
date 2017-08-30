@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ruleset name="Callingallpapers-CLI">
+    <description>The coding standard for the callingallpapers-CLI</description>
+
+    <file>bin</file>
+    <file>src</file>
+    <file>tests</file>
+
+    <exclude-pattern>*/Standards/*/Tests/*.(inc|css|js)</exclude-pattern>
+
+    <arg name="basepath" value="."/>
+    <arg name="colors" />
+    <arg name="parallel" value="75" />
+    <arg value="np"/>
+
+    <rule ref="PSR2" />
+</ruleset>

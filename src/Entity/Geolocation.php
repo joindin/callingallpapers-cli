@@ -1,14 +1,17 @@
 <?php
 /**
  * Copyright (c) Andreas Heigl<andreas@heigl.org>
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -20,67 +23,36 @@
  * @author    Andreas Heigl<andreas@heigl.org>
  * @copyright Andreas Heigl
  * @license   http://www.opensource.org/licenses/mit-license.php MIT-License
- * @since     22.09.2016
+ * @since     24.08.2017
  * @link      http://github.com/heiglandreas/callingallpapers
  */
 
-namespace Callingallpapers\Notification;
+namespace Callingallpapers\Entity;
 
-use Callingallpapers\Entity\Cfp;
-use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request;
-
-class TwitterNotifier implements NotificationInterface
+class Geolocation
 {
-    protected $client;
+    private $latitude;
 
-    public function __construct(Client $client)
+    private $longitude;
+
+    public function __construct(float $latitude, float $longitude)
     {
-        $this->client = $client;
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
     }
 
-    public function notify(Cfp $cfp)
+    public function getLatitude() : float
     {
-        $name = $this->shortenName($cfp->conferenceName);
-        $uri  = $this->shortenUri($cfp->uri);
-
-        $notificationString = sprintf(
-            '24 hours until the CfP for "%1$s" closes: %2$s',
-            $name,
-            $uri
-        );
-        $request = new Request(
-            'POST',
-            'statuses/update.json?' . $this->formUrlEncode([
-                'status'              => $notificationString,
-                'lat'                 => $cfp->latitude,
-                'long'                => $cfp->longitude,
-                'display_coordinates' => 'true',
-            ])
-        );
-
-        try {
-            $this->client->send($request);
-        } catch (\Exception $e) {
-            //
-        }
+        return $this->latitude;
     }
 
-    protected function shortenName($name)
+    public function getLongitude() : float
     {
-        if (strlen($name) < 70) {
-            return $name;
-        }
-        return substr($name, 0, 69) . '…';
+        return $this->longitude;
     }
 
-    protected function shortenUri($uri)
+    public function __toString() : string
     {
-        return $uri;
-    }
-
-    protected function formUrlEncode(array $stuff)
-    {
-        return http_build_query($stuff);
+        return $this->getLatitude() . ' ' . $this->getLongitude();
     }
 }

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!--[if IE 9]>    <html class="no-js ie9 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"95991a40f9","applicationID":"7606670","transactionName":"d11ZREVfVQ5dQ04JXllXGFVBVVcW","queueTime":0,"applicationTime":116,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1016.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script>
+  <title>PaperCall.io - React London 2017</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@papercall_io" />
+  <meta name="twitter:title" content="PaperCall.io - React London 2017" />
+  <meta name="twitter:description" content="Red Badger is launching a new conference focused on React in London for 2017 – we’re calling it React London 2017. 
+
+Date: Tuesday 28th March 2017
+Format: Single track, full day.
+Venue: QEII Centre, Westminster, London
+
+The QEII conference centre is a world-class facility overlooking Parlia..." />
+  <meta name="twitter:image" content="/assets/default_logo.png" />
+
+
+  <!-- Prefetch DNS for external assets (Twitter widgets etc). -->
+  <link rel="dns-prefetch" href="//ajax.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//themes.googleusercontent.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+
+  <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+<script type="text/javascript">
+Stripe.setPublishableKey("pk_live_u2ssPEHkhMlLyugD6UqKzqw0")
+</script>
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+  <link rel="stylesheet" media="screen" href="/assets/application.css" />
+  <script src="/assets/application.js"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="3IZkNypAIjUTlBCy19XGkujGgATeUKFZMEY4jqT+AWYWCqIRHOlYUq6bOKPrvGLB1C2lnooNPvgxkTt+NmoNhw==" />
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+            <svg role="img" class="icon icon--hamburger"><use xlink:href="/assets/icons.svg#icon-hamburger"></use></svg>
+          </button>
+          <a class="header__logo" href="/">
+            <img src="/assets/logo-papercall.svg" alt="Logo papercall" />
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse main-nav" id="main-nav">
+            
+<ul class="nav navbar-nav navbar-left">
+  <li class="inactive"><a href="/">Home</a></li>
+  <li class="inactive"><a href="/cfps">Open CFPs</a></li>
+  <li class="inactive"><a href="/past_events">Past Events</a></li>
+  <li class="inactive"><a href="/pricing">Pricing</a></li>
+</ul>
+
+<ul class="nav navbar-nav navbar-right">
+  <li class="dropdown">
+  <a href="#!" data-toggle="dropdown">
+    <div style="padding-top:2px;">
+      Help <i class="fa fa-chevron-down"></i>
+    </div>
+  </a>
+  <div class="dropdown-menu" style="min-width:300px;">
+    <ul class="list-bare">
+      <li><a href="https://papercall.zendesk.com/hc/en-us/articles/216407857-Creating-a-New-Call-for-Proposals">Creating a New Event</a></li>
+      <li><a href="https://papercall.zendesk.com/hc/en-us/articles/217533997-Anonymized-Submissions-with-PaperCall">Anonymized Submissions</a></li>
+      <li><a href="https://papercall.zendesk.com/hc/en-us/articles/216407897-Accepting-and-Rejecting-Speaker-Proposals">Accepting Speakers</a></li>
+      <li><a href="https://papercall.zendesk.com/hc/en-us"><i class='fa fa-info-circle'></i> Help Center</a></li>
+    </ul>
+  </div>
+</li>
+  <li class="dropdown">
+    <a href="#!" data-toggle="dropdown">
+      <i class="fa fa-unlock fa--left"></i> Login <i class="fa fa-chevron-down"></i>
+    </a>
+    <div class="dropdown-menu">
+      <ul class="list-bare">
+          <li>
+            <a href="/auth/google_oauth2">
+              <i class="fa fa-google-plus-square fa--left"></i> Google
+          </a>
+          </li>
+          <li>
+            <a href="/auth/github">
+              <i class="fa fa-github-square fa--left"></i> GitHub
+          </a>
+          </li>
+          <li>
+            <a href="/auth/twitter">
+              <i class="fa fa-twitter-square fa--left"></i> Twitter
+          </a>
+          </li>
+          <li>
+            <a href="/auth/facebook">
+              <i class="fa fa-facebook-square fa--left"></i> Facebook
+          </a>
+          </li>
+          <li>
+            <a href="/auth/linkedin">
+              <i class="fa fa-linkedin-square fa--left"></i> LinkedIn
+          </a>
+          </li>
+        <li role="separator" class="divider"></li>
+        <li>
+          <a href="/signin">
+            <i class="fa fa-question-circle fa--left"></i> Forgot Login
+          </a>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </header>
+
+  <div class="home home-event">
+    <div class="subheader">
+<div class="container">
+  <div class="justifize">
+    
+  <div class="justifize__box">
+    <div class="subheader__logo">
+      <img class="" src="/assets/mid_300_default_logo.png" alt="Mid 300 default logo" />
+    </div>
+    <div class="subheader__group">
+      <h1 class="subheader__title">React London 2017</h1>
+      <h1 class="subheader__subtitle">
+        London, UK
+      </h1>
+        <a target="_blank" href="http://react.london">http://react.london</a><br>
+    </div>
+
+  </div>
+  <div class="justifize__box pull-right">
+    <h1 class="subheader__subtitle">
+      <a href="https://www.facebook.com/dialog/feed?
+  app_id=929684357128596
+  &amp;display=page&amp;caption=PaperCall.io
+  &amp;name=React London 2017
+  &amp;picture=https://www.papercall.io/assets/logo-papercall.svg
+  &amp;link=https://www.papercall.io/reactlondon2017
+  &amp;redirect_uri=https://www.papercall.io/reactlondon2017"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="bottom" title="Share on Facebook"></i></a>
+      <a href="https://twitter.com/intent/tweet?text=Submit to the React London 2017CFP! https://www.papercall.io/reactlondon2017"><i class="fa fa-twitter " data-toggle="tooltip" data-placement="bottom" title="Share on Twitter"></i></a>
+
+
+      <button class="fa fa-external-link copy-to-clipboard" data-clipboard-text="https://www.papercall.io/reactlondon2017" data-toggle="tooltip" data-placement="bottom" title="Copy to Clipboard"></button>
+    </h1>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<div class="container">
+  <div id="flash_notices">
+
+<div class="row">
+  <div class="col-md-12">
+
+
+
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<div class="main">
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box box--lg box__green">
+          <header class="box__header">
+<h3 class="box__title">
+    CFP closes on: <time datetime="2017-01-31T20:00:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">January 31, 2017 20:00 UTC</time>
+</h3>
+</header>
+
+          <div class="box__content">
+            <div class="markdown"><p>Red Badger is launching a new conference focused on React in London for 2017 – we’re calling it React London 2017.</p>
+
+<p>Date: Tuesday 28th March 2017
+Format: Single track, full day.
+Venue: QEII Centre, Westminster, London</p>
+
+<p>The QEII conference centre is a world-class facility overlooking Parliament Square in London, with state of the art AV, surrounded by some of the world’s most recognisable attractions, including the Houses of Parliament and Big Ben, Westminster Abbey and Downing Street. Buckingham Palace is less than ten minutes walk away.</p>
+</div>
+          </div>
+        </div>
+          <div class="box box--lg">
+            <header class="box__header">
+              <h3 class="box__title">
+                CFP Description
+              </h3>
+            </header>
+            <div class="box__content">
+              <div class="markdown"><p>This is a conference about the React eco- system, if you have an idea for a talk we’d love to hear about it. Everyone interested in submitting a talk proposal to React London 2017 is encouraged to do so, regardless of how much experience they have. We welcome proposals from less experienced speakers and will do what we can to help you prepare.</p>
+
+<p>We would like to encourage submissions from individuals who consider themselves underrepresented on stage at technical conferences.</p>
+
+<p>If you are considering submitting a talk, here’s how we can help:</p>
+
+<ol>
+  <li>Provide feedback of potential ideas</li>
+  <li>Connect you with an experienced mentor for your submission or talk</li>
+  <li>Review your slides or content and provide advice</li>
+  <li>Find opportunities to practice your talk</li>
+</ol>
+
+<p>There are plenty of opportunities available to speak - we want to hear from you. Email us at hello@react.london</p>
+
+<p>We will be in touch with those who have submitted successful proposals during the first half of February.</p>
+
+<p>Speakers will be required to deliver a run through of their talk with the conference organisers in person or via Skype 2 weeks prior to the event.</p>
+
+<p><em>Additional guidelines for lightning talks</em></p>
+
+<ol>
+  <li>No live coding or local demo, it must be 100% slides and hosted online or in a pdf.</li>
+  <li>Slides featuring code and a video of the demo are fine.</li>
+  <li>Slides of the selected speakers must be submitted 10 days prior to the conference.</li>
+  <li>A conference ticket is required in order to submit a lightning talk.</li>
+</ol>
+</div>
+            </div>
+          </div>
+          <div class="wrapper wrapper--right">
+            <a class="btn btn--green-l" href="/cfps/218/submissions/new">Speak at React London 2017!</a>
+              
+<div class="modal fade" id="codeOfConductModal" tabindex="-1" role="dialog" style="text-align: left">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" data-dismiss="modal" class="pull-right"><i class="fa fa-times"></i> Close</button>
+        <h4 class="modal-title">Code Of Conduct</h4>
+      </div>
+
+      <div class="modal-body">
+        <div class="markdown"><p>TL;DR — Don’t be a Jerk :)
+All attendees are expected to adhere to the Code of Conduct at all Conference venues. This includes all React London 2017 volunteers and sponsors.
+Harassment includes, but is not limited to:
+Verbal comments that negatively target a person in regards to their gender, sexual orientation, disability, physical appearance, body size, race, age, or religion.
+Continued verbal or physical contact with an attendee who has asked you to stop.
+Sexual images in public spaces
+Deliberate intimidation, stalking, or following.
+Harassing photography or recording.
+Sustained disruption of talks or other events.
+Inappropriate physical contact.
+Unwelcome sexual attention.
+Advocating for, or encouraging, any of the above behaviour.
+In addition to the above, no weapons or illegal substances are allowed in the conference venues at any time.
+Enforcement
+Participants asked to stop any harassing behavior are expected to comply immediately.</p>
+
+<p>If a participant engages in harassing behaviour, event organisers retain the right to take any actions to keep the event a welcoming environment for all participants. This includes warning the offender or expulsion from the conference with no refund.
+Event organisers may take action to redress anything designed to, or with the clear impact of, disrupting the event or making the environment hostile for any participants.
+Reporting
+If someone makes you or anyone else feel unsafe or unwelcome, please report it as soon as possible. Conference staff can be identified by t-shirts. Harassment and other code of conduct violations reduce the value of our event for everyone.</p>
+
+<p>We want you to be happy at React London 2017
+Talk to us
+In addition to speaking to us in person, you can also contact us using the following methods:</p>
+
+<p>Emailing conduct@react.london</p>
+
+</div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+              <br><a href="#" data-toggle="modal" data-target="#codeOfConductModal">View Code of Conduct</a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  </div>
+
+  <footer class="footer">
+  <div class="container">
+    <div class="justifize">
+      <small class="footer__copy justifize__box pull-left">&copy; 2017 PaperCall.io. All rights reserved.</small>
+      <small class="footer__copy justifize__box pull-left footer-padding"><a href="https://papercall.zendesk.com" target="_blank">FAQ</a></small>
+      <small class="footer__copy justifize__box pull-left footer-padding"><a href="https://blog.papercall.io/" target="_blank">Blog</a></small>
+      <small class="footer__copy justifize__box pull-left footer-padding"><a href="/pricing">Pricing</a></small>
+      <small class="footer__copy justifize__box pull-left footer-padding"><a href="/cfps">Open CFPs</a></small>
+      <small class="footer__copy justifize__box pull-left footer-padding"><a href="/past_events">Past Events</a></small>
+      <ul class="footer__socials justifize__box pull-right list&#45;inline">
+        <!--   <li> -->
+        <!--     <a href="#!" class="facebook"><i class="fa fa&#45;facebook"></i></a> -->
+        <!--   </li> -->
+        <li>
+          <a href="https://twitter.com/papercall_io" class="twitter"><i class="fa fa&#45;twitter"></i></a>
+        </li>
+        <!--   <li> -->
+        <!--     <a href="#!" class="google"><i class="fa fa&#45;google&#45;plus"></i></a> -->
+        <!--   </li> -->
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58564881-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+<!-- Start of papercall Zendesk Widget script -->
+<script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","papercall.zendesk.com");
+/*]]>*/</script>
+<!-- End of papercall Zendesk Widget script -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<!--[if IE 9]>    <html class="no-js ie9 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"95991a40f9","applicationID":"7606670","transactionName":"d11ZREVfVQ5dQ04CV0RBGFlZVFwa","queueTime":0,"applicationTime":141,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1016.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script>
+  <title>PaperCall.io - Open CFPs</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@papercall_io" />
+  <meta name="twitter:title" content="PaperCall.io - The easy way to manage your call for papers" />
+  <meta name="twitter:description" content="PaperCall enables event organizers to easily manage their call for papers and talk submissions, without relying on tools such as Google Forms, WuFoo Forms, and other less than perfect systems." />
+  <meta name="twitter:image" content="https://www.papercall.io/assets/just_papercall_logo.png" />
+
+
+  <!-- Prefetch DNS for external assets (Twitter widgets etc). -->
+  <link rel="dns-prefetch" href="//ajax.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//themes.googleusercontent.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+
+  <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+<script type="text/javascript">
+Stripe.setPublishableKey("pk_live_u2ssPEHkhMlLyugD6UqKzqw0")
+</script>
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+  <link rel="stylesheet" media="screen" href="/assets/application.css" />
+  <script src="/assets/application.js"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="zb/FZPAc3J9hfwDmuhXYhAkAD2Vzmua28fssWyGtN2AHMwNCxrWm+NxwKPeGfHzXNesq/yfHeRfwLC+rszk7gQ==" />
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+            <svg role="img" class="icon icon--hamburger"><use xlink:href="/assets/icons.svg#icon-hamburger"></use></svg>
+          </button>
+          <a class="header__logo" href="/">
+            <img src="/assets/logo-papercall.svg" alt="Logo papercall" />
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse main-nav" id="main-nav">
+            
+<ul class="nav navbar-nav navbar-left">
+  <li class="inactive"><a href="/">Home</a></li>
+  <li class="active"><a href="/cfps">Open CFPs</a></li>
+  <li class="inactive"><a href="/past_events">Past Events</a></li>
+  <li class="inactive"><a href="/pricing">Pricing</a></li>
+</ul>
+
+<ul class="nav navbar-nav navbar-right">
+  <li class="dropdown">
+  <a href="#!" data-toggle="dropdown">
+    <div style="padding-top:2px;">
+      Help <i class="fa fa-chevron-down"></i>
+    </div>
+  </a>
+  <div class="dropdown-menu" style="min-width:300px;">
+    <ul class="list-bare">
+      <li><a href="https://papercall.zendesk.com/hc/en-us/articles/216407857-Creating-a-New-Call-for-Proposals">Creating a New Event</a></li>
+      <li><a href="https://papercall.zendesk.com/hc/en-us/articles/217533997-Anonymized-Submissions-with-PaperCall">Anonymized Submissions</a></li>
+      <li><a href="https://papercall.zendesk.com/hc/en-us/articles/216407897-Accepting-and-Rejecting-Speaker-Proposals">Accepting Speakers</a></li>
+      <li><a href="https://papercall.zendesk.com/hc/en-us"><i class='fa fa-info-circle'></i> Help Center</a></li>
+    </ul>
+  </div>
+</li>
+  <li class="dropdown">
+    <a href="#!" data-toggle="dropdown">
+      <i class="fa fa-unlock fa--left"></i> Login <i class="fa fa-chevron-down"></i>
+    </a>
+    <div class="dropdown-menu">
+      <ul class="list-bare">
+          <li>
+            <a href="/auth/google_oauth2">
+              <i class="fa fa-google-plus-square fa--left"></i> Google
+          </a>
+          </li>
+          <li>
+            <a href="/auth/github">
+              <i class="fa fa-github-square fa--left"></i> GitHub
+          </a>
+          </li>
+          <li>
+            <a href="/auth/twitter">
+              <i class="fa fa-twitter-square fa--left"></i> Twitter
+          </a>
+          </li>
+          <li>
+            <a href="/auth/facebook">
+              <i class="fa fa-facebook-square fa--left"></i> Facebook
+          </a>
+          </li>
+          <li>
+            <a href="/auth/linkedin">
+              <i class="fa fa-linkedin-square fa--left"></i> LinkedIn
+          </a>
+          </li>
+        <li role="separator" class="divider"></li>
+        <li>
+          <a href="/signin">
+            <i class="fa fa-question-circle fa--left"></i> Forgot Login
+          </a>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </header>
+
+  <div class="cfps cfps-index">
+    
+
+  <div class="subheader">
+<div class="container">
+  <div class="justifize">
+    
+    <div class="justifize__box">
+      <h1 class="subheader__title">Open CFPs</h1>
+      <p class="subheader__subtitle"><strong>57</strong> Active CFPs</p>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<div class="container">
+  <div id="flash_notices">
+
+<div class="row">
+  <div class="col-md-12">
+
+
+
+  </div>
+</div>
+
+</div>
+
+</div>
+
+
+  <div class="main">
+      <div class="container">
+        <h1>Featured Events</h1>
+        
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/revconf-2017" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/285/thumb_100_logo_grunge.png" alt="Thumb 100 logo grunge" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+              <a href="/pricing" class="btn btn--tag btn--accepted-l">Pro Event</a>
+            <a href="https://www.papercall.io/revconf-2017">RevolutionConf 2017 - Virginia Beach, VA</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-01T04:59:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 01, 2017 04:59 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://revolutionconf.com">http://revolutionconf.com</a>
+            </h4>
+          <h4>
+              Offers travel assistance
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Life skills, Json, Relational dbs, Marketing, Ios, Beginners, React, Serverless, Web services, Rails, Nosql, Angularjs, Mobile apps, Security, Process, Xml, Iot, .net, Sdks / apis, Gaming, Javascript, Mentorship, Leadership, Cloud computing, Node.js, Hybrid technologies, Android</span>
+          </h4>
+
+          <div class="event__links">
+            RevolutionConf is a platform and language agnostic software development conference being held on ...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/revconf-2017" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/gophercon2017" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/280/thumb_100_gophercon_logo_main.png" alt="Thumb 100 gophercon logo main" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+              <a href="/pricing" class="btn btn--tag btn--accepted-l">Pro Event</a>
+            <a href="https://www.papercall.io/gophercon2017">GopherCon 2017 - Denver, CO, USA</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-01T07:00:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 01, 2017 07:00 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="https://gophercon.com/">https://gophercon.com/</a>
+            </h4>
+          <h4>
+              Offers travel assistance
+          </h4>
+          <h4>
+          </h4>
+
+          <div class="event__links">
+            # Guidelines for Proposals
+This call for proposals includes three different types of sessions. ...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/gophercon2017" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/atagtr2017" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/261/thumb_100_banner.jpg" alt="Thumb 100 banner" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+              <a href="/pricing" class="btn btn--tag btn--accepted-l">Pro Event</a>
+            <a href="https://www.papercall.io/atagtr2017">Global Testing Retreat 2017 - Pune, India </a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-01T18:29:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 01, 2017 18:29 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://gtr.agiletestingalliance.org">http://gtr.agiletestingalliance.org</a>
+            </h4>
+          <h4>
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Mobile testing, Testing, Automated testing and tools, Testing mindset and psychology, #atagtr2017, Testing process, Tools, Big data, Leadership, Iot testing, Security testing, Technology, High tech testing, Performance testing, Saas testing models, Digital transformation, Agile and devops, Agile testing</span>
+          </h4>
+
+          <div class="event__links">
+            Agile Testing Alliance is pleased to welcome you to Global Testing Retreat 2017. If you think you...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/atagtr2017" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/twilio-signal" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/239/thumb_100_logo_signal.png" alt="Thumb 100 logo signal" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+              <a href="/pricing" class="btn btn--tag btn--accepted-l">Pro Event</a>
+            <a href="https://www.papercall.io/twilio-signal">Twilio presents SIGNAL 2017 - San Francisco</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-02T04:59:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 02, 2017 04:59 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://twilio.com/signal">http://twilio.com/signal</a>
+            </h4>
+          <h4>
+              Offers travel assistance
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Iot, Twilio, Webrtc, Voice, Messaging, Sip, Bots, Video, Sms</span>
+          </h4>
+
+          <div class="event__links">
+            SIGNAL features two kinds of talks: 
+
+1. Technical Stories
+2. Business and Use-Case Talks
+
+#...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/twilio-signal" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/swampup-17" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/253/thumb_100_swampup.jpg" alt="Thumb 100 swampup" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+              <a href="/pricing" class="btn btn--tag btn--accepted-l">Pro Event</a>
+            <a href="https://www.papercall.io/swampup-17">swampUP 2017 - The Meritage Resort and Spa, Napa Valley, CA, USA</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-28T23:59:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 28, 2017 23:59 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://www.swampup.jfrog.com">http://www.swampup.jfrog.com</a>
+            </h4>
+          <h4>
+              Offers travel assistance
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Iot, Docker, Cloud, Jfrog xray, Jfrog artifactory, Rest api, Continuous pipelines, Automation, Continuous integration, Devops, Jfrog bintray, Jfrog mission control, Continuous delivery, Continuous update, Iac</span>
+          </h4>
+
+          <div class="event__links">
+            Have an interesting Dev or DevOps story to tell? Come to Napa to speak at swampUP! We are interes...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/swampup-17" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <hr>
+      </div>
+      <div class="container">
+        
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/reactlondon2017" target="_blank">
+        <img src="/assets/thumb_100_default_logo.png" alt="Thumb 100 default logo" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/reactlondon2017">React London 2017 - London, UK</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-01-31T20:00:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">January 31, 2017 20:00 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://react.london">http://react.london</a>
+            </h4>
+          <h4>
+              Offers travel assistance
+          </h4>
+          <h4>
+          </h4>
+
+          <div class="event__links">
+            This is a conference about the React eco- system, if you have an idea for a talk we&#39;d love to hea...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/reactlondon2017" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/saucecon2017" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/284/thumb_100_SauceCon_badge_logo-red_2x.png" alt="Thumb 100 saucecon badge logo red 2x" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/saucecon2017">SauceCon 2017 - San Francisco</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-01-31T23:00:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">January 31, 2017 23:00 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://www.saucecon.com">http://www.saucecon.com</a>
+            </h4>
+          <h4>
+              Offers travel assistance
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Continuous delivery, Automated testing, Software testing, Quality assurance, Continuous testing, Appium, Front-end testing, Selenium</span>
+          </h4>
+
+          <div class="event__links">
+            Generally speaking, presentations will be evaluated based on content, technical knowledge (interm...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/saucecon2017" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/revconf-2017" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/285/thumb_100_logo_grunge.png" alt="Thumb 100 logo grunge" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+              <a href="/pricing" class="btn btn--tag btn--accepted-l">Pro Event</a>
+            <a href="https://www.papercall.io/revconf-2017">RevolutionConf 2017 - Virginia Beach, VA</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-01T04:59:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 01, 2017 04:59 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://revolutionconf.com">http://revolutionconf.com</a>
+            </h4>
+          <h4>
+              Offers travel assistance
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Life skills, Json, Relational dbs, Marketing, Ios, Beginners, React, Serverless, Web services, Rails, Nosql, Angularjs, Mobile apps, Security, Process, Xml, Iot, .net, Sdks / apis, Gaming, Javascript, Mentorship, Leadership, Cloud computing, Node.js, Hybrid technologies, Android</span>
+          </h4>
+
+          <div class="event__links">
+            RevolutionConf is a platform and language agnostic software development conference being held on ...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/revconf-2017" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/gophercon2017" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/280/thumb_100_gophercon_logo_main.png" alt="Thumb 100 gophercon logo main" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+              <a href="/pricing" class="btn btn--tag btn--accepted-l">Pro Event</a>
+            <a href="https://www.papercall.io/gophercon2017">GopherCon 2017 - Denver, CO, USA</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-01T07:00:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 01, 2017 07:00 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="https://gophercon.com/">https://gophercon.com/</a>
+            </h4>
+          <h4>
+              Offers travel assistance
+          </h4>
+          <h4>
+          </h4>
+
+          <div class="event__links">
+            # Guidelines for Proposals
+This call for proposals includes three different types of sessions. ...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/gophercon2017" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/atagtr2017" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/261/thumb_100_banner.jpg" alt="Thumb 100 banner" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+              <a href="/pricing" class="btn btn--tag btn--accepted-l">Pro Event</a>
+            <a href="https://www.papercall.io/atagtr2017">Global Testing Retreat 2017 - Pune, India </a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-01T18:29:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 01, 2017 18:29 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://gtr.agiletestingalliance.org">http://gtr.agiletestingalliance.org</a>
+            </h4>
+          <h4>
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Mobile testing, Testing, Automated testing and tools, Testing mindset and psychology, #atagtr2017, Testing process, Tools, Big data, Leadership, Iot testing, Security testing, Technology, High tech testing, Performance testing, Saas testing models, Digital transformation, Agile and devops, Agile testing</span>
+          </h4>
+
+          <div class="event__links">
+            Agile Testing Alliance is pleased to welcome you to Global Testing Retreat 2017. If you think you...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/atagtr2017" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/bsidesboston2017" target="_blank">
+        <img src="/assets/thumb_100_default_logo.png" alt="Thumb 100 default logo" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/bsidesboston2017">BSides Boston - Cambridge, MA</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-01T23:59:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 01, 2017 23:59 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://www.bsidesboston.org">http://www.bsidesboston.org</a>
+            </h4>
+          <h4>
+          </h4>
+          <h4>
+          </h4>
+
+          <div class="event__links">
+            We are a Security BSides, so any talks on Infosec are wanted and appreciated. We have a blind acc...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/bsidesboston2017" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/twilio-signal" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/239/thumb_100_logo_signal.png" alt="Thumb 100 logo signal" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+              <a href="/pricing" class="btn btn--tag btn--accepted-l">Pro Event</a>
+            <a href="https://www.papercall.io/twilio-signal">Twilio presents SIGNAL 2017 - San Francisco</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-02T04:59:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 02, 2017 04:59 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://twilio.com/signal">http://twilio.com/signal</a>
+            </h4>
+          <h4>
+              Offers travel assistance
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Iot, Twilio, Webrtc, Voice, Messaging, Sip, Bots, Video, Sms</span>
+          </h4>
+
+          <div class="event__links">
+            SIGNAL features two kinds of talks: 
+
+1. Technical Stories
+2. Business and Use-Case Talks
+
+#...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/twilio-signal" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/scaleconfco" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/209/thumb_100_scaleconf.jpg" alt="Thumb 100 scaleconf" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/scaleconfco">ScaleConf Colombia - Medellin, Colombia</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-04T20:25:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 04, 2017 20:25 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://scaleconfco.com">http://scaleconfco.com</a>
+            </h4>
+          <h4>
+              Offers travel assistance
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Distributed, Infrastructure, Systems, Devops, Ops, Scale</span>
+          </h4>
+
+          <div class="event__links">
+            We&#39;re so glad to see you&#39;re interested!
+At ScaleConf we welcome talks of any technical level: ou...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/scaleconfco" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/devitconf" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/282/thumb_100_8189908969558BF09B1473D5AE8369A203D7E6C5259AF8A23F.png" alt="Thumb 100 8189908969558bf09b1473d5ae8369a203d7e6c5259af8a23f" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/devitconf">DEVit Web Conference 2017 - Greece, Thessaloniki</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-05T19:56:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 05, 2017 19:56 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://devitconf.org/">http://devitconf.org/</a>
+            </h4>
+          <h4>
+              Offers travel assistance
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Mobile, Cloud, Javascript, Aws, Php, Web development, Continuous integration, Nosql, Devops, Node.js, Web design, Ruby on rails, Web performance, Microservices, Scala, Asp.net, Apis</span>
+          </h4>
+
+          <div class="event__links">
+            Oh, hey there! Thank you for your interest in being a speaker in DEVit 2017 ( http://devitconf.or...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/devitconf" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/cfobjective" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/265/thumb_100_cfobjective-blue.png" alt="Thumb 100 cfobjective blue" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/cfobjective">cf.Objective() 2017 - Washington, DC</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-06T17:00:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 06, 2017 17:00 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://www.cfobjective.com">http://www.cfobjective.com</a>
+            </h4>
+          <h4>
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Cfml, Testing, Performance, Mobile, Security, Lucee, Javascript, Adobe coldfusion, Other, Devops, Database</span>
+          </h4>
+
+          <div class="event__links">
+            We&#39;re looking for topics that will appeal to most CFML developers, bonus points for being CFML-sp...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/cfobjective" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/18releaseparty-nyc" target="_blank">
+        <img src="/assets/thumb_100_default_logo.png" alt="Thumb 100 default logo" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/18releaseparty-nyc">Go Language New York - Go 1.8 Release Party Lightning Talks - NYC</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-13T07:37:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 13, 2017 07:37 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="https://www.meetup.com/golanguagenewyork/">https://www.meetup.com/golanguagenewyork/</a>
+            </h4>
+          <h4>
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Golanguagenewyork, Golang, Go, Nyc</span>
+          </h4>
+
+          <div class="event__links">
+            NYC is joining the [Go 1.8 Release Party](https://github.com/golang/go/wiki/Go-1.8-Release-Party)...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/18releaseparty-nyc" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/atomic-hamburg-cfp" target="_blank">
+        <img src="/assets/thumb_100_default_logo.png" alt="Thumb 100 default logo" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/atomic-hamburg-cfp">Atomic Design and Design Systems in Hamburg (lightning talk edition) - tba</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-13T12:56:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 13, 2017 12:56 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://tba">http://tba</a>
+            </h4>
+          <h4>
+          </h4>
+          <h4>
+          </h4>
+
+          <div class="event__links">
+            While you can totally propose a longer talk if you want to, it would be awesome to have a handful...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/atomic-hamburg-cfp" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/basd2017" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/259/thumb_100_apple_logoSM__1_.png" alt="Thumb 100 apple logosm  1 " />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/basd2017">Big Apple Scrum Day 2017 - New York, NY, USA</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-14T19:00:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 14, 2017 19:00 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://www.bigapplescrumday.org/">http://www.bigapplescrumday.org/</a>
+            </h4>
+          <h4>
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Other than scrum, Product ownership, Team-growth, Self-growth, Scrum, Practices, Management, Coaching, Techie</span>
+          </h4>
+
+          <div class="event__links">
+            &lt;p&gt;Big Apple Scrum Day welcomes speakers willing to share their Agile stories and experiences on ...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/basd2017" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/devopsdays-austin" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/314/thumb_100_devops_mascot_texas_color_swap.png" alt="Thumb 100 devops mascot texas color swap" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/devopsdays-austin">DevOps Days Austin - Austin, TX</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-14T23:59:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 14, 2017 23:59 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://www.devopsdaysaustin.com/">http://www.devopsdaysaustin.com/</a>
+            </h4>
+          <h4>
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Culture, Lean, Security, Data, Microservices, Ci/cd, Serverless, Containers, Devops, Infrastructure</span>
+          </h4>
+
+          <div class="event__links">
+            We are looking for bleeding edge DevOps content in the areas of:
+
+*  Modern Infra Approaches
+*...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/devopsdays-austin" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/slc-dev-ops-days" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/272/thumb_100_devopsdays_tshirt.png" alt="Thumb 100 devopsdays tshirt" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/slc-dev-ops-days">Salt Lake City DevOps Days - Salt Lake City, UT</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-15T12:45:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 15, 2017 12:45 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://slcdevopsdays.org/">http://slcdevopsdays.org/</a>
+            </h4>
+          <h4>
+              Offers travel assistance
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Database, Acceptance testing, Continuous delivery, Cloud platform, Continuous integration, Devops, Test automation, Release management, Configuration management, Agile</span>
+          </h4>
+
+          <div class="event__links">
+            ##Theme for 2017:
+Humans and Tooling: Building reliability into your DevOps team
+Definition of ...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/slc-dev-ops-days" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/sdp" target="_blank">
+        <img src="/assets/thumb_100_default_logo.png" alt="Thumb 100 default logo" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/sdp">Sela Developer Practice - Israel</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-15T15:25:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 15, 2017 15:25 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://www.seladeveloperpractice.com">http://www.seladeveloperpractice.com</a>
+            </h4>
+          <h4>
+              Offers travel assistance
+          </h4>
+          <h4>
+          </h4>
+
+          <div class="event__links">
+            ## Talk Formats
+
+There are multiple talk formats, including workshops that can be delivered in ...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/sdp" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/ru-coding" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/334/thumb_100_hackrubanner.jpg" alt="Thumb 100 hackrubanner" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/ru-coding">RU Coding? - NYC</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-15T21:23:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 15, 2017 21:23 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="https://www.eventbrite.com/e/ru-coding-rutgers-alumni-hackathon-final-project-demo-day-tickets-31522580888">https://www.eventbrite.com/e/ru-coding-rutgers-alumni-hackathon-final-project-demo-day-tickets-31522580888</a>
+            </h4>
+          <h4>
+          </h4>
+          <h4>
+          </h4>
+
+          <div class="event__links">
+            We are looking for thought leaders in the NYC Tech space to give 5-10 minute lightning talks abou...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/ru-coding" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/nescala-nyc-2017" target="_blank">
+        <img src="/assets/thumb_100_default_logo.png" alt="Thumb 100 default logo" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/nescala-nyc-2017">Northeast Scala Symposium NYC 2017 - New York City</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-15T23:45:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 15, 2017 23:45 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="http://nescala.org">http://nescala.org</a>
+            </h4>
+          <h4>
+          </h4>
+          <h4>
+          </h4>
+
+          <div class="event__links">
+            We are looking for talks of three lengths, lightning (15 min), medium (30 min), and long  (45 min...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/nescala-nyc-2017" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/chain-react-conf-2017" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/301/thumb_100_Screen_Shot_2017-01-05_at_1.59.41_PM.png" alt="Thumb 100 screen shot 2017 01 05 at 1.59.41 pm" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/chain-react-conf-2017">Chain React Conf 2017 - The Armory in Portland, OR</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-18T13:39:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 18, 2017 13:39 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="https://infinite.red/ChainReactConf">https://infinite.red/ChainReactConf</a>
+            </h4>
+          <h4>
+              Offers travel assistance
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Android, Ios, Windows, Mobile, React js, React native, React, Javascript, Redux</span>
+          </h4>
+
+          <div class="event__links">
+            Your topic should be centered on React Native.  Topics are going to be chosen to cover a variety ...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/chain-react-conf-2017" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="box__content pack event-box">
+    <div class="pack__item">
+      <a href="https://www.papercall.io/gdg-hamptonroads" target="_blank">
+        <img src="https://papercallio-production.s3.amazonaws.com/uploads/event/logo/315/thumb_100_GDG_HR_Emblem_2.png" alt="Thumb 100 gdg hr emblem 2" />
+      </a>
+      <br>
+    </div>
+    <div class="pack__item">
+      <div class="justifize">
+        <div class="justifize__box">
+          <h3 class="event__title">
+            <a href="https://www.papercall.io/gdg-hamptonroads">Google Developers Group (GDG) Hampton Roads - Norfolk, VA</a>
+            <br>
+          </h3>
+
+          <h4>
+            Closes <time datetime="2017-02-18T14:56:00Z" data-local="time" data-format="%B %d, %Y %H:%M %Z">February 18, 2017 14:56 UTC</time><br>
+          </h4>
+            <h4>
+              <a target="_blank" href="https://www.meetup.com/GDG-Hampton-Roads/">https://www.meetup.com/GDG-Hampton-Roads/</a>
+            </h4>
+          <h4>
+          </h4>
+          <h4>
+              <span><strong>Tags:</strong> Json, Tensorflow, Relational dbs, Firebase, Daydream, Web services, Serverless, Polymer, Youtube, Nosql, Angularjs, Maps, Mobile apps, Dart, Security, Xml, Iot, App engine, Tango, Chrome, Go, Sdks / apis, Progressive web apps, Machine learning, Cast, Javascript, Cloud computing, Adwords, Android, Hybrid technologies, Seo, Sem, Python, Amp, Ai, Analytics, React, Beginners</span>
+          </h4>
+
+          <div class="event__links">
+            Have a Google technology related talk or something cool you want to showcase to others? Live in c...
+          </div>
+
+        </div>
+
+        <div class="justifize__box event__btn pull-right">
+          <a href="https://www.papercall.io/gdg-hamptonroads" class="btn btn--green-l">
+            Submit Now!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="box__content">
+          <ul class="pagination pagination"><li class="prev disabled"><span>&#8592; Previous</span></li> <li class="active"><span>1</span></li> <li><a rel="next" href="/cfps?page=2">2</a></li> <li><a href="/cfps?page=3">3</a></li> <li class="next"><a rel="next" href="/cfps?page=2">Next &#8594;</a></li></ul>
+        </div>
+      </div>
+    <section class="section section--grey text-center">
+<div class="container">
+  <div class="row">
+    <hr>
+    <div class="box__content">
+      <div class="col-sm-6 col-md-offset-3">
+        <h3>
+          Want to stay up to date on the latest CFPs? Subscribe to TheWeeklyCFP!
+        </h3>
+        <form action="//papercall.us10.list-manage.com/subscribe/post?u=ddba614b9c5a19c547802478f&amp;id=079d65e99f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="newsletter form-relative" target="_blank" novalidate>
+          <input type="email" placeholder="Your email address here" class="form-control form-control--round" name="EMAIL" id="mce-EMAIL" value="">
+          <button class="btn btn--alt btn--round">
+            <i class="fa fa-chevron-right"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </div>
+
+
+  </div>
+
+  <footer class="footer">
+  <div class="container">
+    <div class="justifize">
+      <small class="footer__copy justifize__box pull-left">&copy; 2017 PaperCall.io. All rights reserved.</small>
+      <small class="footer__copy justifize__box pull-left footer-padding"><a href="https://papercall.zendesk.com" target="_blank">FAQ</a></small>
+      <small class="footer__copy justifize__box pull-left footer-padding"><a href="https://blog.papercall.io/" target="_blank">Blog</a></small>
+      <small class="footer__copy justifize__box pull-left footer-padding"><a href="/pricing">Pricing</a></small>
+      <small class="footer__copy justifize__box pull-left footer-padding"><a href="/cfps">Open CFPs</a></small>
+      <small class="footer__copy justifize__box pull-left footer-padding"><a href="/past_events">Past Events</a></small>
+      <ul class="footer__socials justifize__box pull-right list&#45;inline">
+        <!--   <li> -->
+        <!--     <a href="#!" class="facebook"><i class="fa fa&#45;facebook"></i></a> -->
+        <!--   </li> -->
+        <li>
+          <a href="https://twitter.com/papercall_io" class="twitter"><i class="fa fa&#45;twitter"></i></a>
+        </li>
+        <!--   <li> -->
+        <!--     <a href="#!" class="google"><i class="fa fa&#45;google&#45;plus"></i></a> -->
+        <!--   </li> -->
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58564881-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+<!-- Start of papercall Zendesk Widget script -->
+<script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","papercall.zendesk.com");
+/*]]>*/</script>
+<!-- End of papercall Zendesk Widget script -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
+
+
+</body>
+</html>
