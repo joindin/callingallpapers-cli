@@ -79,8 +79,10 @@ class LanyrdCfpParser implements ParserInterface
             foreach ($nodes as $node) {
                 try {
                     /** @var \DOMNode $node */
-                    $links = $xpath->query('.//a[text()="Call for speakers"]',
-                        $node);
+                    $links = $xpath->query(
+                        './/a[text()="Call for speakers"]',
+                        $node
+                    );
                     if ($links->length < 1) {
                         continue;
                     }

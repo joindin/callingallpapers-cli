@@ -46,7 +46,7 @@ class PapercallIoParserTest extends \PHPUnit_Framework_TestCase
         $writer->shouldReceive('write')->times(100);
 
         $parser = new PapercallIoParser($eventParser);
-        $parser->setStartUrl( __DIR__ . '/PapercallIo/_assets/index2.html');
+        $parser->setStartUrl(__DIR__ . '/PapercallIo/_assets/index2.html');
 
         self::assertTrue($parser->parse($writer));
     }

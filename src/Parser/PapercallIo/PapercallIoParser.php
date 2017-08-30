@@ -60,7 +60,6 @@ class PapercallIoParser implements ParserInterface
         $pages = null;
 
         do {
-
             $dom = new DOMDocument('1.0', 'UTF-8');
             libxml_use_internal_errors(true);
             $uri = sprintf($this->uri, $i+1);

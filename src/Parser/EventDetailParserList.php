@@ -39,7 +39,6 @@ class EventDetailParserList implements EventDetailParserInterface
 
     public function __construct()
     {
-
     }
 
     public function addEventDetailParser(EventDetailParserInterface $parser) : self
@@ -57,5 +56,4 @@ class EventDetailParserList implements EventDetailParserInterface
 
         return $cfp;
     }
-
 }

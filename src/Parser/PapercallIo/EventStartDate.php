@@ -76,7 +76,7 @@ class EventStartDate implements EventDetailParserInterface
             return $cfp;
         }
 
-        $startDate = new DateTimeImmutable($dates[0] . ', ' . $dates[1] . ' 00:00:00', $timezone );
+        $startDate = new DateTimeImmutable($dates[0] . ', ' . $dates[1] . ' 00:00:00', $timezone);
         $cfp->eventStartDate = $startDate;
 
         return $cfp;

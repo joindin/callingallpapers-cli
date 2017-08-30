@@ -49,13 +49,15 @@ class TwitterNotifier implements NotificationInterface
             $name,
             $uri
         );
-        $request = new Request('POST',
+        $request = new Request(
+            'POST',
             'statuses/update.json?' . $this->formUrlEncode([
                 'status'              => $notificationString,
                 'lat'                 => $cfp->latitude,
                 'long'                => $cfp->longitude,
                 'display_coordinates' => 'true',
-            ]));
+            ])
+        );
 
         try {
             $this->client->send($request);

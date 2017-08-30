@@ -93,7 +93,7 @@ class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('UTC', $tzs->getTimezoneForLocation(50, 8));
     }
 
-    public function FetchingTimezoneWithValidHttpButFailingStatusProvider()
+    public function fetchingTimezoneWithValidHttpButFailingStatusProvider()
     {
         return [
             'missing array key' => [['foo' => 'bar']],
@@ -130,7 +130,7 @@ class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function FetchingTimezoneWithValidHttpProvider()
+    public function fetchingTimezoneWithValidHttpProvider()
     {
         return [
             'Body contains timezoneName' => [['status' => 'OK', 'zoneName' => 'Europe/Berlin']],

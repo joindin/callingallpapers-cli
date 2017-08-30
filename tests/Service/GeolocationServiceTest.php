@@ -86,7 +86,7 @@ class GeolocationServiceTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(new Geolocation(0, 0), $tzs->getLocationForAddress('London - UK'));
     }
 
-    public function FetchingLocationWithValidHttpButFailingStatusProvider()
+    public function fetchingLocationWithValidHttpButFailingStatusProvider()
     {
         return [
             'missing content' => [[]],
@@ -113,7 +113,7 @@ class GeolocationServiceTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(new Geolocation(20, 30), $tzs->getLocationForAddress('London - UK'));
     }
 
-    public function FetchingLocationWithValidHttpProvider()
+    public function fetchingLocationWithValidHttpProvider()
     {
         return [
             'Body contains timezoneName' => [[['lat' => '20', 'lon' => '30']]],

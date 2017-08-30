@@ -79,7 +79,7 @@ class EventEndDate implements EventDetailParserInterface
             $datestring = $dates[2] . ', ' . $dates[3];
         }
 
-        $endDate = new DateTimeImmutable($datestring . ' 00:00:00', $timezone );
+        $endDate = new DateTimeImmutable($datestring . ' 00:00:00', $timezone);
         $cfp->eventEndDate = $endDate;
 
         return $cfp;

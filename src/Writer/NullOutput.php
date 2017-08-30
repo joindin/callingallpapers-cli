@@ -113,10 +113,11 @@ class NullOutput implements OutputInterface
      * @param int $level The level of verbosity (one of the VERBOSITY constants)
      *
      * @api
-     */public function setVerbosity($level)
-{
-    // TODO: Implement setVerbosity() method.
-}
+     */
+    public function setVerbosity($level)
+    {
+        // TODO: Implement setVerbosity() method.
+    }
 
     /**
      * Gets the current verbosity of the output.

@@ -45,8 +45,8 @@ class TimezoneFromLocationFetcher implements EventDetailParserInterface
     public function __construct(
         TimezoneService $timezoneService,
         LocationService $locationService
-    )
-    {
+    ) {
+    
         $this->timezoneService = $timezoneService;
         $this->locationService = $locationService;
     }
