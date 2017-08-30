@@ -39,15 +39,13 @@ class PapercallIoParserTest extends \PHPUnit_Framework_TestCase
 {
     public function testThatParsingFirstPageWorks()
     {
-        $tz = M::mock(TimezoneService::class);
-
         $eventParser = M::mock(EventParser::class);
         $eventParser->shouldReceive('parseEvent')->times(100);
 
         $writer = M::mock(WriterInterface::class);
         $writer->shouldReceive('write')->times(100);
 
-        $parser = new PapercallIoParser($tz, $eventParser);
+        $parser = new PapercallIoParser($eventParser);
         $parser->setStartUrl( __DIR__ . '/PapercallIo/_assets/index2.html');
 
         self::assertTrue($parser->parse($writer));
