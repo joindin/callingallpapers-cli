@@ -53,7 +53,11 @@ class ApiCfpWriter implements WriterInterface
             $client = new Client([
                 'headers' => [
                     'Accept' => 'application/json',
-                ]
+                ],
+                'allow_redirects' => [
+                    'strict' => true,
+                    'max' => 5,
+                ],
             ]);
         }
         $this->client = $client;
@@ -133,14 +137,16 @@ class ApiCfpWriter implements WriterInterface
             return $e->getMessage();
         } catch (\Exception $e) {
             $this->output->writeln($e->getMessage());
-            return $e->getMessage;
+            return $e->getMessage();
         }
 
-        $this->output->writeln(sprintf(
-            'Conference "%1$s" succcessfully %2$s.',
-            $cfp->conferenceName,
-            ($exists)?'updated':'created'
-        ));
+        if ($response && ($response->getStatusCode() === 200 || $response->getStatusCode() === 201)) {
+            $this->output->writeln(sprintf(
+                'Conference "%1$s" succcessfully %2$s.',
+                $cfp->conferenceName,
+                ($exists) ? 'updated' : 'created'
+            ));
+        }
 
         return (isset($response) && ($response->getStatusCode() === 200 || $response->getStatusCode() === 201))?'Success':'Failure';
     }
