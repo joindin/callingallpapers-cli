@@ -68,6 +68,7 @@ class PapercallIoParserFactory
             ->addEventDetailParser(new EventEndDate())
             ->addEventDetailParser(new Uri())
             ->addEventDetailParser(new EventUri())
+            ->addEventDetailParser(new Icon())
         ;
 
         $eventParser = new EventParser($detailsParserList);
