@@ -54,10 +54,6 @@ class ApiCfpWriter implements WriterInterface
                 'headers' => [
                     'Accept' => 'application/json',
                 ],
-                'allow_redirects' => [
-                    'strict' => true,
-                    'max' => 5,
-                ],
             ]);
         }
         $this->client = $client;
