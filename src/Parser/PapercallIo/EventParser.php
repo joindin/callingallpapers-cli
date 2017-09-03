@@ -48,7 +48,7 @@ class EventParser implements EventParserInterface
     public function parseEvent(DOMNode $eventNode) : Cfp
     {
         $xpath = new DOMXPath($eventNode->ownerDocument);
-        $anchor = $xpath->query('.//div[@class="pack__item"]/a', $eventNode);
+        $anchor = $xpath->query('.//h3[contains(@class,"event__title")]/a[last()]', $eventNode);
         /** @var \DOMNode $node */
         $eventPageUrl = $anchor->item(0)->attributes->getNamedItem('href')->textContent;
 

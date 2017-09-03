@@ -83,12 +83,12 @@ EOT
 
         $geolocationService = new GeolocationService(new Client());
 
-        // Parse Lanyrd.com
-        $parser = new LanyrdCfpParser($timezoneService);
-        $parser->parse($writer);
-
         // Parse Papercall.io
         $parser = (new PapercallIoParserFactory($timezoneService, $geolocationService))();
+        $parser->parse($writer);
+
+        // Parse Lanyrd.com
+        $parser = new LanyrdCfpParser($timezoneService);
         $parser->parse($writer);
 
         // Parse joind.in

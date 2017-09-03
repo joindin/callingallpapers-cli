@@ -39,7 +39,7 @@ class PapercallIoParser implements ParserInterface
 {
     const SOURCE = 'papercallio';
 
-    private $uri = 'https://papercall.io/cfps?page=%1$s';
+    private $uri = 'https://www.papercall.io/events?open-cfps=true&page=%1$s';
 
     private $parser;
 
@@ -73,8 +73,9 @@ class PapercallIoParser implements ParserInterface
                 $pages = $p->length - 2;
             }
 
-            $nodes = $xpath->query("//div[contains(@class,'main')]/div[@class='container'][last()]//div[@class='box']");
+            $nodes = $xpath->query("//div[contains(@class,'main')]/div[@class='container'][last()]//div[contains(@class,'event-list-detail')]");
             if ($nodes->length < 1) {
+                error_log('No subitems found');
                 continue;
             }
 
