@@ -29,6 +29,8 @@
  */
 namespace Callingallpapers\Writer;
 
+use Callingallpapers\CfpFilter\CfpFilterInterface;
+use Callingallpapers\CfpFilter\FilterList;
 use Callingallpapers\Entity\Cfp;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
@@ -45,6 +47,8 @@ class ApiCfpWriter implements WriterInterface
 
     protected $output;
 
+    private $filter = null;
+
     public function __construct($baseUri, $bearerToken, $client = null)
     {
         $this->baseUri     = $baseUri;
@@ -58,21 +62,17 @@ class ApiCfpWriter implements WriterInterface
         }
         $this->client = $client;
         $this->output = new NullOutput();
+        $this->filter = new FilterList();
+    }
+
+    public function setFilter(CfpFilterInterface $filter)
+    {
+        $this->filter = $filter;
     }
 
     public function write(Cfp $cfp, $source)
     {
-        try {
-            $uri = '';
-            $this->client->get($cfp->conferenceUri, [
-                'on_stats' => function (TransferStats $stats) use (&$uri) {
-                    $uri = (string) $stats->getEffectiveUri();
-                }
-            ]);
-        } catch (\Exception $e) {
-            throw new \InvalidArgumentException('Event-URI could not be verified: ' . $e->getMessage());
-        }
-        $cfp->conferenceUri = $uri;
+        $cfp = $this->filter->filter($cfp);
 
         $body = [
             'name'           => $cfp->conferenceName,

@@ -29,6 +29,10 @@
  */
 namespace Callingallpapers\Command;
 
+use Callingallpapers\CfpFilter\FilterList;
+use Callingallpapers\CfpFilter\FollowUriRedirect;
+use Callingallpapers\CfpFilter\StripParamsFromUri;
+use Callingallpapers\Exception\UnverifiedUriException;
 use Callingallpapers\Parser\JoindinCfpParser;
 use Callingallpapers\Parser\Lanyrd\LanyrdCfpParser;
 use Callingallpapers\Parser\PapercallIo\PapercallIoParserFactory;
@@ -75,13 +79,25 @@ EOT
             throw new \InvalidArgumentException('The given date could not be parsed');
         }
 
+        $client = new Client([
+            'headers' => [
+                'Accept' => 'application/json',
+            ],
+        ]);
+
         $config = parse_ini_file(__DIR__ . '/../../config/callingallpapers.ini');
-        $writer = new ApiCfpWriter($config['event_api_url'], $config['event_api_token']);
+        $writer = new ApiCfpWriter($config['event_api_url'], $config['event_api_token'], $client);
         $writer->setOutput($output);
 
-        $timezoneService = new TimezoneService(new Client(), $config['timezonedb_token']);
+        // Set CfP-Filters
+        $filter = new FilterList();
+        $filter->add(new FollowUriRedirect(['conferenceUri'], $client));
+        $filter->add(new StripParamsFromUri(['conferenceUri']));
+        $writer->setFilter($filter);
 
-        $geolocationService = new GeolocationService(new Client());
+        $timezoneService = new TimezoneService($client, $config['timezonedb_token']);
+
+        $geolocationService = new GeolocationService($client);
 
         // Parse Papercall.io
         $parser = (new PapercallIoParserFactory($timezoneService, $geolocationService))();
