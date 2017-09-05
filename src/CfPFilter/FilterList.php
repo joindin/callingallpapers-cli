@@ -51,7 +51,7 @@ class FilterList implements CfpFilterInterface
 
     public function add(CfpFilterInterface $filter): self
     {
-        $this->filter[] = $filter;
+        $this->list[] = $filter;
 
         return $this;
     }

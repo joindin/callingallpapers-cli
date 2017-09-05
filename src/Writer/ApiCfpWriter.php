@@ -30,6 +30,7 @@
 namespace Callingallpapers\Writer;
 
 use Callingallpapers\CfpFilter\CfpFilterInterface;
+use Callingallpapers\CfpFilter\FilterList;
 use Callingallpapers\Entity\Cfp;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
@@ -61,17 +62,17 @@ class ApiCfpWriter implements WriterInterface
         }
         $this->client = $client;
         $this->output = new NullOutput();
+        $this->filter = new FilterList();
     }
 
-    public function setFilter(CfpFilterInterface $filter) {
+    public function setFilter(CfpFilterInterface $filter)
+    {
         $this->filter = $filter;
     }
 
     public function write(Cfp $cfp, $source)
     {
-        if ($this->filter) {
-            $cfp = $this->filter->filter($cfp);
-        }
+        $cfp = $this->filter->filter($cfp);
 
         $body = [
             'name'           => $cfp->conferenceName,

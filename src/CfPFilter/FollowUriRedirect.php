@@ -72,5 +72,7 @@ class FollowUriRedirect implements CfpFilterInterface
         } catch (Exception $e) {
             throw new UnverifiedUriException('Event-URI could not be verified: ' . $e->getMessage());
         }
+
+        return $myuri;
     }
 }
