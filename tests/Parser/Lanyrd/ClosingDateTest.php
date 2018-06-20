@@ -10,8 +10,9 @@
 namespace CallingallpapersTest\Cli\Parser\Lanyrd;
 
 use Callingallpapers\Parser\Lanyrd\ClosingDate;
+use PHPUnit\Framework\TestCase;
 
-class ClosingDateTest extends \PHPUnit_Framework_TestCase
+class ClosingDateTest extends TestCase
 {
     /**
      * @dataProvider parsingClosingDateProvider

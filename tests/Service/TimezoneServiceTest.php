@@ -34,10 +34,11 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class TimezoneServiceTest extends \PHPUnit_Framework_TestCase
+class TimezoneServiceTest extends TestCase
 {
     public function testRetrievalOfTimezoneWorks()
     {

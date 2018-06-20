@@ -75,7 +75,6 @@ class PapercallIoParser implements ParserInterface
 
             $nodes = $xpath->query("//div[contains(@class,'main')]/div[@class='container'][last()]//div[contains(@class,'event-list-detail')]");
             if ($nodes->length < 1) {
-                error_log('No subitems found');
                 continue;
             }
 

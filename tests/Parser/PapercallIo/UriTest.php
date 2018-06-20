@@ -33,8 +33,9 @@ use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\PapercallIo\Uri;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\TestCase;
 
-class UriTest extends \PHPUnit_Framework_TestCase
+class UriTest extends TestCase
 {
     public function testThatNameIsParsedCorrectlyFromNode()
     {

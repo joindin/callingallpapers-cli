@@ -34,8 +34,10 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
+use Mockery as M;
 
-class EntryTest extends \PHPUnit_Framework_TestCase
+class EntryTest extends TestCase
 {
     public function testThatLocationCanBeRetrieved()
     {
@@ -49,7 +51,7 @@ class EntryTest extends \PHPUnit_Framework_TestCase
         $handler = HandlerStack::create($mock);
         $client  = new Client(['handler' => $handler]);
 
-        $tzService = $this->getMockWithoutInvokingTheOriginalConstructor(TimezoneService::class);
+        $tzService = M::mock(TimezoneService::class);
 
         $entry = new Entry(new Cfp(), $client, $tzService);
 

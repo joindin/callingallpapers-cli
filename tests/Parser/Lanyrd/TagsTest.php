@@ -10,8 +10,9 @@
 namespace CallingallpapersTest\Cli\Parser\Lanyrd;
 
 use Callingallpapers\Parser\Lanyrd\Tags;
+use PHPUnit\Framework\TestCase;
 
-class TagsTest extends \PHPUnit_Framework_TestCase
+class TagsTest extends TestCase
 {
     /**
      * @dataProvider parsingTagsProvider

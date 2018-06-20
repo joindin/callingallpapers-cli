@@ -33,8 +33,9 @@ use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\PapercallIo\ClosingDate;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\TestCase;
 
-class ClosingDateTest extends \PHPUnit_Framework_TestCase
+class ClosingDateTest extends TestCase
 {
     public function testThatInitializationWorks()
     {

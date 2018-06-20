@@ -33,8 +33,9 @@ use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\PapercallIo\EventEndDate;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\TestCase;
 
-class EventEndDateTest extends \PHPUnit_Framework_TestCase
+class EventEndDateTest extends TestCase
 {
     public function testThatInitializationWorks()
     {

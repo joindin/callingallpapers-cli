@@ -33,8 +33,9 @@ use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\PapercallIo\Icon;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\TestCase;
 
-class IconTest extends \PHPUnit_Framework_TestCase
+class IconTest extends TestCase
 {
     /** @dataProvider iconParserProvider */
     public function testThatIconUriIsParsedCorrectlyFromNode($file, $url)
