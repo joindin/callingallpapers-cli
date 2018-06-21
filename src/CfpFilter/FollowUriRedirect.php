@@ -73,6 +73,40 @@ class FollowUriRedirect implements CfpFilterInterface
             throw new UnverifiedUriException('Event-URI could not be verified: ' . $e->getMessage());
         }
 
-        return $myuri;
+        return $this->normalizeUri($myuri);
+    }
+
+    public function normalizeUri(string $uri) : string
+    {
+        $elements = parse_url($uri);
+        $newUri = '';
+        if (isset($elements['scheme'])) {
+            $newUri .= $elements['scheme'] . '://';
+        }
+
+        if (isset($elements['host'])) {
+            $newUri .= $elements['host'];
+        }
+
+        if (isset($elements['port'])) {
+            $newUri .= ':' . $elements['port'];
+        }
+
+        if (isset($elements['path'])) {
+            $newUri .= rtrim($elements['path'], '/');
+        }
+
+        if (isset($elements['query'])) {
+            $newUri .= '?' . $elements['query'];
+        }
+
+        if (isset($elements['fragment'])) {
+            $newUri .= '#' . $elements['fragment'];
+        }
+
+        return $newUri;
+
+
+
     }
 }
