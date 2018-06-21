@@ -105,8 +105,5 @@ class FollowUriRedirect implements CfpFilterInterface
         }
 
         return $newUri;
-
-
-
     }
 }
