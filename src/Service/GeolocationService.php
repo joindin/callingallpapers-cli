@@ -51,7 +51,7 @@ class GeolocationService
         try {
             $result = $this->client->get(sprintf(
                 $this->uri,
-                $address
+                urlencode($address)
             ));
         } catch (\Exception $e) {
             return new Geolocation(0, 0);
