@@ -10,8 +10,9 @@
 namespace CallingallpapersTest\Cli\Parser\Lanyrd;
 
 use Callingallpapers\Parser\Lanyrd\EventEndDate;
+use PHPUnit\Framework\TestCase;
 
-class EventEndDateTest extends \PHPUnit_Framework_TestCase
+class EventEndDateTest extends TestCase
 {
     /**
      * @dataProvider parsingEventEndDateProvider

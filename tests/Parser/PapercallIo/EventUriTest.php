@@ -33,8 +33,9 @@ use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\PapercallIo\EventUri;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\TestCase;
 
-class EventUriTest extends \PHPUnit_Framework_TestCase
+class EventUriTest extends TestCase
 {
     public function testThatNameIsParsedCorrectlyFromNode()
     {

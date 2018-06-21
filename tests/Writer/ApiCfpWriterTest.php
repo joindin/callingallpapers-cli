@@ -31,8 +31,9 @@ use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Entity\CfpList;
 use Callingallpapers\Writer\ApiCfpWriter;
 use GuzzleHttp\Client;
+use PHPUnit\Framework\TestCase;
 
-class ApiCfpWriterTest extends \PHPUnit_Framework_TestCase
+class ApiCfpWriterTest extends TestCase
 {
 
     public function testWritingToApi()

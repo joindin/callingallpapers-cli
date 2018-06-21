@@ -10,8 +10,9 @@
 namespace CallingallpapersTest\Cli\Parser\Lanyrd;
 
 use Callingallpapers\Parser\Lanyrd\EventName;
+use PHPUnit\Framework\TestCase;
 
-class EventNameTest extends \PHPUnit_Framework_TestCase
+class EventNameTest extends TestCase
 {
     /**
      * @dataProvider parsingEventNameProvider

@@ -34,8 +34,9 @@ use Callingallpapers\Parser\PapercallIo\EventUri;
 use Callingallpapers\Parser\PapercallIo\Tags;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\TestCase;
 
-class TagsTest extends \PHPUnit_Framework_TestCase
+class TagsTest extends TestCase
 {
     /** @dataProvider tagsProvider */
     public function testThatTagsAreParsedCorrectlyFromNode($file, $expected)

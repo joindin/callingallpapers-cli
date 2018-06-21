@@ -34,8 +34,9 @@ use Callingallpapers\Parser\PapercallIo\Location;
 use Callingallpapers\Parser\PapercallIo\Uri;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\TestCase;
 
-class LocationTest extends \PHPUnit_Framework_TestCase
+class LocationTest extends TestCase
 {
     public function testThatNameIsParsedCorrectlyFromNode()
     {

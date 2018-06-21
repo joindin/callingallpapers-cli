@@ -34,8 +34,9 @@ use Callingallpapers\Parser\PapercallIo\PapercallIoParser;
 use Callingallpapers\Service\TimezoneService;
 use Callingallpapers\Writer\WriterInterface;
 use Mockery as M;
+use PHPUnit\Framework\TestCase;
 
-class PapercallIoParserTest extends \PHPUnit_Framework_TestCase
+class PapercallIoParserTest extends TestCase
 {
     public function testThatParsingFirstPageWorks()
     {

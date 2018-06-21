@@ -31,8 +31,9 @@ namespace CallingallpapersTest\CfpFIlter;
 
 use Callingallpapers\CfpFilter\StripParamsFromUri;
 use Callingallpapers\Entity\Cfp;
+use PHPUnit\Framework\TestCase;
 
-class StripParamsFromUriTest extends \PHPUnit_Framework_TestCase
+class StripParamsFromUriTest extends TestCase
 {
     /** @dataProvider strippingUriProvider */
     public function testThatStrippingParamsWorks($uri, $expectedUri)

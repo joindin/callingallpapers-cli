@@ -10,8 +10,9 @@
 namespace CallingallpapersTest\Cli\Parser\Lanyrd;
 
 use Callingallpapers\Parser\Lanyrd\EventStartDate;
+use PHPUnit\Framework\TestCase;
 
-class EventStartDateTest extends \PHPUnit_Framework_TestCase
+class EventStartDateTest extends TestCase
 {
     /**
      * @dataProvider parsingEventStartDateProvider

@@ -10,8 +10,9 @@
 namespace CallingallpapersTest\Cli\Parser\Lanyrd;
 
 use Callingallpapers\Parser\Lanyrd\Description;
+use PHPUnit\Framework\TestCase;
 
-class DescriptionTest extends \PHPUnit_Framework_TestCase
+class DescriptionTest extends TestCase
 {
     /**
      * @dataProvider parsingDescriptionProvider

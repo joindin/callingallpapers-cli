@@ -34,8 +34,9 @@ use Callingallpapers\Parser\PapercallIo\ClosingDate;
 use Callingallpapers\Parser\PapercallIo\Description;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\TestCase;
 
-class DescriptionTest extends \PHPUnit_Framework_TestCase
+class DescriptionTest extends TestCase
 {
     public function testThatCommentIsParsedCorrectlyFromNode()
     {

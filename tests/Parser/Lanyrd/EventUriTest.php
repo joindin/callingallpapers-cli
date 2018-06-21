@@ -11,8 +11,9 @@ namespace CallingallpapersTest\Cli\Parser\Lanyrd;
 
 use Callingallpapers\Parser\Lanyrd\EventName;
 use Callingallpapers\Parser\Lanyrd\EventUri;
+use PHPUnit\Framework\TestCase;
 
-class EventUriTest extends \PHPUnit_Framework_TestCase
+class EventUriTest extends TestCase
 {
     /**
      * @dataProvider parsingEventUriProvider

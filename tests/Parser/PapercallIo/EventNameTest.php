@@ -33,8 +33,9 @@ use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\PapercallIo\EventName;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\TestCase;
 
-class EventNameTest extends \PHPUnit_Framework_TestCase
+class EventNameTest extends TestCase
 {
     public function testThatNameIsParsedCorrectlyFromNode()
     {
