@@ -2,7 +2,7 @@
 
 /*
  * Copyright (c) Andreas Heigl<andreas@heigl.org
- * 
+ *
  * Licensed under the MIT License. See LICENSE.md file in the project root
  * for full license information.
  */
@@ -92,7 +92,6 @@ class ConferenceParserTest extends TestCase
         self::assertAttributeEquals($cfpEndDate, 'dateEnd', $cfp);
         self::assertAttributeEquals($array['url'], 'conferenceUri', $cfp);
         self::assertAttributeEquals($array['cfpUrl'], 'uri', $cfp);
-
     }
 
     /**

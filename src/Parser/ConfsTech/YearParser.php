@@ -2,7 +2,7 @@
 
 /*
  * Copyright (c) Andreas Heigl<andreas@heigl.org
- * 
+ *
  * Licensed under the MIT License. See LICENSE.md file in the project root
  * for full license information.
  */
@@ -19,8 +19,8 @@ class YearParser
 
     public function __construct(
         CategoryParser $parser,
-        Client $client)
-    {
+        Client $client
+    ) {
         $this->client = $client;
         $this->parser = $parser;
     }
@@ -32,8 +32,8 @@ class YearParser
         $categories = json_decode($categories->getBody()->getContents(), true);
         foreach ($categories as $category) {
             ($this->parser)(
-                $category['git_url'],
-                str_replace('.json', '', $category['name'])
+                str_replace('.json', '', $category['name']),
+                $category['git_url']
             );
         }
     }

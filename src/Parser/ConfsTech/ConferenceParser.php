@@ -2,7 +2,7 @@
 
 /*
  * Copyright (c) Andreas Heigl<andreas@heigl.org
- * 
+ *
  * Licensed under the MIT License. See LICENSE.md file in the project root
  * for full license information.
  */
@@ -35,7 +35,7 @@ class ConferenceParser
         $cfp->location = $conference['city'];
 
         $geolocation = $this->geolocation->getLocationForAddress(
-            $cfp->location . ', ' . $conference['country']
+            $conference['country'] . ', ' . $cfp->location
         );
 
         $cfp->latitude = $geolocation->getLatitude();
@@ -49,8 +49,11 @@ class ConferenceParser
         $cfp->conferenceName = $conference['name'];
         $cfp->eventStartDate = new DateTimeImmutable(
             $conference['startDate'] . ' 08:00:00',
-            new DateTimeZone(   $cfp->timezone)
+            new DateTimeZone($cfp->timezone)
         );
+        if (! isset($conference['endDate'])) {
+            $conference['endDate'] = $conference['startDate'];
+        }
         $cfp->eventEndDate = new DateTimeImmutable(
             $conference['endDate'] . ' 17:00:00',
             new DateTimeZone($cfp->timezone)

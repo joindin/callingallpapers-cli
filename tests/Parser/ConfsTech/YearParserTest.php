@@ -2,7 +2,7 @@
 
 /*
  * Copyright (c) Andreas Heigl<andreas@heigl.org
- * 
+ *
  * Licensed under the MIT License. See LICENSE.md file in the project root
  * for full license information.
  */
@@ -77,16 +77,15 @@ class YearParserTest extends TestCase
         $this->client->shouldReceive('request')->with('GET', 'https://test.example.com')->andReturn($response);
 
         $this->categoryParser->shouldReceive('__invoke')->once()->with(
-            'https://api.github.com/repos/octokit/octokit.rb/git/blobs/fff6fe3a23bf1c8ea0692b4a883af99bee26fd3b',
-            'octokit.rb'
+            'octokit.rb',
+            'https://api.github.com/repos/octokit/octokit.rb/git/blobs/fff6fe3a23bf1c8ea0692b4a883af99bee26fd3b'
         );
         $this->categoryParser->shouldReceive('__invoke')->once()->with(
-            'https://api.github.com/repos/octokit/octokit.rb/git/trees/a84d88e7554fc1fa21bcbc4efae3c782a70d2b9d',
-            'octokit'
+            'octokit',
+            'https://api.github.com/repos/octokit/octokit.rb/git/trees/a84d88e7554fc1fa21bcbc4efae3c782a70d2b9d'
         );
 
         self::assertNull(($this->parser)('https://test.example.com'));
-
     }
 
     /**
