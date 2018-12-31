@@ -15,6 +15,7 @@ use Symfony\Component\Console\Application;
 
 $app = new Application();
 $app->add(new \Callingallpapers\Command\ParseEvents());
+$app->add(new \Callingallpapers\Command\ParseEventsConfsTech());
 $app->add(new \Callingallpapers\Command\NotifyClosingCfps());
 
 $app->run();

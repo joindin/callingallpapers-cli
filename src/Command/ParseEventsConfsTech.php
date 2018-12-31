@@ -32,12 +32,15 @@ namespace Callingallpapers\Command;
 use Callingallpapers\CfpFilter\FilterList;
 use Callingallpapers\CfpFilter\FollowUriRedirect;
 use Callingallpapers\CfpFilter\StripParamsFromUri;
+use Callingallpapers\ErrorHandling\ErrorStore;
 use Callingallpapers\Exception\UnverifiedUriException;
 use Callingallpapers\Parser\ConfsTech\ConferenceParser;
 use Callingallpapers\Parser\ConfsTechParser;
 use Callingallpapers\Parser\JoindinCfpParser;
 use Callingallpapers\Parser\Lanyrd\LanyrdCfpParser;
 use Callingallpapers\Parser\PapercallIo\PapercallIoParserFactory;
+use Callingallpapers\ResultKeeper\ConsoleOutputResultKeeper;
+use Callingallpapers\ResultKeeper\ResultKeeper;
 use Callingallpapers\Service\ConfsTechParserFactory;
 use Callingallpapers\Service\GeolocationService;
 use Callingallpapers\Service\TimezoneService;
@@ -48,22 +51,23 @@ use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
-class ParseEvents extends Command
+class ParseEventsConfsTech extends Command
 {
     protected function configure()
     {
-        $this->setName("parseCfPs")
-             ->setDescription("Retrieve CfPs and parse them")
+        $this->setName("parseCfPs:confs.tech")
+             ->setDescription("Retrieve CfPs from Confs.tech ony and parse them")
              ->setDefinition(array(
                  new InputOption('start', 's', InputOption::VALUE_OPTIONAL, 'What should be the first date to be taken into account?', ''),
              ))
              ->setHelp(<<<EOT
-Get details about CfPs from different sources
+Get details about CfPs from https://confs.tech
 
 Usage:
 
-<info>callingallpapers parseCfPs 2015-02-23<env></info>
+<info>callingallpapers parseCfPs:confs.tech 2015-02-23<env></info>
 
 If you ommit the date the current date will be used instead
 <info>callingallpapers parseCfPs<env></info>
@@ -74,6 +78,7 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $header_style = new OutputFormatterStyle('white', 'green', array('bold'));
+        $style = new SymfonyStyle($input, $output);
         $output->getFormatter()->setStyle('header', $header_style);
 
         $start = new \DateTime($input->getOption('start'));
@@ -82,15 +87,21 @@ EOT
             throw new \InvalidArgumentException('The given date could not be parsed');
         }
 
+        $config = parse_ini_file(__DIR__ . '/../../config/callingallpapers.ini');
+
         $client = new Client([
             'headers' => [
                 'Accept' => 'application/json',
+                'Authorization' => 'token ' . $config['github.token'],
             ],
         ]);
 
-        $config = parse_ini_file(__DIR__ . '/../../config/callingallpapers.ini');
+        $resultKeeper = new ConsoleOutputResultKeeper($style);
         $writer = new ApiCfpWriter($config['event_api_url'], $config['event_api_token'], $client);
         $writer->setOutput($output);
+        $writer->setResultKeeper($resultKeeper);
+
+        $style->comment('Starting to parse Confs.tech');
 
         // Set CfP-Filters
         $filter = new FilterList();
@@ -99,25 +110,56 @@ EOT
         $writer->setFilter($filter);
 
         $timezoneService = new TimezoneService($client, $config['timezonedb_token']);
-
         $geolocationService = new GeolocationService($client);
 
-        // Parse Papercall.io
-        $parser = (new PapercallIoParserFactory($timezoneService, $geolocationService))();
-        $parser->parse($writer);
-
-        // Parse Lanyrd.com
-        $parser = new LanyrdCfpParser($timezoneService);
-        $parser->parse($writer);
-
         // Parse Confs.tech
-        //$conferenceParser = new ConferenceParser($geolocationService, $timezoneService);
-        //$factory = new ConfsTechParserFactory($conferenceParser, $client, $writer);
-        //$parser = new ConfsTechParser($factory);
-        //$parser->parse($writer);
-
-        // Parse joind.in
-        $parser = new JoindinCfpParser();
+        $conferenceParser = new ConferenceParser($geolocationService, $timezoneService);
+        $factory = new ConfsTechParserFactory($conferenceParser, $client, $writer);
+        $parser = new ConfsTechParser($factory);
         $parser->parse($writer);
+
+        $style->newLine(2);
+
+        $items = [];
+        foreach ($resultKeeper->getCreated() as $created) {
+            $items[] = $created->getConference();
+        }
+
+        if ($items) {
+            $style->writeln('Added these new Conferences:');
+            $style->listing($items);
+        }
+
+        $items = [];
+        foreach ($resultKeeper->getUpdated() as $updated) {
+            $items[] = $updated->getConference();
+        }
+
+        if ($items) {
+            $style->writeln('Updated these Conferences:');
+            $style->listing($items);
+        }
+
+        $items = [];
+        foreach ($resultKeeper->getFailed() as $failed) {
+            $items[] = sprintf(
+                '%1$s (%2$s)',
+                $failed->getConference(),
+                $failed->getMessage()
+            );
+        }
+
+        foreach ($resultKeeper->getErrored() as $errored) {
+            $items[] = sprintf(
+                '%1$s (%2$s)',
+                $errored->getConference(),
+                $errored->getMessage()
+            );
+        }
+
+        if ($items) {
+            $style->writeln('There where issues with these conferences:');
+            $style->listing($items);
+        }
     }
 }

@@ -32,9 +32,14 @@ namespace Callingallpapers\Writer;
 use Callingallpapers\CfpFilter\CfpFilterInterface;
 use Callingallpapers\CfpFilter\FilterList;
 use Callingallpapers\Entity\Cfp;
+use Callingallpapers\ResultKeeper\Created;
+use Callingallpapers\ResultKeeper\Error;
+use Callingallpapers\ResultKeeper\Failure;
+use Callingallpapers\ResultKeeper\ResultKeeper;
+use Callingallpapers\ResultKeeper\Success;
+use Callingallpapers\ResultKeeper\Updated;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
-use GuzzleHttp\TransferStats;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ApiCfpWriter implements WriterInterface
@@ -48,6 +53,8 @@ class ApiCfpWriter implements WriterInterface
     protected $output;
 
     private $filter = null;
+
+    private $keeper;
 
     public function __construct($baseUri, $bearerToken, $client = null)
     {
@@ -63,6 +70,7 @@ class ApiCfpWriter implements WriterInterface
         $this->client = $client;
         $this->output = new NullOutput();
         $this->filter = new FilterList();
+        $this->keeper = new ResultKeeper();
     }
 
     public function setFilter(CfpFilterInterface $filter)
@@ -116,6 +124,7 @@ class ApiCfpWriter implements WriterInterface
                     ],
                     'form_params' => $body
                 ]);
+                $result = new Created($cfp->conferenceName);
             } else {
                 // Exists, so update it
                 $response = $this->client->request('PUT', sprintf(
@@ -127,28 +136,30 @@ class ApiCfpWriter implements WriterInterface
                     ],
                     'form_params' => $body
                 ]);
+                $result = new Updated($cfp->conferenceName);
             }
         } catch (BadResponseException $e) {
-            $this->output->writeln($e->getMessage());
+            $this->keeper->addFailure(new Failure($cfp->conferenceName, $e));
             return $e->getMessage();
         } catch (\Exception $e) {
-            $this->output->writeln($e->getMessage());
+            $this->keeper->addError(new Error($cfp->conferenceName, $e));
             return $e->getMessage();
         }
 
-        if ($response && ($response->getStatusCode() === 200 || $response->getStatusCode() === 201)) {
-            $this->output->writeln(sprintf(
-                'Conference "%1$s" succcessfully %2$s.',
-                $cfp->conferenceName,
-                ($exists) ? 'updated' : 'created'
-            ));
+        if ($response && ($response->getStatusCode() === 204 || $response->getStatusCode() === 200 || $response->getStatusCode() === 201)) {
+            $this->keeper->add($result);
         }
 
-        return (isset($response) && ($response->getStatusCode() === 200 || $response->getStatusCode() === 201))?'Success':'Failure';
+        return (isset($response) && ($response->getStatusCode() === 204 || $response->getStatusCode() === 200 || $response->getStatusCode() === 201))?'Success':'Failure';
     }
 
     public function setOutput(OutputInterface $output)
     {
         $this->output = $output;
+    }
+
+    public function setResultKeeper(ResultKeeper $resultKeeper)
+    {
+        $this->keeper = $resultKeeper;
     }
 }
