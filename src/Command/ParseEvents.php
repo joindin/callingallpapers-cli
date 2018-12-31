@@ -33,9 +33,12 @@ use Callingallpapers\CfpFilter\FilterList;
 use Callingallpapers\CfpFilter\FollowUriRedirect;
 use Callingallpapers\CfpFilter\StripParamsFromUri;
 use Callingallpapers\Exception\UnverifiedUriException;
+use Callingallpapers\Parser\ConfsTech\ConferenceParser;
+use Callingallpapers\Parser\ConfsTechParser;
 use Callingallpapers\Parser\JoindinCfpParser;
 use Callingallpapers\Parser\Lanyrd\LanyrdCfpParser;
 use Callingallpapers\Parser\PapercallIo\PapercallIoParserFactory;
+use Callingallpapers\Service\ConfsTechParserFactory;
 use Callingallpapers\Service\GeolocationService;
 use Callingallpapers\Service\TimezoneService;
 use Callingallpapers\Writer\ApiCfpWriter;
@@ -105,6 +108,12 @@ EOT
 
         // Parse Lanyrd.com
         $parser = new LanyrdCfpParser($timezoneService);
+        $parser->parse($writer);
+
+        // Parse Confs.tech
+        $conferenceParser = new ConferenceParser($geolocationService, $timezoneService);
+        $factory = new ConfsTechParserFactory($conferenceParser, $client, $writer);
+        $parser = new ConfsTechParser($factory);
         $parser->parse($writer);
 
         // Parse joind.in
