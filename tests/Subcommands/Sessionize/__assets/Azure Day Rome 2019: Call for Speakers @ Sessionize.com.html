@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html style="" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mark{position:relative;display:block;-webkit-animation:animateXMark .5s;animation:animateXMark .5s}.swal-icon--error__line{position:absolute;height:5px;width:47px;background-color:#f27474;display:block;top:37px;border-radius:2px}.swal-icon--error__line--left{-webkit-transform:rotate(45deg);transform:rotate(45deg);left:17px}.swal-icon--error__line--right{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);right:16px}@-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}.swal-icon--warning{border-color:#f8bb86;-webkit-animation:pulseWarning .75s infinite alternate;animation:pulseWarning .75s infinite alternate}.swal-icon--warning__body{width:5px;height:47px;top:10px;border-radius:2px;margin-left:-2px}.swal-icon--warning__body,.swal-icon--warning__dot{position:absolute;left:50%;background-color:#f8bb86}.swal-icon--warning__dot{width:7px;height:7px;border-radius:50%;margin-left:-4px;bottom:-11px}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success{border-color:#a5dc86}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}.swal-icon--success__ring{width:80px;height:80px;border:4px solid hsla(98,55%,69%,.2);border-radius:50%;box-sizing:content-box;position:absolute;left:-4px;top:-4px;z-index:2}.swal-icon--success__hide-corners{width:5px;height:90px;background-color:#fff;padding:1px;position:absolute;left:28px;top:8px;z-index:1;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal-icon--success__line{height:5px;background-color:#a5dc86;display:block;border-radius:2px;position:absolute;z-index:2}.swal-icon--success__line--tip{width:25px;left:14px;top:46px;-webkit-transform:rotate(45deg);transform:rotate(45deg);-webkit-animation:animateSuccessTip .75s;animation:animateSuccessTip .75s}.swal-icon--success__line--long{width:47px;right:8px;top:38px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-animation:animateSuccessLong .75s;animation:animateSuccessLong .75s}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info{border-color:#c9dae1}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-icon{width:80px;height:80px;border-width:4px;border-style:solid;border-radius:50%;padding:0;position:relative;box-sizing:content-box;margin:20px auto}.swal-icon:first-child{margin-top:32px}.swal-icon--custom{width:auto;height:auto;max-width:100%;border:none;border-radius:0}.swal-icon img{max-width:100%;max-height:100%}.swal-title{color:rgba(0,0,0,.65);font-weight:600;text-transform:none;position:relative;display:block;padding:13px 16px;font-size:27px;line-height:normal;text-align:center;margin-bottom:0}.swal-title:first-child{margin-top:26px}.swal-title:not(:first-child){padding-bottom:0}.swal-title:not(:last-child){margin-bottom:13px}.swal-text{font-size:16px;position:relative;float:none;line-height:normal;vertical-align:top;text-align:left;display:inline-block;margin:0;padding:0 10px;font-weight:400;color:rgba(0,0,0,.64);max-width:calc(100% - 20px);overflow-wrap:break-word;box-sizing:border-box}.swal-text:first-child{margin-top:45px}.swal-text:last-child{margin-bottom:45px}.swal-footer{text-align:right;padding-top:13px;margin-top:13px;padding:13px 16px;border-radius:inherit;border-top-left-radius:0;border-top-right-radius:0}.swal-button-container{margin:5px;display:inline-block;position:relative}.swal-button{background-color:#7cd1f9;color:#fff;border:none;box-shadow:none;border-radius:5px;font-weight:600;font-size:14px;padding:10px 24px;margin:0;cursor:pointer}.swal-button[not:disabled]:hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button[disabled]{opacity:.5;cursor:default}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel{color:#555;background-color:#efefef}.swal-button--cancel[not:disabled]:hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger{background-color:#e64942}.swal-button--danger[not:disabled]:hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content{padding:0 20px;margin-top:20px;font-size:medium}.swal-content:last-child{margin-bottom:20px}.swal-content__input,.swal-content__textarea{-webkit-appearance:none;background-color:#fff;border:none;font-size:14px;display:block;box-sizing:border-box;width:100%;border:1px solid rgba(0,0,0,.14);padding:10px 13px;border-radius:2px;transition:border-color .2s}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}.swal-content__textarea{resize:vertical}.swal-button--loading{color:transparent}.swal-button--loading~.swal-button__loader{opacity:1}.swal-button__loader{position:absolute;height:auto;width:43px;z-index:2;left:50%;top:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);text-align:center;pointer-events:none;opacity:0}.swal-button__loader div{display:inline-block;float:none;vertical-align:baseline;width:9px;height:9px;padding:0;border:none;margin:2px;opacity:.4;border-radius:7px;background-color:hsla(0,0%,100%,.9);transition:background .2s;-webkit-animation:swal-loading-anim 1s infinite;animation:swal-loading-anim 1s infinite}.swal-button__loader div:nth-child(3n+2){-webkit-animation-delay:.15s;animation-delay:.15s}.swal-button__loader div:nth-child(3n+3){-webkit-animation-delay:.3s;animation-delay:.3s}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay{position:fixed;top:0;bottom:0;left:0;right:0;text-align:center;font-size:0;overflow-y:auto;background-color:rgba(0,0,0,.4);z-index:10000;pointer-events:none;opacity:0;transition:opacity .3s}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}.swal-overlay--show-modal{opacity:1;pointer-events:auto}.swal-overlay--show-modal .swal-modal{opacity:1;pointer-events:auto;box-sizing:border-box;-webkit-animation:showSweetAlert .3s;animation:showSweetAlert .3s;will-change:transform}.swal-modal{width:478px;opacity:0;pointer-events:none;background-color:#fff;text-align:center;border-radius:5px;position:static;margin:20px auto;display:inline-block;vertical-align:middle;-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;z-index:10001;transition:opacity .2s,-webkit-transform .3s;transition:transform .3s,opacity .2s;transition:transform .3s,opacity .2s,-webkit-transform .3s}@media (max-width:500px){.swal-modal{width:calc(100% - 20px)}}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}</style>
+    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sessionize is the smart way to manage Call for Papers, Speakers and Agenda for your conference.">
+<meta name="theme-color" content="#1ab394">
+
+<title>Azure Day Rome 2019: Call for Speakers @ Sessionize.com</title>
+
+
+
+    <link rel="icon" href="https://sessionize.com/Assets/favicon.png" type="image/png">
+
+
+<link href="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/bootstrap.css" rel="stylesheet">
+
+
+<link href="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/font-awesome.css" rel="stylesheet">
+
+<link href="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/toastr.css" rel="stylesheet">
+
+<link href="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/select2.css" rel="stylesheet">
+
+
+
+    <link href="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/init.css" rel="stylesheet">
+
+    <link href="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/custom.css" rel="stylesheet">
+
+    <link href="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/selectize.css" rel="stylesheet">
+
+
+<link href="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/animate.css" rel="stylesheet">
+<link href="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/style.css" rel="stylesheet">
+
+<link href="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/site.css" rel="stylesheet">
+
+<script async="" src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/analytics.js"></script><script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/modernizr-2.js"></script>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-84382325-1', 'auto');
+        ga('create', 'UA-132777094-1', 'auto', 'eventcode');
+    ga('send', 'pageview');
+        ga('eventcode.send', 'pageview');
+
+</script>
+
+<script type="text/javascript">
+    var appInsights = window.appInsights || function (config) {
+        function r(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } }
+        var t = { config: config }, u = document, e = window, o = 'script', s = u.createElement(o), i, f; for (s.src = config.url || '//az416426.vo.msecnd.net/scripts/a/ai.0.js', u.getElementsByTagName(o)[0].parentNode.appendChild(s), t.cookie = u.cookie, t.queue = [], i = ['Event', 'Exception', 'Metric', 'PageView', 'Trace', 'Ajax']; i.length;)r('track' + i.pop()); return r('setAuthenticatedUserContext'), r('clearAuthenticatedUserContext'), config.disableExceptionTracking || (i = 'onerror', r('_' + i), f = e[i], e[i] = function (config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t['_' + i](config, r, u, e, o), s }), t
+    }({
+        instrumentationKey: '657dd70a-aa32-4dbd-ae69-36548bfa51a7'
+    });
+
+    window.appInsights = appInsights;
+    appInsights.trackPageView();
+</script><script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/ai.js"></script>
+
+    
+    
+    
+
+        <meta property="og:image" content="http://sessionize.com/image?f=1e8fbf56eeb802d2e79a79450311633a,1140,400,False,True,c3-13cc-4f66-9b83-e4b80dc8ed2d.3648c0b0-4cf5-4de2-8036-1920f83bf5f7.png">
+        <meta property="og:image:secure_url" content="https://sessionize.com/image?f=1e8fbf56eeb802d2e79a79450311633a,1140,400,False,True,c3-13cc-4f66-9b83-e4b80dc8ed2d.3648c0b0-4cf5-4de2-8036-1920f83bf5f7.png">
+
+
+
+
+
+</head>
+<body class="top-navigation gray-bg  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" style="transform: translate3d(100%, 0px, 0px);" data-progress-text="100%" data-progress="99">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+    
+    
+
+
+
+
+<div id="wrapper">
+    <div id="page-wrapper" class="gray-bg" style="min-height: 680px;">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top white-bg" role="navigation">
+                <div class="navbar-header">
+                    <a href="https://sessionize.com/" class="navbar-brand">Sessionize.com</a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar">
+
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                                <a href="https://sessionize.com/login?returnUrl=%2Fazure-day-rome-2019%2F">
+                                    <i class="fa fa-user"></i> Log in
+                                </a>
+                        </li>
+                    </ul>
+
+                    
+
+                </div>
+            </nav>
+        </div>
+
+        <div class="wrapper wrapper-content">
+            <div class="container">
+                
+
+
+
+
+
+
+
+<div class="row text-center animated fadeInDown">
+    <div class="col-md-12">
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h2 style="text-transform: uppercase; letter-spacing: 6px;" class="m-b-sm">Call for Speakers</h2>
+            </div>
+            <div class="ibox-content no-padding">
+                    <div class="ibox-content no-padding">
+                        <img src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/image.png" style="max-width: 100%" alt="">
+                    </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-6 animated fadeInLeft" id="left-column">
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <div class="pull-right">
+                        <span class="badge badge-success">in 111 days</span>
+
+                </div>
+                <h4>Azure Day Rome 2019</h4>
+            </div>
+            <div class="ibox-content">
+
+                <div class="row">
+                    <div class="col-sm-6 m-b-md">
+                        <div class="font-bold text-navy">
+                            <i class="fa fa-calendar-o"></i>
+                                event date
+                        </div>
+                        <h2 class="no-margins">24 May 2019</h2>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-sm-12 m-b-md">
+                            <div class="font-bold text-navy">
+                                <i class="fa fa-map-marker"></i>
+                                location
+                            </div>
+                            <h2 class="no-margins">
+                                <span class="block">Via Avignone, 10, 00144 Roma RM</span>
+                                <span class="block">Rome, Italy</span>
+                            </h2>
+                        </div>
+                    </div>
+                                    <div class="row">
+                        <div class="col-sm-12 m-b-md">
+                            <div class="font-bold text-navy">
+                                <i class="fa fa-globe"></i>
+                                website
+                            </div>
+                            <h2 class="no-margins">
+                                <a href="http://www.azureday.it/" class="navy-link" target="_blank">www.azureday.it</a>
+                            </h2>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <hr class="m-t-none">
+                        <p>Benvenuto in Azure Day Rome 2019, l'evento 
+gratuito dedicato a tutti gli utenti che desiderano conoscere o 
+approfondire la conoscenza di Azure per lo sviluppo e l'amministrazione 
+di soluzioni applicative nel Cloud!</p><p> </p><p>La conferenza Azure Day Rome 2019 (#adrome2019) avverrà il 24 Maggio, presso la sede Microsoft di Roma&nbsp;a Via Avignone 10. </p><p>La
+ conferenza, organizzata dalla community DotNetCode, tratterà come 
+argomento principale Azure e sarà agnostica alla tecnologia senza 
+necessariamente essere legata al mondo .NET.<br></p><p>La conferenza sarà suddivisa in due track: Dev e DevOps.&nbsp;<br></p><p>- La track Dev tratterà tutti quegli argomenti legati ai servizi che Azure mette a disposizione per gli sviluppatori.
+</p><p>- La track DevOps trattera tutti quegli argomenti necessari per 
+l'utilizzo di tecniche di DevOps che si possono implementare all'interno
+ di Azure.</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-6 animated fadeInRight" id="right-column">
+
+
+
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <div class="pull-right">
+                        <span class="badge badge-primary">open, 58 days left</span>
+
+                </div>
+                <h5>Call for Speakers</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-sm-6 m-b-sm">
+                        <div>
+                            <span class="font-bold text-navy">CfS opens at 12:00 AM</span>
+                        </div>
+                        <h2 class="no-margins">20 Jan 2019</h2>
+                        <small></small>
+                    </div>
+                    <div class="col-sm-6 m-b-sm">
+                        <div>
+                            <span class="font-bold text-navy">CfS closes at 11:59 PM</span>
+                        </div>
+                        <h2 class="no-margins">31 Mar 2019</h2>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 m-b-md">
+                            <div class="dropdown pull-right" style="display: inline-block;">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle btn btn-xs btn-default"><small><i class="fa fa-calendar"></i> Add to calendar</small></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="https://sessionize.com/add-to-calendar/cfs/azure-day-rome-2019">Download iCalendar file</a></li>
+                                        <li class="disabled"><a href="#" class="dropdown-item text-muted">Send to e-mail <em>(please login first!)</em></a></li>
+                                </ul>
+                            </div>
+
+                        <small class="text-muted">
+                            This event is in W. Europe Standard Time time zone.
+                        </small>
+                        <div class="displayNone" style="display: block;">
+                            <small class="text-muted">
+                                Closing time in your time zone is <span class="js-closedate" data-date="2019-03-31T21:59:00.0000000Z">31 Mar 2019 at 11:59 PM</span>.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr class="m-t-none">
+                            <p>Azure Day è l'evento dedicato al Cloud di
+ casa Microsoft, come organizzatori dell'evento ci aspettiamo delle 
+sessioni ricche di contenuti che mostrino al pubblico come sfruttare 
+Azure all'interno della propria attività professionale.</p><p><br></p>
+                        </div>
+                    </div>
+                                                                                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                            <button class="btn btn-lg btn-block btn-primary submit-your-session-button">Submit your session</button>
+                            <div style="display: none;">
+
+                                
+        <p class="m-t text-center">
+            Login with your prefered account
+        </p>
+<form action="/Account/ExternalLogin?ReturnUrl=%2Fazure-day-rome-2019%2F" method="post"><input name="__RequestVerificationToken" type="hidden" value="TSReb3gg6Gpc4Lsd5A-NXy9sD4-votcQ-sf5XwwNS-Ck1GmKXk65Ph_-hwn-xDapqxmHLX_0j-Ius1XqJDLKUA-LA998WMqyYJA6-Dl_jiw1">                    <button type="submit" class="btn btn-primary btn-lg btn-block" id="facebook" name="provider" value="Facebook" title="Log in using your Facebook account">
+                        <i class="fa fa-facebook"></i>
+                        Facebook
+                        
+                    </button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" id="google" name="provider" value="Google" title="Log in using your Google account">
+                        <i class="fa fa-google"></i>
+                        Google
+                        
+                    </button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" id="microsoft" name="provider" value="Microsoft" title="Log in using your Microsoft account">
+                        <i class="fa fa-windows"></i>
+                        Microsoft
+                        
+                    </button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" id="openidconnect" name="provider" value="OpenIdConnect" title="Log in using your company or school account">
+                        <i class="fa fa-cloud"></i>
+                        Office 365
+                        
+                    </button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" id="twitter" name="provider" value="Twitter" title="Log in using your Twitter account">
+                        <i class="fa fa-twitter"></i>
+                        Twitter
+                        
+                    </button>
+                <p class="m-t">
+                    <small>
+                        If you haven't logged in before, you'll be able to register with just one click.
+                    </small>
+                </p>
+</form>        <hr>
+        <button type="button" data-toggle="modal" data-target="#classicLoginModal" class="btn btn-primary btn-block btn-outline">
+            <i class="fa fa-envelope"></i>
+            Classic Login*
+        </button>
+        <p class="m-t-xs">
+            <small>
+                * Using social networks to login is much faster and 
+simpler, but you may prefer a classic username/password account.
+            </small>
+        </p>
+
+
+<p class="m-t">
+    
+</p>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+            </div>
+        </div>
+
+        
+
+    </div>
+</div>
+
+    
+    <!-- 3 queries, 12 ms total execution time, 7215 bytes longest query.
+
+
+21 in 0 ms (47b) = 
+1 in 8 ms (7215b) = FROM ( SELECT [Limit1].[Id] AS [Id], [Limit1].[Name] AS [Name], [Limit1].[Organizer] AS [Organizer], [Limit1].[Slug] AS [Slug], [Limit1].[Website] AS [Website], [Limit1].[Logo] AS [Logo], [Limit1].[Location] AS [Location], [Limit1].[EventDescription] AS [EventDescription], [Limit1].[Timezone] AS [Timezone], [Limit1].[EventStartDateUtc] AS [EventStartDateUtc], [Limit1].[EventEndDateUtc] AS [EventEndDateUtc], [Limit1].[CfpStartDateUtc] AS [CfpStartDateUtc], [Limit1].[CfpEndDateUtc] AS [CfpEndDateUtc], [Limit1].[AcceptedSessionEmailText] AS [AcceptedSessionEmailText], [Limit1].[AcceptedSessionEmailTextFull] AS [AcceptedSessionEmailTextFull], [Limit1].[DeclinedSessionEmailText] AS [DeclinedSessionEmailText], [Limit1].[DeclinedSessionEmailTextFull] AS [DeclinedSessionEmailTextFull], [Limit1].[SpeakerSupportEmail] AS [SpeakerSupportEmail], [Limit1].[ExpensesCoveredTravel] AS [ExpensesCoveredTravel], [Limit1].[ExpensesCoveredAccommodation] AS [ExpensesCoveredAccommodation], [Limit1].[ExpensesCoveredConferenceFee] AS [ExpensesCoveredConferenceFee], [Limit1].[ExpensesCoveredNote] AS [ExpensesCoveredNote], [Limit1].[DateCreatedUtc] AS [DateCreatedUtc], [Limit1].[SpeakerPhotoRequired] AS [SpeakerPhotoRequired], [Limit1].[Signature] AS [Signature], [Limit1].[IsActivated] AS [IsActivated], [Limit1].[IsDemo] AS [IsDemo], [Limit1].[IsPublic] AS [IsPublic], [Limit1].[DateExpirationUtc] AS [DateExpirationUtc], [Limit1].[IsSchedulePublished] AS [IsSchedulePublished], [Limit1].[CfpDescription] AS [CfpDescription], [Limit1].[AutoExportEveryDays] AS [AutoExportEveryDays], [Limit1].[AutoExportEmails] AS [AutoExportEmails], [Limit1].[AutoExportLastDateUtc] AS [AutoExportLastDateUtc], [Limit1].[LocationPredefinedId] AS [LocationPredefinedId], [Limit1].[C1] AS [C1], [Join1].[Id1] AS [Id1], [Join1].[Title] AS [Title], [Join1].[IsMultiple] AS [IsMultiple], [Join1].[IsRequired] AS [IsRequired], [Join1].[TemplateId] AS [TemplateId], [Join1].[EventId] AS [EventId], [Join1].[Sort1] AS [Sort], [Join1].[Id2] AS [Id2], [Join1].[Name] AS [Name1], [Join1].[Sort2] AS [Sort1], [Join1].[TagGroupId] AS [TagGroupId], CASE WHEN ([Join1].[Id1] IS NULL) THEN CAST(NULL AS int) WHEN ([Join1].[Sort2] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2], CASE WHEN ([Join1].[Id1] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C3] FROM (SELECT TOP (1) [Extent1].[Id] AS [Id], [Extent1].[Name] AS [Name], [Extent1].[Organizer] AS [Organizer], [Extent1].[Slug] AS [Slug], [Extent1].[Website] AS [Website], [Extent1].[Logo] AS [Logo], [Extent1].[Location] AS [Location], [Extent1].[EventDescription] AS [EventDescription], [Extent1].[Timezone] AS [Timezone], [Extent1].[EventStartDateUtc] AS [EventStartDateUtc], [Extent1].[EventEndDateUtc] AS [EventEndDateUtc], [Extent1].[CfpStartDateUtc] AS [CfpStartDateUtc], [Extent1].[CfpEndDateUtc] AS [CfpEndDateUtc], [Extent1].[AcceptedSessionEmailText] AS [AcceptedSessionEmailText], [Extent1].[AcceptedSessionEmailTextFull] AS [AcceptedSessionEmailTextFull], [Extent1].[DeclinedSessionEmailText] AS [DeclinedSessionEmailText], [Extent1].[DeclinedSessionEmailTextFull] AS [DeclinedSessionEmailTextFull], [Extent1].[SpeakerSupportEmail] AS [SpeakerSupportEmail], [Extent1].[ExpensesCoveredTravel] AS [ExpensesCoveredTravel], [Extent1].[ExpensesCoveredAccommodation] AS [ExpensesCoveredAccommodation], [Extent1].[ExpensesCoveredConferenceFee] AS [ExpensesCoveredConferenceFee], [Extent1].[ExpensesCoveredNote] AS [ExpensesCoveredNote], [Extent1].[DateCreatedUtc] AS [DateCreatedUtc], [Extent1].[SpeakerPhotoRequired] AS [SpeakerPhotoRequired], [Extent1].[Signature] AS [Signature], [Extent1].[IsActivated] AS [IsActivated], [Extent1].[IsDemo] AS [IsDemo], [Extent1].[IsPublic] AS [IsPublic], [Extent1].[DateExpirationUtc] AS [DateExpirationUtc], [Extent1].[IsSchedulePublished] AS [IsSchedulePublished], [Extent1].[CfpDescription] AS [CfpDescription], [Extent1].[AutoExportEveryDays] AS [AutoExportEveryDays], [Extent1].[AutoExportEmails] AS [AutoExportEmails], [Extent1].[AutoExportLastDateUtc] AS [AutoExportLastDateUtc], [Extent1].[LocationPredefinedId] AS [LocationPredefinedId], 1 AS [C1] FROM [dbo].[Events] AS [Extent1]
+1 in 2 ms (463b) = FROM [dbo].[Locations] AS [Extent1]
+1 in 2 ms (227b) = FROM [dbo].[EventSettings] AS [Extent1] -->
+
+    
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/jquery-3.js"></script>
+
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/bootstrap.js"></script>
+
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/jquery_004.js"></script>
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/jquery.js"></script>
+
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/formex.js"></script>
+
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/jquery_002.js"></script>
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/jquery_003.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/inspinia.js"></script>
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/site.js"></script>
+
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/pace.js"></script>
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/wow.js"></script>
+
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/select2.js" type="text/javascript"></script>
+
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/sweetalert.js" type="text/javascript"></script>
+
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/toastr.js" type="text/javascript"></script>
+<script type="text/javascript">
+    toastr.options = {
+        "closeButton": true,
+        "progressBar": true,
+        "positionClass": "toast-almost-top-right",
+    }
+</script>
+
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/respond.js"></script>
+
+
+    <script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/dropzone.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Dropzone.autoDiscover = false;
+    </script>
+    <script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/init.js" type="text/javascript"></script>
+
+
+    <script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/icheck.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $('.i-checks')
+            .iCheck({
+                checkboxClass: 'icheckbox_square',
+                radioClass: 'iradio_square',
+            });
+    </script>
+
+    <script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/selectize.js" type="text/javascript"></script>
+    <script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/init_002.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $('body')
+        .tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body"
+        });
+</script>
+
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/moment.js" type="text/javascript"></script>
+
+    <script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/jquery-ui.js" type="text/javascript"></script>
+
+<script src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/js.js" type="text/javascript"></script>
+
+
+
+
+
+
+<div class="hidden">
+<form action="/logoff" id="logoutForm" method="post">        <input type="hidden" name="returnUrl">
+</form>    <script type="text/javascript">
+        function logOff(returnUrl) {
+            if (returnUrl) $('#logoutForm input').val(returnUrl);
+            $('#logoutForm').submit();
+            return false;
+        }
+    </script>
+</div>
+
+<script type="text/javascript">
+    function mailView(id) {
+        window.open('/app/mail/' + id, 'message' + id, 'width=1000,height=600');
+        return false ;
+    }
+</script>
+
+
+<script type="text/javascript" id="cookiebanner" src="Azure%20Day%20Rome%202019:%20Call%20for%20Speakers%20@%20Sessionize.com-Dateien/cookiebanner.js" data-position="bottom" data-bg="#F4F4F4" data-fg="#333" data-font-size="11px" data-text-align="left" data-moreinfo="/privacy-policy/" data-linkmsg="Details" data-close-style="float:left;padding-left:5px;padding-right:5px;color: #179D82;" data-message="We use cookies to improve your browsing experience.">
+</script>
+    
+    
+    
+    <script type="text/javascript">$(document).ready(function(){try{var n=$(".js-closedate"),t=moment(n.data("date"));n.text(t.format("D MMM YYYY [at] h:mm A"));n.closest("div").show()}catch(i){console.log("Local date error",i)}$(".js-sendics").click(function(){$(".dropdown.open .dropdown-toggle").dropdown("toggle");var n=$(this).data("url");return $.getJSON(n,function(n){n.error?toastr.error(n.error):toastr.success(n.success)}),!1})});$(".submit-your-session-button").next().hide();$(".submit-your-session-button").click(function(){$(this).slideUp().next().slideDown()})</script>
+
+
+
+
+
+<div class="cookiebanner" style="position: fixed; left: 0px; right: 0px; height: auto; min-height: 21px; z-index: 2055; background: rgb(244, 244, 244) none repeat scroll 0% 0%; color: rgb(51, 51, 51); line-height: 21px; padding: 5px 16px; font-family: arial, sans-serif; font-size: 11px; text-align: left; bottom: 0px; opacity: 1;"><div class="cookiebanner-close" style="float: left; padding-left: 5px; padding-right: 5px; color: rgb(23, 157, 130); cursor: pointer;">✖</div><span>We use cookies to improve your browsing experience. <a href="https://sessionize.com/privacy-policy/" target="_blank" style="text-decoration: none; color: rgb(170, 170, 170); font-weight: normal;">Details</a></span></div><div id="classicLoginModal" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h1 class="modal-title text-center">Classic login</h1>
+            </div>
+            <div class="modal-body">
+
+<form returnurl="/azure-day-rome-2019/" action="/login/classic" method="post" novalidate="novalidate"><input name="__RequestVerificationToken" type="hidden" value="ze2PsORF0eRAv2Chl98D4VNjOzYRQjIlKLt0skEWGhTy-A8Ny7nuS27Sk7n3pG6Y52EVaQJz6vSY2PIySUhI2oMbQhMIjAu_Lxf-ZXDhWCQ1"><input id="ReturnUrl" name="ReturnUrl" type="hidden" value="/azure-day-rome-2019/">                    <div class="form-group is-required">
+                        <input class="form-control" data-val="true" data-val-required=" " id="Username" name="Username" placeholder="your e-mail address" type="text">
+                    </div>
+                    <div class="form-group is-required">
+                        <input class="form-control" data-val="true" data-val-required=" " id="Password" name="Password" placeholder="your password" type="password">
+                    </div>
+                    <div class="form-group">
+                        <div class="i-checks i-checks-discrete">
+                            <label>
+                                <div class="icheckbox_square" style="position: relative;"><input data-val="true" data-val-required=" " id="RememberMe" name="RememberMe" type="checkbox" value="true" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div><input name="RememberMe" type="hidden" value="false">
+                                <i>Remember me on this computer</i> 
+                                
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="https://sessionize.com/login/classic/forgot?returnUrl=%2Fazure-day-rome-2019%2F" target="_blank">
+                                <small>Forgot password?</small>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <a href="https://sessionize.com/login/classic/register?returnUrl=%2Fazure-day-rome-2019%2F">
+                                <small>Create new classic account</small>
+                            </a>
+                        </div>
+                    </div>
+</form>
+
+            </div>
+        </div>
+    </div>
+</div></body></html>

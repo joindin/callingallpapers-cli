@@ -9,6 +9,7 @@
 <phpunit bootstrap="tests/bootstrap.php">
     <testsuite name="callingallpapers-CLI Test-Suite">
         <directory>tests</directory>
+        <directory>src/Subcommands/Tests</directory>
     </testsuite>
 
     <groups>
