@@ -49,7 +49,7 @@ class Location implements EventDetailParserInterface
         }
 
         $location = trim($titlePath->item(0)->textContent);
-        $location = explode(' - ', $location);
+        $location = explode(PHP_EOL, $location);
         $cfp->location = $location[0];
 
         return $cfp;
