@@ -4,13 +4,14 @@ language: php
 php:
 - 7.1
 - 7.2
+- 7.3
 - nightly
 
 matrix:
   fast_finish: true
   allow_failures:
-  - nightly
-  - 7.1
+  - php: nightly
+  - php: 7.1
 
 stages:
 - check
