@@ -15,5 +15,12 @@ alternate version:
 
 ## Usage
 
+    # Install Composer dependencies (if not using `composer create-project` command
+    composer install
+    
+    # Copy and customize the .ini file:
+    cp config/callingallpapers.ini.dist config/callingallpapers.ini
+    
+    # List valid commands
     ./bin/callinallpapers list
 

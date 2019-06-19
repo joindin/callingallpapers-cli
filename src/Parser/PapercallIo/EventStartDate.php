@@ -61,7 +61,7 @@ class EventStartDate implements EventDetailParserInterface
         }
 
         $location = trim($titlePath->item(0)->textContent);
-        $location = explode(' - ', $location);
+        $location = explode(PHP_EOL, $location);
 
         if (! isset($location[1])) {
             return $cfp;

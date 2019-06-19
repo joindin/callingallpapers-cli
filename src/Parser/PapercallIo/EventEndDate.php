@@ -62,7 +62,7 @@ class EventEndDate implements EventDetailParserInterface
         }
 
         $locationTimeString = trim($titlePath->item(0)->textContent);
-        $locationTime = explode(' - ', $locationTimeString);
+        $locationTime = explode(PHP_EOL, $locationTimeString);
 
         if (! isset($locationTime[1])) {
             return $cfp;
