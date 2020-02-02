@@ -27,18 +27,18 @@ class EventStartDate
     {
         // This expression does not work. It looks like the reason is the array-notation...
         //$startDate = $xpath->query('//div[contains(text()[2], "event starts")]/following-sibling::h2');
-        $startDate = $xpath->query('//div[contains(text(), "event starts")]');
+        $startDate = $xpath->query('//div[contains(., "event starts")]');
 
         if (! $startDate || $startDate->length == 0) {
             // This expression does not work. It looks like the reason is the array-notation...
             //$startDate = $xpath->query('//div[contains(text()[2], "event date")]/following-sibling::h2');
-            $startDate = $xpath->query('//div[contains(text(), "event date")]');
+            $startDate = $xpath->query('//div[contains(., "event date")]');
         }
         if (! $startDate || $startDate->length == 0) {
-            throw new \InvalidArgumentException('The Event does not seem to have a start date');
+            throw new \InvalidArgumentException('The Event does not seem to have a start date-identifier');
         }
 
-        $startDate = $xpath->query('h2', $startDate->item(0)->parentNode);
+        $startDate = $xpath->query('h2', $startDate->item($startDate->length-1)->parentNode);
 
         if (! $startDate || $startDate->length == 0) {
             throw new \InvalidArgumentException('The Event does not seem to have a start date');

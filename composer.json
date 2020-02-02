@@ -20,6 +20,7 @@
     "require": {
         "ext-dom" : "*",
         "ext-json" : "*",
+      "ext-libxml": "*",
         "symfony/console": "^2.7",
         "org_heigl/trait-iterator": "^1.0",
         "guzzlehttp/guzzle": "^6.2",

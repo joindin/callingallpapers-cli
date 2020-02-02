@@ -42,7 +42,9 @@ class EntryParser
 
             $content = file_get_contents($uri);
             $content = mb_convert_encoding($content, 'UTF-8');
-            $dom->loadXML(
+            $content = preg_replace('/\<!DOCTYPE[^\>]*?\>/im', '', $content);
+
+            $dom->loadHTML(
                 '<?xml version="1.0" encoding="UTF-8" ?>' . $content,
                 LIBXML_NOBLANKS ^ LIBXML_NOERROR ^ LIBXML_NOENT
             );
@@ -55,9 +57,9 @@ class EntryParser
 
             try {
                 $location = $this->geolocationService->getLocationForAddress($cfp->location);
-                $cfp->latitude = $location[0];
-                $cfp->longitude = $location[1];
-                $timezone = $this->timezoneService->getTimezoneForLocation($location[0], $location[1]);
+                $cfp->latitude = $location->getLatitude();
+                $cfp->longitude = $location->getLongitude();
+                $timezone = $this->timezoneService->getTimezoneForLocation($location->getLatitude(), $location->getLongitude());
             } catch (\UnexpectedValueException $e) {
                 error_log($e->getMessage());
             }

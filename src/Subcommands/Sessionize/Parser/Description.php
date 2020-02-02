@@ -23,17 +23,18 @@ class Description
             return '';
         }
 
-        $result = $result->item(0)->childNodes;
-
-        if ($result->length <= 0) {
-            return '';
-        }
-
         $text = [];
-        foreach ($result as $node) {
-            $text[] = $dom->saveXML($node);
-        }
+        for ($i = 0; $i < $result->length; $i++) {
+            $resultI = $result->item($i)->parentNode->childNodes;
 
+            if ($resultI->length <= 0) {
+                return '';
+            }
+
+            foreach ($resultI as $node) {
+                $text[] = $dom->saveXML($node);
+            }
+        }
         $description = trim(implode('', $text));
         $description = preg_replace(['/\<\!\-\-.*?\-\-\>/si', '/\<script.*?\<\/script\>/si'],'', $description);
 

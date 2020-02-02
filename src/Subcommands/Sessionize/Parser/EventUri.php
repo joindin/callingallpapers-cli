@@ -19,7 +19,7 @@ class EventUri
     {
         // This expression does not work. It looks like the reason is the array-notation...
         //$uriPath = $xpath->query('//div[contains(text()[2], "website")]/following-sibling::h2/a');
-        $uriPath = $xpath->query('//div[contains(text(), "website")]');
+        $uriPath = $xpath->query('//div[contains(., "website")]');
 
         if (! $uriPath || $uriPath->length == 0) {
             throw new \InvalidArgumentException('The CfP does not seem to have an EventUri');

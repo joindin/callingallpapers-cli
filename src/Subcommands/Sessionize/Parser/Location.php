@@ -18,12 +18,12 @@ class Location
     {
         // This expression does not work. It looks like the reason is the array-notation...
         //$locations = $xpath->query('//div[contains(text()[2], "location")]/following-sibling::h2/span');
-        $locations = $xpath->query('//div[contains(text(), "location")]');
-        if (! $locations || $locations->length == 0) {
-            throw new \InvalidArgumentException('The Event does not seem to have a location');
+        $locationMarker = $xpath->query("//div[contains(., 'location')]");
+        if (! $locationMarker || $locationMarker->length == 0) {
+            throw new \InvalidArgumentException('The Event does not seem to have a locationMarker');
         }
 
-        $locations = $xpath->query('//h2/span', $locations->item(0)->parentNode);
+        $locations = $xpath->query('//h2/span', $locationMarker->item(0)->parentNode);
 
         if (! $locations || $locations->length == 0) {
             throw new \InvalidArgumentException('The Event does not seem to have a location');

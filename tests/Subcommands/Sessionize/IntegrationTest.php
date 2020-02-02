@@ -8,6 +8,7 @@
 namespace CallingallpapersTest\Cli\Subcommands\Sessionize;
 
 use Callingallpapers\Entity\Cfp;
+use Callingallpapers\Entity\Geolocation;
 use Callingallpapers\Service\GeolocationService;
 use Callingallpapers\Service\ServiceContainer;
 use Callingallpapers\Service\TimezoneService;
@@ -22,15 +23,25 @@ class IntegrationTest extends TestCase
     {
         //$this->markTestSkipped('Needs to be implemented correctly');
         $cfp = new Cfp();
+
+        /** @var TimezoneService|M\Mock $timezoneService */
+        $timezoneService = M::mock(TimezoneService::class);
+        $timezoneService->shouldReceive('getTimezoneForLocation')->andReturn('Europe/Paris');
+
+        /** @var GeolocationService|M\Mock $geolocationService */
+        $geolocationService = M::mock(GeolocationService::class);
+        $geolocationService->shouldReceive('getLocationForAddress')->andReturn(new Geolocation(12.23, 23.34));
+
         $serviceContainer = new ServiceContainer(
-            M::mock(TimezoneService::class),
-            M::mock(GeolocationService::class),
+            $timezoneService,
+            $geolocationService,
             M::mock(Client::class)
         );
         $parser = new EntryParser($cfp, $serviceContainer);
 
         $result = $parser->parse('https://sessionize.com/kanddinsky-2018/');
 
-        sef::assertEquals('', $parser);
+        self::assertEquals('KanDDDinsky', $result->conferenceName);
+        self::assertContains('The KanDDDinsky Team', $result->description);
     }
 }
