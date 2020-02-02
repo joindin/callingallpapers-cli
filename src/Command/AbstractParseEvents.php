@@ -74,7 +74,7 @@ Usage:
 If you ommit the date the current date will be used instead
 <info>callingallpapers parseCfPs:sessionize<env></info>
 EOT
-            ,$this->getServiceUrl()));
+            , $this->getServiceUrl()));
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

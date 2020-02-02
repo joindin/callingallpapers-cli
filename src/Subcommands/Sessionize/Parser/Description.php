@@ -12,7 +12,10 @@ namespace Callingallpapers\Subcommands\Sessionize\Parser;
 use DOMDocument;
 use DOMXPath;
 use function preg_replace;
+use function str_replace;
 use function strip_tags;
+use function strpos;
+use function var_dump;
 
 class Description
 {
@@ -25,18 +28,29 @@ class Description
 
         $text = [];
         for ($i = 0; $i < $result->length; $i++) {
-            $resultI = $result->item($i)->parentNode->childNodes;
-
-            if ($resultI->length <= 0) {
-                return '';
+            $currentItem = $result->item($i);
+            $resultI = $currentItem->parentNode->childNodes;
+            if ($currentItem->childNodes->length > 0) {
+                $resultI = $currentItem->childNodes;
             }
 
-            foreach ($resultI as $node) {
-                $text[] = $dom->saveXML($node);
+            if ($resultI->length <= 0) {
+                continue;
+            }
+            foreach ($resultI as $key => $node) {
+                $nodeText = trim($dom->saveXML($node));
+
+                if (false !== strpos($nodeText, 'submit-your-session-button')) {
+                    continue;
+                }
+
+                $nodeText = str_replace('</hr>', '', $nodeText);
+                $nodeText = str_replace('<hr class="m-t-none">', '', $nodeText);
+                $text[] = $nodeText;
             }
         }
         $description = trim(implode('', $text));
-        $description = preg_replace(['/\<\!\-\-.*?\-\-\>/si', '/\<script.*?\<\/script\>/si'],'', $description);
+        $description = preg_replace(['/\<\!\-\-.*?\-\-\>/si', '/\<script.*?\<\/script\>/si', '/\<script.*?src=\".*?\/\>/'], '', $description);
 
         return $description;
     }

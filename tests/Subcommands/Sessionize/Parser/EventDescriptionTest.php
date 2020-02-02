@@ -27,6 +27,8 @@ class EventDescriptionTest extends TestCase
 
         $dom->load($file, LIBXML_NOBLANKS ^ LIBXML_NOERROR ^ LIBXML_NOENT);
 
+        $result = str_replace("\r", "\n", $result);
+
         $this->assertEquals($result, $parser->parse($dom, new DOMXPath($dom)));
     }
 
@@ -45,7 +47,10 @@ necessariamente essere legata al mondo .NET.<br/><p>La conferenza sarà suddivis
 l\'utilizzo di tecniche di DevOps che si possono implementare all\'interno
  di Azure.</p>
                     </p>
-                </p>',
+                </p><p>Azure Day è l\'evento dedicato al Cloud di
+ casa Microsoft, come organizzatori dell\'evento ci aspettiamo delle 
+sessioni ricche di contenuti che mostrino al pubblico come sfruttare 
+Azure all\'interno della propria attività professionale.</p><p><br/></p>',
         ], [
             __DIR__ . '/../__assets/React Week Medellín 2019: Call for Speakers @ Sessionize.com.html',
             '<p>En Globant Medellín vamos a realizar la 
@@ -62,7 +67,7 @@ comunidades de la ciudad y excelentes sorpresas.</p></p></p></p></p></p><div cla
                             This event is in SA Pacific Standard Time time zone.
                         </small><div class="displayNone" style="display: block;"><small class="text-muted">
                                 Closing time in your time zone is <span class="js-closedate" data-date="2019-01-30T04:59:00.0000000Z">30 Jan 2019 at 5:59 AM</span>.
-                            </small></div></div></div><div class="row"><div class="col-md-12"><hr class="m-t-none"><p>Algunos temassugeridos:</p><p><br/><p>React Foundations.</p><p>State manager: Redux, MobX, flux.</p><p>Style Components.</p><p>React Native</p><p>React Integrations</p><p>Jest Unit Testing in React</p><p>End to End Testing in React</p></p></hr></div></div></div></div></div></p></p></p></form><div class="cookiebanner" style="position: fixed; left: 0px; right: 0px; height: auto; min-height: 21px; z-index: 2055; background: rgb(244, 244, 244) none repeat scroll 0% 0%; color: rgb(51, 51, 51); line-height: 21px; padding: 5px 16px; font-family: arial, sans-serif; font-size: 11px; text-align: left; bottom: 0px; opacity: 1;"><div class="cookiebanner-close" style="float: left; padding-left: 5px; padding-right: 5px; color: rgb(23, 157, 130); cursor: pointer;">✖</div><span>We use cookies to improve your browsing experience. <a href="https://sessionize.com/privacy-policy/" target="_blank" style="text-decoration: none; color: rgb(170, 170, 170); font-weight: normal;">Details</a></span></div></div>'
+                            </small></div></div></div><div class="row"><div class="col-md-12"><p>Algunos temassugeridos:</p><p><br/><p>React Foundations.</p><p>State manager: Redux, MobX, flux.</p><p>Style Components.</p><p>React Native</p><p>React Integrations</p><p>Jest Unit Testing in React</p><p>End to End Testing in React</p></p></div></div></div></div></div></p></p></p><p>Algunos temassugeridos:</p><p><br/><p>React Foundations.</p><p>State manager: Redux, MobX, flux.</p><p>Style Components.</p><p>React Native</p><p>React Integrations</p><p>Jest Unit Testing in React</p><p>End to End Testing in React</p></p>'
         ],];
     }
 }
