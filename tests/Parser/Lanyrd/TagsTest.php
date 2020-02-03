@@ -10,6 +10,7 @@
 namespace CallingallpapersTest\Cli\Parser\Lanyrd;
 
 use Callingallpapers\Parser\Lanyrd\Tags;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 class TagsTest extends TestCase
@@ -42,9 +43,6 @@ class TagsTest extends TestCase
         ];
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testParsingMissingTags()
     {
         $dom = new \DOMDocument('1.0', 'UTF-8');
@@ -54,6 +52,8 @@ class TagsTest extends TestCase
         $xpath = new \DOMXPath($dom);
 
         $parser = new Tags();
+
+        self::expectException(InvalidArgumentException::class);
         $parser->parse($dom, $xpath);
     }
 }

@@ -10,6 +10,7 @@
 namespace CallingallpapersTest\Cli\Parser\Lanyrd;
 
 use Callingallpapers\Parser\Lanyrd\EventEndDate;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 class EventEndDateTest extends TestCase
@@ -39,9 +40,6 @@ class EventEndDateTest extends TestCase
         ];
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testPArsingMissingEndDate()
     {
         $dom = new \DOMDocument('1.0', 'UTF-8');
@@ -51,6 +49,7 @@ class EventEndDateTest extends TestCase
         $xpath = new \DOMXPath($dom);
 
         $parser = new EventEndDate();
+        $this->expectException(InvalidArgumentException::class);
         $parser->parse($dom, $xpath);
     }
 }

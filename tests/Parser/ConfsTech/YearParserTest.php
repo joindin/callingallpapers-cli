@@ -23,7 +23,7 @@ class YearParserTest extends TestCase
 
     private $client;
 
-    public function setup()
+    public function setup(): void
     {
         $this->categoryParser = M::mock(CategoryParser::class);
         $this->client         = M::mock(Client::class);
@@ -93,7 +93,6 @@ class YearParserTest extends TestCase
      */
     public function testConstruction()
     {
-        self::assertAttributeSame($this->categoryParser, 'parser', $this->parser);
-        self::assertAttributeSame($this->client, 'client', $this->parser);
+        self::assertInstanceOf(YearParser::class, $this->parser);
     }
 }
