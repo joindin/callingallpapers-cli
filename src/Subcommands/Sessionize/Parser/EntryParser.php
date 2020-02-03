@@ -18,6 +18,7 @@ use DOMXPath;
 use Exception;
 use GuzzleHttp\Client;
 use InvalidArgumentException;
+use Throwable;
 
 class EntryParser
 {
@@ -34,7 +35,7 @@ class EntryParser
         $this->geolocationService = $container->getGeolocationService();
     }
 
-    public function parse($uri)
+    public function parse($uri): Cfp
     {
         $cfp = clone($this->cfp);
         try {
@@ -97,8 +98,12 @@ class EntryParser
                 $cfp->eventEndDate = $cfp->eventStartDate;
             }
 
-            $iconUri = new IconUri($uri);
-            $cfp->iconUri = $iconUri->parse($dom, $xpath);
+            try {
+                $iconUri = new IconUri($uri);
+                $cfp->iconUri = $iconUri->parse($dom, $xpath);
+            } catch (Throwable $e) {
+                $cfp->iconUri = '';
+            }
 
             return $cfp;
         } catch (Exception $e) {

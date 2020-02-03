@@ -28,7 +28,7 @@ class Location
         if (! $locations || $locations->length == 0) {
             throw new \InvalidArgumentException('The Event does not seem to have a location');
         }
-        $location = [];
+        $locationArray = [];
         foreach ($locations as $item) {
             $location = trim($item->textContent);
             if ($location === '') {
@@ -37,9 +37,9 @@ class Location
 
             return $location;
 
-            $location[] = $location;
+            $locationArray[] = $location;
         }
 
-        return implode(', ', array_unique($location));
+        return implode(', ', array_unique($locationArray));
     }
 }
