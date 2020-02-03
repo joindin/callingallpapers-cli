@@ -21,7 +21,6 @@ class IntegrationTest extends TestCase
 {
     public function testParsingOfAvailableAssets()
     {
-        //$this->markTestSkipped('Needs to be implemented correctly');
         $cfp = new Cfp();
 
         /** @var TimezoneService|M\Mock $timezoneService */
@@ -42,6 +41,6 @@ class IntegrationTest extends TestCase
         $result = $parser->parse('https://sessionize.com/kanddinsky-2018/');
 
         self::assertEquals('KanDDDinsky', $result->conferenceName);
-        self::assertContains('The KanDDDinsky Team', $result->description);
+        self::assertStringContainsString('The KanDDDinsky Team', $result->description);
     }
 }

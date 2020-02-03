@@ -10,6 +10,7 @@
 namespace CallingallpapersTest\Cli\Parser\Lanyrd;
 
 use Callingallpapers\Parser\Lanyrd\ClosingDate;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 class ClosingDateTest extends TestCase
@@ -44,7 +45,6 @@ class ClosingDateTest extends TestCase
 
     /**
      * @dataProvider parsingInvalidClosingDateProvider
-     * @expectedException \InvalidArgumentException
      */
     public function testParsingInvalidClosingDate($uri)
     {
@@ -55,6 +55,8 @@ class ClosingDateTest extends TestCase
         $xpath = new \DOMXPath($dom);
 
         $parser = new ClosingDate();
+
+        $this->expectException(InvalidArgumentException::class);
         $parser->parse($dom, $xpath);
     }
 

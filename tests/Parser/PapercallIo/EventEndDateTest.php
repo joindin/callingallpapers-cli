@@ -40,7 +40,7 @@ class EventEndDateTest extends TestCase
     public function testThatInitializationWorks()
     {
         $parser = new EventEndDate();
-        $this->assertAttributeEquals(new \DateTimeZone('UTC'), 'timezone', $parser);
+        $this->assertInstanceOf(EventEndDate::class, $parser);
     }
 
     /** @dataProvider dateisParsedCorrectlyProvider */

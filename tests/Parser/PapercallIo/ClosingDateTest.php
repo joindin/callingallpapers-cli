@@ -40,7 +40,7 @@ class ClosingDateTest extends TestCase
     public function testThatInitializationWorks()
     {
         $parser = new ClosingDate();
-        $this->assertAttributeEquals(new \DateTimeZone('UTC'), 'timezone', $parser);
+        $this->assertInstanceOf(ClosingDate::class, $parser);
     }
 
     public function testThatDateIsParsedCorrectlyFromNode()

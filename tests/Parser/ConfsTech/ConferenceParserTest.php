@@ -30,7 +30,7 @@ class ConferenceParserTest extends TestCase
     /** @var ConferenceParser */
     private $conferenceParser;
 
-    public function setup()
+    public function setup(): void
     {
         $this->timezone = M::mock(TimezoneService::class);
         $this->geolocation = M::mock(GeolocationService::class);
@@ -82,16 +82,16 @@ class ConferenceParserTest extends TestCase
         );
 
         self::assertInstanceOf(Cfp::class, $cfp);
-        self::assertAttributeEquals($array['name'], 'conferenceName', $cfp);
-        self::assertAttributeEquals($array['city'], 'location', $cfp);
-        self::assertAttributeEquals(20.0, 'latitude', $cfp);
-        self::assertAttributeEquals(10.0, 'longitude', $cfp);
-        self::assertAttributeEquals('Europe/Berlin', 'timezone', $cfp);
-        self::assertAttributeEquals($startDate, 'eventStartDate', $cfp);
-        self::assertAttributeEquals($endDate, 'eventEndDate', $cfp);
-        self::assertAttributeEquals($cfpEndDate, 'dateEnd', $cfp);
-        self::assertAttributeEquals($array['url'], 'conferenceUri', $cfp);
-        self::assertAttributeEquals($array['cfpUrl'], 'uri', $cfp);
+        self::assertSame($array['name'], $cfp->conferenceName);
+        self::assertSame($array['city'], $cfp->location);
+        self::assertSame(20.0, $cfp->latitude);
+        self::assertSame(10.0, $cfp->longitude);
+        self::assertSame('Europe/Berlin', $cfp->timezone);
+        self::assertEquals($startDate, $cfp->eventStartDate);
+        self::assertEquals($endDate, $cfp->eventEndDate);
+        self::assertEquals($cfpEndDate, $cfp->dateEnd);
+        self::assertSame($array['url'], $cfp->conferenceUri);
+        self::assertSame($array['cfpUrl'], $cfp->uri);
     }
 
     /**
@@ -99,16 +99,6 @@ class ConferenceParserTest extends TestCase
      */
     public function testConstruction()
     {
-        self::assertAttributeSame(
-            $this->timezone,
-            'timezone',
-            $this->conferenceParser
-        );
-
-        self::assertAttributeSame(
-            $this->geolocation,
-            'geolocation',
-            $this->conferenceParser
-        );
+        self::assertInstanceOf(ConferenceParser::class, $this->conferenceParser);
     }
 }

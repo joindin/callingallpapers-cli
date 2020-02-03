@@ -21,15 +21,19 @@ use Psr\Http\Message\StreamInterface;
 
 class CategoryParserTest extends TestCase
 {
+    /** @var ConferenceParser|M\LegacyMockInterface|M\MockInterface  */
     private $conferenceParser;
 
+    /** @var WriterInterface|M\LegacyMockInterface|M\MockInterface  */
     private $writer;
 
+    /** @var Client|M\LegacyMockInterface|M\MockInterface  */
     private $client;
 
+    /** @var CategoryParser */
     private $parser;
 
-    public function setup()
+    public function setup(): void
     {
         $this->conferenceParser = M::mock(ConferenceParser::class);
         $this->writer = M::mock(WriterInterface::class);
@@ -42,8 +46,7 @@ class CategoryParserTest extends TestCase
      */
     public function testConstructor()
     {
-        self::assertAttributeSame($this->conferenceParser, 'conferenceParser', $this->parser);
-        self::assertAttributeSame($this->writer, 'writer', $this->parser);
+        self::assertInstanceOf(CategoryParser::class, $this->parser);
     }
 
     /**
