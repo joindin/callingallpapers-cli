@@ -23,7 +23,7 @@ class Location
             throw new \InvalidArgumentException('The Event does not seem to have a locationMarker');
         }
 
-        $locations = $xpath->query('//h2/span', $locationMarker->item(0)->parentNode);
+        $locations = $xpath->query('.//h2/span', $locationMarker->item(0)->parentNode);
 
         if (! $locations || $locations->length == 0) {
             throw new \InvalidArgumentException('The Event does not seem to have a location');

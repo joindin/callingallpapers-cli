@@ -25,7 +25,7 @@ class EventUri
             throw new \InvalidArgumentException('The CfP does not seem to have an EventUri');
         }
 
-        $uriPath = $xpath->query('//h2/a', $uriPath->item(0)->parentNode);
+        $uriPath = $xpath->query('.//h2/a', $uriPath->item(0)->parentNode);
 
         if (! $uriPath || $uriPath->length == 0) {
             throw new \InvalidArgumentException('The Event does not seem to have a location');
