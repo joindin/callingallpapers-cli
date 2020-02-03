@@ -39,9 +39,9 @@ class Sessionize implements ParserInterface
         $dom = new DOMDocument('1.0', 'UTF-8');
         $dom->load($uri);
         $dom->preserveWhiteSpace = false;
-
         $xpath = new DOMXPath($dom);
-        $nodes = $xpath->query("//url");
+        $xpath->registerNamespace('x', 'http://www.sitemaps.org/schemas/sitemap/0.9');
+        $nodes = $xpath->query("//x:url");
         if ($nodes->length < 1) {
             return $cfpList;
         }
@@ -62,9 +62,11 @@ class Sessionize implements ParserInterface
             }
 
             try {
-                $cfpList->append($this->parser->parse($loc->textContent));
+                $cfp = $this->parser->parse($loc->textContent);
+                $writer->write($cfp, 'Sessionize');
+                $cfpList->append($cfp);
             } catch (\Exception $e) {
-                error_log($e->getMEssage());
+                //error_log($e->getMEssage());
             }
         }
 
