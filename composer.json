@@ -25,11 +25,11 @@
   "homepage": "https://callingallpapers.com",
   "license": "MIT",
   "require": {
-    "php": "^7.2",
+    "php": "^7.2|^8.0",
     "ext-dom": "*",
     "ext-json": "*",
     "ext-libxml": "*",
-    "symfony/console": "^2.7",
+    "symfony/console": "^5.0",
     "org_heigl/trait-iterator": "^1.0",
     "guzzlehttp/guzzle": "^6.2",
     "guzzlehttp/oauth-subscriber": "^0.3.0",
