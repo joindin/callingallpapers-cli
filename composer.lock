@@ -248,25 +248,25 @@
         },
         {
             "name": "ivopetkov/html5-dom-document-php",
-            "version": "v2.2.2",
+            "version": "v2.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ivopetkov/html5-dom-document-php.git",
-                "reference": "ac13ad7878d77c74bf724b1272b2f0b11edadd2b"
+                "reference": "13306694beb2d413f9411e20f59a505d2ce3060b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ivopetkov/html5-dom-document-php/zipball/ac13ad7878d77c74bf724b1272b2f0b11edadd2b",
-                "reference": "ac13ad7878d77c74bf724b1272b2f0b11edadd2b",
+                "url": "https://api.github.com/repos/ivopetkov/html5-dom-document-php/zipball/13306694beb2d413f9411e20f59a505d2ce3060b",
+                "reference": "13306694beb2d413f9411e20f59a505d2ce3060b",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
-                "php": ">=7.0.0"
+                "php": "7.0.*|7.1.*|7.2.*|7.3.*|7.4.*|8.0.*"
             },
             "require-dev": {
                 "ivopetkov/docs-generator": "0.2.*",
-                "phpunit/phpunit": "6.*"
+                "phpunit/phpunit": "6.*|7.*|8.*|9.*"
             },
             "type": "library",
             "autoload": {
@@ -286,7 +286,7 @@
                 }
             ],
             "description": "HTML5 DOMDocument PHP library (extends DOMDocument)",
-            "time": "2020-03-06T18:06:21+00:00"
+            "time": "2021-01-17T21:29:24+00:00"
         },
         {
             "name": "org_heigl/trait-iterator",
@@ -542,6 +542,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-30T11:42:42+00:00"
         },
         {
@@ -601,6 +615,20 @@
                 "portable",
                 "shim"
             ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-09T19:04:49+00:00"
         },
         {
@@ -658,6 +686,20 @@
                 "polyfill",
                 "portable",
                 "shim"
+            ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-02-27T09:26:54+00:00"
         },
@@ -1597,6 +1639,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {
@@ -2610,5 +2653,6 @@
         "ext-json": "*",
         "ext-libxml": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
