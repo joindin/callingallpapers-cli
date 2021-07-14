@@ -32,7 +32,7 @@
     "symfony/console": "^5.0",
     "org_heigl/trait-iterator": "^1.0",
     "guzzlehttp/guzzle": "^6.2",
-    "guzzlehttp/oauth-subscriber": "^0.3.0",
+    "guzzlehttp/oauth-subscriber": "^0.6.0",
     "ivopetkov/html5-dom-document-php": "^2.2.2"
   },
   "autoload": {
