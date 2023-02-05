@@ -40,3 +40,10 @@ twitter.token_secret = ""
 ;
 ; GitHub-Access Informations: see https://github.com/settings/tokens
 github.token = ""
+;
+; Access-Credentials and info for toting to a mastodon account
+mastodon.name = "cfp"
+mastodon.instance = "social.callingallpapers.com"
+mastodon.clientId = ""
+mastodon.clientSecret = ""
+mastodon.token = ""
