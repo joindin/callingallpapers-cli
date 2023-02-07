@@ -61,7 +61,7 @@ EOT
              );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $header_style = new OutputFormatterStyle('white', 'green', array('bold'));
         $output->getFormatter()->setStyle('header', $header_style);
@@ -88,5 +88,7 @@ EOT
         ));
 
         $notifications->notify($cfps);
+
+        return 0;
     }
 }
