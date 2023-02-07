@@ -29,9 +29,11 @@
  */
 namespace Callingallpapers\Command;
 
+use Callingallpapers\Notification\MastodonNotifier;
 use Callingallpapers\Notification\NotificationList;
 use Callingallpapers\Notification\TwitterNotifier;
 use Callingallpapers\Reader\ApiCfpReader;
+use Callingallpapers\Service\MastodonNotifierClientFactory;
 use Callingallpapers\Service\TwitterNotifierClientFactory;
 use GuzzleHttp\Client;
 use Symfony\Component\Console\Command\Command;
@@ -80,6 +82,9 @@ EOT
         $notifications = new NotificationList();
         $notifications->add(new TwitterNotifier(
             TwitterNotifierClientFactory::getClient($config)
+        ));
+        $notifications->add(new MastodonNotifier(
+            MastodonNotifierClientFactory::getClient($config)
         ));
 
         $notifications->notify($cfps);
