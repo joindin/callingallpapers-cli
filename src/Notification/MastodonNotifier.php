@@ -51,7 +51,7 @@ class MastodonNotifier implements NotificationInterface
             $uri
         );
 
-        $this->client->post('statuses', [
+        $this->client->post('/statuses', [
             'status' => $notificationString,
             'visibility' => 'public',
         ]);
