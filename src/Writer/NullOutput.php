@@ -38,7 +38,7 @@ class NullOutput implements OutputInterface
      *
      * @return bool true if verbosity is set to VERBOSITY_DEBUG, false otherwise
      */
-    public function isDebug()
+    public function isDebug(): bool
     {
         return false;
     }
@@ -60,7 +60,7 @@ class NullOutput implements OutputInterface
      *
      * @return bool true if verbosity is set to VERBOSITY_VERBOSE, false otherwise
      */
-    public function isVerbose()
+    public function isVerbose(): bool
     {
         return false;
     }
@@ -70,7 +70,7 @@ class NullOutput implements OutputInterface
      *
      * @return bool true if verbosity is set to VERBOSITY_VERY_VERBOSE, false otherwise
      */
-    public function isVeryVerbose()
+    public function isVeryVerbose(): bool
     {
         return false;
     }
@@ -125,7 +125,7 @@ class NullOutput implements OutputInterface
      * @return int The current level of verbosity (one of the VERBOSITY constants)
      * @api
      */
-    public function getVerbosity()
+    public function getVerbosity(): int
     {
         return 0;
     }
@@ -148,7 +148,7 @@ class NullOutput implements OutputInterface
      * @return bool true if the output will decorate messages, false otherwise
      * @api
      */
-    public function isDecorated()
+    public function isDecorated(): bool
     {
         return 0;
     }
@@ -156,10 +156,9 @@ class NullOutput implements OutputInterface
     /**
      * Returns current output formatter instance.
      *
-     * @return OutputFormatterInterface
      * @api
      */
-    public function getFormatter()
+    public function getFormatter(): OutputFormatterInterface
     {
         // TODO: Implement getFormatter() method.
     }
@@ -169,7 +168,7 @@ class NullOutput implements OutputInterface
      *
      * @return bool true if verbosity is set to VERBOSITY_QUIET, false otherwise
      */
-    public function isQuiet()
+    public function isQuiet(): bool
     {
         // TODO: Implement isQuiet() method.
     }

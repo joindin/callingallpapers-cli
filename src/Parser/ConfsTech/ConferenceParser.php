@@ -32,11 +32,15 @@ class ConferenceParser
     public function __invoke(array $conference) : Cfp
     {
         $cfp = new Cfp();
-        $cfp->location = $conference['city'];
+        if (isset($conference['city'])) {
+            $cfp->location = $conference['city'];
+        }
 
-        $geolocation = $this->geolocation->getLocationForAddress(
-            $conference['country'] . ', ' . $cfp->location
-        );
+        if (isset($conference['country'])) {
+            $geolocation = $this->geolocation->getLocationForAddress(
+                $conference['country'] . ', ' . $cfp->location
+            );
+        }
 
         $cfp->latitude = $geolocation->getLatitude();
         $cfp->longitude = $geolocation->getLongitude();
