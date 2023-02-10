@@ -40,15 +40,15 @@ class ConferenceParser
             $geolocation = $this->geolocation->getLocationForAddress(
                 $conference['country'] . ', ' . $cfp->location
             );
+
+            $cfp->latitude = $geolocation->getLatitude();
+            $cfp->longitude = $geolocation->getLongitude();
+
+            $cfp->timezone = $this->timezone->getTimezoneForLocation(
+                $cfp->latitude,
+                $cfp->longitude
+            );
         }
-
-        $cfp->latitude = $geolocation->getLatitude();
-        $cfp->longitude = $geolocation->getLongitude();
-
-        $cfp->timezone = $this->timezone->getTimezoneForLocation(
-            $cfp->latitude,
-            $cfp->longitude
-        );
 
         $cfp->conferenceName = $conference['name'];
         $cfp->eventStartDate = new DateTimeImmutable(
