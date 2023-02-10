@@ -35,6 +35,11 @@ class EventStartDate
             $startDate = $xpath->query('//div[contains(., "event date")]');
         }
         if (! $startDate || $startDate->length == 0) {
+            // This expression does not work. It looks like the reason is the array-notation...
+            //$startDate = $xpath->query('//div[contains(text()[2], "event date")]/following-sibling::h2');
+            $startDate = $xpath->query('//div[contains(., "planned future dates")]');
+        }
+        if (! $startDate || $startDate->length == 0) {
             throw new \InvalidArgumentException('The Event does not seem to have a start date-identifier');
         }
 
@@ -46,6 +51,10 @@ class EventStartDate
 
         $startDate = $startDate->item(0)->textContent;
 
-        return new DateTimeImmutable($startDate, $this->timezone);
+        // Make sure that with multiple start-dates separated by a comma
+        // only the first one is used
+        $startDate = implode(', ', $startDate);
+
+        return new DateTimeImmutable($startDate[0], $this->timezone);
     }
 }

@@ -66,7 +66,7 @@ class Sessionize implements ParserInterface
                 $writer->write($cfp, 'Sessionize');
                 $cfpList->append($cfp);
             } catch (\Exception $e) {
-                //error_log($e->getMEssage());
+                error_log($e->getMEssage() . ' ' . $loc->textContent);
             }
         }
 

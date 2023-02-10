@@ -32,19 +32,23 @@ class ConferenceParser
     public function __invoke(array $conference) : Cfp
     {
         $cfp = new Cfp();
-        $cfp->location = $conference['city'];
+        if (isset($conference['city'])) {
+            $cfp->location = $conference['city'];
+        }
 
-        $geolocation = $this->geolocation->getLocationForAddress(
-            $conference['country'] . ', ' . $cfp->location
-        );
+        if (isset($conference['country'])) {
+            $geolocation = $this->geolocation->getLocationForAddress(
+                $conference['country'] . ', ' . $cfp->location
+            );
 
-        $cfp->latitude = $geolocation->getLatitude();
-        $cfp->longitude = $geolocation->getLongitude();
+            $cfp->latitude = $geolocation->getLatitude();
+            $cfp->longitude = $geolocation->getLongitude();
 
-        $cfp->timezone = $this->timezone->getTimezoneForLocation(
-            $cfp->latitude,
-            $cfp->longitude
-        );
+            $cfp->timezone = $this->timezone->getTimezoneForLocation(
+                $cfp->latitude,
+                $cfp->longitude
+            );
+        }
 
         $cfp->conferenceName = $conference['name'];
         $cfp->eventStartDate = new DateTimeImmutable(
