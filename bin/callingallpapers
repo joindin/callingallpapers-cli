@@ -8,15 +8,16 @@ set_time_limit(0);
 date_default_timezone_set('Etc/UTC');
 
 // include the composer autoloader
-require_once __DIR__ . '/../vendor/autoload.php'; 
+require_once __DIR__ . '/../vendor/autoload.php';
 
-// import the Symfony Console Application 
-use Symfony\Component\Console\Application; 
+// import the Symfony Console Application
+use Symfony\Component\Console\Application;
 
 $app = new Application();
 $app->add(new \Callingallpapers\Command\ParseEvents());
 $app->add(new \Callingallpapers\Command\ParseEventsConfsTech());
 $app->add(new \Callingallpapers\Subcommands\Sessionize\Command());
+$app->add(new \Callingallpapers\Subcommands\SessionizeApi\Command());
 $app->add(new \Callingallpapers\Command\NotifyClosingCfps());
 
 $app->run();

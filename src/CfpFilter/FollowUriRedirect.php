@@ -50,6 +50,9 @@ class FollowUriRedirect implements CfpFilterInterface
     public function filter(Cfp $cfp) : Cfp
     {
         foreach ($this->fields as $field) {
+            if ($cfp->$field === null) {
+                continue;
+            }
             try {
                 $cfp->$field = $this->followRedirects($cfp->$field);
             } catch (\Exception $e) {

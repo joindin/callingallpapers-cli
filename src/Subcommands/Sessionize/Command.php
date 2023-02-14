@@ -38,7 +38,6 @@ use Callingallpapers\Parser\ParserInterface;
 use Callingallpapers\Service\ServiceContainer;
 use Callingallpapers\Subcommands\Sessionize\Parser\EntryParser;
 use Callingallpapers\Subcommands\Sessionize\Parser\Sessionize;
-use GuzzleHttp\Client;
 
 class Command extends AbstractParseEvents
 {

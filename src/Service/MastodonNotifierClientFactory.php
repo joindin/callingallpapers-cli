@@ -28,10 +28,6 @@ namespace Callingallpapers\Service;
 
 use Colorfield\Mastodon\MastodonAPI;
 use Colorfield\Mastodon\MastodonOAuth;
-use GuzzleHttp\Client;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Subscriber\Oauth\Oauth1;
-use OAuth;
 
 class MastodonNotifierClientFactory
 {
