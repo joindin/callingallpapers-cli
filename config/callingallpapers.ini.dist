@@ -47,3 +47,6 @@ mastodon.instance = "social.callingallpapers.com"
 mastodon.clientId = ""
 mastodon.clientSecret = ""
 mastodon.token = ""
+;
+; Sessionize
+sessionize.apiKey = ""

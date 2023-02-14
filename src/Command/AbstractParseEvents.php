@@ -64,17 +64,17 @@ abstract class AbstractParseEvents extends Command
             ->setDefinition(array(
                 new InputOption('start', 's', InputOption::VALUE_OPTIONAL, 'What should be the first date to be taken into account?', ''),
             ))
-            ->setHelp(sprintf(<<<EOT
-Get details about CfPs from https://sesionize.com
+            ->setHelp(sprintf(<<<'EOT'
+Get details about CfPs from %2$s
 
 Usage:
 
-<info>callingallpapers parseCfPs:sessionize 2015-02-23<env></info>
+<info>callingallpapers parseCfPs:%1$s 2015-02-23<env></info>
 
 If you ommit the date the current date will be used instead
-<info>callingallpapers parseCfPs:sessionize<env></info>
+<info>callingallpapers parseCfPs:%1$s<env></info>
 EOT
-            , $this->getServiceUrl()));
+            , $this->getParserId(), $this->getParserName()));
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
