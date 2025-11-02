@@ -122,5 +122,5 @@ jobs:
         run: |
           ssh-keyscan -t rsa ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
           scp -r extract/* ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}:/${{ secrets.REPO_PATH }}/${{ github.event.pull_request.head.sha || github.sha }}
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} "cd ${{ secrets.REPO_PATH }} && cp current/config/callingallpapers.ini ${{ github.event.pull_request.head.sha || github.sha }}/config/callingallpapers.ini && && rm current && ln -sr ${{ github.event.pull_request.head.sha || github.sha }} current"
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} "cd ${{ secrets.REPO_PATH }} && cp current/config/callingallpapers.ini ${{ github.event.pull_request.head.sha || github.sha }}/config/callingallpapers.ini && rm current && ln -sr ${{ github.event.pull_request.head.sha || github.sha }} current"
 
