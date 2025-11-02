@@ -31,6 +31,10 @@ namespace Callingallpapers\Reader;
 
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Entity\CfpList;
+use DateInterval;
+use DateTimeImmutable;
+use DateTimeInterface;
+use DateTimeZone;
 use GuzzleHttp\Client;
 
 class ApiCfpReader
@@ -56,16 +60,10 @@ class ApiCfpReader
         $this->client = $client;
     }
 
-    /**
-     * @param \DateInterval      $interval
-     * @param \DateTimeInterface $date
-     *
-     * @return CfpList
-     */
-    public function getCfpsEndingWithinInterval(\DateInterval $interval, \DateTimeInterface $date = null)
+    public function getCfpsEndingWithinInterval(DateInterval $interval, DateTimeInterface|null $date = null): CfpList
     {
         if (null === $date) {
-            $date = new \DateTimeImmutable();
+            $date = new DateTimeImmutable();
         }
 
         $endDate = $date->add($interval);
@@ -76,9 +74,9 @@ class ApiCfpReader
             $result = $this->client->get(sprintf(
                 '%s/search?date_cfp_end[]=%s&date_cfp_end_compare[]=%s&date_cfp_end[]=%s&date_cfp_end_compare[]=%s',
                 $this->baseUri,
-                urlencode($date->setTimezone(new \DateTimeZone('UTC'))->format('c')),
+                urlencode($date->setTimezone(new DateTimeZone('UTC'))->format('c')),
                 urlencode('>'),
-                urlencode($endDate->setTimezone(new \DateTimeZone('UTC'))->format('c')),
+                urlencode($endDate->setTimezone(new DateTimeZone('UTC'))->format('c')),
                 urlencode('<')
             ), [
                 'headers' => [
@@ -99,10 +97,10 @@ class ApiCfpReader
             $cfp = new Cfp();
             $cfp->conferenceName = $item['name'];
             $cfp->conferenceUri  = $item['eventUri'];
-            $cfp->dateEnd        = new \DateTimeImmutable($item['dateCfpEnd']);
-            $cfp->dateStart      = new \DateTimeImmutable($item['dateCfpStart']);
-            $cfp->eventDateEnd   = new \DateTimeImmutable($item['dateEventEnd']);
-            $cfp->eventDateStart = new \DateTimeImmutable($item['dateEventStart']);
+            $cfp->dateEnd        = new DateTimeImmutable($item['dateCfpEnd']);
+            $cfp->dateStart      = new DateTimeImmutable($item['dateCfpStart']);
+            $cfp->eventEndDate   = new DateTimeImmutable($item['dateEventEnd']);
+            $cfp->eventStartDate = new DateTimeImmutable($item['dateEventStart']);
             $cfp->description    = $item['description'];
             $cfp->location       = $item['location'];
             $cfp->latitude       = $item['latitude'];
@@ -114,12 +112,12 @@ class ApiCfpReader
             });
             $cfp->timezone       = $item['timezone'];
 
-            $tz = new \DateTimeZone($cfp->timezone);
+            $tz = new DateTimeZone($cfp->timezone);
 
             $cfp->dateEnd->setTimezone($tz);
             $cfp->dateStart->setTimezone($tz);
-            $cfp->eventDateEnd->setTimezone($tz);
-            $cfp->eventDateStart->setTimezone($tz);
+            $cfp->eventEndDate->setTimezone($tz);
+            $cfp->eventStartDate->setTimezone($tz);
 
             $list->append($cfp);
         }

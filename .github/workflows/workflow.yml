@@ -107,7 +107,7 @@ jobs:
       - uses: "ramsey/composer-install@v3"
         with:
           dependency-versions: "locked"
-          working-directory: extract/calendar
+          working-directory: extract
           composer-options: --no-dev --optimize-autoloader --classmap-authoritative
       - name: "Archive build"
         id: archive-build
