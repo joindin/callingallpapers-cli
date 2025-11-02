@@ -27,15 +27,17 @@
  * @link      http://github.com/heiglandreas/callingallpapers_cli
  */
 
-namespace CallingallpapersTest\Parser\PapercallIo;
+namespace CallingallpapersTest\Cli\Parser\PapercallIo;
 
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\PapercallIo\ClosingDate;
 use Callingallpapers\Parser\PapercallIo\Description;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(Description::class)]
 class DescriptionTest extends TestCase
 {
     public function testThatCommentIsParsedCorrectlyFromNode()

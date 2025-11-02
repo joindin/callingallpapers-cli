@@ -38,10 +38,12 @@ use Callingallpapers\Service\TimezoneService;
 use Callingallpapers\Writer\TestCfpWriter;
 use Callingallpapers\Writer\WriterInterface;
 use Mockery as M;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\StreamOutput;
 
+#[CoversClass(PapercallIoParser::class)]
 class PapercallIoParserIntegrationTest extends TestCase
 {
     public function testThatParsingFirstPageWorks()

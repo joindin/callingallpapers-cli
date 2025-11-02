@@ -12,9 +12,13 @@ namespace CallingallpapersTest\Cli\Parser\ConfsTech;
 use Callingallpapers\Parser\ConfsTech\MainParser;
 use Callingallpapers\Parser\ConfsTech\YearParser;
 use GuzzleHttp\Client;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Mockery as M;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
 
+#[CoversClass(MainParser::class)]
 class MainParserTest extends TestCase
 {
     private $yearParser;
@@ -30,21 +34,15 @@ class MainParserTest extends TestCase
         $this->parser     = new MainParser($this->yearParser, $this->client, '2018');
     }
 
-    /**
-     * @covers \Callingallpapers\Parser\ConfsTech\MainParser::__construct
-     */
     public function testConstruction()
     {
         self::assertInstanceOf(MainParser::class, $this->parser);
     }
 
-    /**
-     * @covers \Callingallpapers\Parser\ConfsTech\MainParser::__invoke
-     */
     public function testInvokation()
     {
-        $body = M::mock(StreamInterface::class);
-        $body->shouldReceive('getContents')->andReturn('[
+        $body = $this->createMock(StreamInterface::class);
+        $body->method('getContents')->willReturn('[
   {
     "name": "2017",
     "path": "conferences/2017",
@@ -95,8 +93,8 @@ class MainParserTest extends TestCase
   }
 ]');
 
-        $response = M::mock(ResponseInterface::class);
-        $response->shouldReceive('getBody')->andReturn($body);
+        $response = $this->createMock(ResponseInterface::class);
+        $response->method('getBody')->willReturn($body);
 
         $this->client->shouldReceive('request')->with(
             'GET',

@@ -28,7 +28,7 @@ class ClosingDate
 
     public function parse(DOMDocument $dom, DOMXPath $xpath) : DateTimeImmutable
     {
-        $closingDateHolder = $xpath->query('//div[./div/span[contains(text(), "Call closes at")]]');
+        $closingDateHolder = $xpath->query('//div[./div/span[contains(text(), "Call closes at")]] | //div[./div/span[contains(text(), "CfS closes at")]]');
 
         if (! $closingDateHolder || $closingDateHolder->length == 0) {
             throw new InvalidArgumentException('The CfP does not seem to have a closing date');

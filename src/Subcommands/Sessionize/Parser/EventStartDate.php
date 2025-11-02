@@ -53,7 +53,7 @@ class EventStartDate
 
         // Make sure that with multiple start-dates separated by a comma
         // only the first one is used
-        $startDate = implode(', ', $startDate);
+        $startDate = explode(', ', $startDate);
 
         return new DateTimeImmutable($startDate[0], $this->timezone);
     }

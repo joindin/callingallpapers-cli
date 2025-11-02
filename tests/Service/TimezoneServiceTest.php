@@ -24,7 +24,7 @@
  * @link      http://github.com/heiglandreas/callingallpapers
  */
 
-namespace CallingallpapersTest\Service;
+namespace CallingallpapersTest\Cli\Service;
 
 use Callingallpapers\Service\TimezoneService;
 use GuzzleHttp\Client;
@@ -34,10 +34,13 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
+#[CoversClass(TimezoneService::class)]
 class TimezoneServiceTest extends TestCase
 {
     public function testRetrievalOfTimezoneWorks()
@@ -46,18 +49,17 @@ class TimezoneServiceTest extends TestCase
         $key = getenv('CALLINGALLPAPERS_TIMEZONE_API_KEY');
         if (! $key) {
             $this->markTestSkipped('Skipped due to missing API-key');
-            return;
         }
 
         if (! $key) {
-            return $this->markTestSkipped('No TIMEZONE-API-Key available');
+            $this->markTestSkipped('No TIMEZONE-API-Key available');
         }
         $tzs = new TimezoneService($client, $key);
 
         $this->assertEquals('Europe/Berlin', $tzs->getTimezoneForLocation(50, 8));
     }
 
-    /** @dataProvider fetchingTimezoneWithFailingHttpProvider */
+    #[DataProvider('fetchingTimezoneWithFailingHttpProvider')]
     public function testFetchingTimezoneWithFailingHttp($return)
     {
         $mock = new MockHandler([
@@ -72,7 +74,7 @@ class TimezoneServiceTest extends TestCase
         $this->assertEquals('UTC', $tzs->getTimezoneForLocation(50, 8));
     }
 
-    public function fetchingTimezoneWithFailingHttpProvider()
+    public static function fetchingTimezoneWithFailingHttpProvider()
     {
         return [
             '400' => [400],
@@ -83,7 +85,7 @@ class TimezoneServiceTest extends TestCase
         ];
     }
 
-    /** @dataProvider FetchingTimezoneWithValidHttpButFailingStatusProvider */
+    #[DataProvider('FetchingTimezoneWithValidHttpButFailingStatusProvider')]
     public function testFetchingTimezoneWithValidHttpButFailingStatus($body)
     {
         $mock = new MockHandler([
@@ -98,7 +100,7 @@ class TimezoneServiceTest extends TestCase
         $this->assertEquals('UTC', $tzs->getTimezoneForLocation(50, 8));
     }
 
-    public function fetchingTimezoneWithValidHttpButFailingStatusProvider()
+    public static function fetchingTimezoneWithValidHttpButFailingStatusProvider()
     {
         return [
             'missing array key' => [['foo' => 'bar']],
@@ -106,7 +108,7 @@ class TimezoneServiceTest extends TestCase
         ];
     }
 
-    /** @dataProvider FetchingTimezoneWithValidHttpProvider */
+    #[DataProvider('FetchingTimezoneWithValidHttpProvider')]
     public function testFetchingTimezoneWithValidHttp($body)
     {
         $mock = new MockHandler([
@@ -123,7 +125,6 @@ class TimezoneServiceTest extends TestCase
         $timezoneApiKey = getenv('CALLINGALLPAPERS_TIMEZONE_API_KEY');
         if (! $timezoneApiKey) {
             $this->markTestSkipped('Skipped due to missing API-Key');
-            return;
         }
         $tzs = new TimezoneService($client, $timezoneApiKey);
 
@@ -140,7 +141,7 @@ class TimezoneServiceTest extends TestCase
         );
     }
 
-    public function fetchingTimezoneWithValidHttpProvider()
+    public static function fetchingTimezoneWithValidHttpProvider()
     {
         return [
             'Body contains timezoneName' => [['status' => 'OK', 'zoneName' => 'Europe/Berlin']],

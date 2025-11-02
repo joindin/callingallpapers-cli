@@ -7,16 +7,20 @@ declare(strict_types=1);
  * Licenses under the MIT-license. For details see the included file LICENSE.md
  */
 
-namespace CallingallpapersTest\Subcommands\Sessionize\Parser;
+namespace CallingallpapersTest\Cli\Subcommands\Sessionize\Parser;
 
 use Callingallpapers\Subcommands\Sessionize\Parser\EventUri;
 use DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(EventUri::class)]
 class EventUriTest extends TestCase
 {
     /** @dataProvider uriIsReturnedCorrectlyProvider */
+    #[DataProvider('uriIsReturnedCorrectlyProvider')]
     public function testThatLocationIsReturnedCorrectly($file, $result)
     {
         $parser = new EventUri();
@@ -30,7 +34,7 @@ class EventUriTest extends TestCase
         $this->assertEquals($result, $parser->parse($dom, new DOMXPath($dom)));
     }
 
-    public function uriIsReturnedCorrectlyProvider() : array
+    public static function uriIsReturnedCorrectlyProvider() : array
     {
         return [[
             __DIR__ . '/../__assets/Azure Day Rome 2019: Call for Speakers @ Sessionize.com.html',

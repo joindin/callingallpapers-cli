@@ -27,14 +27,17 @@
  * @link      http://github.com/heiglandreas/callingallpapers_cli
  */
 
-namespace CallingallpapersTest\Parser\PapercallIo;
+namespace CallingallpapersTest\Cli\Parser\PapercallIo;
 
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\PapercallIo\EventStartDate;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(EventStartDate::class)]
 class EventStartTest extends TestCase
 {
     public function testThatInitializationWorks()
@@ -43,7 +46,7 @@ class EventStartTest extends TestCase
         $this->assertInstanceOf(EventStartDate::class, $parser);
     }
 
-    /** @dataProvider dateisParsedCorrectlyProvider */
+    #[DataProvider('dateisParsedCorrectlyProvider')]
     public function testThatEventStartDateIsParsedCorrectlyFromNode($file, $expectedDate)
     {
         $parser = new EventStartDate();
@@ -67,7 +70,7 @@ class EventStartTest extends TestCase
         $this->assertEquals($expected, $newcfp->eventStartDate);
     }
 
-    public function dateisParsedCorrectlyProvider()
+    public static function dateisParsedCorrectlyProvider()
     {
         return [
             ['conf4.html', '2017-11-23T00:00:00+0000'],

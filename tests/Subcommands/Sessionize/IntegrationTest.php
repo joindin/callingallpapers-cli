@@ -15,21 +15,25 @@ use Callingallpapers\Service\TimezoneService;
 use Callingallpapers\Subcommands\Sessionize\Parser\EntryParser;
 use GuzzleHttp\Client;
 use Mockery as M;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(EntryParser::class)]
+#[UsesClass(Cfp::class)]
 class IntegrationTest extends TestCase
 {
     public function testParsingOfAvailableAssets()
     {
         $cfp = new Cfp();
 
-        /** @var TimezoneService|M\Mock $timezoneService */
-        $timezoneService = M::mock(TimezoneService::class);
-        $timezoneService->shouldReceive('getTimezoneForLocation')->andReturn('Europe/Paris');
+        /** @var TimezoneService */
+        $timezoneService = $this->createMock(TimezoneService::class);
+        $timezoneService->method('getTimezoneForLocation')->willReturn('Europe/Paris');
 
-        /** @var GeolocationService|M\Mock $geolocationService */
-        $geolocationService = M::mock(GeolocationService::class);
-        $geolocationService->shouldReceive('getLocationForAddress')->andReturn(new Geolocation(12.23, 23.34));
+        /** @var GeolocationService $geolocationService */
+        $geolocationService = $this->createMock(GeolocationService::class);
+        $geolocationService->method('getLocationForAddress')->willReturn(new Geolocation(12.23, 23.34));
 
         $serviceContainer = new ServiceContainer(
             $timezoneService,

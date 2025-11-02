@@ -33,7 +33,7 @@ class GeolocationService
 {
     public static $lastAccess;
 
-    protected $uri = 'https://nominatim.openstreetmap.org/search/%1$s?format=json&addressdetails=1&limit=1';
+    protected $uri = 'https://nominatim.openstreetmap.org/search?q=%1$s&format=jsonv2&addressdetails=1&limit=1';
 
     protected $client;
 
@@ -49,7 +49,7 @@ class GeolocationService
         }
         self::$lastAccess = time();
         try {
-            $result = $this->client->get(sprintf(
+            $result = $this->client->request('GET', sprintf(
                 $this->uri,
                 urlencode($address)
             ));

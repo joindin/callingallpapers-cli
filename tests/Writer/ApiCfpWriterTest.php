@@ -25,26 +25,28 @@
  * @link      http://github.com/heiglandreas/callingallpapers
  */
 
-namespace CallingallpapersTest\Writer;
+namespace CallingallpapersTest\Cli\Writer;
 
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Entity\CfpList;
 use Callingallpapers\Writer\ApiCfpWriter;
 use GuzzleHttp\Client;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\ResponseInterface;
 
+#[CoversClass(ApiCfpWriter::class)]
 class ApiCfpWriterTest extends TestCase
 {
 
     public function testWritingToApi()
     {
-        $response = $this->getMockBuilder('\Psr\Http\Message\ResponseInterface')->getMock();
+        $response = $this->createMock(ResponseInterface::class);
         $response->method('getStatusCode')->willReturn(200);
 
-        $builder = $this->getMockBuilder('GuzzleHttp\Client');
-        $client = $builder->getMock();
+        $client = $this->createMock(Client::class);
         $client->method('request')->willReturn($response);
-        
+
         $writer = new ApiCfpWriter('http://localhost:8000/v1/cfp', '49CF885D-E0D6-4E7A-9013-C9B431B6612C', $client);
 
         $cfp = new Cfp();

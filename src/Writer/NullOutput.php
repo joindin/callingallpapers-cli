@@ -28,6 +28,7 @@
 namespace Callingallpapers\Writer;
 
 use Symfony\Component\Console\Formatter\OutputFormatterInterface;
+use Symfony\Component\Console\Formatter\OutputFormatterStyleInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class NullOutput implements OutputInterface
@@ -50,7 +51,7 @@ class NullOutput implements OutputInterface
      *
      * @api
      */
-    public function setFormatter(OutputFormatterInterface $formatter)
+    public function setFormatter(OutputFormatterInterface $formatter): void
     {
         // TODO: Implement setFormatter() method.
     }
@@ -88,8 +89,9 @@ class NullOutput implements OutputInterface
     public function write(
         $messages,
         $newline = false,
-        $type = self::OUTPUT_NORMAL
-    ) {
+        $options = self::OUTPUT_NORMAL
+    ): void
+    {
         // TODO: Implement write() method.
     }
 
@@ -97,12 +99,12 @@ class NullOutput implements OutputInterface
      * Writes a message to the output and adds a newline at the end.
      *
      * @param string|array $messages The message as an array of lines or a single string
-     * @param int          $type     The type of output (one of the OUTPUT constants)
+     * @param int          $options  The type of output (one of the OUTPUT constants)
      *
      * @throws \InvalidArgumentException When unknown output type is given
      * @api
      */
-    public function writeln($messages, $type = self::OUTPUT_NORMAL)
+    public function writeln($messages, $options = self::OUTPUT_NORMAL): void
     {
         // TODO: Implement writeln() method.
     }
@@ -114,7 +116,7 @@ class NullOutput implements OutputInterface
      *
      * @api
      */
-    public function setVerbosity($level)
+    public function setVerbosity($level): void
     {
         // TODO: Implement setVerbosity() method.
     }
@@ -137,7 +139,7 @@ class NullOutput implements OutputInterface
      *
      * @api
      */
-    public function setDecorated($decorated)
+    public function setDecorated($decorated): void
     {
         // TODO: Implement setDecorated() method.
     }
@@ -160,7 +162,69 @@ class NullOutput implements OutputInterface
      */
     public function getFormatter(): OutputFormatterInterface
     {
-        // TODO: Implement getFormatter() method.
+        return new class() implements OutputFormatterInterface {
+
+            public function setDecorated(bool $decorated): void
+            {
+                // TODO: Implement setDecorated() method.
+            }
+
+            public function isDecorated(): bool
+            {
+                return true;
+            }
+
+            public function setStyle(string $name, OutputFormatterStyleInterface $style): void
+            {
+                // TODO: Implement setStyle() method.
+            }
+
+            public function hasStyle(string $name): bool
+            {
+                return true;
+            }
+
+            public function getStyle(string $name): OutputFormatterStyleInterface
+            {
+                return new class() implements OutputFormatterStyleInterface {
+
+                    public function setForeground(?string $color): void
+                    {
+                        // TODO: Implement setForeground() method.
+                    }
+
+                    public function setBackground(?string $color): void
+                    {
+                        // TODO: Implement setBackground() method.
+                    }
+
+                    public function setOption(string $option): void
+                    {
+                        // TODO: Implement setOption() method.
+                    }
+
+                    public function unsetOption(string $option): void
+                    {
+                        // TODO: Implement unsetOption() method.
+                    }
+
+                    public function setOptions(array $options): void
+                    {
+                        // TODO: Implement setOptions() method.
+                    }
+
+                    public function apply(string $text): string
+                    {
+                        return $text;
+                    }
+                };
+            }
+
+            public function format(?string $message): ?string
+            {
+                return $message;
+            }
+        };
     }
 
     /**
@@ -170,6 +234,6 @@ class NullOutput implements OutputInterface
      */
     public function isQuiet(): bool
     {
-        // TODO: Implement isQuiet() method.
+        return true;
     }
 }

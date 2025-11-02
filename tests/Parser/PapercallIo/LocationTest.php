@@ -27,15 +27,17 @@
  * @link      http://github.com/heiglandreas/callingallpapers_cli
  */
 
-namespace CallingallpapersTest\Parser\PapercallIo;
+namespace CallingallpapersTest\Cli\Parser\PapercallIo;
 
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\PapercallIo\Location;
 use Callingallpapers\Parser\PapercallIo\Uri;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(Location::class)]
 class LocationTest extends TestCase
 {
     public function testThatNameIsParsedCorrectlyFromNode()
