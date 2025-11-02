@@ -1,0 +1,4465 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/CfpFilter/FilterList.php
+
+		-
+			message: '#^Cannot access an offset on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/CfpFilter/FilterList.php
+
+		-
+			message: '#^Cannot call method filter\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/CfpFilter/FilterList.php
+
+		-
+			message: '#^Method Callingallpapers\\CfpFilter\\FilterList\:\:filter\(\) should return Callingallpapers\\Entity\\Cfp but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/CfpFilter/FilterList.php
+
+		-
+			message: '#^Property Callingallpapers\\CfpFilter\\FilterList\:\:\$list has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/CfpFilter/FilterList.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/CfpFilter/FollowUriRedirect.php
+
+		-
+			message: '#^Cannot call method get\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/CfpFilter/FollowUriRedirect.php
+
+		-
+			message: '#^Method Callingallpapers\\CfpFilter\\FollowUriRedirect\:\:__construct\(\) has parameter \$fields with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/CfpFilter/FollowUriRedirect.php
+
+		-
+			message: '#^Parameter \#1 \$uri of method Callingallpapers\\CfpFilter\\FollowUriRedirect\:\:followRedirects\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/CfpFilter/FollowUriRedirect.php
+
+		-
+			message: '#^Property Callingallpapers\\CfpFilter\\FollowUriRedirect\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/CfpFilter/FollowUriRedirect.php
+
+		-
+			message: '#^Property Callingallpapers\\CfpFilter\\FollowUriRedirect\:\:\$fields has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/CfpFilter/FollowUriRedirect.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/CfpFilter/StripParamsFromUri.php
+
+		-
+			message: '#^Method Callingallpapers\\CfpFilter\\StripParamsFromUri\:\:__construct\(\) has parameter \$fields with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/CfpFilter/StripParamsFromUri.php
+
+		-
+			message: '#^Parameter \#1 \$uri of method Callingallpapers\\CfpFilter\\StripParamsFromUri\:\:stripParamsFromUri\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/CfpFilter/StripParamsFromUri.php
+
+		-
+			message: '#^Property Callingallpapers\\CfpFilter\\StripParamsFromUri\:\:\$fields has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/CfpFilter/StripParamsFromUri.php
+
+		-
+			message: '#^Binary operation "\." between ''token '' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Command/AbstractParseEvents.php
+
+		-
+			message: '#^Cannot access offset ''event_api_token'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Command/AbstractParseEvents.php
+
+		-
+			message: '#^Cannot access offset ''event_api_url'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Command/AbstractParseEvents.php
+
+		-
+			message: '#^Cannot access offset ''github\.token'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Command/AbstractParseEvents.php
+
+		-
+			message: '#^Cannot access offset ''timezonedb_token'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Command/AbstractParseEvents.php
+
+		-
+			message: '#^Instanceof between DateTime and DateTime will always evaluate to true\.$#'
+			identifier: instanceof.alwaysTrue
+			count: 1
+			path: src/Command/AbstractParseEvents.php
+
+		-
+			message: '#^Parameter \#1 \$datetime of class DateTime constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/AbstractParseEvents.php
+
+		-
+			message: '#^Cannot access offset ''event_api_token'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Command/NotifyClosingCfps.php
+
+		-
+			message: '#^Cannot access offset ''event_api_url'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Command/NotifyClosingCfps.php
+
+		-
+			message: '#^Instanceof between DateTime and DateTime will always evaluate to true\.$#'
+			identifier: instanceof.alwaysTrue
+			count: 1
+			path: src/Command/NotifyClosingCfps.php
+
+		-
+			message: '#^Parameter \#1 \$client of class Callingallpapers\\Notification\\MastodonNotifier constructor expects Colorfield\\Mastodon\\MastodonAPI, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/NotifyClosingCfps.php
+
+		-
+			message: '#^Parameter \#1 \$client of class Callingallpapers\\Notification\\TwitterNotifier constructor expects GuzzleHttp\\Client, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/NotifyClosingCfps.php
+
+		-
+			message: '#^Parameter \#1 \$datetime of class DateTime constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/NotifyClosingCfps.php
+
+		-
+			message: '#^Cannot access offset ''event_api_token'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Command/ParseEvents.php
+
+		-
+			message: '#^Cannot access offset ''event_api_url'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Command/ParseEvents.php
+
+		-
+			message: '#^Cannot access offset ''timezonedb_token'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Command/ParseEvents.php
+
+		-
+			message: '#^Cannot call method parse\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Command/ParseEvents.php
+
+		-
+			message: '#^Instanceof between DateTime and DateTime will always evaluate to true\.$#'
+			identifier: instanceof.alwaysTrue
+			count: 1
+			path: src/Command/ParseEvents.php
+
+		-
+			message: '#^Parameter \#1 \$datetime of class DateTime constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/ParseEvents.php
+
+		-
+			message: '#^Binary operation "\." between ''token '' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Command/ParseEventsConfsTech.php
+
+		-
+			message: '#^Cannot access offset ''event_api_token'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Command/ParseEventsConfsTech.php
+
+		-
+			message: '#^Cannot access offset ''event_api_url'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Command/ParseEventsConfsTech.php
+
+		-
+			message: '#^Cannot access offset ''github\.token'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Command/ParseEventsConfsTech.php
+
+		-
+			message: '#^Cannot access offset ''timezonedb_token'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Command/ParseEventsConfsTech.php
+
+		-
+			message: '#^Instanceof between DateTime and DateTime will always evaluate to true\.$#'
+			identifier: instanceof.alwaysTrue
+			count: 1
+			path: src/Command/ParseEventsConfsTech.php
+
+		-
+			message: '#^Parameter \#1 \$datetime of class DateTime constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/ParseEventsConfsTech.php
+
+		-
+			message: '#^Method Callingallpapers\\Entity\\Cfp\:\:addTag\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Entity/Cfp.php
+
+		-
+			message: '#^Method Callingallpapers\\Entity\\Cfp\:\:addTag\(\) has parameter \$tag with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Entity/Cfp.php
+
+		-
+			message: '#^Method Callingallpapers\\Entity\\Cfp\:\:toArray\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Entity/Cfp.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$tags type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Entity/Cfp.php
+
+		-
+			message: '#^Class Callingallpapers\\Entity\\CfpList extends generic class ArrayObject but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Entity/CfpList.php
+
+		-
+			message: '#^Method Callingallpapers\\Entity\\Geolocation\:\:getLatitude\(\) should return float but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Entity/Geolocation.php
+
+		-
+			message: '#^Method Callingallpapers\\Entity\\Geolocation\:\:getLongitude\(\) should return float but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Entity/Geolocation.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Geolocation\:\:\$latitude has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Entity/Geolocation.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Geolocation\:\:\$longitude has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Entity/Geolocation.php
+
+		-
+			message: '#^Cannot call method post\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Notification/MastodonNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\MastodonNotifier\:\:formUrlEncode\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Notification/MastodonNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\MastodonNotifier\:\:formUrlEncode\(\) has parameter \$stuff with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Notification/MastodonNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\MastodonNotifier\:\:notify\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Notification/MastodonNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\MastodonNotifier\:\:shortenName\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Notification/MastodonNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\MastodonNotifier\:\:shortenName\(\) has parameter \$name with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Notification/MastodonNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\MastodonNotifier\:\:shortenUri\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Notification/MastodonNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\MastodonNotifier\:\:shortenUri\(\) has parameter \$uri with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Notification/MastodonNotifier.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strlen expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Notification/MastodonNotifier.php
+
+		-
+			message: '#^Parameter \#1 \$string of function substr expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Notification/MastodonNotifier.php
+
+		-
+			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Notification/MastodonNotifier.php
+
+		-
+			message: '#^Parameter \#3 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Notification/MastodonNotifier.php
+
+		-
+			message: '#^Property Callingallpapers\\Notification\\MastodonNotifier\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Notification/MastodonNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\NotificationInterface\:\:notify\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Notification/NotificationInterface.php
+
+		-
+			message: '#^Cannot call method notify\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Notification/NotificationList.php
+
+		-
+			message: '#^Class Callingallpapers\\Notification\\NotificationList extends generic class ArrayObject but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Notification/NotificationList.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\NotificationList\:\:add\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Notification/NotificationList.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\NotificationList\:\:notify\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Notification/NotificationList.php
+
+		-
+			message: '#^Binary operation "\." between ''statuses/update…'' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Notification/TwitterNotifier.php
+
+		-
+			message: '#^Cannot call method send\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Notification/TwitterNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\TwitterNotifier\:\:formUrlEncode\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Notification/TwitterNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\TwitterNotifier\:\:formUrlEncode\(\) has parameter \$stuff with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Notification/TwitterNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\TwitterNotifier\:\:notify\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Notification/TwitterNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\TwitterNotifier\:\:shortenName\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Notification/TwitterNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\TwitterNotifier\:\:shortenName\(\) has parameter \$name with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Notification/TwitterNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\TwitterNotifier\:\:shortenUri\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Notification/TwitterNotifier.php
+
+		-
+			message: '#^Method Callingallpapers\\Notification\\TwitterNotifier\:\:shortenUri\(\) has parameter \$uri with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Notification/TwitterNotifier.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strlen expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Notification/TwitterNotifier.php
+
+		-
+			message: '#^Parameter \#1 \$string of function substr expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Notification/TwitterNotifier.php
+
+		-
+			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Notification/TwitterNotifier.php
+
+		-
+			message: '#^Parameter \#3 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Notification/TwitterNotifier.php
+
+		-
+			message: '#^Property Callingallpapers\\Notification\\TwitterNotifier\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Notification/TwitterNotifier.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Cannot access offset ''cfpEndDate'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Cannot access offset ''content'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Cannot access offset ''encoding'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Cannot call method addTag\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Cannot call method getBody\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Cannot call method getContents\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Cannot call method request\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Cannot call method write\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\ConfsTech\\CategoryParser\:\:__invoke\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Parameter \#1 \$json of function json_decode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Parameter \#1 \$string of function base64_decode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\ConfsTech\\CategoryParser\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\ConfsTech\\CategoryParser\:\:\$conferenceParser has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\ConfsTech\\CategoryParser\:\:\$writer has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Trying to invoke mixed but it''s not a callable\.$#'
+			identifier: callable.nonCallable
+			count: 1
+			path: src/Parser/ConfsTech/CategoryParser.php
+
+		-
+			message: '#^Binary operation "\." between mixed and '' 08\:00\:00'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Binary operation "\." between mixed and '' 17\:00\:00'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Binary operation "\." between mixed and '' 23\:59\:59'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Binary operation "\." between mixed and '', '' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Cannot call method getLatitude\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Cannot call method getLocationForAddress\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Cannot call method getLongitude\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Cannot call method getTimezoneForLocation\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\ConfsTech\\ConferenceParser\:\:__invoke\(\) has parameter \$conference with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$conferenceName \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$conferenceUri \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$latitude \(float\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$location \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$longitude \(float\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$timezone \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$uri \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 2
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\ConfsTech\\ConferenceParser\:\:\$geolocation has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\ConfsTech\\ConferenceParser\:\:\$timezone has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/ConfsTech/ConferenceParser.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Parser/ConfsTech/MainParser.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/ConfsTech/MainParser.php
+
+		-
+			message: '#^Cannot access offset ''url'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/ConfsTech/MainParser.php
+
+		-
+			message: '#^Cannot call method getBody\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/MainParser.php
+
+		-
+			message: '#^Cannot call method getContents\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/MainParser.php
+
+		-
+			message: '#^Cannot call method request\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/MainParser.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\ConfsTech\\MainParser\:\:__invoke\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/ConfsTech/MainParser.php
+
+		-
+			message: '#^Parameter \#1 \$json of function json_decode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/ConfsTech/MainParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\ConfsTech\\MainParser\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/ConfsTech/MainParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\ConfsTech\\MainParser\:\:\$startYear has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/ConfsTech/MainParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\ConfsTech\\MainParser\:\:\$yearParser has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/ConfsTech/MainParser.php
+
+		-
+			message: '#^Trying to invoke mixed but it''s not a callable\.$#'
+			identifier: callable.nonCallable
+			count: 1
+			path: src/Parser/ConfsTech/MainParser.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Parser/ConfsTech/YearParser.php
+
+		-
+			message: '#^Cannot access offset ''git_url'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/ConfsTech/YearParser.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/ConfsTech/YearParser.php
+
+		-
+			message: '#^Cannot call method getBody\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/YearParser.php
+
+		-
+			message: '#^Cannot call method getContents\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/YearParser.php
+
+		-
+			message: '#^Cannot call method request\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTech/YearParser.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\ConfsTech\\YearParser\:\:__invoke\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/ConfsTech/YearParser.php
+
+		-
+			message: '#^Parameter \#1 \$json of function json_decode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/ConfsTech/YearParser.php
+
+		-
+			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/ConfsTech/YearParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\ConfsTech\\YearParser\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/ConfsTech/YearParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\ConfsTech\\YearParser\:\:\$parser has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/ConfsTech/YearParser.php
+
+		-
+			message: '#^Trying to invoke mixed but it''s not a callable\.$#'
+			identifier: callable.nonCallable
+			count: 1
+			path: src/Parser/ConfsTech/YearParser.php
+
+		-
+			message: '#^Cannot call method createParser\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/ConfsTechParser.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\ConfsTechParser\:\:parse\(\) should return Callingallpapers\\Entity\\CfpList but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/Parser/ConfsTechParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\ConfsTechParser\:\:\$factory has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/ConfsTechParser.php
+
+		-
+			message: '#^Trying to invoke mixed but it''s not a callable\.$#'
+			identifier: callable.nonCallable
+			count: 1
+			path: src/Parser/ConfsTechParser.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Parser/EventDetailParserList.php
+
+		-
+			message: '#^Cannot access an offset on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/EventDetailParserList.php
+
+		-
+			message: '#^Cannot call method parse\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/EventDetailParserList.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\EventDetailParserList\:\:parse\(\) should return Callingallpapers\\Entity\\Cfp but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Parser/EventDetailParserList.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\EventDetailParserList\:\:\$list has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/EventDetailParserList.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Binary operation "\." between ''https\://joind\.in…'' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''/'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''cfp_end_date'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''cfp_start_date'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''cfp_url'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''description'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''end_date'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''events'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''href'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''icon'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''latitude'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''location'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''longitude'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''start_date'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''tags'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''tz_continent'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access offset ''tz_place'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\JoindinCfpParser\:\:parse\(\) should return Callingallpapers\\Entity\\CfpList but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Parameter \#1 \$datetime of class DateTimeImmutable constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 4
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$conferenceName \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$conferenceUri \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$description \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$latitude \(float\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$location \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$longitude \(float\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$tags \(array\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$uri \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/JoindinCfpParser.php
+
+		-
+			message: '#^Cannot access property \$length on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/ClosingDate.php
+
+		-
+			message: '#^Cannot access property \$textContent on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/ClosingDate.php
+
+		-
+			message: '#^Cannot call method item\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/ClosingDate.php
+
+		-
+			message: '#^Cannot call method query\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/ClosingDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\ClosingDate\:\:__construct\(\) has parameter \$timezone with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/ClosingDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\ClosingDate\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/Lanyrd/ClosingDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\ClosingDate\:\:parse\(\) has parameter \$dom with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/ClosingDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\ClosingDate\:\:parse\(\) has parameter \$xpath with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/ClosingDate.php
+
+		-
+			message: '#^Parameter \#1 \$datetime of class DateTime constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/ClosingDate.php
+
+		-
+			message: '#^Parameter \#1 \$timezone of class DateTimeZone constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/ClosingDate.php
+
+		-
+			message: '#^Parameter \#2 \$timezone of class DateTime constructor expects DateTimeZone\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/ClosingDate.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\Lanyrd\\ClosingDate\:\:\$timezone has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/Lanyrd/ClosingDate.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Parser/Lanyrd/Description.php
+
+		-
+			message: '#^Cannot access property \$childNodes on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Description.php
+
+		-
+			message: '#^Cannot access property \$length on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/Parser/Lanyrd/Description.php
+
+		-
+			message: '#^Cannot call method item\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Description.php
+
+		-
+			message: '#^Cannot call method query\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Description.php
+
+		-
+			message: '#^Cannot call method saveXML\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Description.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Description\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/Lanyrd/Description.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Description\:\:parse\(\) has parameter \$dom with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/Description.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Description\:\:parse\(\) has parameter \$xpath with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/Description.php
+
+		-
+			message: '#^Access to an undefined property Callingallpapers\\Parser\\Lanyrd\\Entry\:\:\$tzService\.$#'
+			identifier: property.notFound
+			count: 2
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Binary operation "\." between ''https\://lanyrd\.com'' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 4
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Cannot access offset 1 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 3
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Cannot access property \$attributes on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Cannot access property \$lat on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Cannot access property \$length on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Cannot access property \$lon on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Cannot access property \$textContent on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Cannot call method getNamedItem\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Cannot call method getTimezoneForLocation\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Cannot call method item\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Cannot call method query\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Entry\:\:getEventPage\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Entry\:\:getEventPage\(\) has parameter \$xpath with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Entry\:\:getLatLonForLocation\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Entry\:\:getLatLonForLocation\(\) has parameter \$location with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Entry\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Entry\:\:parse\(\) has parameter \$uri with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Parameter \#1 \$document of class DOMXPath constructor expects DOMDocument, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Parameter \#1 \$filename of function file_get_contents expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Parameter \#1 \$string of function mb_convert_encoding expects array\|string, string\|false given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Parameter \#1 \$string of function urlencode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$conferenceName \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$conferenceUri \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$dateEnd \(DateTimeInterface\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$dateStart \(DateTimeInterface\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$description \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$eventEndDate \(DateTimeInterface\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 2
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$eventStartDate \(DateTimeInterface\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$latitude \(float\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 2
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$location \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 2
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$longitude \(float\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 2
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$tags \(array\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$timezone \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$uri \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/Lanyrd/Entry.php
+
+		-
+			message: '#^Cannot access property \$attributes on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventEndDate.php
+
+		-
+			message: '#^Cannot access property \$length on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventEndDate.php
+
+		-
+			message: '#^Cannot access property \$textContent on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventEndDate.php
+
+		-
+			message: '#^Cannot call method getNamedItem\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventEndDate.php
+
+		-
+			message: '#^Cannot call method item\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventEndDate.php
+
+		-
+			message: '#^Cannot call method query\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventEndDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\EventEndDate\:\:__construct\(\) has parameter \$timezone with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/EventEndDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\EventEndDate\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/Lanyrd/EventEndDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\EventEndDate\:\:parse\(\) has parameter \$dom with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/EventEndDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\EventEndDate\:\:parse\(\) has parameter \$xpath with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/EventEndDate.php
+
+		-
+			message: '#^Parameter \#1 \$datetime of class DateTime constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/EventEndDate.php
+
+		-
+			message: '#^Parameter \#1 \$timezone of class DateTimeZone constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/EventEndDate.php
+
+		-
+			message: '#^Parameter \#2 \$timezone of class DateTime constructor expects DateTimeZone\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/EventEndDate.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\Lanyrd\\EventEndDate\:\:\$timezone has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/Lanyrd/EventEndDate.php
+
+		-
+			message: '#^Cannot access property \$length on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventName.php
+
+		-
+			message: '#^Cannot access property \$textContent on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventName.php
+
+		-
+			message: '#^Cannot call method item\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventName.php
+
+		-
+			message: '#^Cannot call method query\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventName.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\EventName\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/Lanyrd/EventName.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\EventName\:\:parse\(\) has parameter \$dom with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/EventName.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\EventName\:\:parse\(\) has parameter \$xpath with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/EventName.php
+
+		-
+			message: '#^Parameter \#1 \$string of function trim expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/EventName.php
+
+		-
+			message: '#^Cannot access property \$attributes on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventStartDate.php
+
+		-
+			message: '#^Cannot access property \$length on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventStartDate.php
+
+		-
+			message: '#^Cannot access property \$textContent on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventStartDate.php
+
+		-
+			message: '#^Cannot call method getNamedItem\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventStartDate.php
+
+		-
+			message: '#^Cannot call method item\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventStartDate.php
+
+		-
+			message: '#^Cannot call method query\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventStartDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\EventStartDate\:\:__construct\(\) has parameter \$timezone with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/EventStartDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\EventStartDate\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/Lanyrd/EventStartDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\EventStartDate\:\:parse\(\) has parameter \$dom with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/EventStartDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\EventStartDate\:\:parse\(\) has parameter \$xpath with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/EventStartDate.php
+
+		-
+			message: '#^Parameter \#1 \$datetime of class DateTime constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/EventStartDate.php
+
+		-
+			message: '#^Parameter \#1 \$timezone of class DateTimeZone constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/EventStartDate.php
+
+		-
+			message: '#^Parameter \#2 \$timezone of class DateTime constructor expects DateTimeZone\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/EventStartDate.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\Lanyrd\\EventStartDate\:\:\$timezone has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/Lanyrd/EventStartDate.php
+
+		-
+			message: '#^Cannot access property \$attributes on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventUri.php
+
+		-
+			message: '#^Cannot access property \$length on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventUri.php
+
+		-
+			message: '#^Cannot access property \$textContent on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventUri.php
+
+		-
+			message: '#^Cannot call method getNamedItem\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventUri.php
+
+		-
+			message: '#^Cannot call method item\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventUri.php
+
+		-
+			message: '#^Cannot call method query\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/EventUri.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\EventUri\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/Lanyrd/EventUri.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\EventUri\:\:parse\(\) has parameter \$dom with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/EventUri.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\EventUri\:\:parse\(\) has parameter \$xpath with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/EventUri.php
+
+		-
+			message: '#^Argument of an invalid type DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Parser/Lanyrd/LanyrdCfpParser.php
+
+		-
+			message: '#^Cannot access offset 0 on DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Parser/Lanyrd/LanyrdCfpParser.php
+
+		-
+			message: '#^Cannot access property \$attributes on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/LanyrdCfpParser.php
+
+		-
+			message: '#^Cannot access property \$length on DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/Parser/Lanyrd/LanyrdCfpParser.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMAttr\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/LanyrdCfpParser.php
+
+		-
+			message: '#^Cannot access property \$textContent on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/LanyrdCfpParser.php
+
+		-
+			message: '#^Cannot call method getNamedItem\(\) on DOMNamedNodeMap\<DOMAttr\>\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/LanyrdCfpParser.php
+
+		-
+			message: '#^Cannot call method item\(\) on DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/LanyrdCfpParser.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\LanyrdCfpParser\:\:parse\(\) should return Callingallpapers\\Entity\\CfpList but returns true\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Parser/Lanyrd/LanyrdCfpParser.php
+
+		-
+			message: '#^Parameter \#1 \$cfp of method Callingallpapers\\Writer\\WriterInterface\:\:write\(\) expects Callingallpapers\\Entity\\Cfp, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/LanyrdCfpParser.php
+
+		-
+			message: '#^Parameter \#3 \$timezoneService of class Callingallpapers\\Parser\\Lanyrd\\Entry constructor expects Callingallpapers\\Service\\TimezoneService, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/LanyrdCfpParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\Lanyrd\\LanyrdCfpParser\:\:\$tzService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/Lanyrd/LanyrdCfpParser.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Parser/Lanyrd/Location.php
+
+		-
+			message: '#^Cannot access property \$length on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Location.php
+
+		-
+			message: '#^Cannot access property \$textContent on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Location.php
+
+		-
+			message: '#^Cannot call method query\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Location.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Location\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/Lanyrd/Location.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Location\:\:parse\(\) has parameter \$dom with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/Location.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Location\:\:parse\(\) has parameter \$xpath with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/Location.php
+
+		-
+			message: '#^Parameter \#1 \$string of function trim expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/Location.php
+
+		-
+			message: '#^Cannot access property \$length on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/OpeningDate.php
+
+		-
+			message: '#^Cannot access property \$textContent on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/OpeningDate.php
+
+		-
+			message: '#^Cannot call method item\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/OpeningDate.php
+
+		-
+			message: '#^Cannot call method query\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/OpeningDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\OpeningDate\:\:__construct\(\) has parameter \$timezone with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/OpeningDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\OpeningDate\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/Lanyrd/OpeningDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\OpeningDate\:\:parse\(\) has parameter \$dom with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/OpeningDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\OpeningDate\:\:parse\(\) has parameter \$xpath with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/OpeningDate.php
+
+		-
+			message: '#^Parameter \#1 \$datetime of class DateTime constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/OpeningDate.php
+
+		-
+			message: '#^Parameter \#1 \$timezone of class DateTimeZone constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/OpeningDate.php
+
+		-
+			message: '#^Parameter \#2 \$timezone of class DateTime constructor expects DateTimeZone\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/OpeningDate.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\Lanyrd\\OpeningDate\:\:\$timezone has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/Lanyrd/OpeningDate.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Parser/Lanyrd/Tags.php
+
+		-
+			message: '#^Cannot access property \$length on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Tags.php
+
+		-
+			message: '#^Cannot access property \$textContent on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Tags.php
+
+		-
+			message: '#^Cannot call method query\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Tags.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Tags\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/Lanyrd/Tags.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Tags\:\:parse\(\) has parameter \$dom with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/Tags.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Tags\:\:parse\(\) has parameter \$xpath with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/Tags.php
+
+		-
+			message: '#^Parameter \#1 \$string of function trim expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/Lanyrd/Tags.php
+
+		-
+			message: '#^Cannot access property \$attributes on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Uri.php
+
+		-
+			message: '#^Cannot access property \$length on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Uri.php
+
+		-
+			message: '#^Cannot access property \$textContent on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Uri.php
+
+		-
+			message: '#^Cannot call method getNamedItem\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Uri.php
+
+		-
+			message: '#^Cannot call method item\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Uri.php
+
+		-
+			message: '#^Cannot call method query\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/Lanyrd/Uri.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Uri\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/Lanyrd/Uri.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Uri\:\:parse\(\) has parameter \$dom with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/Uri.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\Lanyrd\\Uri\:\:parse\(\) has parameter \$xpath with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/Lanyrd/Uri.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/ClosingDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\PapercallIo\\ClosingDate\:\:__construct\(\) has parameter \$timezone with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/PapercallIo/ClosingDate.php
+
+		-
+			message: '#^Parameter \#1 \$document of class DOMXPath constructor expects DOMDocument, DOMDocument\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/PapercallIo/ClosingDate.php
+
+		-
+			message: '#^Parameter \#1 \$timezone of class DateTimeZone constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/PapercallIo/ClosingDate.php
+
+		-
+			message: '#^Parameter \#1 \$timezone of method DateTimeImmutable\:\:setTimezone\(\) expects DateTimeZone, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/PapercallIo/ClosingDate.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\PapercallIo\\ClosingDate\:\:\$timezone has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/PapercallIo/ClosingDate.php
+
+		-
+			message: '#^Cannot access property \$childNodes on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/Description.php
+
+		-
+			message: '#^Cannot access property \$length on DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/Description.php
+
+		-
+			message: '#^Cannot call method item\(\) on DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/Description.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/EventEndDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\PapercallIo\\EventEndDate\:\:__construct\(\) has parameter \$timezone with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/PapercallIo/EventEndDate.php
+
+		-
+			message: '#^Parameter \#1 \$timezone of class DateTimeZone constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/PapercallIo/EventEndDate.php
+
+		-
+			message: '#^Parameter \#2 \$timezone of class DateTimeImmutable constructor expects DateTimeZone\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/PapercallIo/EventEndDate.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\PapercallIo\\EventEndDate\:\:\$timezone has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/PapercallIo/EventEndDate.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/EventName.php
+
+		-
+			message: '#^Cannot access property \$attributes on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/EventParser.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMAttr\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/EventParser.php
+
+		-
+			message: '#^Cannot call method getNamedItem\(\) on DOMNamedNodeMap\<DOMAttr\>\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/EventParser.php
+
+		-
+			message: '#^Cannot call method item\(\) on DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/EventParser.php
+
+		-
+			message: '#^Cannot call method parse\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/EventParser.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\PapercallIo\\EventParser\:\:parseEvent\(\) should return Callingallpapers\\Entity\\Cfp but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Parser/PapercallIo/EventParser.php
+
+		-
+			message: '#^Parameter \#1 \$document of class DOMXPath constructor expects DOMDocument, DOMDocument\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/PapercallIo/EventParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\PapercallIo\\EventParser\:\:\$eventParser has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/PapercallIo/EventParser.php
+
+		-
+			message: '#^Variable \$node in PHPDoc tag @var does not match assigned variable \$eventPageUrl\.$#'
+			identifier: varTag.differentVariable
+			count: 1
+			path: src/Parser/PapercallIo/EventParser.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/EventStartDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\PapercallIo\\EventStartDate\:\:__construct\(\) has parameter \$timezone with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/PapercallIo/EventStartDate.php
+
+		-
+			message: '#^Parameter \#1 \$timezone of class DateTimeZone constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/PapercallIo/EventStartDate.php
+
+		-
+			message: '#^Parameter \#2 \$timezone of class DateTimeImmutable constructor expects DateTimeZone\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/PapercallIo/EventStartDate.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\PapercallIo\\EventStartDate\:\:\$timezone has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/PapercallIo/EventStartDate.php
+
+		-
+			message: '#^Cannot access property \$attributes on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/EventUri.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMAttr\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/EventUri.php
+
+		-
+			message: '#^Cannot call method getNamedItem\(\) on DOMNamedNodeMap\<DOMAttr\>\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/EventUri.php
+
+		-
+			message: '#^Cannot access property \$attributes on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/Icon.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMAttr\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/Icon.php
+
+		-
+			message: '#^Cannot call method getNamedItem\(\) on DOMNamedNodeMap\<DOMAttr\>\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/Icon.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/Location.php
+
+		-
+			message: '#^Cannot access property \$length on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Cannot access property \$textContent on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Cannot access property \$timezone on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Cannot call method item\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Cannot call method query\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Instantiated class Callingallpapers\\Parser\\PapercallIo\\DateTimeZone not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\PapercallIo\\OpeningDate\:\:__construct\(\) has parameter \$timezone with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\PapercallIo\\OpeningDate\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\PapercallIo\\OpeningDate\:\:parse\(\) has parameter \$dom with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\PapercallIo\\OpeningDate\:\:parse\(\) has parameter \$xpath with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Parameter \#1 \$datetime of class DateTime constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Parameter \#1 \$timezone of class DateTimeZone constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Parameter \#2 \$timezone of class DateTime constructor expects DateTimeZone\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\PapercallIo\\OpeningDate\:\:\$timezone has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Undefined variable\: \$cfp$#'
+			identifier: variable.undefined
+			count: 2
+			path: src/Parser/PapercallIo/OpeningDate.php
+
+		-
+			message: '#^Argument of an invalid type DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Parser/PapercallIo/PapercallIoParser.php
+
+		-
+			message: '#^Cannot access property \$length on DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/Parser/PapercallIo/PapercallIoParser.php
+
+		-
+			message: '#^Cannot call method parseEvent\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/PapercallIoParser.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\PapercallIo\\PapercallIoParser\:\:parse\(\) should return Callingallpapers\\Entity\\CfpList but returns true\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Parser/PapercallIo/PapercallIoParser.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\PapercallIo\\PapercallIoParser\:\:setStartUrl\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/PapercallIo/PapercallIoParser.php
+
+		-
+			message: '#^PHPDoc tag @var for variable \$node contains unknown class Callingallpapers\\Parser\\PapercallIo\\DOMNode\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Parser/PapercallIo/PapercallIoParser.php
+
+		-
+			message: '#^Parameter \#1 \$cfp of method Callingallpapers\\Writer\\WriterInterface\:\:write\(\) expects Callingallpapers\\Entity\\Cfp, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/PapercallIo/PapercallIoParser.php
+
+		-
+			message: '#^Parameter \#1 \$format of function sprintf expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/PapercallIo/PapercallIoParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\PapercallIo\\PapercallIoParser\:\:\$parser has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/PapercallIo/PapercallIoParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\PapercallIo\\PapercallIoParser\:\:\$uri has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/PapercallIo/PapercallIoParser.php
+
+		-
+			message: '#^Method Callingallpapers\\Parser\\PapercallIo\\PapercallIoParserFactory\:\:__invoke\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Parser/PapercallIo/PapercallIoParserFactory.php
+
+		-
+			message: '#^Parameter \#1 \$parser of method Callingallpapers\\Parser\\EventDetailParserList\:\:addEventDetailParser\(\) expects Callingallpapers\\Parser\\EventDetailParserInterface, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Parser/PapercallIo/PapercallIoParserFactory.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\PapercallIo\\PapercallIoParserFactory\:\:\$geolocationService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/PapercallIo/PapercallIoParserFactory.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\PapercallIo\\PapercallIoParserFactory\:\:\$timezoneFromlocationFetcher has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/PapercallIo/PapercallIoParserFactory.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\PapercallIo\\PapercallIoParserFactory\:\:\$timezoneService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/PapercallIo/PapercallIoParserFactory.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/Tags.php
+
+		-
+			message: '#^Cannot access property \$attributes on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/Uri.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMAttr\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/Uri.php
+
+		-
+			message: '#^Cannot call method getNamedItem\(\) on DOMNamedNodeMap\<DOMAttr\>\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/PapercallIo/Uri.php
+
+		-
+			message: '#^Cannot call method getLatitude\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/TimezoneFromLocationFetcher.php
+
+		-
+			message: '#^Cannot call method getLocationForAddress\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/TimezoneFromLocationFetcher.php
+
+		-
+			message: '#^Cannot call method getLongitude\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/TimezoneFromLocationFetcher.php
+
+		-
+			message: '#^Cannot call method getTimezoneForLocation\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Parser/TimezoneFromLocationFetcher.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$latitude \(float\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/TimezoneFromLocationFetcher.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$longitude \(float\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/TimezoneFromLocationFetcher.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$timezone \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parser/TimezoneFromLocationFetcher.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\TimezoneFromLocationFetcher\:\:\$locationService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/TimezoneFromLocationFetcher.php
+
+		-
+			message: '#^Property Callingallpapers\\Parser\\TimezoneFromLocationFetcher\:\:\$timezoneService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Parser/TimezoneFromLocationFetcher.php
+
+		-
+			message: '#^Access to an undefined property Callingallpapers\\Entity\\Cfp\:\:\$eventDateEnd\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Access to an undefined property Callingallpapers\\Entity\\Cfp\:\:\$eventDateStart\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Call to an undefined method DateTimeInterface\:\:add\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Call to an undefined method DateTimeInterface\:\:setTimezone\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Call to method DateTimeImmutable\:\:setTimezone\(\) on a separate line has no effect\.$#'
+			identifier: method.resultUnused
+			count: 4
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''cfps'' on non\-empty\-array\|float\|int\<min, \-1\>\|int\<1, max\>\|object\|non\-falsy\-string\|true\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''dateCfpEnd'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''dateCfpStart'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''dateEventEnd'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''dateEventStart'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''description'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''eventUri'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''iconUri'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''latitude'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''location'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''longitude'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''tags'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''timezone'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot access offset ''uri'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot call method format\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot call method get\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot call method getBody\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot call method getContents\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot call method setTimezone\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Method Callingallpapers\\Reader\\ApiCfpReader\:\:__construct\(\) has parameter \$baseUri with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Method Callingallpapers\\Reader\\ApiCfpReader\:\:__construct\(\) has parameter \$bearerToken with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Method Callingallpapers\\Reader\\ApiCfpReader\:\:__construct\(\) has parameter \$client with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_filter expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Parameter \#1 \$datetime of class DateTimeImmutable constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 4
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Parameter \#1 \$json of function GuzzleHttp\\json_decode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Parameter \#1 \$string of function urlencode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Parameter \#1 \$timezone of class DateTimeZone constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$conferenceName \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$conferenceUri \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$description \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$iconUri \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$latitude \(float\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$location \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$longitude \(float\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$timezone \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$uri \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Property Callingallpapers\\Reader\\ApiCfpReader\:\:\$baseUri has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Property Callingallpapers\\Reader\\ApiCfpReader\:\:\$bearerToken has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Property Callingallpapers\\Reader\\ApiCfpReader\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Reader/ApiCfpReader.php
+
+		-
+			message: '#^Cannot call method write\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ResultKeeper/ConsoleOutputResultKeeper.php
+
+		-
+			message: '#^Cannot call method writeln\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ResultKeeper/ConsoleOutputResultKeeper.php
+
+		-
+			message: '#^Cannot use \+\+ on mixed\.$#'
+			identifier: postInc.type
+			count: 2
+			path: src/ResultKeeper/ConsoleOutputResultKeeper.php
+
+		-
+			message: '#^Property Callingallpapers\\ResultKeeper\\ConsoleOutputResultKeeper\:\:\$line has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ResultKeeper/ConsoleOutputResultKeeper.php
+
+		-
+			message: '#^Property Callingallpapers\\ResultKeeper\\ConsoleOutputResultKeeper\:\:\$style has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ResultKeeper/ConsoleOutputResultKeeper.php
+
+		-
+			message: '#^Property Callingallpapers\\ResultKeeper\\ConsoleOutputResultKeeper\:\:\$total has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ResultKeeper/ConsoleOutputResultKeeper.php
+
+		-
+			message: '#^Cannot call method getMessage\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ResultKeeper/Error.php
+
+		-
+			message: '#^Method Callingallpapers\\ResultKeeper\\Error\:\:getConference\(\) should return string but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ResultKeeper/Error.php
+
+		-
+			message: '#^Method Callingallpapers\\ResultKeeper\\Error\:\:getMessage\(\) should return string but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ResultKeeper/Error.php
+
+		-
+			message: '#^Method Callingallpapers\\ResultKeeper\\Error\:\:getThrowable\(\) should return Throwable but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ResultKeeper/Error.php
+
+		-
+			message: '#^Property Callingallpapers\\ResultKeeper\\Error\:\:\$conference has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ResultKeeper/Error.php
+
+		-
+			message: '#^Property Callingallpapers\\ResultKeeper\\Error\:\:\$throwable has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ResultKeeper/Error.php
+
+		-
+			message: '#^Cannot call method getMessage\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ResultKeeper/Failure.php
+
+		-
+			message: '#^Method Callingallpapers\\ResultKeeper\\Failure\:\:getConference\(\) should return string but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ResultKeeper/Failure.php
+
+		-
+			message: '#^Method Callingallpapers\\ResultKeeper\\Failure\:\:getMessage\(\) should return string but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ResultKeeper/Failure.php
+
+		-
+			message: '#^Method Callingallpapers\\ResultKeeper\\Failure\:\:getThrowable\(\) should return Throwable but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ResultKeeper/Failure.php
+
+		-
+			message: '#^Property Callingallpapers\\ResultKeeper\\Failure\:\:\$conference has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ResultKeeper/Failure.php
+
+		-
+			message: '#^Property Callingallpapers\\ResultKeeper\\Failure\:\:\$throwable has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ResultKeeper/Failure.php
+
+		-
+			message: '#^Cannot access an offset on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 4
+			path: src/ResultKeeper/ResultKeeper.php
+
+		-
+			message: '#^Method Callingallpapers\\ResultKeeper\\ResultKeeper\:\:add\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/ResultKeeper/ResultKeeper.php
+
+		-
+			message: '#^Method Callingallpapers\\ResultKeeper\\ResultKeeper\:\:getCreated\(\) should return array\<Callingallpapers\\ResultKeeper\\Created\> but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ResultKeeper/ResultKeeper.php
+
+		-
+			message: '#^Method Callingallpapers\\ResultKeeper\\ResultKeeper\:\:getErrored\(\) should return array\<Callingallpapers\\ResultKeeper\\Error\> but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ResultKeeper/ResultKeeper.php
+
+		-
+			message: '#^Method Callingallpapers\\ResultKeeper\\ResultKeeper\:\:getFailed\(\) should return array\<Callingallpapers\\ResultKeeper\\Failure\> but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ResultKeeper/ResultKeeper.php
+
+		-
+			message: '#^Method Callingallpapers\\ResultKeeper\\ResultKeeper\:\:getUpdated\(\) should return array\<Callingallpapers\\ResultKeeper\\Updated\> but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ResultKeeper/ResultKeeper.php
+
+		-
+			message: '#^Property Callingallpapers\\ResultKeeper\\ResultKeeper\:\:\$created has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ResultKeeper/ResultKeeper.php
+
+		-
+			message: '#^Property Callingallpapers\\ResultKeeper\\ResultKeeper\:\:\$errors has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ResultKeeper/ResultKeeper.php
+
+		-
+			message: '#^Property Callingallpapers\\ResultKeeper\\ResultKeeper\:\:\$failures has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ResultKeeper/ResultKeeper.php
+
+		-
+			message: '#^Property Callingallpapers\\ResultKeeper\\ResultKeeper\:\:\$updated has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ResultKeeper/ResultKeeper.php
+
+		-
+			message: '#^Method Callingallpapers\\ResultKeeper\\Success\:\:getConference\(\) should return string but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ResultKeeper/Success.php
+
+		-
+			message: '#^Property Callingallpapers\\ResultKeeper\\Success\:\:\$conference has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ResultKeeper/Success.php
+
+		-
+			message: '#^Expression on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.expr
+			count: 1
+			path: src/Service/ConfigService.php
+
+		-
+			message: '#^Method Callingallpapers\\Service\\ConfigService\:\:getConfiguration\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/ConfigService.php
+
+		-
+			message: '#^Method Callingallpapers\\Service\\ConfigService\:\:getConfiguration\(\) should return array but returns array\|false\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Service/ConfigService.php
+
+		-
+			message: '#^Parameter \#1 \$filename of function parse_ini_file expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/ConfigService.php
+
+		-
+			message: '#^Property Callingallpapers\\Service\\ConfigService\:\:\$configFile has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/ConfigService.php
+
+		-
+			message: '#^Parameter \#1 \$conferenceParser of class Callingallpapers\\Parser\\ConfsTech\\CategoryParser constructor expects Callingallpapers\\Parser\\ConfsTech\\ConferenceParser, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/ConfsTechParserFactory.php
+
+		-
+			message: '#^Parameter \#2 \$client of class Callingallpapers\\Parser\\ConfsTech\\CategoryParser constructor expects GuzzleHttp\\Client, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/ConfsTechParserFactory.php
+
+		-
+			message: '#^Parameter \#2 \$client of class Callingallpapers\\Parser\\ConfsTech\\MainParser constructor expects GuzzleHttp\\Client, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/ConfsTechParserFactory.php
+
+		-
+			message: '#^Parameter \#2 \$client of class Callingallpapers\\Parser\\ConfsTech\\YearParser constructor expects GuzzleHttp\\Client, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/ConfsTechParserFactory.php
+
+		-
+			message: '#^Parameter \#3 \$writer of class Callingallpapers\\Parser\\ConfsTech\\CategoryParser constructor expects Callingallpapers\\Writer\\WriterInterface, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/ConfsTechParserFactory.php
+
+		-
+			message: '#^Property Callingallpapers\\Service\\ConfsTechParserFactory\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/ConfsTechParserFactory.php
+
+		-
+			message: '#^Property Callingallpapers\\Service\\ConfsTechParserFactory\:\:\$conferenceParser has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/ConfsTechParserFactory.php
+
+		-
+			message: '#^Property Callingallpapers\\Service\\ConfsTechParserFactory\:\:\$output has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/ConfsTechParserFactory.php
+
+		-
+			message: '#^Cannot access offset ''lat'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/GeolocationService.php
+
+		-
+			message: '#^Cannot access offset ''lon'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/GeolocationService.php
+
+		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/GeolocationService.php
+
+		-
+			message: '#^Cannot call method getBody\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Service/GeolocationService.php
+
+		-
+			message: '#^Cannot call method getContents\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Service/GeolocationService.php
+
+		-
+			message: '#^Cannot call method request\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Service/GeolocationService.php
+
+		-
+			message: '#^Parameter \#1 \$format of function sprintf expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/GeolocationService.php
+
+		-
+			message: '#^Parameter \#1 \$json of function json_decode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/GeolocationService.php
+
+		-
+			message: '#^Parameter \#1 \$latitude of class Callingallpapers\\Entity\\Geolocation constructor expects float, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/GeolocationService.php
+
+		-
+			message: '#^Parameter \#2 \$longitude of class Callingallpapers\\Entity\\Geolocation constructor expects float, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/GeolocationService.php
+
+		-
+			message: '#^Property Callingallpapers\\Service\\GeolocationService\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/GeolocationService.php
+
+		-
+			message: '#^Property Callingallpapers\\Service\\GeolocationService\:\:\$lastAccess has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/GeolocationService.php
+
+		-
+			message: '#^Property Callingallpapers\\Service\\GeolocationService\:\:\$uri has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/GeolocationService.php
+
+		-
+			message: '#^Cannot access offset ''mastodon\.clientId'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/MastodonNotifierClientFactory.php
+
+		-
+			message: '#^Cannot access offset ''mastodon\.clientSecret'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/MastodonNotifierClientFactory.php
+
+		-
+			message: '#^Cannot access offset ''mastodon\.instance'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/MastodonNotifierClientFactory.php
+
+		-
+			message: '#^Cannot access offset ''mastodon\.name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/MastodonNotifierClientFactory.php
+
+		-
+			message: '#^Cannot access offset ''mastodon\.token'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/MastodonNotifierClientFactory.php
+
+		-
+			message: '#^Method Callingallpapers\\Service\\MastodonNotifierClientFactory\:\:getClient\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Service/MastodonNotifierClientFactory.php
+
+		-
+			message: '#^Method Callingallpapers\\Service\\MastodonNotifierClientFactory\:\:getClient\(\) has parameter \$config with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Service/MastodonNotifierClientFactory.php
+
+		-
+			message: '#^Parameter \#1 \$bearer of method Colorfield\\Mastodon\\ConfigurationVO\:\:setBearer\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/MastodonNotifierClientFactory.php
+
+		-
+			message: '#^Parameter \#1 \$clientId of method Colorfield\\Mastodon\\ConfigurationVO\:\:setClientId\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/MastodonNotifierClientFactory.php
+
+		-
+			message: '#^Parameter \#1 \$clientSecret of method Colorfield\\Mastodon\\ConfigurationVO\:\:setClientSecret\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/MastodonNotifierClientFactory.php
+
+		-
+			message: '#^Method Callingallpapers\\Service\\ServiceContainer\:\:getClient\(\) should return GuzzleHttp\\Client but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Service/ServiceContainer.php
+
+		-
+			message: '#^Method Callingallpapers\\Service\\ServiceContainer\:\:getGeolocationService\(\) should return Callingallpapers\\Service\\GeolocationService but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Service/ServiceContainer.php
+
+		-
+			message: '#^Method Callingallpapers\\Service\\ServiceContainer\:\:getTimezoneService\(\) should return Callingallpapers\\Service\\TimezoneService but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Service/ServiceContainer.php
+
+		-
+			message: '#^Property Callingallpapers\\Service\\ServiceContainer\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/ServiceContainer.php
+
+		-
+			message: '#^Property Callingallpapers\\Service\\ServiceContainer\:\:\$geolocation has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/ServiceContainer.php
+
+		-
+			message: '#^Property Callingallpapers\\Service\\ServiceContainer\:\:\$timezone has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/ServiceContainer.php
+
+		-
+			message: '#^Cannot access offset ''status'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Cannot access offset ''zoneName'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Cannot call method get\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Cannot call method getBody\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Cannot call method getContents\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Method Callingallpapers\\Service\\TimezoneService\:\:__construct\(\) has parameter \$key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Method Callingallpapers\\Service\\TimezoneService\:\:getTimezoneForLocation\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Method Callingallpapers\\Service\\TimezoneService\:\:getTimezoneForLocation\(\) has parameter \$lat with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Method Callingallpapers\\Service\\TimezoneService\:\:getTimezoneForLocation\(\) has parameter \$lng with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Parameter \#1 \$format of function sprintf expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Parameter \#1 \$json of function json_decode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Parameter \#3 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Parameter \#4 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Property Callingallpapers\\Service\\TimezoneService\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Property Callingallpapers\\Service\\TimezoneService\:\:\$key has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Property Callingallpapers\\Service\\TimezoneService\:\:\$lastAccess has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Property Callingallpapers\\Service\\TimezoneService\:\:\$uri has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/TimezoneService.php
+
+		-
+			message: '#^Cannot access offset ''twitter\.consumer_key'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/TwitterNotifierClientFactory.php
+
+		-
+			message: '#^Cannot access offset ''twitter\.consumer_secret'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/TwitterNotifierClientFactory.php
+
+		-
+			message: '#^Cannot access offset ''twitter\.token'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/TwitterNotifierClientFactory.php
+
+		-
+			message: '#^Cannot access offset ''twitter\.token_secret'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/TwitterNotifierClientFactory.php
+
+		-
+			message: '#^Method Callingallpapers\\Service\\TwitterNotifierClientFactory\:\:getClient\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Service/TwitterNotifierClientFactory.php
+
+		-
+			message: '#^Method Callingallpapers\\Service\\TwitterNotifierClientFactory\:\:getClient\(\) has parameter \$config with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Service/TwitterNotifierClientFactory.php
+
+		-
+			message: '#^Cannot access offset ''event_api_token'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/WriterFactory.php
+
+		-
+			message: '#^Cannot access offset ''event_api_url'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/WriterFactory.php
+
+		-
+			message: '#^Cannot access offset ''writer'' on array\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Service/WriterFactory.php
+
+		-
+			message: '#^Instantiated class Callingallpapers\\Writer\\InvalidWriterException not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Service/WriterFactory.php
+
+		-
+			message: '#^Instantiated class Callingallpapers\\Writer\\UnknownWriterException not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Service/WriterFactory.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\WriterFactory\:\:getWriter\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Service/WriterFactory.php
+
+		-
+			message: '#^Parameter \#1 \$filename of function parse_ini_file expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Service/WriterFactory.php
+
+		-
+			message: '#^Property Callingallpapers\\Writer\\WriterFactory\:\:\$configFile has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/WriterFactory.php
+
+		-
+			message: '#^Throwing object of an unknown class Callingallpapers\\Writer\\InvalidWriterException\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Service/WriterFactory.php
+
+		-
+			message: '#^Throwing object of an unknown class Callingallpapers\\Writer\\UnknownWriterException\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Service/WriterFactory.php
+
+		-
+			message: '#^Binary operation "\." between mixed and '' '' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/ClosingDate.php
+
+		-
+			message: '#^Cannot access property \$textContent on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/ClosingDate.php
+
+		-
+			message: '#^Cannot call method getElementsByTagName\(\) on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/ClosingDate.php
+
+		-
+			message: '#^Cannot call method item\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/ClosingDate.php
+
+		-
+			message: '#^Parameter \#2 \$timezone of class DateTimeImmutable constructor expects DateTimeZone\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/ClosingDate.php
+
+		-
+			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/ClosingDate.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\Sessionize\\Parser\\ClosingDate\:\:\$timezone has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/ClosingDate.php
+
+		-
+			message: '#^Cannot access property \$childNodes on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/Description.php
+
+		-
+			message: '#^Cannot access property \$childNodes on DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/Description.php
+
+		-
+			message: '#^Cannot access property \$length on DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/Description.php
+
+		-
+			message: '#^Cannot access property \$parentNode on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/Description.php
+
+		-
+			message: '#^Cannot call method item\(\) on DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/Description.php
+
+		-
+			message: '#^Method Callingallpapers\\Subcommands\\Sessionize\\Parser\\Description\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/Description.php
+
+		-
+			message: '#^Parameter \#1 \$string of function trim expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/Description.php
+
+		-
+			message: '#^Cannot access property \$conferenceName on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot access property \$conferenceUri on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot access property \$dateEnd on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot access property \$dateStart on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot access property \$description on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot access property \$eventEndDate on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot access property \$eventStartDate on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot access property \$iconUri on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot access property \$latitude on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot access property \$location on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot access property \$longitude on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot access property \$timezone on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot access property \$uri on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot call method getLatitude\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot call method getLocationForAddress\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot call method getLongitude\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot call method getTimezoneForLocation\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot clone mixed\.$#'
+			identifier: clone.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Method Callingallpapers\\Subcommands\\Sessionize\\Parser\\EntryParser\:\:parse\(\) has parameter \$uri with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Method Callingallpapers\\Subcommands\\Sessionize\\Parser\\EntryParser\:\:parse\(\) should return Callingallpapers\\Entity\\Cfp but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Parameter \#1 \$baseUri of class Callingallpapers\\Subcommands\\Sessionize\\Parser\\IconUri constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Parameter \#1 \$filename of function file_get_contents expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Parameter \#1 \$string of function mb_convert_encoding expects array\|string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Parameter \#1 \$timezone of class DateTimeZone constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\Sessionize\\Parser\\EntryParser\:\:\$cfp has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\Sessionize\\Parser\\EntryParser\:\:\$geolocationService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\Sessionize\\Parser\\EntryParser\:\:\$timezoneService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Variable \$timezone might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot access property \$parentNode on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventEndDate.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventEndDate.php
+
+		-
+			message: '#^Parameter \#2 \$timezone of class DateTimeImmutable constructor expects DateTimeZone\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventEndDate.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\Sessionize\\Parser\\EventEndDate\:\:\$timezone has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventEndDate.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventName.php
+
+		-
+			message: '#^Method Callingallpapers\\Subcommands\\Sessionize\\Parser\\EventName\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventName.php
+
+		-
+			message: '#^Cannot access property \$parentNode on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventStartDate.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventStartDate.php
+
+		-
+			message: '#^Parameter \#2 \$timezone of class DateTimeImmutable constructor expects DateTimeZone\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventStartDate.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\Sessionize\\Parser\\EventStartDate\:\:\$timezone has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventStartDate.php
+
+		-
+			message: '#^Cannot access property \$attributes on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventUri.php
+
+		-
+			message: '#^Cannot access property \$parentNode on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventUri.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMAttr\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventUri.php
+
+		-
+			message: '#^Cannot call method getNamedItem\(\) on DOMNamedNodeMap\<DOMAttr\>\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventUri.php
+
+		-
+			message: '#^Method Callingallpapers\\Subcommands\\Sessionize\\Parser\\EventUri\:\:parse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/EventUri.php
+
+		-
+			message: '#^Cannot access property \$attributes on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/IconUri.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMAttr\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/IconUri.php
+
+		-
+			message: '#^Cannot call method getNamedItem\(\) on DOMNamedNodeMap\<DOMAttr\>\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/IconUri.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\Sessionize\\Parser\\IconUri\:\:\$baseUri has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/IconUri.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\Sessionize\\Parser\\IconUri\:\:\$baseUri is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/IconUri.php
+
+		-
+			message: '#^Access to an undefined property DOMNameSpaceNode\|DOMNode\:\:\$textContent\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/Location.php
+
+		-
+			message: '#^Cannot access property \$parentNode on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/Location.php
+
+		-
+			message: '#^Unreachable statement \- code above always terminates\.$#'
+			identifier: deadCode.unreachable
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/Location.php
+
+		-
+			message: '#^Binary operation "\." between mixed and '' '' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/OpeningDate.php
+
+		-
+			message: '#^Cannot access property \$textContent on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/OpeningDate.php
+
+		-
+			message: '#^Cannot call method getElementsByTagName\(\) on DOMNameSpaceNode\|DOMNode\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/OpeningDate.php
+
+		-
+			message: '#^Cannot call method item\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/Subcommands/Sessionize/Parser/OpeningDate.php
+
+		-
+			message: '#^Parameter \#1 \$openingHour of method Callingallpapers\\Subcommands\\Sessionize\\Parser\\OpeningDate\:\:clearOpeningHour\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/OpeningDate.php
+
+		-
+			message: '#^Parameter \#2 \$timezone of class DateTimeImmutable constructor expects DateTimeZone\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/OpeningDate.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\Sessionize\\Parser\\OpeningDate\:\:\$timezone has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/OpeningDate.php
+
+		-
+			message: '#^Argument of an invalid type DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/Sessionize.php
+
+		-
+			message: '#^Cannot access property \$length on DOMNodeList\<DOMNameSpaceNode\|DOMNode\>\|false\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/Sessionize.php
+
+		-
+			message: '#^Cannot access property \$textContent on DOMElement\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: src/Subcommands/Sessionize/Parser/Sessionize.php
+
+		-
+			message: '#^Cannot call method parse\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/Sessionize.php
+
+		-
+			message: '#^PHPDoc tag @param references unknown parameter\: \$output$#'
+			identifier: parameter.notFound
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/Sessionize.php
+
+		-
+			message: '#^Parameter \#1 \$cfp of method Callingallpapers\\Writer\\WriterInterface\:\:write\(\) expects Callingallpapers\\Entity\\Cfp, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/Sessionize.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\Sessionize\\Parser\\Sessionize\:\:\$parser has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/Sessionize/Parser/Sessionize.php
+
+		-
+			message: '#^If condition is always true\.$#'
+			identifier: if.alwaysTrue
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Offset ''coordinates'' on array\{full\: string, city\: string, state\: string, country\: string, coordinates\: Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\latlonstring\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Offset ''full'' on array\{full\: string, city\: string, state\: string, country\: string, coordinates\: Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\latlonstring\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Parameter \#1 \$datetime of class DateTimeImmutable constructor expects string, Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\datestring given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Parameter \#1 \$datetime of class DateTimeImmutable constructor expects string, Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\datetimestring given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Parameter \#2 \$string of function explode expects string, Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\latlonstring given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Parameter \$event of method Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\EntryParser\:\:parse\(\) has invalid type Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\datestring\.$#'
+			identifier: class.notFound
+			count: 2
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Parameter \$event of method Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\EntryParser\:\:parse\(\) has invalid type Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\datetimestring\.$#'
+			identifier: class.notFound
+			count: 2
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Parameter \$event of method Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\EntryParser\:\:parse\(\) has invalid type Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\datetimestringZ\.$#'
+			identifier: class.notFound
+			count: 2
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Parameter \$event of method Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\EntryParser\:\:parse\(\) has invalid type Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\latlonstring\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$latitude \(float\) does not accept string\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Entity\\Cfp\:\:\$longitude \(float\) does not accept string\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\EntryParser\:\:\$cfp has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\EntryParser\:\:\$cfp is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\EntryParser\:\:\$geolocationService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\EntryParser\:\:\$geolocationService is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\EntryParser\:\:\$timezoneService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\EntryParser\:\:\$timezoneService is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between null and null will always evaluate to false\.$#'
+			identifier: notIdentical.alwaysFalse
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/EntryParser.php
+
+		-
+			message: '#^Cannot access offset ''sessionize\.apiKey'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^Cannot call method get\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^Cannot call method getBody\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^Cannot call method getConfiguration\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^Cannot call method getContents\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^Cannot call method parse\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^Offset ''cfpLink'' on array\{eventId\: int, name\: string, organizer\: string, website\: string, cfpLink\: string, isTest\: false, isOnline\: bool, isUserGroup\: false, \.\.\.\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^Offset ''website'' on array\{eventId\: int, name\: string, organizer\: string, website\: string, cfpLink\: non\-empty\-string, isTest\: false, isOnline\: bool, isUserGroup\: false, \.\.\.\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^PHPDoc tag @param references unknown parameter\: \$output$#'
+			identifier: parameter.notFound
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^PHPDoc tag @var for variable \$events contains unknown class Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\datestring\.$#'
+			identifier: class.notFound
+			count: 2
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^PHPDoc tag @var for variable \$events contains unknown class Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\datetimestring\.$#'
+			identifier: class.notFound
+			count: 2
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^PHPDoc tag @var for variable \$events contains unknown class Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\datetimestringZ\.$#'
+			identifier: class.notFound
+			count: 2
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^PHPDoc tag @var for variable \$events contains unknown class Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\latlonstring\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^Parameter \#1 \$cfp of method Callingallpapers\\Writer\\WriterInterface\:\:write\(\) expects Callingallpapers\\Entity\\Cfp, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^Parameter \#1 \$json of function json_decode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\Sessionize\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\Sessionize\:\:\$configService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^Property Callingallpapers\\Subcommands\\SessionizeApi\\Parser\\Sessionize\:\:\$parser has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Subcommands/SessionizeApi/Parser/Sessionize.php
+
+		-
+			message: '#^Binary operation "\." between ''Bearer '' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 2
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''/%%1\$s'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 2
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot access property \$conferenceName on mixed\.$#'
+			identifier: property.nonObject
+			count: 5
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot access property \$conferenceUri on mixed\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot access property \$dateEnd on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot access property \$dateStart on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot access property \$description on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot access property \$eventEndDate on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot access property \$eventStartDate on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot access property \$iconUri on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot access property \$latitude on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot access property \$location on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot access property \$longitude on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot access property \$tags on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot access property \$timezone on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot access property \$uri on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot call method add\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot call method addError\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot call method addFailure\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot call method filter\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot call method format\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot call method getStatusCode\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 6
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot call method request\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\ApiCfpWriter\:\:__construct\(\) has parameter \$baseUri with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\ApiCfpWriter\:\:__construct\(\) has parameter \$bearerToken with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\ApiCfpWriter\:\:__construct\(\) has parameter \$client with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\ApiCfpWriter\:\:setFilter\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\ApiCfpWriter\:\:setResultKeeper\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Parameter \#1 \$conference of class Callingallpapers\\ResultKeeper\\Created constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Parameter \#1 \$conference of class Callingallpapers\\ResultKeeper\\Error constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Parameter \#1 \$conference of class Callingallpapers\\ResultKeeper\\Failure constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Parameter \#1 \$conference of class Callingallpapers\\ResultKeeper\\Updated constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Parameter \#1 \$format of function sprintf expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Parameter \#1 \$string of function sha1 expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Property Callingallpapers\\Writer\\ApiCfpWriter\:\:\$baseUri has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Property Callingallpapers\\Writer\\ApiCfpWriter\:\:\$bearerToken has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Property Callingallpapers\\Writer\\ApiCfpWriter\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Property Callingallpapers\\Writer\\ApiCfpWriter\:\:\$filter has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Property Callingallpapers\\Writer\\ApiCfpWriter\:\:\$keeper has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Property Callingallpapers\\Writer\\ApiCfpWriter\:\:\$output has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Writer/ApiCfpWriter.php
+
+		-
+			message: '#^Cannot call method write\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Writer/DefaultCfpWriter.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\DefaultCfpWriter\:\:write\(\) should return string but returns true\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Writer/DefaultCfpWriter.php
+
+		-
+			message: '#^Property Callingallpapers\\Writer\\DefaultCfpWriter\:\:\$output has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Writer/DefaultCfpWriter.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\NullOutput\:\:isDecorated\(\) should return bool but returns int\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Writer/NullOutput.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\NullOutput\:\:write\(\) has parameter \$messages with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Writer/NullOutput.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\NullOutput\:\:writeln\(\) has parameter \$messages with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Writer/NullOutput.php
+
+		-
+			message: '#^Method Symfony\\Component\\Console\\Formatter\\OutputFormatterStyleInterface@anonymous/Writer/NullOutput\.php\:188\:\:setOptions\(\) has parameter \$options with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Writer/NullOutput.php
+
+		-
+			message: '#^PHPDoc tag @param references unknown parameter\: \$type$#'
+			identifier: parameter.notFound
+			count: 1
+			path: src/Writer/NullOutput.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Writer/TestCfpWriter.php
+
+		-
+			message: '#^Cannot access an offset on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Writer/TestCfpWriter.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\TestCfpWriter\:\:count\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Writer/TestCfpWriter.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\TestCfpWriter\:\:valid\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Writer/TestCfpWriter.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\TestCfpWriter\:\:write\(\) should return string but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/Writer/TestCfpWriter.php
+
+		-
+			message: '#^Negated boolean expression is always false\.$#'
+			identifier: booleanNot.alwaysFalse
+			count: 1
+			path: src/Writer/TestCfpWriter.php
+
+		-
+			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Writer/TestCfpWriter.php
+
+		-
+			message: '#^Property Callingallpapers\\Writer\\TestCfpWriter\:\:\$cfps has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Writer/TestCfpWriter.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(Symfony\\Component\\Console\\Output\\OutputInterface\)\: Unexpected token "\\n     \*", expected variable at offset 98 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: src/Writer/WriterInterface.php
+
+		-
+			message: '#^Class Callingallpapers\\Writer\\WriterList implements generic interface Iterator but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Writer/WriterList.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\WriterList\:\:getIterableElement\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Writer/WriterList.php
+
+		-
+			message: '#^Method Callingallpapers\\Writer\\WriterList\:\:write\(\) should return string but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/Writer/WriterList.php
+
+		-
+			message: '#^PHPDoc tag @param for parameter \$writer with type Callingallpapers\\Writer\\WriterInterface is not subtype of native type Callingallpapers\\Writer\\Writer\.$#'
+			identifier: parameter.phpDocType
+			count: 1
+			path: src/Writer/WriterList.php
+
+		-
+			message: '#^Parameter \#1 \$output of method Callingallpapers\\Writer\\WriterInterface\:\:setOutput\(\) expects Symfony\\Component\\Console\\Output\\OutputInterface, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Writer/WriterList.php
+
+		-
+			message: '#^Parameter \$writer of method Callingallpapers\\Writer\\WriterList\:\:addWriter\(\) has invalid type Callingallpapers\\Writer\\Writer\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Writer/WriterList.php
+
+		-
+			message: '#^Property Callingallpapers\\Writer\\WriterList\:\:\$output has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Writer/WriterList.php
+
+		-
+			message: '#^Property Callingallpapers\\Writer\\WriterList\:\:\$writer \(array\<Callingallpapers\\Writer\\WriterInterface\>\) does not accept array\<Callingallpapers\\Writer\\Writer\|Callingallpapers\\Writer\\WriterInterface\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Writer/WriterList.php
