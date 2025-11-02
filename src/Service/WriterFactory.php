@@ -36,8 +36,10 @@ class WriterFactory
         $config = parse_ini_file($this->configFile);
 
         try {
-            $writer = new $config['writer']($config['event_api_url'],
-                $config['event_api_token']);
+            $writer = new $config['writer'](
+                $config['event_api_url'],
+                $config['event_api_token']
+            );
         } catch (\Throwable $e) {
             throw new UnknownWriterException('The requested writer could not be created');
         }

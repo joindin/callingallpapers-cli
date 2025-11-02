@@ -15,7 +15,9 @@ class ConfigService
 {
     private $configFile = __DIR__ . '/../../config/callingallpapers.ini';
 
-    public function __construct() {}
+    public function __construct()
+    {
+    }
 
     public function getConfiguration(): array
     {

@@ -90,8 +90,7 @@ class NullOutput implements OutputInterface
         $messages,
         $newline = false,
         $options = self::OUTPUT_NORMAL
-    ): void
-    {
+    ): void {
         // TODO: Implement write() method.
     }
 

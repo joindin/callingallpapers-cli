@@ -46,7 +46,8 @@ class MastodonNotifier implements NotificationInterface
         $uri  = $this->shortenUri($cfp->uri);
         $tags = ' #' . implode(' #', $cfp->tags);
 
-        $notificationString = sprintf(<<<'NOTIFICATION'
+        $notificationString = sprintf(
+            <<<'NOTIFICATION'
             24 hours until the CfP for "%1$s" closes: %2$s
 
             #cfp #conference%3$s
