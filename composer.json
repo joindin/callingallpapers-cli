@@ -48,7 +48,7 @@
   },
   "require-dev": {
     "mockery/mockery": "^1.2",
-    "phing/phing": "^2.14",
+    "phing/phing": "^3.1",
     "phpunit/phpunit": "^12",
     "squizlabs/php_codesniffer": "^4.0"
   },
