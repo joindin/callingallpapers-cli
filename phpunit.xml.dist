@@ -1,45 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         cacheDirectory=".phpunit.cache"
+         executionOrder="depends,defects"
+         requireCoverageMetadata="true"
+         beStrictAboutCoverageMetadata="true"
+         beStrictAboutOutputDuringTests="true"
+         displayDetailsOnPhpunitDeprecations="true"
+         failOnPhpunitDeprecation="true"
+         failOnRisky="true"
+         failOnWarning="true">
+    <testsuites>
+        <testsuite name="default">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
 
-<!--
-    Document   : phpunit.xml
-    Created on : 21.09.2010
-    Author     : heiglandreas
- -->
-
-<phpunit bootstrap="tests/bootstrap.php">
-    <testsuite name="callingallpapers-CLI Test-Suite">
-        <directory>tests</directory>
-        <directory>src/Subcommands/Tests</directory>
-    </testsuite>
-
-    <groups>
-        <exclude>
-            <group>disable</group>
-        </exclude>
-    </groups>
-    <!--listeners>
-        <listener class="\Mockery\Adapter\Phpunit\TestListener"></listener>
-    </listeners-->
-    <filter>
-        <whitelist>
-            <directory suffix=".php">src</directory>
-        </whitelist>
-    </filter>
-  <logging>
-    <log type="coverage-html" target="build/coverage"
-         lowUpperBound="35" highLowerBound="70" />
-    <!--log type="coverage-xml" target="../report/coverage.xml"/-->
-    <!--log type="graphviz" target="../report/logfile.dot"/-->
-    <!--log type="json" target="../report/logfile.json"/-->
-    <!--log type="metrics-xml" target="../report/metrics.xml"/-->
-    <!--log type="plain" target="../report/logfile.txt"/-->
-    <!--log type="pmd-xml" target="../report/pmd.xml" cpdMinLines="5" cpdMinMatches="70"/-->
-    <!--log type="tap" target="../report/logfile.tap"/-->
-    <!--log type="test-xml" target="../report/logfile.xml" logIncompleteSkipped="false"/-->
-    <!--log type="testdox-html" target="../report/testdox.html"/-->
-    <!--log type="testdox-text" target="../report/testdox.txt"/-->
-  </logging>
-    <php>
-        <env name="CALLINGALLPAPERS_TIMEZONE_API_KEY" value=""/>
-    </php>
+    <source ignoreIndirectDeprecations="true" restrictNotices="true" restrictWarnings="true">
+        <include>
+            <directory>src</directory>
+        </include>
+    </source>
 </phpunit>

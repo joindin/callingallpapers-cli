@@ -27,17 +27,20 @@
  * @link      http://github.com/heiglandreas/callingallpapers_cli
  */
 
-namespace CallingallpapersTest\Parser\PapercallIo;
+namespace CallingallpapersTest\Cli\Parser\PapercallIo;
 
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\PapercallIo\Icon;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(Icon::class)]
 class IconTest extends TestCase
 {
-    /** @dataProvider iconParserProvider */
+    #[DataProvider('iconParserProvider')]
     public function testThatIconUriIsParsedCorrectlyFromNode($file, $url)
     {
         $parser = new Icon();
@@ -59,7 +62,7 @@ class IconTest extends TestCase
         $this->assertEquals($url, $newcfp->iconUri);
     }
 
-    public function iconParserProvider()
+    public static function iconParserProvider()
     {
         return [
             [__DIR__ . '/_assets/conf3.html', 'https://papercallio-production.s3.amazonaws.com/uploads/event/logo/420/mid_300_ex_logo_tito.jpg'],

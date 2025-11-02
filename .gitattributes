@@ -1,0 +1,14 @@
+/tests
+/.dependabot
+/.deploy
+/.github
+/.editorconfig
+/.gitattributes
+/.gitignore
+/.travis.yml
+/build.property
+/build.xml
+/deploy-key.enc
+/phpcs.xml.dist
+/phpunit.travis.xml
+/phpunit.xml.dist

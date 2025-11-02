@@ -7,18 +7,22 @@ declare(strict_types=1);
  * Licenses under the MIT-license. For details see the included file LICENSE.md
  */
 
-namespace CallingallpapersTest\Subcommands\Sessionize\Parser;
+namespace CallingallpapersTest\Cli\Subcommands\Sessionize\Parser;
 
 use Callingallpapers\Subcommands\Sessionize\Parser\OpeningDate;
 use DateTimeImmutable;
 use DateTimeZone;
 use DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(OpeningDate::class)]
 class OpeningDateTest extends TestCase
 {
     /** @dataProvider uriIsReturnedCorrectlyProvider */
+    #[DataProvider('uriIsReturnedCorrectlyProvider')]
     public function testThatUriIsReturnedCorrectly($file, $result)
     {
         $timezone = new DateTimeZone('Europe/Amsterdam');
@@ -33,7 +37,7 @@ class OpeningDateTest extends TestCase
         $this->assertEquals($result, $parser->parse($dom, new DOMXPath($dom)));
     }
 
-    public function uriIsReturnedCorrectlyProvider() : array
+    public static function uriIsReturnedCorrectlyProvider() : array
     {
         return [[
             __DIR__ . '/../__assets/Azure Day Rome 2019: Call for Speakers @ Sessionize.com.html',

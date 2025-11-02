@@ -27,18 +27,21 @@
  * @link      http://github.com/heiglandreas/callingallpapers_cli
  */
 
-namespace CallingallpapersTest\Parser\PapercallIo;
+namespace CallingallpapersTest\Cli\Parser\PapercallIo;
 
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Parser\PapercallIo\EventUri;
 use Callingallpapers\Parser\PapercallIo\Tags;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(Tags::class)]
 class TagsTest extends TestCase
 {
-    /** @dataProvider tagsProvider */
+    #[DataProvider('tagsProvider')]
     public function testThatTagsAreParsedCorrectlyFromNode($file, $expected)
     {
         $parser = new Tags();
@@ -60,7 +63,7 @@ class TagsTest extends TestCase
         $this->assertEquals($expected, $newcfp->tags);
     }
 
-    public function tagsProvider()
+    public static function tagsProvider()
     {
         return [
             ['conf3.html', ['Packaging', 'Otp', 'Concurrency', 'Best practices', 'Deployment', 'Nerves', 'Ecto', 'Phoenix', 'Elixir', 'Advanced', 'Intermediate', 'Beginner']],

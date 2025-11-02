@@ -7,16 +7,19 @@ declare(strict_types=1);
  * Licenses under the MIT-license. For details see the included file LICENSE.md
  */
 
-namespace CallingallpapersTest\Subcommands\Sessionize\Parser;
+namespace CallingallpapersTest\Cli\Subcommands\Sessionize\Parser;
 
 use Callingallpapers\Subcommands\Sessionize\Parser\Description;
 use DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(Description::class)]
 class EventDescriptionTest extends TestCase
 {
-    /** @dataProvider uriIsReturnedCorrectlyProvider */
+    #[DataProvider('uriIsReturnedCorrectlyProvider')]
     public function testThatLocationIsReturnedCorrectly($file, $result)
     {
         $parser = new Description();
@@ -32,37 +35,37 @@ class EventDescriptionTest extends TestCase
         $this->assertEquals($result, $parser->parse($dom, new DOMXPath($dom)));
     }
 
-    public function uriIsReturnedCorrectlyProvider() : array
+    public static function uriIsReturnedCorrectlyProvider() : array
     {
         return [[
             __DIR__ . '/../__assets/Azure Day Rome 2019: Call for Speakers @ Sessionize.com.html',
-            '<p>Benvenuto in Azure Day Rome 2019, l\'evento 
-gratuito dedicato a tutti gli utenti che desiderano conoscere o 
-approfondire la conoscenza di Azure per lo sviluppo e l\'amministrazione 
+            '<p>Benvenuto in Azure Day Rome 2019, l\'evento
+gratuito dedicato a tutti gli utenti che desiderano conoscere o
+approfondire la conoscenza di Azure per lo sviluppo e l\'amministrazione
 di soluzioni applicative nel Cloud!</p><p> </p><p>La conferenza Azure Day Rome 2019 (#adrome2019) avverrà il 24 Maggio, presso la sede Microsoft di Romaa Via Avignone 10. </p><p>La
- conferenza, organizzata dalla community DotNetCode, tratterà come 
-argomento principale Azure e sarà agnostica alla tecnologia senza 
+ conferenza, organizzata dalla community DotNetCode, tratterà come
+argomento principale Azure e sarà agnostica alla tecnologia senza
 necessariamente essere legata al mondo .NET.<br/><p>La conferenza sarà suddivisa in due track: Dev e DevOps.<br/><p>- La track Dev tratterà tutti quegli argomenti legati ai servizi che Azure mette a disposizione per gli sviluppatori.
-</p><p>- La track DevOps trattera tutti quegli argomenti necessari per 
+</p><p>- La track DevOps trattera tutti quegli argomenti necessari per
 l\'utilizzo di tecniche di DevOps che si possono implementare all\'interno
  di Azure.</p>
                     </p>
                 </p><p>Azure Day è l\'evento dedicato al Cloud di
- casa Microsoft, come organizzatori dell\'evento ci aspettiamo delle 
-sessioni ricche di contenuti che mostrino al pubblico come sfruttare 
+ casa Microsoft, come organizzatori dell\'evento ci aspettiamo delle
+sessioni ricche di contenuti che mostrino al pubblico come sfruttare
 Azure all\'interno della propria attività professionale.</p><p><br/></p>',
         ], [
             __DIR__ . '/../__assets/React Week Medellín 2019: Call for Speakers @ Sessionize.com.html',
-            '<p>En Globant Medellín vamos a realizar la 
+            '<p>En Globant Medellín vamos a realizar la
 segunda "React Week" de nuestra historia y estamos buscando Speakers. Si
- te interesa compartir tu conocimiento sobre React, ayudar a otros 
-desarrolladores, propiciar discusiones o simplemente mostrar Algo de tu 
+ te interesa compartir tu conocimiento sobre React, ayudar a otros
+desarrolladores, propiciar discusiones o simplemente mostrar Algo de tu
 trabajo, anímate a participar tenemos el Call for proposals abierto.</p><p><br/><p>¿Que es la React Week?</p><p><br/><p>Es
- una semana en la cual de martes a sábado tendremos charlas diaria de 
-5:30PM a 7:00PM y el sábado workshops de 9:00AM a 1:00PM sobre una 
+ una semana en la cual de martes a sábado tendremos charlas diaria de
+5:30PM a 7:00PM y el sábado workshops de 9:00AM a 1:00PM sobre una
 temática del framework en particular.</p><p><br/><p>¿Donde se realizará?</p><p><br/><p>En el chill principal de Globant - Medellín. Centro Empresaríal Vizcaya Oficina 123B. </p><p>Cl. 10 ##32-115, Medellín, Antioquia</p><p><br/><p>¿Cuando se realizará?</p><p><br/><p>Desde el Martes 05 de Marzo al Sábado 09 de Marzo.</p><p><br/><p>¿A quién esta dirigido?</p><p><br/><p>A
- todas las personas interesadas en aprender, practicar o reforzar sus 
-conocimiento sobre React/Redux. Tendremos participantes de algunas 
+ todas las personas interesadas en aprender, practicar o reforzar sus
+conocimiento sobre React/Redux. Tendremos participantes de algunas
 comunidades de la ciudad y excelentes sorpresas.</p></p></p></p></p></p><div class="col-md-6 animated fadeInRight" id="right-column"><div class="ibox float-e-margins"><div class="ibox-title"><div class="pull-right"><span class="badge badge-danger">finished 4 days ago</span></div><h5>Call for Speakers</h5></div><div class="ibox-content"><div class="row"><div class="col-sm-6 m-b-sm"><div><span class="font-bold text-navy">CfS opens at 12:00 AM</span></div><h2 class="no-margins">21 Jan 2019</h2><small/></div><div class="col-sm-6 m-b-sm"><div><span class="font-bold text-navy">CfS closes at 11:59 PM</span></div><h2 class="no-margins">29 Jan 2019</h2></div></div><div class="row"><div class="col-sm-12 m-b-md"><small class="text-muted">
                             This event is in SA Pacific Standard Time time zone.
                         </small><div class="displayNone" style="display: block;"><small class="text-muted">

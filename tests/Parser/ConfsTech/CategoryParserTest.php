@@ -14,11 +14,13 @@ use Callingallpapers\Parser\ConfsTech\CategoryParser;
 use Callingallpapers\Parser\ConfsTech\ConferenceParser;
 use Callingallpapers\Writer\WriterInterface;
 use GuzzleHttp\Client;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Mockery as M;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
+#[CoversClass(CategoryParser::class)]
 class CategoryParserTest extends TestCase
 {
     /** @var ConferenceParser|M\LegacyMockInterface|M\MockInterface  */
@@ -41,17 +43,12 @@ class CategoryParserTest extends TestCase
 
         $this->parser = new CategoryParser($this->conferenceParser, $this->client, $this->writer);
     }
-    /**
-     * @covers \Callingallpapers\Parser\ConfsTech\CategoryParser::__construct
-     */
+
     public function testConstructor()
     {
         self::assertInstanceOf(CategoryParser::class, $this->parser);
     }
 
-    /**
-     * @covers \Callingallpapers\Parser\ConfsTech\CategoryParser::__invoke
-     */
     public function testInvokation()
     {
         $body = M::mock(StreamInterface::class);

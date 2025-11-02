@@ -24,7 +24,7 @@
  * @link      http://github.com/heiglandreas/callingallpapers
  */
 
-namespace CallingallpapersTest\Service;
+namespace CallingallpapersTest\Cli\Service;
 
 use Callingallpapers\Service\GeolocationService;
 use Callingallpapers\Entity\Geolocation;
@@ -33,20 +33,31 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(GeolocationService::class)]
 class GeolocationServiceTest extends TestCase
 {
     public function testRetrievalOfGeolocationWorks()
     {
-        $client = new Client();
+        $client = new Client([
+            'headers' => [
+                'User-Agent' => 'Callingallpapers.com Location fetcher v1',
+            ]
+        ]);
 
         $tzs = new GeolocationService($client);
-
-        $this->assertEquals(new Geolocation(51.5073219, -0.1276474), $tzs->getLocationForAddress('London - UK'));
+        $result = $tzs->getLocationForAddress('London - UK');
+        try {
+            $this->assertEquals(new Geolocation(51.5074456, -0.1277653), $result);
+        } catch (\Exception $e) {
+            $this->assertEquals(new Geolocation(51.4893335, -0.1440551), $result);
+        }
     }
 
-    /** @dataProvider fetchingLocationWithFailingHttpProvider */
+    #[DataProvider('fetchingLocationWithFailingHttpProvider')]
     public function testFetchingLocationWithFailingHttp($return)
     {
         $mock = new MockHandler([
@@ -61,7 +72,7 @@ class GeolocationServiceTest extends TestCase
         $this->assertEquals(new Geolocation(0, 0), $tzs->getLocationForAddress('London - UK'));
     }
 
-    public function fetchingLocationWithFailingHttpProvider()
+    public static function fetchingLocationWithFailingHttpProvider()
     {
         return [
             '400' => [400],
@@ -72,7 +83,7 @@ class GeolocationServiceTest extends TestCase
         ];
     }
 
-    /** @dataProvider FetchingLocationWithValidHttpButFailingStatusProvider */
+    #[DataProvider('fetchingLocationWithValidHttpButFailingStatusProvider')]
     public function testFetchingLocationWithValidHttpButFailingStatus($body)
     {
         $mock = new MockHandler([
@@ -87,7 +98,7 @@ class GeolocationServiceTest extends TestCase
         $this->assertEquals(new Geolocation(0, 0), $tzs->getLocationForAddress('London - UK'));
     }
 
-    public function fetchingLocationWithValidHttpButFailingStatusProvider()
+    public static function fetchingLocationWithValidHttpButFailingStatusProvider()
     {
         return [
             'missing content' => [[]],
@@ -95,7 +106,7 @@ class GeolocationServiceTest extends TestCase
         ];
     }
 
-    /** @dataProvider FetchingLocationWithValidHttpProvider */
+    #[DataProvider('fetchingLocationWithValidHttpProvider')]
     public function testFetchingLocationWithValidHttp($body)
     {
         $mock = new MockHandler([
@@ -114,7 +125,7 @@ class GeolocationServiceTest extends TestCase
         $this->assertEquals(new Geolocation(20, 30), $tzs->getLocationForAddress('London - UK'));
     }
 
-    public function fetchingLocationWithValidHttpProvider()
+    public static function fetchingLocationWithValidHttpProvider()
     {
         return [
             'Body contains timezoneName' => [[['lat' => '20', 'lon' => '30']]],

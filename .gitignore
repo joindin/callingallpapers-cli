@@ -3,4 +3,5 @@ config/*.ini
 deploy-key
 deploy
 build
-phpunit.xml
+.phpunit.result.cache
+.phpunit.cache

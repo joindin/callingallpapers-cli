@@ -89,6 +89,6 @@ EOT
 
         $notifications->notify($cfps);
 
-        return 0;
+        return Command::SUCCESS;
     }
 }

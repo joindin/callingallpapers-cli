@@ -28,20 +28,20 @@ class EventEndDate
     {
         // This expression does not work. It looks like the reason is the array-notation...
         //$endDate = $xpath->query('//div[contains(text()[2], "event ends")]/following-sibling::h2');
-        $startDate = $xpath->query('//div[contains(text(), "event ends")]');
+        $endDate = $xpath->query('//div[contains(text(), "event ends")]');
 
-        if (! $startDate || $startDate->length == 0) {
+        if (! $endDate || $endDate->length == 0) {
             // This expression does not work. It looks like the reason is the array-notation...
             //$endDate = $xpath->query('//div[contains(text()[2], "event date")]/following-sibling::h2');
-            $startDate = $xpath->query('//div[contains(text(), "event date")]');
+            $endDate = $xpath->query('//div[contains(text(), "event date")]');
         }
-        if (! $startDate || $startDate->length == 0) {
+        if (! $endDate || $endDate->length == 0) {
             throw new \InvalidArgumentException('The Event does not seem to have an end date');
         }
 
-        $endDate = $xpath->query('h2', $startDate->item(0)->parentNode);
+        $endDate = $xpath->query('h2', $endDate->item(0)->parentNode);
 
-        if (! $startDate || $startDate->length == 0) {
+        if (! $endDate || $endDate->length == 0) {
             throw new \InvalidArgumentException('The Event does not seem to have an end date');
         }
 

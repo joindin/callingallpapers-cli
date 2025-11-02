@@ -44,11 +44,16 @@ class MastodonNotifier implements NotificationInterface
     {
         $name = $this->shortenName($cfp->conferenceName);
         $uri  = $this->shortenUri($cfp->uri);
+        $tags = ' #' . implode(' #', $cfp->tags);
 
-        $notificationString = sprintf(
-            '24 hours until the CfP for "%1$s" closes: %2$s',
+        $notificationString = sprintf(<<<'NOTIFICATION'
+            24 hours until the CfP for "%1$s" closes: %2$s
+
+            #cfp #conference%3$s
+            NOTIFICATION,
             $name,
-            $uri
+            $uri,
+            $tags
         );
 
         $this->client->post('/statuses', [

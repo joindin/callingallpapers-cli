@@ -31,11 +31,14 @@ namespace CallingallpapersTest\CfpFIlter;
 
 use Callingallpapers\CfpFilter\StripParamsFromUri;
 use Callingallpapers\Entity\Cfp;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(StripParamsFromUri::class)]
 class StripParamsFromUriTest extends TestCase
 {
-    /** @dataProvider strippingUriProvider */
+    #[DataProvider('strippingUriProvider')]
     public function testThatStrippingParamsWorks($uri, $expectedUri)
     {
         $filter = new StripParamsFromUri(['conferenceUri']);
@@ -48,7 +51,7 @@ class StripParamsFromUriTest extends TestCase
         $this->assertEquals($expectedUri, $cfp->conferenceUri);
     }
 
-    public function strippingUriProvider()
+    public static function strippingUriProvider()
     {
         return [
             ['http://example.com', 'http://example.com'],

@@ -16,9 +16,11 @@ use Callingallpapers\Service\GeolocationService;
 use Callingallpapers\Service\TimezoneService;
 use DateTimeImmutable;
 use DateTimeZone;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Mockery as M;
 
+#[CoversClass(ConferenceParser::class)]
 class ConferenceParserTest extends TestCase
 {
     /** @var TimezoneService */
@@ -43,10 +45,6 @@ class ConferenceParserTest extends TestCase
         parent::setup();
     }
 
-    /**
-     * @throws \Exception
-     * @covers \Callingallpapers\Parser\ConfsTech\ConferenceParser::__invoke
-     */
     public function testInvokation()
     {
         $array = [
@@ -94,9 +92,6 @@ class ConferenceParserTest extends TestCase
         self::assertSame($array['cfpUrl'], $cfp->uri);
     }
 
-    /**
-     * @covers \Callingallpapers\Parser\ConfsTech\ConferenceParser::__construct
-     */
     public function testConstruction()
     {
         self::assertInstanceOf(ConferenceParser::class, $this->conferenceParser);
