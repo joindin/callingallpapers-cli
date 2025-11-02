@@ -1,7 +1,0 @@
-LICENSE
-README.md
-src/**
-bin/**
-composer.json
-composer.lock
-config/*.dist
