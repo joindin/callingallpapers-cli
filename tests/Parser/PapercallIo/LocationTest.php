@@ -35,9 +35,11 @@ use Callingallpapers\Parser\PapercallIo\Uri;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(Location::class)]
+#[UsesClass(Cfp::class)]
 class LocationTest extends TestCase
 {
     public function testThatNameIsParsedCorrectlyFromNode()

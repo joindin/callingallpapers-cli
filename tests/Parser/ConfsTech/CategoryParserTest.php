@@ -15,12 +15,14 @@ use Callingallpapers\Parser\ConfsTech\ConferenceParser;
 use Callingallpapers\Writer\WriterInterface;
 use GuzzleHttp\Client;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 use Mockery as M;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
 #[CoversClass(CategoryParser::class)]
+#[UsesClass(Cfp::class)]
 class CategoryParserTest extends TestCase
 {
     /** @var ConferenceParser|M\LegacyMockInterface|M\MockInterface  */

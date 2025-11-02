@@ -33,9 +33,11 @@ use Callingallpapers\CfpFilter\StripParamsFromUri;
 use Callingallpapers\Entity\Cfp;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(StripParamsFromUri::class)]
+#[UsesClass(Cfp::class)]
 class StripParamsFromUriTest extends TestCase
 {
     #[DataProvider('strippingUriProvider')]

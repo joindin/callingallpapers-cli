@@ -12,7 +12,16 @@ use Callingallpapers\Entity\Geolocation;
 use Callingallpapers\Service\GeolocationService;
 use Callingallpapers\Service\ServiceContainer;
 use Callingallpapers\Service\TimezoneService;
+use Callingallpapers\Subcommands\Sessionize\Parser\ClosingDate;
+use Callingallpapers\Subcommands\Sessionize\Parser\Description;
 use Callingallpapers\Subcommands\Sessionize\Parser\EntryParser;
+use Callingallpapers\Subcommands\Sessionize\Parser\EventEndDate;
+use Callingallpapers\Subcommands\Sessionize\Parser\EventName;
+use Callingallpapers\Subcommands\Sessionize\Parser\EventStartDate;
+use Callingallpapers\Subcommands\Sessionize\Parser\EventUri;
+use Callingallpapers\Subcommands\Sessionize\Parser\IconUri;
+use Callingallpapers\Subcommands\Sessionize\Parser\Location;
+use Callingallpapers\Subcommands\Sessionize\Parser\OpeningDate;
 use GuzzleHttp\Client;
 use Mockery as M;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -21,6 +30,17 @@ use PHPUnit\Framework\TestCase;
 
 #[CoversClass(EntryParser::class)]
 #[UsesClass(Cfp::class)]
+#[UsesClass(Geolocation::class)]
+#[UsesClass(ServiceContainer::class)]
+#[UsesClass(ClosingDate::class)]
+#[UsesClass(Description::class)]
+#[UsesClass(EventEndDate::class)]
+#[UsesClass(EventName::class)]
+#[UsesClass(EventStartDate::class)]
+#[UsesClass(EventUri::class)]
+#[UsesClass(IconUri::class)]
+#[UsesClass(Location::class)]
+#[UsesClass(OpeningDate::class)]
 class IntegrationTest extends TestCase
 {
     public function testParsingOfAvailableAssets()

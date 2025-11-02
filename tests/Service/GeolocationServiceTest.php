@@ -35,9 +35,11 @@ use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(GeolocationService::class)]
+#[UsesClass(Geolocation::class)]
 class GeolocationServiceTest extends TestCase
 {
     public function testRetrievalOfGeolocationWorks()

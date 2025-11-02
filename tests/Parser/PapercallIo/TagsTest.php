@@ -36,9 +36,11 @@ use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(Tags::class)]
+#[UsesClass(Cfp::class)]
 class TagsTest extends TestCase
 {
     #[DataProvider('tagsProvider')]

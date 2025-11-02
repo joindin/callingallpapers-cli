@@ -34,9 +34,11 @@ use Callingallpapers\Parser\PapercallIo\EventUri;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(EventUri::class)]
+#[UsesClass(Cfp::class)]
 class EventUriTest extends TestCase
 {
     public function testThatNameIsParsedCorrectlyFromNode()

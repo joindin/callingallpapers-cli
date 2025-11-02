@@ -17,10 +17,13 @@ use Callingallpapers\Service\TimezoneService;
 use DateTimeImmutable;
 use DateTimeZone;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 use Mockery as M;
 
 #[CoversClass(ConferenceParser::class)]
+#[UsesClass(Cfp::class)]
+#[UsesClass(Geolocation::class)]
 class ConferenceParserTest extends TestCase
 {
     /** @var TimezoneService */

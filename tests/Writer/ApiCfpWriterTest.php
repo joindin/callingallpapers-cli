@@ -27,15 +27,23 @@
 
 namespace CallingallpapersTest\Cli\Writer;
 
+use Callingallpapers\CfpFilter\FilterList;
 use Callingallpapers\Entity\Cfp;
 use Callingallpapers\Entity\CfpList;
+use Callingallpapers\ResultKeeper\ResultKeeper;
+use Callingallpapers\ResultKeeper\Success;
 use Callingallpapers\Writer\ApiCfpWriter;
 use GuzzleHttp\Client;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 
 #[CoversClass(ApiCfpWriter::class)]
+#[UsesClass(FilterList::class)]
+#[UsesClass(Cfp::class)]
+#[UsesClass(ResultKeeper::class)]
+#[UsesClass(Success::class)]
 class ApiCfpWriterTest extends TestCase
 {
 

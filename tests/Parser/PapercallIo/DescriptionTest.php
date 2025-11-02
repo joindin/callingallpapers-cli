@@ -35,9 +35,11 @@ use Callingallpapers\Parser\PapercallIo\Description;
 use IvoPetkov\HTML5DOMDocument as DOMDocument;
 use DOMXPath;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(Description::class)]
+#[UsesClass(Cfp::class)]
 class DescriptionTest extends TestCase
 {
     public function testThatCommentIsParsedCorrectlyFromNode()
