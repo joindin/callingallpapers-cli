@@ -37,7 +37,7 @@ class NotificationList extends \ArrayObject
      * @throws \Exception
      * @return void
      */
-    public function append($item)
+    public function append(mixed $item): void
     {
         throw new \Exception(sprintf(
             'Use %s::add() instead',
