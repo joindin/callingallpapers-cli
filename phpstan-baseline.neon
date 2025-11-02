@@ -2455,18 +2455,6 @@ parameters:
 			path: src/Parser/TimezoneFromLocationFetcher.php
 
 		-
-			message: '#^Access to an undefined property Callingallpapers\\Entity\\Cfp\:\:\$eventDateEnd\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/Reader/ApiCfpReader.php
-
-		-
-			message: '#^Access to an undefined property Callingallpapers\\Entity\\Cfp\:\:\$eventDateStart\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/Reader/ApiCfpReader.php
-
-		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
 			count: 1
