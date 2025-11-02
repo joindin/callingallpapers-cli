@@ -71,7 +71,7 @@ EOT
              );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $header_style = new OutputFormatterStyle('white', 'green', array('bold'));
         $output->getFormatter()->setStyle('header', $header_style);
@@ -119,5 +119,7 @@ EOT
         // Parse joind.in
         $parser = new JoindinCfpParser();
         $parser->parse($writer);
+
+        return Command::SUCCESS;
     }
 }

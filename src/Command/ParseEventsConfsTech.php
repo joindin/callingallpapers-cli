@@ -75,7 +75,7 @@ EOT
              );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $header_style = new OutputFormatterStyle('white', 'green', array('bold'));
         $style = new SymfonyStyle($input, $output);
@@ -161,5 +161,7 @@ EOT
             $style->writeln('There where issues with these conferences:');
             $style->listing($items);
         }
+
+        return Command::SUCCESS;
     }
 }

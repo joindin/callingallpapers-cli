@@ -1,0 +1,130 @@
+name: Build
+on: [ push ]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          tools: phive
+      - name: Download codesniffer
+        run: phive --no-progress install --trust-gpg-keys 31C7E470E2138192 phpcs
+      - name: check
+        run: ./tools/phpcs
+  test:
+    needs: check
+    runs-on: ubuntu-latest # ${{ matrix.operating-system }}
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      matrix:
+        # operating-system: [ubuntu-latest, windows-latest, macos-latest]
+        php-versions: [ '8.2', '8.3', '8.4' ]
+    name: PHP ${{ matrix.php-versions }} # Test on ${{ matrix.operating-system }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: sodium
+          ini-values: post_max_size=256M, short_open_tag=On
+          coverage: xdebug
+      - name: prepare
+        run: composer update
+      - name: test
+        run: composer test
+  analyze:
+    needs: test
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          tools: phive
+      - name: Download psalm
+        run: phive --no-progress install --trust-gpg-keys 8A03EA3B385DBAA1 psalm
+      - name: install
+        run: composer update --no-dev
+      - name: analyze
+        run: ./tools/psalm
+  coverage:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          coverage: xdebug
+      - name: Install
+        run: composer update
+      - name: run testsuite
+        run: vendor/bin/phpunit --coverage-clover clover.xml
+      - name: Upload coverage results to Coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          composer global require php-coveralls/php-coveralls
+          php-coveralls --coverage_clover=clover.xml -v
+  deploy:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+      - name: "Extract production files"
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOYMENT_KEY }}
+        run: |
+          # Remove a possibly existing extraction folder
+          rm -rf extract
+          # Now that we are sure it's not there, create an empty extraction folder
+          mkdir extract
+          # Create an archive from the repository based on the given tag
+          # and extract that into the just created extraction folder.
+          git archive --prefix="./" --format=tar ${{ github.event.pull_request.head.sha || github.sha }} .| tar xv -C extract/
+      - name: "Cache calendar vendor dir"
+        uses: "actions/cache@v4"
+        with:
+          path: ${{ github.workspace }}/extract/calendar/vendor
+          key: "vendor-build-${{ hashFiles('*/composer.lock') }}"
+      - uses: "ramsey/composer-install@v3"
+        with:
+          dependency-versions: "locked"
+          working-directory: extract/calendar
+          composer-options: --no-dev --optimize-autoloader --classmap-authoritative
+      - name: "Archive build"
+        id: archive-build
+        run: |
+          buildfile="build-${{ github.event.pull_request.head.sha || github.sha }}.tar.gz"
+          tar --exclude-vcs -czf $buildfile -C extract/ .
+      - name: Configure SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+      - name: "Deploy"
+        run: |
+          ssh-keyscan -t rsa ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+          scp -a extract/* ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}:/${{ secrets.REPO_PATH }}/${{ github.event.pull_request.head.sha || github.sha }}
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} "cd ${{ secrets.REPO_PATH }} && cp current/config/callingallpapers.ini ${{ github.event.pull_request.head.sha || github.sha }}/config/callingallpapers.ini && && rm current && ln -sr ${{ github.event.pull_request.head.sha || github.sha }} current"
+

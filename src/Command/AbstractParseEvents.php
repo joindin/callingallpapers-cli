@@ -162,7 +162,7 @@ EOT
             $style->listing($items);
         }
 
-        return 0;
+        return Command::SUCCESS;
     }
 
     abstract protected function getParser(ServiceContainer $serviceContainer) : ParserInterface;
