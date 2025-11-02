@@ -13,9 +13,9 @@ jobs:
           php-version: "8.4"
           tools: phive
       - name: Download codesniffer
-        run: phive --no-progress install --trust-gpg-keys 31C7E470E2138192 phpcs
+        run: composer require --dev squizlabs/php_codesniffer
       - name: check
-        run: ./tools/phpcs
+        run: ./vendor/bin/phpcs
   test:
     needs: check
     runs-on: ubuntu-latest # ${{ matrix.operating-system }}
