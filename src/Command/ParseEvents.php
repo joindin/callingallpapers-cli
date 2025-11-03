@@ -106,12 +106,6 @@ EOT
         $parser = (new PapercallIoParserFactory($timezoneService, $geolocationService))();
         $parser->parse($writer);
 
-        // Parse Confs.tech
-        //$conferenceParser = new ConferenceParser($geolocationService, $timezoneService);
-        //$factory = new ConfsTechParserFactory($conferenceParser, $client, $writer);
-        //$parser = new ConfsTechParser($factory);
-        //$parser->parse($writer);
-
         // Parse joind.in
         $parser = new JoindinCfpParser();
         $parser->parse($writer);
