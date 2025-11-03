@@ -44,7 +44,10 @@ class MastodonNotifier implements NotificationInterface
     {
         $name = $this->shortenName($cfp->conferenceName);
         $uri  = $this->shortenUri($cfp->uri);
-        $tags = ' #' . implode(' #', $cfp->tags);
+        $tags = '';
+        if ($cfp->tags !== []) {
+            $tags = ' #' . implode(' #', $cfp->tags);
+        }
 
         $notificationString = sprintf(
             <<<'NOTIFICATION'
