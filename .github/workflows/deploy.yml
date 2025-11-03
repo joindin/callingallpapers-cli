@@ -1,11 +1,10 @@
-name: Build
+name: Deploy
 on:
   push:
     tags:
       - '**'
 jobs:
   deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     continue-on-error: false
     steps:
