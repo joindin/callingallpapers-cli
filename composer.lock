@@ -542,16 +542,16 @@
         },
         {
             "name": "ivopetkov/html5-dom-document-php",
-            "version": "v2.8.1",
+            "version": "v2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ivopetkov/html5-dom-document-php.git",
-                "reference": "647b742aa7e10a8f4bdfe794ae7e0ef5f5029cda"
+                "reference": "cd879e2aa5225fffbc70e15e9709eabbc8ee7582"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ivopetkov/html5-dom-document-php/zipball/647b742aa7e10a8f4bdfe794ae7e0ef5f5029cda",
-                "reference": "647b742aa7e10a8f4bdfe794ae7e0ef5f5029cda",
+                "url": "https://api.github.com/repos/ivopetkov/html5-dom-document-php/zipball/cd879e2aa5225fffbc70e15e9709eabbc8ee7582",
+                "reference": "cd879e2aa5225fffbc70e15e9709eabbc8ee7582",
                 "shasum": ""
             },
             "require": {
@@ -581,7 +581,7 @@
             "description": "HTML5 DOMDocument PHP library (extends DOMDocument)",
             "support": {
                 "issues": "https://github.com/ivopetkov/html5-dom-document-php/issues",
-                "source": "https://github.com/ivopetkov/html5-dom-document-php/tree/v2.8.1"
+                "source": "https://github.com/ivopetkov/html5-dom-document-php/tree/v2.9.0"
             },
             "funding": [
                 {
@@ -593,7 +593,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-06-09T11:33:50+00:00"
+            "time": "2025-12-04T21:54:11+00:00"
         },
         {
             "name": "org_heigl/trait-iterator",
